@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">-->
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/MobileStyle.css?v=20170225" rel="stylesheet" media="screen">
+                        <link href="../css/style.css?v=20170225" rel="stylesheet" media="screen">
+                        <!-- jQuery -->
+<script src="../js/jquery.min.js?v=20170225"></script>
+            </head>
+<script>
+var act='changepwd';
+var storage=window.localStorage;
+$('#userid').val(storage['userId']);
+$('#salt').val(storage['token']);
+</script>
+<body class="common-background">
+<style>
+    .error {
+        font-size: 30px;
+        color: red;
+        margin-left: 5px;
+        line-height: 30px;
+    }
+</style>
+<form name="Personal" method="post" action="/index.php/Portal/User/editPasswordPost" id="Personal">
+    <div class="page-body">
+
+        <div class="head">
+
+            <div class="head-title">修改密码</div>
+
+        </div>
+
+
+        <div class="personal-info-item">
+            <span id="ctl00_body_Label1" class="personal-info-line personal-info-label">用户名</span>
+            <label class="personal-info-line-split">:</label>
+            <input name="true_name" type="text" value="" readonly="readonly" id="true_name"
+                   class="personal-info-line personal-info-input" placeholder="" style="font-size: 30px;">
+        </div>
+        <div class="friend-new-item friend-new-area">
+            <span id="ctl00_body_Label5" class="friend-new-line friend-new-line-label">类型</span>
+            <label class="personal-info-line-split">:</label>
+                   <select name="type" id="type" class="friend-new-line friend-new-line-input" aria-required="true">
+                    <option value="0" selected="selected">一级密码</option>
+                    <option value="1">二级密码</option>
+                </select>
+        </div>
+        <div class="friend-new-item">
+            <span id="ctl00_body_Label2" class="friend-new-line friend-new-line-label">原密码：</span>
+            <label class="personal-info-line-split">:</label>
+            <input name="pwd" type="password" id="pwd"
+                   class="friend-new-line friend-new-line-input" placeholder="输入6-20位任意数字字母组合">
+        </div>
+        <div class="friend-new-item">
+            <span id="ctl00_body_Label3" class="friend-new-line friend-new-line-label">新密码：</span>
+            <label class="personal-info-line-split">:</label>
+            <input name="erpwd" type="password" id="erpwd"
+                   class="friend-new-line friend-new-line-input" placeholder="输入6-20位任意数字字母组合">
+        </div>
+        <div class="friend-new-item">
+            <span id="ctl00_body_Label4" class="friend-new-line friend-new-line-label">确认新密码：</span>
+            <label class="personal-info-line-split">:</label>
+            <input name="erpwd1" type="password" id="erpwd1"
+                   class="friend-new-line friend-new-line-input" placeholder="输入6-20位任意数字字母组合">
+        </div>
+        <input type="hidden" name="userid" id="userid">
+        <input type="hidden" name="salt" id="salt">
+        <input type="button" name="BtnSave" value="确认提交" id="BtnSave" class="friend-new-sub" onclick="tj('Personal')">
+
+    </div>
+
+</form></body>
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js?v=20170225"></script>
+<script src="../js/messages_zh.js?v=20170225"></script>
+
+<!-- Dynamic JS -->
+        <script src="../js/jquery.idTabs.min.js?v=20170225"></script>
+                <script src="../js/changepwd.js?v=20170225"></script>
+        
+<script>
+    $(document).ready(function () {
+        $(".goback").on("click", function () {
+//            window.history.go(-1);
+            window.location.href = '/mobile/farm.html';
+        });
+
+        $(".goClose").on("click", function () {
+            window.close();
+        });
+    });
+</script>
+<script src="../js/connect.js?v=20170225"></script>   
+</html>

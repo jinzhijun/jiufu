@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>玖富庄园，一款神奇的游戏！</title>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="viewport" content="user-scalable=no" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css?v=20170225" rel="stylesheet">
+
+    <link href="css/nongchang-app-login-css.css?v=20170225" rel="stylesheet" type="text/css">
+
+    <style type="text/css">
+        body {
+                            background-image: url(images/app/shuban_login_bg1.png);
+                    }
+
+        .close {
+            font-size: 6em;
+        }
+
+        .form-group input{
+            height: 3em;
+        }
+
+        .form-control{
+            font-size: 30px;
+        }
+
+        .modal-title{
+            font-size: 5em;
+        }
+
+        .btn-xs{
+            font-size: 26px;
+        }
+
+        .btn-lg{
+            font-size: 40px;
+        }
+
+
+        .form-group input::-webkit-input-placeholder {
+            font-size: 40px;
+            line-height: 40px;
+        }
+
+        .form-group input:-moz-placeholder {
+            font-size: 22px;
+        }
+
+        .form-group input::-moz-placeholder {
+            font-size: 22px;
+        }
+
+        .form-group input::-ms-input-placeholder {
+            font-size: 22px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+<!--描述：登录界面设置-->
+<div id="login-page-wrap">
+    <div id="login-page-pic"></div>
+
+    <form name="loginForm" id="loginForm" method="POST" action="/index.php/Index/dologin" class="login-page">
+
+        <div class="login">
+            <div class="login-pic" id="login-pic-1">
+                <input type="text" id="UserId" name="user_login" placeholder="请输入账号" class="btn-text"/>
+            </div>
+            <div class="login-pic" id="login-pic-2">
+                <input type="password" name="user_pass" id="Password" class="btn-text" placeholder="请输入密码"/>
+            </div>
+            <!--<div class="vcode_holder">
+                <input type="text" name="verify" id="vcode" placeholder="验证码"/>
+                <img src="http://farm.jjvsmm.com/index.php/api/checkcode/index" class="codeimg" title="点击刷新" id="vcode-2">
+            </div>-->
+<!--            <div id="remember-option" style="position: absolute;left: 50px;margin-top: 30px;">-->
+<!--                <label for="rememberMe" title="点击记住账户和密码，用于下次直接登录" style="text-align: right;font-size: 50px;color: deepskyblue;cursor: pointer;font-weight:bold;line-height: 30px;">记住我</label>-->
+<!--                <input type="checkbox" id="rememberMe" name="rememberMe" value="1" style="width: 40px;height: 40px;cursor: pointer;margin-left: 25px;">-->
+<!--            </div>-->
+            <div style="margin-top: 170px;position: relative;">
+                <a href="javascript:;" style="width: 220px;height: 65px;margin-left: 150px;">
+                    <input type="button" name="btnSave" id="btnSave" class="btn-login" value="">
+                </a>
+                <div class="box_changevision2" style="margin-left: -40px;font-size: 35px;">
+                    <a href="#" target="_blank" style="font-size: 35px;font-weight: bold;">安卓APP下载</a>
+                    |
+                    <a href="javascript:;" rel="getPwd" style="font-size: 35px;font-weight: bold;">忘记密码</a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="pwdModal" tabindex="-1" role="dialog" aria-labelledby="winModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-lg" style="width: 90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h3 class="modal-title" id="myModalLabel">找回密码</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form id="forgetForm" role="form" action="/index.php/Index/forgetPost" >
+                        <fieldset>
+                            <div class="alert alert-danger hide" id="js_forget_msg">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="手机号码" name="phone" id="phone" type="text" maxlength="11">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="新密码" name="user_pass" id="user_pass" type="password" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="新密码" name="re_user_pass" id="re_user_pass" type="password" autocomplete="new-password">
+                            </div>
+                            <div class="form-group input-group">
+                                <input class="form-control" placeholder="短信验证码" name="phonecode" id="phonecode" type="text">
+                                <span id="span_authcode" class="input-group-addon" style="padding: 5px 12px;">
+                                    <input id="getAuthcode" type="button" class="btn btn-primary btn-xs" value="获取短信验证码" />
+                                </span>
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <a class="btn btn-lg btn-success btn-block" id="js_reset_submit">确 定</a>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- pre load-->
+<!--<audio id="bg-music" src="--><!--/final/music/bg-music.mp3" hidden="hidden"></audio>-->
+<!--<audio id="anniu-music" src="--><!--/final/music/anniu.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="anniu-click-music" src="--><!--/final/music/anniu-click.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="beers-music" src="--><!--/final/music/beers.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="caimi-music" src="--><!--/final/music/caimi.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="chandi-music" src="--><!--/final/music/chandi.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="jiaoshui-music" src="--><!--/final/music/jiaoshui.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="shifei-music" src="--><!--/final/music/shifei.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="shouhuo-music" src="--><!--/final/music/shouhuo.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="zengzhong1-music" src="--><!--/final/music/zengzhong1.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="zengzhong2-music" src="--><!--/final/music/zengzhong2.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="husky-music" src="--><!--/final/music/husky.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="dog-music" src="--><!--/final/music/dog.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<audio id="new-message-music" src="--><!--/final/music/new-message.mp3"  controls="controls" hidden="hidden"></audio>-->
+<!--<img src="--><!--/app/shuban_bg1.png" style="visibility: hidden;" />-->
+
+</body>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js?v=20170225"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js?v=20170225"></script>
+
+<script src="js/login.js?v=20170225"></script>
+
+<script>
+    document.addEventListener('gesturestart', function (e) {
+        e.preventDefault();
+    });
+</script>
+</html>
+

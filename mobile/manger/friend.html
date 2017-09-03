@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">-->
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/MobileStyle.css?v=20170225" rel="stylesheet" media="screen">
+            </head>
+<script>
+var act='friend';
+</script>
+<body class="common-background">
+<form name="aspnetForm" method="get" action="farm/onekeybee.html" id="aspnetForm">
+    <div class="page-body">
+        <div class="head">
+
+            <div class="head-title">好友农场</div>
+
+        </div>
+        <div style="margin:2px;text-align: center;">
+            <input name="user_login" type="text" id="user_login" class="dfinput required " style="vertical-align: bottom;">
+            <input type="button" name="btnAll" value="添加好友" id="btnAll" class="friend-new-sub" onclick="tjhy()" style="    margin: 0;height: 40px;font-size: 24px;">
+        </div>
+        <div class="content">
+            <table style="width: 100%; font-size: 30px;table-layout:fixed;">
+                <thead style="color:red;text-align:center;font-size:12px">
+                <tr>
+                    <th colspan="2">
+
+                    </th>
+                </tr>
+                </thead>
+                <tbody style="background: #ffffff;"  id="content">
+
+                
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</form></body>
+
+<!-- jQuery -->
+<script src="../js/jquery.min.js?v=20170225"></script>
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js?v=20170225"></script>
+<script src="../js/messages_zh.js?v=20170225"></script>
+<script src="../js/connect.js?v=20170225"></script>
+<!-- Dynamic JS -->
+
+<script>
+    $(document).ready(function () {
+        $(".goback").on("click", function () {
+//            window.history.go(-1);
+            window.location.href = '/mobile/farm.html';
+        });
+
+        $(".goClose").on("click", function () {
+            window.close();
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css?v=20170225" rel="stylesheet">
+
+    <link href="css/nongchang-css.css?v=20170225" rel="stylesheet" type="text/css">
+
+    <script>
+        //检查手机屏幕
+        function detectPhone() {
+            console.log(navigator.userAgent);
+            if (/Mobi/i.test(navigator.userAgent)) {
+                window.location.href = '/mobile/login.html';
+                return;
+            }
+        }
+
+        detectPhone();
+    </script>
+
+    <style>
+                body {
+            width: 100%;
+            height: 100%;
+            background-image: url(images/final/login/login_bg3.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader ( sizingMethod='scale' , src='images/nongchang2.jpg');
+            overflow: hidden;
+            background-position: center center;
+        }
+        
+/*        */
+/*        .login-bg {*/
+/*            width: 100%;*/
+/*            height: 100%;*/
+/*            *//*            background-image: url(*//*/final/login/login_bg3.png);*/
+/*            *//*            background-image: url(*//*/final/login/login_bg3.png);*/
+/*            *//*            background-size: cover;*/
+/*            background-repeat: no-repeat;*/
+/*            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (sizingMethod='scale', src='*//*/nongchang2.jpg');*/
+/*            overflow: hidden;*/
+/*            background-position: center center;*/
+/*        }*/
+    </style>
+
+</head>
+
+<body>
+<div class="container-fluid login-bg">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <img class="center-block" src="images/final/login/farm-login.png" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <form name="loginForm" id="loginForm" method="POST" action="/index.php/Index/dologin" class="login-page">
+                <div class="login">
+                    <div class="login-pic" id="login-pic-1">
+                        <input type="text" id="UserId" name="user_login" placeholder="请输入账号" class="btn-text"/>
+                    </div>
+                    <div class="login-pic" id="login-pic-2">
+                        <input type="password" name="user_pass" id="Password" class="btn-text" placeholder="请输入密码"/>
+                    </div>
+                    <!--<div class="vcode_holder">
+                        <input type="text" name="verify" id="vcode" placeholder="验证码"/>
+                        <img src="/index.php/api/checkcode/index" class="codeimg" title="点击刷新" id="vcode-2">
+                    </div>-->
+
+                    <div style="margin-top: 20px;">
+                        <a href="javascript:;" style="width: 220px;height: 65px;margin-left: 200px;">
+                            <input type="button" name="btnSave" id="btnSave" class="btn-login" value="">
+                        </a>
+                    </div>
+                    <div style="margin-left: 270px;">
+                        <a href="#" target="_blank" style="font-size: 14px;">安卓APP下载</a>
+                        &nbsp;|
+                        <a href="javascript:;" rel="getPwd" style="font-size: 14px;">忘记密码</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="pwdModal" tabindex="-1" role="dialog" aria-labelledby="winModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h3 class="modal-title" id="myModalLabel">找回密码</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form id="forgetForm" role="form" action="/index.php/Index/forgetPost" >
+                        <fieldset>
+                            <div class="alert alert-danger hide" id="js_forget_msg">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="手机号码" name="phone" id="phone" type="text" maxlength="11">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="新密码" name="user_pass" id="user_pass" type="password" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="新密码" name="re_user_pass" id="re_user_pass" type="password" autocomplete="new-password">
+                            </div>
+                            <div class="form-group input-group">
+                                <input class="form-control" placeholder="短信验证码" name="phonecode" id="phonecode" type="text">
+                                <span id="span_authcode" class="input-group-addon" style="padding: 5px 12px;">
+                                    <input id="getAuthcode" type="button" class="btn btn-primary btn-xs" value="获取短信验证码" />
+                                </span>
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <a class="btn btn-lg btn-success btn-block" id="js_reset_submit">确 定</a>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- jQuery -->
+<script src="js/jquery.min.js?v=20170225"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js?v=20170225"></script>
+
+<script src="js/login.js?v=20170225"></script>
+</body>
+</html>
+
+
+

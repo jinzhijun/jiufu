@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">-->
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/MobileStyle.css?v=20170225" rel="stylesheet" media="screen">
+            </head>
+
+<body class="common-background">
+<form name="aspnetForm" method="post" action="" id="aspnetForm">
+    <div class="page-body">
+
+        <div class="head">
+
+            <div class="head-title">订购交易验证码</div>
+
+        </div>
+
+
+
+        <div class="friend-new-item" style="height: 120px;">
+            <p style="color:red;font-size:32px;margin:5px;">提示：1.订购交易验证码需要50金币/3月；2.订购交易验证码后出售金币都需要短信验证才能正常交易。</p>
+        </div>
+
+                    <input type="submit" name="ctl00$body$Sub" value="我要订购" id="ctl00_body_Sub" class="friend-new-sub">
+            
+    </div>
+</form></body>
+
+<!-- jQuery -->
+<script src="../js/jquery.min.js?v=20170225"></script>
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js?v=20170225"></script>
+<script src="../js/messages_zh.js?v=20170225"></script>
+
+<!-- Dynamic JS -->
+
+<script>
+    $(document).ready(function () {
+        $(".goback").on("click", function () {
+//            window.history.go(-1);
+            window.location.href = '/mobile/farm.html';
+        });
+
+        $(".goClose").on("click", function () {
+            window.close();
+        });
+    });
+</script>
+
+</html>

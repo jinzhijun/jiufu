@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">-->
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/MobileStyle.css?v=20170225" rel="stylesheet" media="screen">
+                <!-- jQuery -->
+<script src="../js/jquery.min.js?v=20170225"></script>
+            </head>
+<script>
+var act='personal';
+var storage=window.localStorage;
+$('#userid').val(storage['userId']);
+$('#salt').val(storage['token']);
+</script>
+<body class="common-background">
+<form name="form1" method="post" action="/index.php/Portal/User/editPost" id="form1">
+    <div class="page-body">
+
+        <div class="head">
+
+            <div class="head-title">个人资料</div>
+
+        </div>
+
+
+        <div>
+            <div class="personal-info-item">
+                <span id="ctl00_body_Label1" class="personal-info-line personal-info-label">用户名</span>
+                <label class="personal-info-line-split">:</label>
+                <input name="user_login" type="text" value="xjy0201" readonly="readonly"
+                       id="user_login" class="personal-info-line personal-info-input" placeholder="">
+            </div>
+            <!--<div class="personal-info-item">
+                <span id="ctl00_body_Label2" class="personal-info-line personal-info-label">真实姓名</span>
+                <label class="personal-info-line-split">:</label>
+                <input name="txtUserName" type="text" value="" id="txtUserName"
+                       class="personal-info-line personal-info-input required" placeholder="真实姓名">
+            </div>-->
+            <div class="personal-info-item">
+                <span id="ctl00_body_Label3" class="personal-info-line personal-info-label">联系电话</span>
+                <label class="personal-info-line-split">:</label>
+                <input name="mobile" type="text" value="" readonly="readonly"
+                       id="mobile" class="personal-info-line personal-info-input required number" placeholder="联系电话">
+            </div>
+
+            <div class="friend-new-item friend-new-area">
+                <span id="ctl00_body_FriendNewSex" class="friend-new-line friend-new-line-label">性别</span>
+                <label class="personal-info-line-split">:</label>
+                <select name="post[sex]" id="sex" class="personal-info-line personal-info-input" aria-required="true">
+                    <option value="男" selected="selected">男</option>
+                    <option value="女">女</option>
+
+                </select>
+
+            </div>
+            <div class="personal-info-item">
+                <span id="ctl00_body_Label4" class="personal-info-line personal-info-label">微信号</span>
+                <label class="personal-info-line-split">:</label>
+                <input name="post[weixin]" type="text" id="weixin" value=""
+                       class="personal-info-line personal-info-input" placeholder="微信号">
+            </div>
+            <div class="personal-info-item">
+                <span id="ctl00_body_Label5" class="personal-info-line personal-info-label">支付宝账号</span>
+                <label class="personal-info-line-split">:</label>
+                <input name="post[alipay]" type="text" id="alipay" value=""
+                       class="personal-info-line personal-info-input" placeholder="支付宝账号">
+            </div>
+
+<!--            <div class="personal-info-item">-->
+<!--                <span id="ctl00_body_Label6" class="personal-info-line personal-info-label">验证码</span>-->
+<!--                <label class="personal-info-line-split">:</label>-->
+<!--                <input name="ctl00$body$TextBox6" type="text" id="ctl00_body_TextBox6" class="personal-info-input1"-->
+<!--                       placeholder="">-->
+<!--                <input type="submit" name="ctl00$body$btnGetVerifyCode" value="获取验证码" id="ctl00_body_btnGetVerifyCode"-->
+<!--                       class="friend-new-sub1">-->
+<!--            </div>-->
+ <input type="hidden" name="userid" id="userid">
+                <input type="hidden" name="salt" id="salt">
+            <input type="button" name="BtnSave" value="确认提交" id="BtnSave" class="friend-new-sub" onclick="tj('form1')">
+        </div>
+
+    </div>
+</form></body>
+
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js?v=20170225"></script>
+<script src="../js/messages_zh.js?v=20170225"></script>
+
+<!-- Dynamic JS -->
+        <script src="../js/jquery.idTabs.min.js?v=20170225"></script>
+                <script src="../js/personal.js?v=20170225"></script>
+                <script src="../js/connect.js?v=20170225"></script>  
+        
+<script>
+    $(document).ready(function () {
+        $(".goback").on("click", function () {
+//            window.history.go(-1);
+            window.location.href = '/mobile/farm.html';
+        });
+
+        $(".goClose").on("click", function () {
+            window.close();
+        });
+    });
+</script>
+
+</html>

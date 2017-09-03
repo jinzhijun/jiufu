@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">-->
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/MobileStyle.css?v=20170225" rel="stylesheet" media="screen">
+            </head>
+<script>
+var act='created';
+</script>
+<body class="common-background">
+<div class="page-body">
+    <div class="head">
+
+        <div class="head-title">已开发农场</div>
+
+    </div>
+            <a href="javascript:;">
+            <input type="submit" name="ctl00$body$Sub" value="一键采蜜" id="ctl00_body_Sub"
+                   class="friend-new-sub"
+                   style="width: 30%;border-radius: 30px;"></a>
+    <div class="content">
+        <table style="width: 100%; font-size: 30px;table-layout:fixed;">
+            <thead style="color:red;text-align:center;font-size:12px">
+            <tr>
+                <th colspan="2">
+
+                </th>
+            </tr>
+            </thead>
+            <tbody style="background: #ffffff;" id="content">
+
+            
+            </tbody>
+        </table>
+    </div>
+</div></body>
+
+<!-- jQuery -->
+<script src="../js/jquery.min.js?v=20170225"></script>
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js?v=20170225"></script>
+<script src="../js/messages_zh.js?v=20170225"></script>
+
+<!-- Dynamic JS -->
+<script src="../js/connect.js?v=20170225"></script>
+<script>
+    $(document).ready(function () {
+        $(".goback").on("click", function () {
+//            window.history.go(-1);
+            window.location.href = 'farm.html';
+        });
+
+        $(".goClose").on("click", function () {
+            window.close();
+        });
+    });
+</script>
+
+</html>

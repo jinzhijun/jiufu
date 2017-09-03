@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">-->
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/MobileStyle.css?v=20170225" rel="stylesheet" media="screen">
+                <!-- jQuery -->
+<script src="../js/jquery.min.js?v=20170225"></script>
+            </head>
+
+<body class="common-background">
+<style>
+    .error {
+        font-size: 30px;
+        color: red;
+        margin-left: 5px;
+        line-height: 30px;
+    }
+</style>
+<script>
+var act='consult';
+var storage=window.localStorage;
+$(document).ready(function(){
+$('#userid').val(storage['userId']);
+$('#salt').val(storage['token']);
+});
+</script>
+
+<form name="form1" method="post" action="/index.php/Portal/Home/linkUsPost" id="form1" enctype="multipart/form-data" novalidate="novalidate">
+    <div class="page-body">
+        <div class="head">
+<!--            <a href="/mobile/record/messages.html"><img class="head-icon-left" src="--><!--/common_back.png" style="border-width:0px;"></a>-->
+
+            <div class="head-title">填写咨询</div>
+
+        </div>
+
+        <ul class="forminfo">
+
+            <li>
+                <label style="font-weight: bold;font-size: 30px;color: blueviolet;">标题：</label>
+                <input name="title" type="text" id="title" class="dfinput required " aria-required="true" style="background: url(images/itabbg.png)repeat-x;">
+            </li>
+
+            <li>
+                <label style="font-weight: bold;font-size: 30px;color: blueviolet;">内容：</label>
+                <textarea name="msg" rows="2" cols="20" id="msg" class="dfinput required" style="height:117px;width:100vw;background: url(images/itabbg02.png)repeat-x;border: none;" aria-required="true"></textarea>
+            </li>
+
+            <br>
+            <li>
+                <label>&nbsp;</label>
+                <input type="hidden" name="userid" id="userid">
+                <input type="hidden" name="salt" id="salt">
+                <input type="button" name="BtnSave" value="提交" id="BtnSave" class="friend-new-sub" onclick="tj('form1')">
+            </li>
+        </ul>
+    </div>
+</form></body>
+
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js?v=20170225"></script>
+<script src="../js/messages_zh.js?v=20170225"></script>
+
+<!-- Dynamic JS -->
+        <script src="../js/jquery.idTabs.min.js?v=20170225"></script>
+                <script src="../js/consult.js?v=20170225"></script>
+        <script src="../js/connect.js?v=20170225"></script>
+<script>
+    $(document).ready(function () {
+        $(".goback").on("click", function () {
+//            window.history.go(-1);
+            window.location.href = '/mobile/farm.html';
+        });
+
+        $(".goClose").on("click", function () {
+            window.close();
+        });
+    });
+</script>
+
+</html>

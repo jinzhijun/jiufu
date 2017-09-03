@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://www.bbkxnc.com/trade/sales.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/reset.css" rel="stylesheet" media="screen">
+                        <link href="../css/style.css" rel="stylesheet" media="screen">
+                        <link href="../css/nongchang-setting-css.css" rel="stylesheet" media="screen">
+            </head>
+<script src="../js/jquery.min.js"></script>
+<script>
+var act='sale';
+var storage=window.localStorage;
+$(document).ready(function(){
+$('#userid').val(storage['userId']);
+$('#salt').val(storage['token']);
+$('#userid2').val(storage['userId']);
+$('#salt2').val(storage['token']);
+});
+</script>
+<body>
+    <div class="formbody">
+        <div id="usual1" class="usual">
+
+            <div class="itab">
+                <ul>
+
+                    <li>
+                        <a href="sales.html#tab1" class="selected">委托出售</a>
+                    </li>
+                    <li>
+                        <a href="sales.html#tab2" class="">定向出售</a>
+                    </li>
+                </ul>
+            </div>
+
+            <input type="hidden" id="needAuthcode" value="">
+            <form name="form1" method="post" action="/index.php/Portal/Home/wtcs" id="form1">
+            <div id="tab1" class="tabson" style="display: block;">
+                <ul class="forminfo">
+                    <li>
+                        <label>仓库数量：</label>
+                        <label>
+                            <span id="CurrentAppleNumber">0.00</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>出售数量：</label>
+                        <input name="SaleNumberI" type="text" id="SaleNumberI" class="dfinput" placeholder="100整数倍（最大10000）">
+                    </li>
+                    <li>
+                        <label>手续费：</label>
+                        <label>
+                            <span id="FeeNumberI">0</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>总计扣除：</label>
+                        <label>
+                            <span id="totalNumberI">0</span>
+                        </label>
+                    </li>
+                                        <li>
+                        <label>交易说明:</label><span id="jysm"></span>
+                        <input type="hidden" id="feeRatioI" value="0.3">
+                    </li>
+
+                    <li>
+                        <label>&nbsp;</label>
+                        <input type="hidden" name="userid" id="userid">
+                        <input type="hidden" name="salt" id="salt">
+                        <input type="button" name="BtnSave1" value="确 认" onclick="tj('form1');"  class="btn">
+                        <input type="hidden" name="type" value="1">
+                    </li>
+
+                </ul>
+            </div>
+            </form>
+
+            <form name="form2" method="post" action="/index.php/Portal/Home/dxcs" id="form2">
+            <div id="tab2" class="tabson" style="display: none;">
+                <ul class="forminfo">
+                    <li>
+                        <label>仓库数量：</label>
+                        <label>
+                            <span id="LbAppleNumber">0.00</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>可售上限：</label>
+                        <label>
+                            <span id="LbCanSaleNumber">0.00</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>出售数量：</label>
+                        <input name="SaleNumber" type="text" id="SaleNumber" class="dfinput" placeholder="10的倍数">
+                    </li>
+                    <li>
+                        <label>手续费：</label>
+                        <label>
+                            <span id="FeeNumber">0</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>总计扣除：</label>
+                        <label>
+                            <span id="totalNumber">0</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>目标会员号：</label>
+                        <input name="SaleUserId" type="text" id="SaleUserId" class="dfinput">
+                    </li>
+                    <li>
+                        <label>目标姓名：</label>
+                        <input name="SaleUserName" type="text" id="SaleUserName" class="dfinput">
+                    </li>
+                                        <li>
+                        <label>交易说明:</label><span id="jysm2"></span>
+                        <input type="hidden" id="feeRatio" value="0.1">
+                        <input type="hidden" id="isFreeFee" value="0">
+                    </li>
+
+                    <li>
+                        <label>&nbsp;</label>
+                        <input type="hidden" name="userid" id="userid2">
+                        <input type="hidden" name="salt" id="salt2">
+                        <input type="button" name="BtnSave2" value="确 认" onclick="tj('form2');"  class="btn">
+                        <input type="hidden" name="type" value="2">
+                    </li>
+                </ul>
+            </div>
+            </form>
+        </div>
+    </div>
+
+<!-- jQuery -->
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/messages_zh.js"></script>
+
+<script src="../js/js.cookie-2.1.3.min.js"></script>
+
+<!-- Dynamic JS -->
+        <script src="../js/jquery.idTabs.min.js"></script>
+                <script src="../js/sales.js"></script>
+  <script src="../js/connect.js?v=20170225"></script>      
+<script>
+    $(document).ready(function () {
+//        var phoneWidth = parseInt(window.screen.width);
+//        var phoneHeight = parseInt(window.screen.height);
+//        var phoneScale = phoneWidth/750; //除以的值按手机的物理分辨率
+//        var ua = navigator.userAgent;
+//        var viewportHtml = "";
+//        if (/Android (\d+\.\d+)/.test(ua)) {
+//            var version = parseFloat(RegExp.$1);
+//            // andriod 2.3
+//            if (version > 2.3) {
+//                viewportHtml = '<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi, user-scalable=no">';
+//                // andriod 2.3以上
+//            } else {
+//                viewportHtml = '<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, user-scalable=no">';
+//            }
+//            // 其他系统
+//        } else {
+//            viewportHtml = '<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', user-scalable=no, target-densitydpi=device-dpi">';
+//        }
+//
+//        if (viewportHtml)
+//        {
+////            $('meta[name="renderer"]').after(viewportHtml);
+//        }
+
+//
+//        var match,
+//            scale,
+//            TARGET_WIDTH = 320;
+//
+//        if (match = navigator.userAgent.match(/Android (\d+\.\d+)/)) {
+//            if (parseFloat(match[1]) < 4.4) {
+//                if (TARGET_WIDTH == 320) TARGET_WIDTH++;
+//                var scale = window.screen.width / TARGET_WIDTH;
+//                document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + TARGET_WIDTH + ', initial-scale = ' + scale + ', target-densitydpi=device-dpi');
+//            }
+//        } else {
+//            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + TARGET_WIDTH);
+//        }
+    });
+</script>
+</body></html>

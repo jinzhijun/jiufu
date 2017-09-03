@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">-->
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/MobileStyle.css?v=20170225" rel="stylesheet" media="screen">
+                        <link href="../css/style.css?v=20170225" rel="stylesheet" media="screen">
+            </head>
+<!-- jQuery -->
+<script src="../js/jquery.min.js?v=20170225"></script>
+<script>
+var act='sale';
+var storage=window.localStorage;
+$(document).ready(function(){
+$('#userid').val(storage['userId']);
+$('#salt').val(storage['token']);
+$('#userid2').val(storage['userId']);
+$('#salt2').val(storage['token']);
+});
+</script>
+<body class="common-background">
+<style>
+    .error {
+        font-size: 32px;
+        color: red;
+        margin-left: 5px;
+        line-height: 85px;
+    }
+</style>
+
+<div class="page-body">
+
+    <div class="head">
+
+        <div class="head-title">出售金币</div>
+
+    </div>
+
+    <div class="tabs">
+
+        <div class="tabs-item tabs-item-current" data-page="sale1">委托出售</div>
+        <div class=" tabs-item-right tabs-item" data-page="sale2">定向出售</div>
+    </div>
+
+    <input type="hidden" id="needAuthcode" value=""/>
+
+    <div class="tab-contents" style="margin-top: 20px;">
+
+        <form name="form1" method="post" action="/index.php/Portal/Home/wtcs"   id="form1">
+            <div id="sale1" class="content-item">
+
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label5" class="friend-new-line friend-new-line-label">仓库金币</span>
+                    <label class="friend-new-line-split">:</label>
+                    <span id="CurrentAppleNumber"
+                          class="friend-new-line friend-new-line-input">0.00</span>
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label6" class="friend-new-line friend-new-line-label">出售数量</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="SaleNumberI" type="text" id="SaleNumberI"
+                           class="friend-new-line friend-new-line-input" placeholder="100整数倍（最大10000）">
+                </div>
+
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label5" class="friend-new-line friend-new-line-label">手续费</span>
+                    <label class="friend-new-line-split">:</label>
+                    <span id="FeeNumberI" class="friend-new-line friend-new-line-input">0</span>
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label5" class="friend-new-line friend-new-line-label">总计扣除</span>
+                    <label class="friend-new-line-split">:</label>
+                    <span id="totalNumberI" class="friend-new-line friend-new-line-input">0</span>
+                </div>
+
+                
+                <div class="friend-new-item" style="text-align: center">
+                <span style="color: red; margin-top: 5px; font-size: 16px">
+
+                </span>
+                </div>
+                <input type="hidden" name="userid" id="userid">
+                        <input type="hidden" name="salt" id="salt">
+                <input type="button" name="BtnSave1" value="确认提交" id="BtnSave1" class="friend-new-sub"
+                       onclick="tj('form1');">
+                <input type="hidden" id="feeRatioI" value="0.3"/>
+                <input type="hidden" name="type" value="1"/>
+            </div>
+        </form>
+
+        <form name="form2" method="post" action="/index.php/Portal/Home/dxcs" id="form2">
+            <div id="sale2" class="content-item hide">
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label1" class="friend-new-line friend-new-line-label">仓库金币</span>
+                    <label class="friend-new-line-split">:</label>
+                    <span id="LbAppleNumber" class="friend-new-line friend-new-line-input"
+                          placeholder="">0.00</span>
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label7" class="friend-new-line friend-new-line-label">可售金币</span>
+                    <label class="friend-new-line-split">:</label>
+                    <span id="LbCanSaleNumber" class="friend-new-line friend-new-line-input"
+                          placeholder="">0.00</span>
+                </div>
+
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label2" class="friend-new-line friend-new-line-label">出售数量</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="SaleNumber" type="text" id="SaleNumber"
+                           class="friend-new-line friend-new-line-input" placeholder="10的倍数">
+                </div>
+
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label5" class="friend-new-line friend-new-line-label">手续费</span>
+                    <label class="friend-new-line-split">:</label>
+                    <span id="FeeNumber" class="friend-new-line friend-new-line-input">0</span>
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label5" class="friend-new-line friend-new-line-label">总计扣除</span>
+                    <label class="friend-new-line-split">:</label>
+                    <span id="totalNumber" class="friend-new-line friend-new-line-input">0</span>
+                </div>
+
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label3" class="friend-new-line friend-new-line-label">目标会员号</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="SaleUserId" type="text" id="SaleUserId"
+                           class="friend-new-line friend-new-line-input" placeholder="">
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label4" class="friend-new-line friend-new-line-label">目标姓名</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="SaleUserName" type="text" id="SaleUserName"
+                           class="friend-new-line friend-new-line-input" placeholder="">
+                </div>
+
+                
+                <div class="friend-new-item" style="text-align: center; height: 220px;">
+                <span id="jysm2" style="color: red; margin-top: 5px; font-size: 30px"></span>
+                </div>
+
+                <input type="hidden" id="feeRatio" value="0.1"/>
+                <input type="hidden" id="isFreeFee" value="0"/>
+                <input type="hidden" name="type" value="2"/>
+                <input type="hidden" name="userid" id="userid2">
+                        <input type="hidden" name="salt" id="salt2">
+                <input type="button" name="BtnSave2" value="确认提交" id="BtnSave2" class="friend-new-sub"
+                    onclick="tj('form2');">
+            </div>
+        </form>
+
+    </div>
+
+
+</div>
+</body>
+
+
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js?v=20170225"></script>
+<script src="../js/messages_zh.js?v=20170225"></script>
+
+<!-- Dynamic JS -->
+        <script src="../js/jquery.idTabs.min.js?v=20170225"></script>
+                <script src="../js/sales.js?v=20170225"></script>
+          <script src="../js/connect.js?v=20170225"></script>  
+        
+<script>
+    $(document).ready(function () {
+        $(".goback").on("click", function () {
+//            window.history.go(-1);
+            window.location.href = '/mobile/farm.html';
+        });
+
+        $(".goClose").on("click", function () {
+            window.close();
+        });
+    });
+</script>
+
+</html>

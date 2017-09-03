@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">-->
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/MobileStyle.css?v=20170225" rel="stylesheet" media="screen">
+            </head>
+<!-- jQuery -->
+<script src="../js/jquery.min.js?v=20170225"></script>
+<script>
+var act='newfarm';
+var storage=window.localStorage;
+$(document).ready(function(){
+$('#userid').val(storage['userId']);
+$('#salt').val(storage['token']);
+});
+</script>
+<body class="common-background">
+<style>
+    .error {
+        font-size: 32px;
+        color: red;
+        margin-left: 5px;
+        line-height: 85px;
+    }
+</style>
+
+<div class="page-body">
+
+    <div class="head">
+
+        <div class="head-title">开发新农场</div>
+
+    </div>
+
+    <div class="tabs">
+
+        <div class="tabs-item tabs-item-current" data-page="tab1">开发新农场</div>
+    </div>
+
+    <div class="tab-contents" style="margin-top: 20px;">
+
+        <form name="form1" method="post" action="/index.php/Portal/User/registerPost" id="form1">
+            <div id="tab1" class="content-item">
+
+                <div class="friend-new-item">
+                    <span id="ctl00_body_Label1" class="friend-new-line friend-new-line-label">推荐人</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[parent_user]" type="text" value="" id="parent_user"
+                        class="friend-new-line friend-new-line-input required" placeholder="推荐人">
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewAccount" class="friend-new-line friend-new-line-label">新农场用户名</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[user_login]" type="text" id="user_login"
+                           class="friend-new-line friend-new-line-input required" placeholder="新农场用户名">
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewName" class="friend-new-line friend-new-line-label">姓名</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[true_name]" type="text" id="true_name"
+                           class="friend-new-line friend-new-line-input required" placeholder="姓名">
+                </div>
+                                <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewName" class="friend-new-line friend-new-line-label">性别</span>
+                    <label class="friend-new-line-split">:</label>
+                    <select name="post[sex]" id="sex" class="friend-new-line friend-new-line-input" aria-required="true">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+
+                <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewTel" class="friend-new-line friend-new-line-label">手机号码</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[mobile]" type="text" id="mobile"
+                           class="friend-new-line friend-new-line-input required number" maxlength="11" placeholder="手机号码">
+                </div>
+                <div class="friend-new-item friend-new-area">
+                    <span id="ctl00_body_FriendNewApples" class="friend-new-line friend-new-line-label">所需金币</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="lbNeedAppleNumber" type="text" value="" readonly="readonly" id="sjxy"
+                           class="friend-new-line friend-new-line-input" placeholder="所需金币">
+                </div>
+
+                <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewAlipay" class="friend-new-line friend-new-line-label">支付宝</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[alipay]" type="text" id="alipay"
+                           class="friend-new-line friend-new-line-input" placeholder="支付宝">
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewWeChat" class="friend-new-line friend-new-line-label">微信号</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[weixin]" type="text" id="weixin"
+                           class="friend-new-line friend-new-line-input" placeholder="微信号">
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewWeChat" class="friend-new-line friend-new-line-label">密码</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[user_pass]" type="text" id="user_pass"
+                           class="friend-new-line friend-new-line-input" placeholder="密码">
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewWeChat" class="friend-new-line friend-new-line-label">确认密码</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[re_user_pass]" type="text" id="re_user_pass"
+                           class="friend-new-line friend-new-line-input" placeholder="确认密码">
+                </div>
+                <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewWeChat" class="friend-new-line friend-new-line-label">二级密码</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[user_two_pass]" type="text" id="user_two_pass"
+                           class="friend-new-line friend-new-line-input" placeholder="二级密码">
+                </div>
+                 <div class="friend-new-item">
+                    <span id="ctl00_body_FriendNewWeChat" class="friend-new-line friend-new-line-label">确认二级密码</span>
+                    <label class="friend-new-line-split">:</label>
+                    <input name="post[re_user_two_pass]" type="text" id="re_user_two_pass"
+                           class="friend-new-line friend-new-line-input" placeholder="确认二级密码">
+                </div>
+                <input type="hidden" name="userid" id="userid">
+                    <input type="hidden" name="salt" id="salt">
+                <input type="button" name="ctl00$body$Sub" value="确认提交" id="ctl00_body_Sub" class="friend-new-sub" onclick="tj('form1')">
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js?v=20170225"></script>
+<script src="../js/messages_zh.js?v=20170225"></script>
+
+<!-- Dynamic JS -->
+        <script src="../js/jquery.idTabs.min.js?v=20170225"></script>
+                <script src="../js/newfarm_m.js?v=20170225"></script>
+    <script src="../js/connect.js?v=20170225"></script>    
+<script>
+    $(document).ready(function () {
+        $(".goback").on("click", function () {
+//            window.history.go(-1);
+            window.location.href = '/mobile/farm.html';
+        });
+
+        $(".goClose").on("click", function () {
+            window.close();
+        });
+    });
+</script>
+
+</html>

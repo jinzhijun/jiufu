@@ -1,0 +1,1218 @@
+
+*{
+	margin: 0;
+	padding: 0;	
+}
+
+#app{
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+	overflow: hidden;
+}
+.farm{
+	position: relative;
+	width: 1280px;
+	height: 710px;
+	overflow: hidden;
+	background-position: 100% 100%;
+	margin: 0 auto;	
+}
+.farm-information{
+	width: 1035px;
+	position: absolute;
+	right: 0;
+	-webkit-animation: farm-info-change 2.2s ease-in-out infinite alternate;
+    -o-animation: farm-info-change 2.2s ease-in-out infinite alternate;
+    animation: farm-info-change 2.2s ease-in-out infinite alternate;
+}
+@-webkit-keyframes farm-info-change {
+  from { opacity: .7 }
+  to { opacity: 0 }
+}
+@keyframes farm-info-change {
+  from { opacity: .7 }
+  to { opacity: 0 }
+}
+.farm-information-row{
+	width: 100%;
+	background: rgba(50,50,50,0.9);
+	line-height: 1;
+	color: #FFFFFF;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: 3em;
+	top: 5px;
+	height: 25px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 25px;
+	display: table;
+}
+.farm-row{
+	display: table-cell;
+	padding: 0px 2px;
+}
+.f-title{
+	color: #ff8d12;
+}
+.f-val{
+	color: white;
+}
+
+
+								/*****************farm-top-info 游戏顶端   两个  信息框设置*******************/
+
+
+.farm-top-info{
+	width: 362px;
+	height: 111px;
+	background: url(../images/final/main/main_bg1.png)no-repeat;
+	position: relative;
+	display: inline-block;
+	float: left;
+}
+#farm-top-info-1{
+	left: 300px;
+	top: 0;
+}
+.farm-info{
+	width: 162px;
+	height: 38px;
+	float: left;
+	margin-left: 19px;
+	margin-top: 7px;	
+}
+.farm-info-name{
+	font-size: 20px;
+	color: white;
+	padding-left: 2px;
+	line-height: 30px;	
+	font-weight: bold;
+	font-size: "幼圆","黑体",sans-serif;
+	letter-spacing: -1px;
+	float: left;
+}
+.farm-info-data{
+	width: 100px;
+	height: 37px;
+	float: left;
+	background: url(../images/final/main/main_bg1_kuang.png)no-repeat;
+	margin-top: -4px;
+	margin-left: 3px;
+}
+.farm-data{
+	line-height: 37px;
+	padding-left: 12px;
+	color: yellow;
+	font-weight: bold;
+	font-size: 17px;
+}
+#farm-top-info-2{
+	left: 380px;
+	top: 0;
+}
+.farm-info-ico{
+	width: 35px;
+	height: 33px;
+	display: inline-block;
+	float: left;
+}
+#farm-info-ico1{	
+	background: url(../images/final/main/topicon_4.png)no-repeat;
+}
+#farm-info-ico2{	
+	background: url(../images/final/main/topicon_2.png)no-repeat;
+}
+#farm-info-ico3{	
+	background: url(../images/final/main/topicon_3.png)no-repeat;
+    background-size: contain;
+    display: block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 2vw;
+    left: -4.5vw;
+    transform: rotate(10deg);	
+}
+
+.loading-sate-ani{
+  -webkit-animation: laoding_sate 8s linear  infinite  ;
+  animation: laoding_sate 8s linear  infinite  ;
+}
+
+@keyframes laoding_sate{
+	0%{
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	}
+	10%{
+		transform: rotate(10deg) translate(1.5vh,-3vh);
+		-webkit-transform: rotate(10deg)translate(1.5vh,-3vh);
+	}
+	20%{
+		transform: rotate(20deg) translate(5vw,3vh);
+		-webkit-transform: rotate(20deg) translate(5vw,3vh);
+	}
+	50%{
+		transform: rotate(-30deg) translate(12vw,-2vh);
+		-webkit-transform: rotate(-30deg) translate(12vw,-2vh);
+	}
+	100%{
+		transform: rotate(-380deg) translate(4.3vw,-4.3vh);
+		-webkit-transform: rotate(-380deg) translate(4.3vw,-4.3vh);
+	}
+	
+}
+@-webkit-keyframes laoding_sate{
+	0%{
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	}
+	10%{
+		transform: rotate(10deg) translate(1.5vh,-3vh);
+		-webkit-transform: rotate(10deg)translate(1.5vh,-3vh);
+	}
+	20%{
+		transform: rotate(20deg) translate(5vw,3vh);
+		-webkit-transform: rotate(20deg) translate(5vw,3vh);
+	}
+	50%{
+		transform: rotate(-30deg) translate(12vw,-2vh);
+		-webkit-transform: rotate(-30deg) translate(12vw,-2vh);
+	}
+	100%{
+		transform: rotate(-380deg) translate(4.3vw,-4.3vh);
+		-webkit-transform: rotate(-380deg) translate(4.3vw,-4.3vh);
+	}
+}
+#farm-info-ico4{	
+	background: url(../images/final/main/topicon_1.png)no-repeat;
+	background-size: contain;
+    display: block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: -0.5vh;
+    transform: rotate(-10deg);	
+}
+.loading-sate-ani-2{
+  -webkit-animation: laoding_sate-2 6s normal  infinite  ;
+  animation: laoding_sate-2 6s normal  infinite  ;
+}
+@-webkit-keyframes laoding_sate-2 {
+  from { 
+    transform: rotate(-10deg); 
+    -webkit-transform: rotate(-10deg); 
+  }
+  to {  
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+  }
+}
+@keyframes laoding_sate-2 {
+  25% { 
+    transform: rotate(-10deg); 
+    -webkit-transform: rotate(-10deg); 
+  }
+  50%{
+  	transform: rotate(30deg); 
+    -webkit-transform: rotate(30deg); 
+  }
+  75%{
+  	transform: rotate(-10deg); 
+    -webkit-transform: rotate(-10deg);
+  }
+  100% {  
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+  }
+}
+
+									 /*****************farm-top 游戏大厅 框设置*******************/
+
+#farm-top{
+	width: 396px;
+	height: 75px;
+	position: absolute;
+	left: 440px;
+	top: 0;
+	background: url(../images/final/main/main_bg1.png)no-repeat;
+}
+#farm-user-info{
+	width: 246px;
+	height: 97px;
+	position: absolute;
+	left:0;
+	top: 0;
+	background: url(../images/final/main/main_bg2.png)no-repeat;
+}
+#farm-user-head-wrap{
+	width: 92px;
+	height: 92px;
+	background: url(../images/final/main/main_bg2_kuang.png)no-repeat;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+}
+#farm-user-head{
+	width: 72px;
+	height: 72px;
+	left: 8px;
+	top: 12px;
+	position: absolute;
+	border-radius: 10px;
+}
+#farm-user-head-pic{	
+	margin: 0 auto;
+	width: 60px;
+	height: 60px;
+	background: url(../images/final/touxiang2.png) no-repeat;
+	background-size:100% 100%;
+}
+#farm-user-name{
+	width: 135px;
+	height: 30px;
+	position: absolute;
+	left: 100px;
+	top: 15px;
+}
+.user-lever{
+	width: 30px;
+	height: 30px;	
+	position: absolute;
+	z-index: 100;
+	right: 145px;
+}
+.user-lever[lever=user_lever_7]{
+	background: url(../images/final/login/vip_icon7.png)no-repeat;
+}
+.user-lever[lever=user_lever_1]{
+	background: url(../images/final/login/vip_icon1.png)no-repeat;
+}
+.user-lever[lever=user_lever_2]{
+	background: url(../images/final/login/vip_icon2.png)no-repeat;
+}
+.user-lever[lever=user_lever_3]{
+	background: url(../images/final/login/vip_icon3.png)no-repeat;
+}
+.user-lever[lever=user_lever_4]{
+	background: url(../images/final/login/vip_icon4.png)no-repeat;
+}
+.user-lever[lever=user_lever_5]{
+	background: url(../images/final/login/vip_icon5.png)no-repeat;
+}
+.user-lever[lever=user_lever_6]{
+	background: url(../images/final/login/vip_icon6.png)no-repeat;
+}
+.farm-user-font{
+	color: white;
+	font-weight: bold;
+	font-size: 19px;
+	font-size: "幼圆","黑体",sans-serif;
+}
+#farm-user-id{
+	width: 135px;
+	height: 30px;
+	position: absolute;
+	left: 95px;
+	top: 55px;
+}
+.mail-message{
+	left: 70px;
+	bottom: 0px;
+	width: 30px;
+	height: 30px;
+	background: url(../images/app/main/mail-message.png)no-repeat 0 0;
+	position: absolute;
+	display: none;
+}
+.notice-message{
+	left: 0px;
+	bottom: 0px;
+	width: 30px;
+	height: 30px;
+	background: url(../images/app/main/notice-message.png)no-repeat 0 0;
+	position: absolute;
+	display: none;
+}
+.message-number{
+	font-size: 23px;
+	font-weight: bold;
+	line-height: 30px;
+	padding-left: 7px;
+	color: white;
+}
+
+											/*****************farm-top farm-game-info 左侧栏  农场管理框*******************/
+					
+#farm-game-info{
+	position: relative;
+}
+.farm-game-info{
+	width: 216px;
+	height: 585px;
+	background: url(../images/final/main/main_bg3.png)no-repeat;
+	position: absolute;
+	left: -22px;
+	top: 115px;
+	z-index: 200;
+}
+.farm-game-orchard{
+	width: 166px;
+	height: 39px;
+	background: url(../images/final/main/main_but3_down.png)no-repeat;
+	margin-left: 25px;
+	margin-top: 3px;
+	cursor: pointer;
+}
+.farm-orchard-style{
+	background: url(../images/final/main/main_bg4.png)no-repeat;
+	width: 170px;
+	height: 29px;
+	float: left;
+	margin-top: 2px;
+	margin-left: 22px;
+	display: block;
+}
+.farm-orchard-font{
+	font-size: 18px;
+	color: white;
+	padding-left: 49px;
+	line-height: 30px;	
+	font-weight: bold;
+	font-size: "幼圆","黑体",sans-serif;
+	letter-spacing: -1px;
+}
+.farm-orchard-font3{
+	font-size: 18px;
+	color: white;
+	padding-left: 33px;
+	line-height: 30px;	
+	font-weight: bold;
+	font-size: "幼圆","黑体",sans-serif;
+	letter-spacing: -1px;
+}
+.farm-orchard-font2{
+	line-height: 40px;
+	font-size: 23px;
+	padding-left: 35px;
+	color: white;
+	font-weight: bold;
+	font-size: "幼圆","黑体",sans-serif;
+	letter-spacing: -1px;
+	text-align: center;
+}
+.farm-game-orchard-hide{
+	height: 250px;
+	width: 200px;
+	top: 90px;
+	left: 15px;
+}
+#farm-game-orchard-logout{
+	width: 166px;
+	height: 39px;
+	background: url(../images/final/main/main_but3_up.png)no-repeat;
+	position: absolute;
+	bottom: 36px;
+	cursor: pointer;
+	left: 25px;	
+}
+.farm-game-orchard-click{
+	background: url(../images/final/main/main_but1.png)no-repeat;
+	position: absolute;
+	z-index: 10;
+	height: 128px;
+	width: 75px;
+	left: 172px;
+	top: 315px;
+	cursor: pointer;
+	/*display: none;*/	
+}
+.farm-game-orchard-click-2{
+	background: url(../images/final/main/main_but2.png)no-repeat;
+	position: absolute;
+	z-index: 10;
+	height: 128px;
+	width: 75px;
+	left: -17px;
+	top: 315px;
+	display: none;
+	cursor: pointer;
+}
+
+
+
+
+
+                                    /*****************农场田地设置*******************/      
+
+.farm-floor{
+	width: 649px;
+	height: 333px;
+	position: absolute;
+	top: 160px;
+	left: 305px;
+	z-index: 5;
+}
+.beans{
+    display: none; 
+    position: absolute;
+    width: 75px;
+    height: 18px;
+    background: url(../images/beans.png)no-repeat 0 0;
+    background-size: 75px;
+    font-family: "microsoft yahei";
+    text-align: center;
+    left: 21px;
+    top: 30px;
+    font-size: 12px;
+    z-index: 1;
+}
+.land{
+	position: absolute;
+    width: 118px;
+    height: 61px;
+}
+.land[groundnumber="1"]{
+    left: 190px;
+    top: 10px;
+}
+.land[groundnumber="2"]{
+	left: 125px;
+    top: 40px;
+}
+.land[groundnumber="3"]{
+	left: 60px;
+	top: 70px;
+}
+.land[groundnumber="4"]{
+	left: -5px;
+	top: 100px;
+}
+.land[groundnumber="5"]{
+	left: -70px;
+	top: 130px;
+}
+.land[groundnumber="6"]{
+	left: 270px;
+    top: 50px;
+}
+.land[groundnumber="7"]{
+	left: 205px;
+    top: 80px;
+}
+.land[groundnumber="8"]{
+	left: 140px;
+	top: 110px;
+}
+.land[groundnumber="9"]{
+	left: 75px;
+	top: 140px;
+}
+.land[groundnumber="10"]{
+	left: 10px;
+	top: 170px;
+}
+.land[groundnumber="11"]{
+	left: 355px;
+    top: 95px;
+}
+.land[groundnumber="12"]{
+	left: 290px;
+	top: 125px;
+}
+.land[groundnumber="13"]{
+	left: 225px;
+	top: 155px;
+}
+.land[groundnumber="14"]{
+	left: 160px;
+	top: 185px;
+}
+.land[groundnumber="15"]{
+	left: 95px;
+	top: 215px;
+}
+
+.land[groundnumber="16"]{
+	left: 440px;
+	top: 140px;
+}
+.land[groundnumber="17"]{
+	left: 375px;
+	top: 170px;
+}
+.land[groundnumber="18"]{
+	left: 310px;
+	top: 200px;
+}
+.land[groundnumber="19"]{
+	left: 245px;
+	top: 230px;
+}
+.land[groundnumber="20"]{
+	left: 180px;
+	top: 260px;
+}
+
+.land[groundnumber="21"]{
+	left: 522px;
+	top: 180px;
+}
+.land[groundnumber="22"]{
+	left: 457px;
+	top: 210px;
+}
+.land[groundnumber="23"]{
+	left: 392px;
+	top: 240px;
+}
+.land[groundnumber="24"]{
+    left: 328px;
+    top: 272px;
+}
+.land[groundnumber="25"]{
+    left: 261px;
+    top: 303px;
+}
+
+.land[groundnumber="26"]{
+	left: 605px;
+	top: 225px;
+}
+.land[groundnumber="27"]{
+	left: 540px;
+	top: 255px;
+}
+.land[groundnumber="28"]{
+	left: 475px;
+	top: 285px;
+}
+.land[groundnumber="29"]{
+	left: 410px;
+	top: 315px;
+}
+.land[groundnumber="30"]{
+	left: 345px;
+	top: 345px;
+}
+
+.land[lever=land_lever_2]{
+	background: url(../images/final/foor_2.png)no-repeat 0 0;
+		background-size:117px;
+}
+.land[lever=land_lever_3]{
+	background: url(../images/final/foor_3.png)no-repeat 0 0;
+		background-size:117px;
+}
+.land[lever=land_lever_1]{
+	background: url(../images/final/foor_1.png)no-repeat 0 0;
+		background-size:117px;
+}
+
+#haha{
+	position: relative;
+}
+
+
+							 /*****************农场田地操作动画效果设置*******************/
+
+
+.tool-show-chandi{
+	width: 90px;
+	height: 120px;
+	/**background: url(../images/final/chantu/chantu-gif.gif)no-repeat 0 0;**/
+	position: absolute;
+	top: -50px;
+	left: 60px;
+	z-index: 100;	
+}
+
+                            /***********************10种树木形态设置***************************************/
+.land > .tree[lever=tree_lever_1]{
+	background: url(../images/final/shu_1.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}                             
+.land > .tree[lever=tree_lever_2]{
+	background: url(../images/final/shu_2.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}
+.land > .tree[lever=tree_lever_3]{
+	background: url(../images/final/shu_3.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}
+.land > .tree[lever=tree_lever_4]{
+	background: url(../images/final/shu_4.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}
+.land > .tree[lever=tree_lever_5]{
+	background: url(../images/final/shu_5.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}
+.land > .tree[lever=tree_lever_6]{
+	background: url(../images/final/shu_6.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}
+.land > .tree[lever=tree_lever_7]{
+	background: url(../images/final/shu_7.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}
+.land > .tree[lever=tree_lever_8]{
+	background: url(../images/final/shu_8.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}
+.land > .tree[lever=tree_lever_9]{
+	background: url(../images/final/shu_9.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}
+.land > .tree[lever=tree_lever_10]{
+	background: url(../images/final/shu_10.png)no-repeat 0 0;
+    background-size: 70px;
+    background-position: -11px -4px;
+}
+
+
+.land > .tree{
+position: absolute;
+    width: 50px;
+    height: 65px;
+    left: 35px;
+    top: -21px;
+}
+
+
+                                     /*****************农场左下角 工具栏设置*******************/
+                                    
+                                
+                                    
+                                    
+                                    
+.farm-tool{
+	width: 834px;
+	height: 92px;
+	min-height: 10px;
+	position: absolute;
+	left: 250px;
+	z-index: 2;
+	bottom: -10px;
+}
+.farm-tool-list{
+	position: relative;
+	width: 110px;
+	height: 110px;
+	float: left;
+	margin-left: 3px;
+	cursor: pointer;
+	bottom: 38px;
+}
+.farm-tool-list[tool="1"]{
+	margin-left: 80px;
+}
+
+
+.farm-tool-list.tip:before{
+	content: "";
+	position: absolute;
+	top: -15px;
+	left: 24px;
+	width: 26px;
+	height: 38px;
+	background: url(../images/tip2.gif)no-repeat 0 0;
+	z-index: 30;
+	margin-left: -10px;
+}
+
+
+									/*****************农场左下角 工具栏高亮设置*******************/
+									
+.tool_1.selected{
+	background: url(../images/final/login/chandi_but_over.png)no-repeat 0 0;
+}
+.tool_6.selected{
+	background: url(../images/final/login/zengzhong_but_over.png)no-repeat 0 0;
+}
+.tool_2.selected{
+	background: url(../images/final/login/jiaoshui_but_over.png)no-repeat 0 0;
+}
+.tool_3.selected{
+	background: url(../images/final/login/caimi_but_over.png)no-repeat 0 0;
+}
+.tool_4.selected{
+	background: url(../images/final/login/shifei_but_over.png)no-repeat 0 0;
+}
+.tool_5.selected{
+	background: url(../images/final/login/shouhuo_but_over.png)no-repeat 0 0;
+}
+									
+.tool_1{
+	background: url(../images/final/chandi_but.png)no-repeat 0 0;
+}
+.tool_6{
+	background: url(../images/final/login/zengzhong_but.png)no-repeat 0 0;
+}
+.tool_2{
+	background: url(../images/final/jiaoshui_but.png)no-repeat 0 0;
+}
+.tool_7{
+	background: url(../images/final/main/shaxin_but.png)no-repeat 0 0;
+}
+.tool_4{
+	background: url(../images/final/shifei_but.png)no-repeat 0 0;
+}
+.tool_5{
+	background: url(../images/final/shouhuo_but.png)no-repeat 0 0;
+}
+.tool_3{
+	background: url(../images/final/login/caimi_but.png)no-repeat 0 0;
+}
+
+
+
+                                      /*****************农场守护狗设置*******************/
+.dog{
+	bottom: 110px;
+	left: 530px;
+	position: absolute;
+	width: 117px;
+	height: 116px;
+	background: url(../images/bigdog.GIF)no-repeat 0 0;
+	z-index: 20;
+}
+
+.husky {
+    bottom: 240px;
+    left: 210px;
+    position: absolute;
+    background: url(../images/husky.gif) no-repeat 0 0;
+    width: 120px;
+    height: 104px;
+}
+									/*****************四个稻草人设置*******************/
+.scarecrow-socket{
+	position: absolute;
+	cursor: url(../images/scarecrow.ico),auto;
+}
+.scarecrow-socket[name=IsLocationOnePlugin]{
+	top: 220px;
+	left: 100px;
+	z-index: 6;
+}
+.scarecrow-socket[name=IsLocationTwoPlugin]{
+	top: 130px;
+	left: 170px;
+	z-index: 6;
+}
+.scarecrow-socket[name=IsLocationThreePlugin]{
+	top: 460px;
+	left: 850px;
+	z-index: 6;
+}
+.scarecrow-socket[name=IsLocationFourPlugin]{
+	top: 400px;
+	left: 980px;
+	z-index: 6;
+}
+.scarecrow{
+	top: 0px;
+	left: -4px;
+	position: absolute;
+	z-index: 0;
+	width: 92px;
+	height: 101px;
+	background: url(../images/scarecrow.ico)no-repeat center bottom;
+	display: none;	
+}
+.scarecrow:before{
+	
+}          
+.daocaoren{
+	content: "稻草人";
+	text-align: center;
+	display: block;
+	margin-top: 100px;
+	border-radius: 3px;
+	line-height: 24px;
+	color: blueviolet;
+	margin-left: 20px;
+}
+
+								/*****************页面居中 的提示信息 设置*******************/
+.farm-warm{
+	font-size: 100%;
+	position: absolute;
+	left: 55%;
+	top: 105px;
+	font-weight: bold;
+	height: 40px;
+	width: 300px;
+	overflow: hidden;
+	color: #FFFFFF;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	text-overflow: ellipsis;
+	margin-left: -150px;
+	line-height: 40px;
+	border-radius: .25em;
+	background: rgba(0,0,0,0.5);	
+}
+
+
+#request-msg{
+	opacity: 0;
+	z-index: 5;
+}
+
+
+
+
+/******farm-warm 点击增种工具后     单击土地   弹出的输入框  ******/
+
+.farm-grow-wrap{
+	position: relative;
+	background: url(../images/final/farm-grow-1.png)no-repeat;
+	width: 485px;
+	height: 375px;
+	z-index: 200;
+	left: 450px;
+	top: 200px;
+	display: none;
+}
+#farm-grow-close{
+	position: absolute;
+	background: url(../images/final/farm-grow-4.png)no-repeat;
+	width: 74px;
+	height: 78px;
+	z-index: 201;
+	left: 390px;
+	top: 10px;
+	cursor: pointer;
+}
+#farm-grow-text{
+	position: absolute;
+	left: 120px;
+	top: 85px;
+	color: rgb(185,140,85);
+	font-weight: bold;
+	font-size: 28px;
+}
+#farm-grow-juzi{
+	position: absolute;
+	background: url(../images/final/juzi.png)no-repeat;
+	width: 60px;
+	height: 60px;
+	left: 135px;
+	top: 150px;
+}
+#farm-grow-input{
+	position: absolute;
+	background: url(../images/final/farm-grow-3.png)no-repeat;
+	width: 108px;
+	height: 64px;
+	left: 210px;
+	top: 150px;
+}
+#farm-grow-input span{
+	font-size: 40px;
+	font-weight: bold;
+	padding-left: 30px;
+	line-height: 64px;
+	color: white;
+	cursor: pointer;
+}
+#farm-grow-confirm{
+	position: absolute;
+	background: url(../images/final/farm-grow-2.png)no-repeat;
+	width: 180px;
+	height: 71px;
+	left: 140px;
+	bottom: 40px;
+	cursor: pointer;
+}
+
+#farm-grow-input .input{
+	background: url(../images/final/farm-grow-3.png)no-repeat;
+	width: 112px;
+	height: 64px;
+	outline: none;
+	font-weight: bold;
+	font-size: 28px;
+	color: black;
+    border-width: 0px;
+}
+
+
+
+
+
+
+
+						/****************回到自家农场     设置 ********************/
+
+
+.back-own-farm{
+	width: 142px;
+	height: 143px;
+	background: url(../images/final/main/huijia_but.png)no-repeat;
+	position: absolute;
+	top: -10px;
+	right: -4px;
+	cursor: pointer;
+	z-index: 10;
+}
+
+
+
+						/****************背景音效设置       面板设置 ********************/
+#bg-music-setting{
+	cursor: pointer;
+}
+.bg-music-set{
+	width: 484px;
+	height: 356px;
+	background: url(../images/final/main/set_bg1.png)no-repeat;
+	position: relative;
+	left: 30%;
+	top: 23%;
+	z-index: 200;
+	display: none;
+}
+#bg-music-close{
+	width: 67px;
+	height: 70px;
+	background: url(../images/final/main/set_but1.png)no-repeat;
+	position: absolute;
+	left: 390px;
+	top: 20px;
+	cursor: pointer;
+}
+.music-set-1{
+	margin-top: 100px;
+	position: absolute;
+	top: 60px;
+}
+.music-set-2{	
+	margin-top: 100px;
+	position: absolute;
+	top: 90px;
+}
+.music-set-letter{
+	font-size: 25px;
+	line-height: 50px;
+	color: rgb(191,126,62);
+	font-weight: bold;
+	margin-left: 100px;
+}
+#bg-music-but1{
+	width: 121px;
+	height: 61px;
+	background: url(../images/final/main/set_but_open.png)no-repeat;
+	position: absolute;
+	left: 220px;
+	top: -8px;
+	cursor: pointer;
+}
+#bg-music-but3{
+	width: 121px;
+	height: 61px;
+	background: url(../images/final/main/set_but_closed.png)no-repeat;
+	position: absolute;
+	left: 220px;
+	top: -8px;
+	cursor: pointer;
+	display: none;
+}
+#bg-music-but2{
+	width: 121px;
+	height: 61px;
+	background: url(../images/final/main/set_but_open.png)no-repeat;
+	position: absolute;
+	left: 220px;
+	top: -8px;
+	cursor: pointer;
+}
+#bg-music-but4{
+	width: 121px;
+	height: 61px;
+	background: url(../images/final/main/set_but_closed.png)no-repeat;
+	position: absolute;
+	left: 220px;
+	top: -8px;
+	cursor: pointer;
+	display: none;
+}
+
+#chantu{
+	background-image: url(../images/final/chantu/chantu.png);
+	width: 90px;
+	height: 120px;
+	display: block;
+	z-index:200;
+	position:absolute;
+	left:70px;
+	bottom:30px;
+}
+
+#jiaoshui{
+	background-image: url(../images/final/jiaoshui/jiaoshui.png);
+	width: 225px;
+	height: 192px;
+	display: block;
+	z-index:200;
+	position:absolute;
+	left: -10px;
+	bottom: 10px;
+}
+
+#caimi{
+	background-image: url(../images/final/caimi/caimi.png);
+	width: 160px;
+	height: 120px;
+	display: block;
+	z-index:200;
+	position:absolute;
+	left:5px;
+	bottom:70px;
+}
+
+#shifei{
+	background-image: url(../images/final/shifei/shifei.png);
+	width: 120px;
+	height: 194px;
+	display: block;
+	z-index:200;
+	position:absolute;
+	left:45px;
+	bottom:50px;
+}
+
+#shouhuo{
+	background-image: url(../images/final/shouhuo/shouhuo.png);
+	width: 91px;
+	height: 86px;
+	display: block;
+	z-index:200;
+	position:absolute;
+	left:50px;
+	bottom:60px;
+}
+
+
+
+
+
+
+/**.farm-dialog{
+	background: url(../images/tipTop.png) no-repeat 0 0;
+    width: 203px;
+    height: 102px;
+    position: absolute;
+    padding: 10px;
+    z-index: 101;
+    font-family: "Microsoft Yahei";
+    font-size: 12px;
+    display: noe;
+}
+.farm-dialog-top{
+	height: 20px;
+    font-size: 15px;
+    color: #5d4028;
+    line-height: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin: 5px;
+}
+.farm-close{
+	width: 15px;
+    height: 15px;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 40px;
+    top: 18px;
+}
+.farm-dialog-content{
+	margin: 10px 25px;
+    width: 150px;
+    color: #dd9c42;
+}
+.farm-dialog input[type=text]{
+	border: 1px solid white;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 13.3333px Arial;
+    -webkit-user-select: text;
+    -webkit-writing-mode: horizontal-tb;
+    -webkit-appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+    padding: 1px;
+    border: 2px inset;
+    width: 60px;
+    padding: 2px 5px;
+}
+
+.farm-errors{
+	display: inline-block;
+    padding-left: 30px;
+    color: red;
+}
+**/
+
+
+
+
+
+                            /*****************屏幕大小大于768px*******************/                           
+@media only screen and (min-width: 768px){
+	.farm-information-row{
+		font-size: 14px;
+		font-weight: 500;
+	}
+	
+	.scarecrow:before{
+		color: white;
+		font-size: 14px;
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

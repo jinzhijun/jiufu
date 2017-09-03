@@ -1,0 +1,424 @@
+body {
+	    width: 100%;
+	    height: auto;
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader ( sizingMethod='scale' , src='../images/nongchang2.jpg');
+	    overflow: hidden;
+}
+
+                                     /**************全局基础样式设置*******************/
+* {
+	/*font-size: 11px;*/
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: "微软雅黑";
+	margin: 0 auto;
+	min-width: 980px;	
+}
+a,a:focus{
+	text-decoration: none;
+	color: #000000;
+	outline: none;
+	
+}
+
+input::-webkit-input-placeholder {
+	color: #442204;
+	font-size: 14px;
+	border: none;
+}
+	
+.box_changevision {
+	position: absolute;
+	right: 50px;
+	top: 20px;
+	font-size:23px;
+	color:#a30707; 
+}
+
+.box_changevision a {
+	font-size: 23px;
+}
+.box_changevision2 {
+	position: absolute;
+	font-size:23px;
+	color:#a30707; 
+	left: 180px;
+}
+.box_changevision2 a {
+	font-size: 23px;
+}
+
+					       		/**************登录界面设置*******************/	
+
+
+
+
+
+.login-page{
+	width: 100%;
+	height: 100%;
+}
+
+#login-page-wrap{
+	width: 800px;
+	height: 1100px;
+	position: relative;
+	margin: 0 auto;
+}
+#login-page-pic{
+	width: 662px;
+	height: 444px;
+	background: url(../images/final/login/farm-login.png)no-repeat;
+	margin: 0 auto;
+	margin-bottom: 120px;
+	margin-top: 150px;
+}
+
+.login{
+	width: 600px;
+	height: 700px;
+	margin-bottom: 300px;
+	margin-left: 600px;
+	position: relative;
+	margin: 0 auto;
+}
+.login-pic{
+	width: 160px;
+	height: 81px;
+	margin-bottom: 66px;	
+}
+#login-pic-1{
+	background: url(../images/app/loginword2.png)no-repeat;
+	margin-left: 45px;
+	margin-top: -30px;
+}
+#login-pic-1 .btn-text{
+	margin-left: 170px;
+	padding-left: 15px;
+}
+.btn-text{
+	background: url(../images/app/login_bg1.png)no-repeat;
+	width: 384px;
+	height: 84px;
+	outline: none;
+	font-weight: 63px;
+	font-size: 50px;
+}
+#login-pic-2{
+	margin-left: 45px;
+	background: url(../images/app/loginword1.png)no-repeat;
+	margin-top: 50px;
+}
+#login-pic-2 .btn-text{
+	margin-left: 170px;
+	margin-top: 0px;
+	padding-left: 15px;
+}
+							/**************placeholder 文本输入框  设置 *******************/
+#UserId::-webkit-input-placeholder{
+	color: rgb(150, 150, 150);
+	font-size: 50px;
+	font-weight: bold;
+}
+#UserId::-moz-placeholder{
+	color: rgb(150, 150, 150);
+	font-size: 50px;
+	font-weight: bold;
+}
+#Password::-webkit-input-placeholder{
+	color: rgb(150, 150, 150);
+	font-size: 50px;
+	font-weight: bold;
+}
+#Password::-moz-placeholder{
+	color: rgb(150, 150, 150);
+	font-size: 50px;
+	font-weight: bold;
+}
+
+#UserId{
+	border-width: 0;
+}
+#Password{
+	margin-top: 25px;
+}
+.vcode_holder{
+	background: url(../images/app/loginword3.png)no-repeat;
+	width: 204px;
+	height: 68px;
+	margin-left: 15px;
+	margin-top: 40px;
+}
+#vcode{
+	background: url(../images/app/login_bg2.png)no-repeat;
+	margin-left: 200px;
+	outline: none;
+	height: 76px;
+	width: 212px;
+	margin-top: 0px;
+	font-size: 50px;
+	padding-left: 15px;
+}
+#vcode::-webkit-input-placeholder{
+	color: rgb(150, 150, 150);
+	font-size: 50px;
+	font-weight: bold;
+}
+#vcode::-moz-placeholder{
+	color: rgb(150, 150, 150);
+	font-size: 50px;
+	font-weight: bold;
+}
+#vcode-2{
+	background: rgb(248,248,248);
+	position: absolute;
+	width: 150px;
+	height: 67px;
+	border: none;
+	margin-top: -72px;
+	margin-left: 430px;
+}
+.btn-login{
+	background: url(../images/app/login_but_up.png)no-repeat;
+	height: 148px;
+	width: 366px;
+	margin-top: 100px;
+}
+
+
+
+
+
+
+/**************农场游戏大厅页   设置     leftmenu页设置*******************/	
+
+
+
+.leftmenu{
+	width: 187px;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+    overflow: hidden;
+    background: rgba(255, 115, 15, 0.82);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.leftmenu dd{
+	line-height: 35px;
+    font-weight: bold;
+    font-size: 14px;
+    border-right: solid 1px #ebb683;
+}
+.leftmenu dd .title{
+	cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+.leftmenu dd span{
+	float: left;
+    margin: 10px 8px 0 12px;
+    color: #FFE3CC;
+}
+.leftmenu dd .menuson{
+	background-color: #FFE3CC;
+}
+.menuson{
+	line-height: 30px;
+    font-weight: normal;
+}
+.menuson li{
+	cursor: pointer;
+}
+.menuson li cite{
+	display: block;
+    float: left;
+    margin-left: 32px;
+    background: url(../images/l_icon.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    margin-top: 7px;
+    font-style: normal;
+}
+.menu{
+	color: #FF730F;
+    font-size: 14px;
+}
+
+
+#long-div{
+	width: 186px;
+	background: rgba(255, 115, 15, 0.82);
+	height: 730px;
+	border-right: solid 1px #ebb683;
+}
+
+
+
+
+
+
+
+
+/**************农场游戏大厅页   设置     游戏大厅农场PPG增长*******************/
+
+.place{
+	height: 40px;
+	background: url(../images/righttop.gif)repeat-x;
+}
+.place span {
+    line-height: 40px;
+    font-weight: bold;
+    float: left;
+    margin-left: 12px;
+    color: #dc4e00;
+    font-size: 15px;
+}
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.placeul li {
+    float: left;
+    line-height: 40px;
+    padding-left: 7px;
+    padding-right: 12px;
+}
+.placeul li a{
+	font-size: 15px;
+}
+
+/**************农场游戏大厅页   设置     游戏大厅农场PPG增长图*******************/
+
+
+#container{
+	width: 690px;
+    height: 350px;
+    border: 1px solid #808080;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#highcharts-0{
+	position: relative;
+    overflow: hidden;
+    width: 688px;
+    height: 348px;
+    text-align: left;
+    line-height: normal;
+    z-index: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.highcharts-title{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #274b6d;
+    fill: #274b6d;
+}
+.highcharts-subtitle{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #4d759e;
+    display: none; 
+    fill: #4d759e;
+}
+.highcharts-label{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    color: #666;
+    cursor: default;
+    line-height: 14px;
+    fill: #666;
+}
+.highcharts-lable-y{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #666;
+    cursor: default;
+    line-height: 14px;
+    fill: #666;
+}
+.highcharts-ppg{
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    cursor: pointer;
+    color: #909090;
+    z-index: 999;
+    fill: #909090;
+}
+
+
+
+
+
+
+/**************农场游戏大厅页   设置     游戏大厅通知公告*******************/
+.announcement-wrap{
+	width: 350px;
+    margin-top: 5px;
+    margin-left: 2px;
+    height: 350px;
+    border: 1px solid #808080;
+}
+.announcement{
+	font-size: 14px;
+    border: 0;
+    padding: 0;
+    height: 30px;
+    border-bottom: #d2d2d2 1px solid;
+    border-left: #d2d2d2 1px solid;
+    border-right: #d2d2d2 1px solid;
+    background: url(../images/news_02_03_01_01.jpg) no-repeat;
+    vertical-align: central;
+}
+.announcement-news-wrap{
+	font-size: 12px;
+    color: #519af9;
+    border-bottom: #d2d2d2 1px dotted;
+    height: 30px;
+    padding-left: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+.announcement-news{
+	width: 340px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

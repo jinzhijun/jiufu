@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://www.bbkxnc.com/farm/newfarm.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/reset.css" rel="stylesheet" media="screen">
+                        <link href="../css/style.css" rel="stylesheet" media="screen">
+                        <link href="../css/nongchang-setting-css.css" rel="stylesheet" media="screen">
+            </head>
+<script src="../js/jquery.min.js"></script>
+<script>
+var act='newfarm';
+var storage=window.localStorage;
+$(document).ready(function(){
+$('#userid').val(storage['userId']);
+$('#salt').val(storage['token']);
+});
+</script>
+<body>
+<div class="formbody">
+    <div id="usual1" class="usual">
+        <div class="itab">
+            <ul>
+                <li>
+                    <a href="newfarm.html#tab1" class="">开发新农场</a>
+                </li>
+            </ul>
+        </div>
+        <form name="form1" method="post" action="/index.php/Portal/User/registerPost" id="form1" novalidate="novalidate">
+            <div id="tab1" class="tabson" >
+            <ul class="forminfo">
+                <li>
+                    <label>推荐人：</label>
+                    <input name="post[parent_user]" type="text" value="" id="parent_user" readonly="readonly" class="dfinput required" aria-required="true">(地产主级别可变更推荐人)
+                </li>
+                <li>
+                    <label>新农场用户名：</label>
+                    <input name="post[user_login]" type="text" id="user_login" class="dfinput required" placeholder="6-16位数字或字母" aria-required="true">
+                </li>
+                <li>
+                    <label>姓名：</label>
+                    <input name="post[true_name]" type="text" id="true_name" class="dfinput required" placeholder="输入姓名" aria-required="true">
+                </li>
+                <li>
+                    <label>性别：</label>
+                    <select name="post[sex]" id="sex" class="required" aria-required="true">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </li>
+                <li>
+                    <label>手机号码：</label>
+                    <input name="post[mobile]" type="text" id="mobile" class="dfinput required number" maxlength="11" placeholder="可接收短信的有效手机号" aria-required="true">
+                </li>
+                <li>
+                    <label>所需金币数：</label>
+                    <label><span id="sjxy">210</span></label>
+                </li>
+
+                <li>
+                    <label>支付宝：</label>
+                    <input name="post[alipay]" type="text" id="alipay" class="dfinput " placeholder="输入支付宝号">
+                </li>
+                <li>
+                    <label>微信号：</label>
+                    <input name="post[weixin]" type="text" id="weixin" class="dfinput " placeholder="输入微信号">
+                </li>
+                <li>
+                    <label>密码：</label>
+                    <input name="post[user_pass]" type="password" id="user_pass" class="dfinput " placeholder="输入密码：">
+                </li>
+                <li>
+                    <label>确认密码：</label>
+                    <input name="post[re_user_pass]" type="password" id="re_user_pass" class="dfinput " placeholder="确认密码">
+                </li>
+                <li>
+                    <label>二级密码：</label>
+                    <input name="post[user_two_pass]" type="password" id="user_two_pass" class="dfinput " placeholder="二级密码">
+                </li>
+                <li>
+                    <label>确认二级密码：</label>
+                    <input name="post[re_user_two_pass]" type="password" id="re_user_two_pass" class="dfinput " placeholder="确认二级密码">
+                </li>
+                <li>
+                    <label>&nbsp;</label>
+                    <input type="hidden" name="userid" id="userid">
+                    <input type="hidden" name="salt" id="salt">
+                    <input type="button" name="BtnSave" value="确 认" id="BtnSave" class="btn" onclick="tj('form1')">
+                </li>
+            </ul>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/messages_zh.js"></script>
+
+<script src="../js/js.cookie-2.1.3.min.js"></script>
+
+<!-- Dynamic JS -->
+        <script src="../js/jquery.idTabs.min.js"></script>
+                <script src="../js/newfarm.js"></script>
+        <script src="../js/connect.js?v=20170225"></script>
+<script>
+    $(document).ready(function () {
+//        var phoneWidth = parseInt(window.screen.width);
+//        var phoneHeight = parseInt(window.screen.height);
+//        var phoneScale = phoneWidth/750; //除以的值按手机的物理分辨率
+//        var ua = navigator.userAgent;
+//        var viewportHtml = "";
+//        if (/Android (\d+\.\d+)/.test(ua)) {
+//            var version = parseFloat(RegExp.$1);
+//            // andriod 2.3
+//            if (version > 2.3) {
+//                viewportHtml = '<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi, user-scalable=no">';
+//                // andriod 2.3以上
+//            } else {
+//                viewportHtml = '<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, user-scalable=no">';
+//            }
+//            // 其他系统
+//        } else {
+//            viewportHtml = '<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', user-scalable=no, target-densitydpi=device-dpi">';
+//        }
+//
+//        if (viewportHtml)
+//        {
+////            $('meta[name="renderer"]').after(viewportHtml);
+//        }
+
+//
+//        var match,
+//            scale,
+//            TARGET_WIDTH = 320;
+//
+//        if (match = navigator.userAgent.match(/Android (\d+\.\d+)/)) {
+//            if (parseFloat(match[1]) < 4.4) {
+//                if (TARGET_WIDTH == 320) TARGET_WIDTH++;
+//                var scale = window.screen.width / TARGET_WIDTH;
+//                document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + TARGET_WIDTH + ', initial-scale = ' + scale + ', target-densitydpi=device-dpi');
+//            }
+//        } else {
+//            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + TARGET_WIDTH);
+//        }
+    });
+</script>
+
+</body></html>

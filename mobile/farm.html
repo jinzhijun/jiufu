@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css?v=20170225" rel="stylesheet">
+
+    <!-- jQuery validate -->
+    <link href="css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="css/nongchang-app-game-css.css?v=20170225" rel="stylesheet" media="screen">
+            </head>
+
+<body>
+<style>
+    html,
+    body {
+        margin: 0;
+        height: 100%;
+    }
+
+    body {
+        width: 100%;
+        background: url(images/app/shuban_bg1.png)no-repeat;
+        background-size: cover;
+    }
+
+    .farm-tool {
+                    background: url(images/app/main/main_but_bg.png)no-repeat;
+            }
+
+    body.modal-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+</style>
+
+<input type="hidden" id="userFirstlogin" value="0"/>
+<input type="hidden" id="unreadNotice" value="0"/>
+<input type="hidden" id="unreadMsg" value="0"/>
+<input type="hidden" id="userMusic" value="0|0"/>
+<input type="hidden" id="canBeeCount" value=""/>
+<input type="hidden" id="isInitPwd" value=""/>
+<div id="app">
+    <div class="farm">
+        <!--farm-game-info 左侧栏  游戏信息框-->
+        <div data-role="page" id="pageone" data-url="pageone" tabindex="0" class="ui-page ui-body-c ui-page-active">
+            <div data-role="content" class="ui-content" role="main">
+                <div class="farm-game-wrap" style="display: none;left: 0px;">
+                    <div class="farm-game-info" style="display: none;">
+                        <dl>
+                            <!-- 农场管理框    -->
+                            <dd>
+                                <div class="title farm-game-orchard" id="orchard-click-1" style="margin-top: 80px;">
+                                    <span class="farm-orchard-font2">农场管理</span>
+                                </div>
+                                <ul class="menuson farm-game-orchard-hide" style="display: none;height: 534px;">
+                                    <li class="farm-orchard-style" id="farm-friend">
+                                        <a class="farm-orchard-font friendFarm" rel="modalWin"
+                                           href="manger/friend.html">好友农场</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-created">
+                                        <a class="farm-orchard-font createdFarm" rel="modalWin" style="padding-left: 41px;"
+                                           href="manger/created.html">已开发农场</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-tree">
+                                        <a class="farm-orchard-font newFarm" style="padding-left: 41px;" rel="modalWin"
+                                           href="manger/newfarm.html">开发新农场</a>
+                                    </li>
+                                    <!--<li class="farm-orchard-style" id="xinshou-guide">
+                                        <a class="farm-orchard-font" rel="modalWin"
+                                           href="manger/instruction.html">新手指南</a>
+                                    </li>-->
+                                    <li class="farm-orchard-style" id="bg-music-setting">
+                                        <a class="farm-orchard-font" rel="systemSetting" href="javascript:;">系统设置</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-warehouse">
+                                        <a class="farm-orchard-font" rel="modalWin" style="padding-left: 90px;"
+                                           href="manger/messages.html">站内信</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-tree">
+                                        <a class="farm-orchard-font" rel="modalWin" href="manger/notice.html">公告通知</a>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- 交易管理框    -->
+
+                            <dd>
+                                <div class="title farm-game-orchard" id="orchard-click-2">
+                                    <span class="farm-orchard-font2">生长记录</span>
+                                </div>
+                                <ul class="menuson farm-game-orchard-hide" style="display: none;height: 620px;">
+                                    <li class="farm-orchard-style" id="farm-orchard-warehouse">
+                                        <a class="farm-orchard-font3" rel="modalWin" href="record/growth.html">农场生长记录</a>
+                                    </li>
+                                    <!--<li class="farm-orchard-style" id="farm-orchard-tree">
+                                        <a class="farm-orchard-font3" rel="modalWin" href="record/dog.html">种子奖励记录</a>
+                                    </li>-->
+                                    <li class="farm-orchard-style" id="farm-orchard-b">
+                                        <a class="farm-orchard-font"  rel="modalWin"
+                                           href="record/seed.html">奖励记录</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-b">
+                                        <a class="farm-orchard-font" rel="modalWin"
+                                           href="record/bee.html">采蜜记录</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-b">
+                                        <a class="farm-orchard-font" rel="modalWin"
+                                           href="record/fertilize.html">施肥记录</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-b">
+                                        <a class="farm-orchard-font" rel="modalWin" href="record/seeding.html">播种记录</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-b">
+                                        <a class="farm-orchard-font" rel="modalWin"
+                                           href="record/reap.html">收割记录</a>
+                                    </li>
+                                </ul>
+                            </dd>
+
+
+                            <!-- 个人信息框    -->
+                            <dd id="orchard-click-3">
+                                <div class="title farm-game-orchard">
+                                    <span class="farm-orchard-font2">交易中心</span>
+                                </div>
+                                <ul class="menuson farm-game-orchard-hide" style="display: none;">
+                                    <li class="farm-orchard-style" id="farm-orchard-warehouse">
+                                        <a class="farm-orchard-font3" style="padding-left: 5px;" rel="modalWin"
+                                           href="trade/authcodeorder.html">订购交易验证码</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-tree">
+                                        <a class="farm-orchard-font" rel="modalWin"
+                                           href="trade/sales.html">出售金币</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-a">
+                                        <a class="farm-orchard-font" rel="modalWin" href="record/sales.html">出售记录</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-a">
+                                        <a class="farm-orchard-font" rel="modalWin" href="trade/entrust.html">委托记录</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-a">
+                                        <a class="farm-orchard-font" rel="modalWin" href="trade/purchase.html">购买记录</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-a">
+                                        <a class="farm-orchard-font3" style="padding-left: 90px;line-height: 76px;" rel="modalWin" href="trade/exchange.html">交易所</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-a">
+                                        <a class="farm-orchard-font" rel="modalWin" href="trade/translate.html">道具商城</a>
+                                    </li>
+                                    <!--<li class="farm-orchard-style" id="farm-orchard-a">
+                                        <a class="farm-orchard-font" rel="modalWin" href="trade/seedppg.html">种子兑换</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-a">
+                                        <a class="farm-orchard-font3" rel="modalWin" href="trade/seedppg.html">种子转换记录</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-a">
+                                        <a class="farm-orchard-font" rel="modalWin" href="trade/translate.html">商场转账</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-a">
+                                        <a class="farm-orchard-font3" rel="modalWin" href="trade/translate.html">商场转账记录</a>
+                                    </li>-->
+                                </ul>
+                            </dd>
+
+
+                            <dd>
+                                <div class="title farm-game-orchard" id="orchard-click-1">
+                                    <span class="farm-orchard-font2">个人信息</span>
+                                </div>
+                                <ul class="menuson farm-game-orchard-hide" style="display: none;">
+                                    <li class="farm-orchard-style" id="farm-orchard-warehouse">
+                                        <a class="farm-orchard-font" rel="modalWin" href="info/changepwd.html">修改密码</a>
+                                    </li>
+                                    <li class="farm-orchard-style" id="farm-orchard-tree">
+                                        <a class="farm-orchard-font" rel="modalWin" href="info/personal.html">个人资料</a>
+                                    </li>
+                                </ul>
+                            </dd>
+
+                            <!-- 个人信息框    -->
+
+                            <a href="javascript:void(0)" onclick="outlogin('退出成功')">
+                                <div class="title" id="farm-game-orchard-logout">
+                                    <span class="farm-orchard-font2" style="padding-left: 105px;">退出</span>
+                                </div>
+                            </a>
+                        </dl>
+                    </div>
+                </div>
+
+                <!-- 信息框  展开隐藏  按钮键  -->
+                <div class="farm-game-orchard-click"></div>
+                <div class="farm-game-orchard-click-2"></div>
+            </div>
+
+            <!--farm-floor 农场土地-->
+            <div class="farm-floor">
+                <div class="land ev-land" id="g_1" groundnumber="1" lever="land_lever_2">
+                    <div class="groundnumber1"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_2" groundnumber="2" lever="land_lever_2">
+                    <div class="groundnumber2"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_3" groundnumber="3" lever="land_lever_2">
+                    <div class="groundnumber3"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_4" groundnumber="4" lever="land_lever_2">
+                    <div class="groundnumber4"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_5" groundnumber="5" lever="land_lever_2">
+                    <div class="groundnumber5"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_6" groundnumber="6" lever="land_lever_2">
+                    <div class="groundnumber6"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_7" groundnumber="7" lever="land_lever_2">
+                    <div class="groundnumber7"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_8" groundnumber="8" lever="land_lever_2">
+                    <div class="groundnumber8"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_9" groundnumber="9" lever="land_lever_2">
+                    <div class="groundnumber9"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_10" groundnumber="10" lever="land_lever_2">
+                    <div class="groundnumber10"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_11" groundnumber="11" lever="land_lever_3">
+                    <div class="groundnumber11"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_12" groundnumber="12" lever="land_lever_3">
+                    <div class="groundnumber12"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_13" groundnumber="13" lever="land_lever_3">
+                    <div class="groundnumber13"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_14" groundnumber="14" lever="land_lever_3">
+                    <div class="groundnumber14"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                <div class="land ev-land" id="g_15" groundnumber="15" lever="land_lever_3">
+                    <div class="groundnumber15"></div>
+                    <div class="beans">0</div>
+                    <div class="tree" lever="tree_lever_0"></div>
+                </div>
+                            <div class="land ev-land" id="g_16" groundnumber="16" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_17" groundnumber="17" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_18" groundnumber="18" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_19" groundnumber="19" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_20" groundnumber="20" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_21" groundnumber="21" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_22" groundnumber="22" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_23" groundnumber="23" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_24" groundnumber="24" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_25" groundnumber="25" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_26" groundnumber="26" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_27" groundnumber="27" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_28" groundnumber="28" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_29" groundnumber="29" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+            <div class="land ev-land" id="g_30" groundnumber="30" lever="land_lever_2">
+                <div class="groundnumber15"></div>
+                <div class="beans">0</div>
+                <div class="tree" lever="tree_lever_0"></div>
+            </div>
+                <!--farm-dog 守护狗  Start-->
+                <div class="dog" style="display: none;"></div>
+                <!--farm-dog 哈士奇  Start-->
+                <div class="husky" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!--farm-user-info 玩家信息框-->
+        <div id="farm-user-info">
+            <div id="farm-user-head-wrap">
+                <div id="farm-user-head">
+                    <div id="farm-user-head-pic"></div>
+                </div>
+            </div>
+            <div class="farm-user-font" id="farm-user-name">--</div>
+            <div class="farm-user-font" id="farm-user-id">--</div>
+            <div class="user-lever" id="farm-user-level" lever="user_lever_1"></div>
+            <a rel="modalWin" href="manger/messages.html">
+                <div class="mail-message">
+                    <span class="message-number" id="mail-number">0</span>
+                </div>
+            </a>
+            <a rel="modalWin" href="manger/notice.html">
+                <div class="notice-message">
+                    <span class="message-number" id="notice-number">0</span>
+                </div>
+            </a>
+        </div>
+
+        <!--*****************farm-top-info 游戏顶端   两个  信息框设置*******************/-->
+        <div class="farm-top-info" id="farm-top-info-1">
+            <div class="farm-info">
+                <span class="farm-info-name">总量</span>
+                <div class="farm-info-data">
+                    <span class="farm-data" id="totalFruit"></span>
+                </div>
+            </div>
+            <div class="farm-info">
+                <span class="farm-info-name">播种</span>
+                <div class="farm-info-data">
+                    <span class="farm-data" id="seedFruit"></span>
+                </div>
+            </div>
+            <div class="farm-info">
+                <span class="farm-info-name">仓库</span>
+                <div class="farm-info-data">
+                    <span class="farm-data" id="unseedFruit"></span>
+                </div>
+            </div>
+            <div class="farm-info" style="margin-left: -17px;width: 298px;">
+                <span class="farm-info-name">总生长</span>
+                <div class="farm-info-data">
+                    <span class="farm-data" id="totalGrowth"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="farm-topleft-info">
+            <div class="farm-info">
+                <div class="farm-info-ico" id="farm-info-ico1"></div>
+                <div class="farm-info-data-2">
+                    <span class="farm-data" id="fertilizeCount"></span>
+                </div>
+            </div>
+            <div class="farm-info">
+                <div class="farm-info-ico" id="farm-info-ico2"></div>
+                <div class="farm-info-data-2">
+                    <span class="farm-data" style="padding-left: 10px;" id="dogCount"></span>
+                </div>
+            </div>
+            <div class="farm-info">
+                <div class="farm-info-ico loading-sate-ani laoding_sate" style="visibility: visible;">
+                    <i id="farm-info-ico3"></i>
+                </div>
+                <div class="farm-info-data-2">
+                    <span class="farm-data" id="beeCount"></span>
+                </div>
+            </div>
+            <div class="farm-info">
+                <div class="farm-info-ico loading-sate-ani-2 laoding_sate-2" style="visibility: visible;">
+                    <i id="farm-info-ico4"></i>
+                </div>
+                <div class="farm-info-data-2">
+                    <span class="farm-data" style="padding-left: 10px;" id="scarecrowCount"></span>
+                </div>
+            </div>
+        </div>
+
+        <!--farm-tool 农场工具栏  start-->
+
+        <div class="farm-tool">
+            <div class="farm-tool-wrap">
+                <div class="farm-tool-list ev-tool tool_1 " title="开垦" tool="1" id="farm-tool-1"></div>
+                <div class="farm-tool-list ev-tool tool_6 " title="增种" tool="6" id="farm-tool-6"></div>
+                <div class="farm-tool-list ev-tool tool_2 " title="浇水" tool="2" id="farm-tool-2"></div>
+                <div class="farm-tool-list ev-tool tool_3 " title="采蜜" tool="3" id="farm-tool-3"
+                     style="display: none;"></div>
+                <div class="farm-tool-list ev-tool tool_4 " title="施肥" tool="4" id="farm-tool-4"></div>
+                <div class="farm-tool-list ev-tool tool_5 " title="收获" tool="5" id="farm-tool-5"></div>
+                <div class="farm-tool-list ev-tool tool_8 " title="偷窃" tool="8" id="farm-tool-8"></div>
+                <div class="farm-tool-list ev-tool tool_7 " title="刷新" tool="7" id="farm-tool-7"
+                     style="bottom: 30px;width: 140px;height: 148px;"></div>
+            </div>
+        </div>
+
+
+        <!--scarecrow-socket 四个稻草人  Start-->
+        <div class="scarecrow-socket ev-scarecrow" id="s_1" name="IsLocationOnePlugin">
+            <div class="scarecrow"></div>
+            <span class="daocaoren">稻草人</span>
+        </div>
+        <div class="scarecrow-socket ev-scarecrow" id="s_2" name="IsLocationTwoPlugin">
+            <div class="scarecrow"></div>
+            <span class="daocaoren">稻草人</span>
+        </div>
+        <div class="scarecrow-socket ev-scarecrow" id="s_3" name="IsLocationThreePlugin">
+            <div class="scarecrow"></div>
+            <span class="daocaoren">稻草人</span>
+        </div>
+        <div class="scarecrow-socket ev-scarecrow" id="s_4" name="IsLocationFourPlugin">
+            <div class="scarecrow"></div>
+            <span class="daocaoren">稻草人</span>
+        </div>
+
+        <div class="back-own-farm" id="farm-back" style="display: none;" title="返回自己农场"></div>
+        <div class="onecm-farm" id="onecm" style="display: none;" title="一键采蜜"></div>
+
+        <!--farm-warm 提示信息：没有足够的稻草人   页面居中  Start-->
+        <div class="farm-warm" id="request-msg">仓库中没有足够的稻草人</div>
+
+        <!--farm-warm 点击增种工具后     单击土地   弹出的输入框  -->
+        <div class="farm-grow-wrap">
+            <div id="farm-grow-close"></div>
+            <div id="farm-grow-text">请输入增种数量</div>
+            <div id="farm-grow-juzi"></div>
+            <div id="farm-grow-input">
+                <input type="hidden" id="groundnumber" name="groundnumber" value=""/>
+                <input type="text" id="grownumber" name="grownumber" value=""
+                       style="z-index: 50;height: 50px;width: 50%;font-size: 2em;"/>
+            </div>
+            <div id="farm-grow-confirm"></div>
+        </div>
+
+        <!--描述：背景音效设置       面板设置 -->
+        <div class="bg-music-set">
+            <div id="bg-music-close"></div>
+            <div class="music-set-1" style="margin-top: 50px;">
+                <span class="music-set-letter" id="bg-music-anniu">背景音乐</span>
+                <div id="bg-music-but1"></div>
+                <div id="bg-music-but3"></div>
+            </div>
+            <div class="music-set-2">
+                <span class="music-set-letter" id="elses-music-anniu">游戏音效</span>
+                <div id="bg-music-but2"></div>
+                <div id="bg-music-but4"></div>
+            </div>
+        </div>
+
+        <div>
+            <!--*****************背景音乐等  音效 设置*******************/-->
+            <audio id="bg-music" src="music/bg-music.mp3"
+                   controls="controls" loop="loop" hidden="hidden"></audio>
+            <audio id="anniu-music" src="music/anniu.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="anniu-click-music" src="music/anniu-click.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="beers-music" src="music/beers.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="caimi-music" src="music/caimi.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="chandi-music" src="music/chandi.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="jiaoshui-music" src="music/jiaoshui.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="shifei-music" src="music/shifei.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="shouhuo-music" src="music/shouhuo.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="zengzhong1-music" src="music/zengzhong1.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="zengzhong2-music" src="music/zengzhong2.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="husky-music" src="music/husky.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="dog-music" src="music/dog.mp3" controls="controls"
+                   hidden="hidden"></audio>
+            <audio id="new-message-music" src="music/new-message.mp3" controls="controls"
+                   hidden="hidden"></audio>
+        </div>
+
+            </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="winModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width: 96%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn btn-primary btn-lg pull-right" data-dismiss="modal" style="zoom: 150%">
+                    关闭
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="subWinFrame" src="javascript:;" width="100%" height="600px;" style="border: none;"></iframe>
+            </div>
+        </div>
+    </div>
+</div></body>
+
+<!-- jQuery -->
+<script src="js/jquery.min.js?v=20170225"></script>
+<script src="js/touch-0.2.14.min.js?v=20170225"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js?v=20170225"></script>
+
+<!-- jQuery validate -->
+<script src="js/jquery.validate.js?v=20170225"></script>
+<script src="js/messages_zh.js?v=20170225"></script>
+
+<script src="js/js.cookie-2.1.3.min.js?v=20170225"></script>
+
+<!-- Dynamic JS -->
+        <script src="js/nongchang-app-game.js?v=20170225"></script>
+        
+</html>

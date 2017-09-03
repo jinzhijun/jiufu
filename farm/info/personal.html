@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.bbkxnc.com/info/personal.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>玖富庄园，一款神奇的游戏！</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery validate -->
+    <link href="../css/jquery_validation.css" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+                <link href="../css/style.css" rel="stylesheet" media="screen">
+                        <link href="../css/nongchang-setting-css.css" rel="stylesheet" media="screen">
+                        <!-- jQuery -->
+<script src="../js/jquery.min.js"></script>
+            </head>
+<script>
+var act='personal';
+var storage=window.localStorage;
+$('#userid').val(storage['userId']);
+$('#salt').val(storage['token']);
+</script>
+<body>
+<div class="formbody">
+    <div class="formtitle">
+        <span>修改个人资料</span></div>
+    <form name="form1" method="post" action="/index.php/Portal/User/editPost" id="form1" novalidate="novalidate">
+        <ul class="forminfo">
+            <li>
+                <label>用户ID：</label>
+                <label id="user_login">--</label>
+            </li>
+            <!--<li>
+                <label>姓名：</label>
+                <label>
+                    <input name="txtUserName" type="text" value="" id="txtUserName" class="dfinput required" />
+                </label>
+            </li>-->
+
+            <li>
+                <label>性别：</label>
+                <select name="post[sex]" id="sex" class="required" aria-required="true">
+                    <option value="男" selected="selected">男</option>
+                    <option value="女">女</option>
+
+                </select>
+            </li>
+
+            <li>
+                <label>手机号：</label>
+                <input name="" type="text" value="" readonly="readonly" id="mobile" class="dfinput required number" aria-required="true">
+            </li>
+            <li>
+                <label>微信：</label>
+                <input name="post[weixin]" type="text" id="weixin" class="dfinput " value="">
+            </li>
+            <li>
+                <label>支付宝：</label>
+                <input name="post[alipay]" type="text" id="alipay" class="dfinput " value="">
+            </li>
+
+            <!--<li>
+                <label>短信验证码：</label>
+                <input name="txtVerifyCode" type="text" id="txtVerifyCode" class="dfinput" />
+                <input type="submit" name="btnGetVerifyCode" value="获取验证码" id="btnGetVerifyCode" class="btn" />
+            </li>-->
+            <li>
+                <label>&nbsp;</label>
+                <input type="hidden" name="userid" id="userid">
+                <input type="hidden" name="salt" id="salt">
+                <input type="button" name="BtnSave" value="修改" id="BtnSave" class="btn" onclick="tj('form1')">
+                <input type="reset" name="BtnRet" value="重置" id="BtnRet" class="btn">
+            </li>
+        </ul>
+    </form>
+
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- jQuery validate -->
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/messages_zh.js"></script>
+
+<script src="../js/js.cookie-2.1.3.min.js"></script>
+
+<!-- Dynamic JS -->
+        <script src="../js/jquery.idTabs.min.js"></script>
+                <script src="../js/personal.js"></script>
+     <script src="../js/connect.js?v=20170225"></script>          
+<script>
+    $(document).ready(function () {
+//        var phoneWidth = parseInt(window.screen.width);
+//        var phoneHeight = parseInt(window.screen.height);
+//        var phoneScale = phoneWidth/750; //除以的值按手机的物理分辨率
+//        var ua = navigator.userAgent;
+//        var viewportHtml = "";
+//        if (/Android (\d+\.\d+)/.test(ua)) {
+//            var version = parseFloat(RegExp.$1);
+//            // andriod 2.3
+//            if (version > 2.3) {
+//                viewportHtml = '<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi, user-scalable=no">';
+//                // andriod 2.3以上
+//            } else {
+//                viewportHtml = '<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, user-scalable=no">';
+//            }
+//            // 其他系统
+//        } else {
+//            viewportHtml = '<meta name="viewport" content="width=device-width, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', user-scalable=no, target-densitydpi=device-dpi">';
+//        }
+//
+//        if (viewportHtml)
+//        {
+////            $('meta[name="renderer"]').after(viewportHtml);
+//        }
+
+//
+//        var match,
+//            scale,
+//            TARGET_WIDTH = 320;
+//
+//        if (match = navigator.userAgent.match(/Android (\d+\.\d+)/)) {
+//            if (parseFloat(match[1]) < 4.4) {
+//                if (TARGET_WIDTH == 320) TARGET_WIDTH++;
+//                var scale = window.screen.width / TARGET_WIDTH;
+//                document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + TARGET_WIDTH + ', initial-scale = ' + scale + ', target-densitydpi=device-dpi');
+//            }
+//        } else {
+//            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + TARGET_WIDTH);
+//        }
+    });
+</script>
+</body></html>
