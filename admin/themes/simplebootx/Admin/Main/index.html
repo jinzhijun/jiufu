@@ -1,0 +1,103 @@
+<admintpl file="header" />
+<style>
+.home_info li em {
+	float: left;
+	width: 120px;
+	font-style: normal;
+}
+li {
+	list-style: none;
+}
+li{
+float: left;
+    width: 300px;
+    font-style: normal;
+    text-align: center;
+    border: 1px solid #eee;
+
+}
+</style>
+</head>
+<body>
+	<div class="wrap js-check-wrap" >
+	<form class="well form-search" method="post" action="">
+            非活跃天数(距上次排单天数)：
+            <input type="text" name="fhyts" value="{$formget.fhyts|default=''}" style="width: 120px;" autocomplete="off">
+                        提供帮助时间：
+            <input type="text" name="start_time" class="js-datetime" value="{$formget.start_time|default=''}" style="width: 120px;" autocomplete="off">-
+            <input type="text" class="js-datetime" name="end_time" value="{$formget.end_time|default=''}" style="width: 120px;" autocomplete="off"> &nbsp; &nbsp;
+                        接受帮助时间：
+            <input type="text" name="start_time2" class="js-datetime" value="{$formget.start_time2|default=''}" style="width: 120px;" autocomplete="off">-
+            <input type="text" class="js-datetime" name="end_time2" value="{$formget.end_time2|default=''}" style="width: 120px;" autocomplete="off"> &nbsp; &nbsp;
+            <input type="submit" class="btn btn-primary" value="搜索" />
+            <input type="button" class="btn btn-primary" value="自动匹配" onclick="if(confirm('你确定要自动匹配{$formget.start_time|default=''}到{$formget.end_time|default=''}的订单')){location.href='/index.php/admin/Main/zdpp'}"/>
+     </form>
+    <ul>
+     <li>
+     <p>总人数</p>
+     <p>{$regnum}</p>
+     </li>
+     <li>
+     <p>激活人数</p>
+     <p>{$jhnum}</p>
+     </li>
+     <li>
+     <p>封号人数</p>
+     <p>{$fhnum}</p>
+     </li>
+     <li>
+     <p>等待提现金额</p>
+     <p>{$jsbzmoney}</p>
+     </li>
+     
+     <li>
+     <p>等待提现人数</p>
+     <p>{$jsbznum}</p>
+     </li>
+     <li>
+     <p>等待排单金额</p>
+     <p>{$tgbzmoney}</p>
+     </li>
+     
+     <li>
+     <p>等待排单人数</p>
+     <p>{$tgbznum}</p>
+     </li>
+     
+     <li>
+     <p>冻结金额</p>
+     <p>{$djmoney}</p>
+     </li>
+     
+     <li>
+     <p>冻结人数</p>
+     <p>{$djnum}</p>
+     </li>
+
+     <li>
+     <p>非活跃人数</p>
+     <p><a href="{:U('Portal/adminUser/index',array('fhy'=>'1'))}">{$fhynum}</a></p>
+     </li>
+
+     <li>
+     <p>自动匹配提供帮助金额</p>
+     <p>{$tgbzmoney2}</p>
+     </li>
+
+     <li>
+     <p>自动匹配接受帮助金额</p>
+     <p>{$jsbzmoney2}</p>
+     </li>
+
+
+     
+
+     </ul>
+	
+
+
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

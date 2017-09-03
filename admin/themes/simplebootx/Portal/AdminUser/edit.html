@@ -1,0 +1,202 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminUser/index')}">会员管理</a></li>
+			<li class="active"><a href="#">会员编辑</a></li>
+		</ul>
+		<form class="form-horizontal js-ajax-form" action="{:U('AdminUser/edit_post')}" method="post">
+			<fieldset>
+                            <div class="control-group" >
+					<label class="control-label">账号</label>
+					<div class="controls" >
+						<input type="hidden" name="id" value="{$post.id}">
+                                                <input type="text" style="color: red" name="" disabled="true" value="{$post.user_login}">
+					</div>
+				</div>
+				<div class="control-group" >
+					<label class="control-label">推荐人</label>
+					<div class="controls" >
+                                            <input type="text" style="color: red" name="" disabled="true" value="{$post.parent_user}">
+					</div>
+				</div>
+				<div class="control-group" style="display:none">
+					<label class="control-label">是否经理</label>
+					<div class="controls">
+						<php>$active_true_checked=($post['is_manger']==1)?"checked":"";</php>
+						<label class="radio inline" for="yes">
+							<input type="radio" name="is_manger" value="1" {$active_true_checked} id="yes"/>是
+						</label>
+						<php>$active_false_checked=($post['is_manger']==0)?"checked":"";</php>
+						<label class="radio inline" for="no">
+							<input type="radio" name="is_manger" value="0" id="no"{$active_false_checked}>否
+						</label>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">会员状态</label>
+					<div class="controls">
+						<php>$active_true_checked=($post['user_status']==0)?"checked":"";</php>
+						<label class="radio inline" for="status_yes">
+							<input type="radio" name="user_status" value="0" {$active_true_checked} id="status_yes"/>正常
+						</label>
+						<php>$active_false_checked=($post['user_status']==1)?"checked":"";</php>
+						<label class="radio inline" for="status_no">
+							<input type="radio" name="user_status" value="1" id="status_no"{$active_false_checked}>封号
+						</label>
+						<php>$active_false_checked=($post['user_status']==2)?"checked":"";</php>
+						<label class="radio inline" for="active_false">
+							<input type="radio" name="user_status" value="2" id="active_false"{$active_false_checked}>未激活
+						</label>
+					</div>
+				</div>
+                            <div class="control-group">
+                                <label class="control-label">一键采蜜到期时间</label>
+                                <div class="controls">
+                                    <input type="text" name="cmauto" value='{$post.cmauto}'  placeholder="" class="js-datetime">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">一键施肥到期时间</label>
+                                <div class="controls">
+                                    <input type="text" name="sfauto" value='{$post.sfauto}'  placeholder="" class="js-datetime">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">一键收获到期时间</label>
+                                <div class="controls">
+                                    <input type="text" name="shauto" value='{$post.shauto}'  placeholder="" class="js-datetime">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">一键增种到期时间</label>
+                                <div class="controls">
+                                    <input type="text" name="zzauto" value='{$post.zzauto}'  placeholder="" class="js-datetime">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">自动浇水到期时间</label>
+                                <div class="controls">
+                                    <input type="text" name="waterauto" value='{$post.waterauto}'  placeholder="" class="js-datetime">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">机器人到期时间</label>
+                                <div class="controls">
+                                    <input type="text" name="jqauto" value='{$post.jqauto}'  placeholder="" class="js-datetime">
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label class="control-label">一级密码</label>
+                                <div class="controls">
+                                    <input type="password" name="user_pass" value='{$post.user_pass}'  placeholder="">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">二级密码</label>
+                                <div class="controls">
+                                    <input type="password" name="user_two_pass" value="{$post.user_two_pass}"  placeholder="">
+                                </div>
+                            </div>
+                            <div class="control-group" style="display:none">
+                                <label class="control-label">昵称</label>
+                                <div class="controls">
+                                    <input type="text" name="user_nicename" value="{$post.user_nicename}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">手机号码</label>
+                                <div class="controls">
+                                    <input type="text" name="mobile" value="{$post.mobile}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">真实姓名</label>
+                                <div class="controls">
+                                    <input type="text" name="true_name" value="{$post.true_name}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">性别</label>
+                                <div class="controls">
+                                    <input type="text" name="sex" value="{$post.sex}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">身份证号码</label>
+                                <div class="controls">
+                                    <input type="text" name="cardnum" value="{$post.cardnum}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">微信号</label>
+                                <div class="controls">
+                                    <input type="text" name="weixin" value="{$post.weixin}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">支付宝</label>
+                                <div class="controls">
+                                    <input type="text" name="alipay" value="{$post.alipay}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">qq</label>
+                                <div class="controls">
+                                    <input type="text" name="qq" value="{$post.qq}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">银行名称</label>
+                                <div class="controls">
+                                    <input type="text" name="bank_name" value="{$post.bank_name}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">开户行</label>
+                                <div class="controls">
+                                    <input type="text" name="kaihuhang" value="{$post.kaihuhang}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">开户地址</label>
+                                <div class="controls">
+                                    <input type="text" name="kaihudizhi" value="{$post.kaihudizhi}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">银行卡号</label>
+                                <div class="controls">
+                                    <input type="text" name="bank_card_number" value="{$post.bank_card_number}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">省份</label>
+                                <div class="controls">
+                                    <input type="text" name="sheng" value="{$post.sheng}" >
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">市区</label>
+                                <div class="controls">
+                                    <input type="text" name="shi" value="{$post.shi}" >
+                                </div>
+                            </div>
+			</fieldset>
+			<div class="form-actions">
+				<input type="hidden" name="id" value="{$post.id}"/>
+				<button type="submit" class="btn btn-primary  js-ajax-submit">{:L('SAVE')}</button>
+				<a class="btn" href="javascript:history.back(-1);">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

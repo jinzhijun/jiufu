@@ -1,0 +1,472 @@
+<admintpl file="header" />
+</head>
+<body>
+    <div class="wrap js-check-wrap">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#B" data-toggle="tab">奖金设置</a></li>
+        </ul>
+        <form class="form-horizontal js-ajax-forms" action="{:U('AdminBonus/bonusPost')}" method="post">
+            <fieldset>
+                <div class="tabbable">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="B">
+
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label">网站开关</label>
+                                    <div class="controls">
+                                        <php>$active_true_checked=($wz_status==1)?"checked":"";</php>
+                                        <label class="radio inline" for="yes2">
+                                            <input type="radio" name="options[wz_status]" value="1" {$active_true_checked} id="yes2"/>开
+                                        </label>
+                                        <php>$active_false_checked=($wz_status==0)?"checked":"";</php>
+                                        <label class="radio inline" for="no2">
+                                            <input type="radio" name="options[wz_status]" value="0" id="no2"{$active_false_checked}>关
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">偷窃开关</label>
+                                    <div class="controls">
+                                        <php>$active_true_checked=($tq_status==1)?"checked":"";</php>
+                                        <label class="radio inline" for="yes">
+                                            <input type="radio" name="options[tq_status]" value="1" {$active_true_checked} id="yes"/>开
+                                        </label>
+                                        <php>$active_false_checked=($tq_status==0)?"checked":"";</php>
+                                        <label class="radio inline" for="no">
+                                            <input type="radio" name="options[tq_status]" value="0" id="no" {$active_false_checked}>关
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">关闭原因:</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[yuanyin]" value="{$yuanyin|urldecode=###}">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">网站每日开启时间</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[begin_time]" value="{$begin_time}">(格式：9:59,23:59,9:4不要输9:04)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">网站每日结束时间</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[end_time]" value="{$end_time}">(格式：9:59,23:59,9:4不要输9:04)
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">交易打款时间</label>
+                                    <div class="controls">
+                                        <input type="number" name="options[pay_time]" value="{$pay_time}"> 小时
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">交易收款时间</label>
+                                    <div class="controls">
+                                        <input type="number" name="options[income_time]" value="{$income_time}"> 小时
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">交易不受次数限制的账号</label>
+                                    <div class="controls">
+                                        <input style="width: 1000px" type="text" name="options[no_check]" value="{$no_check}" placeholder="例如HQ083287+HQ666694+HQ555777"> '+'分割
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="control-group">
+                                    <label class="control-label">交易出售金额</label>
+                                    <div class="controls">
+                                        <input type="number" name="options[min]" value="{$min}">--
+                                        <input type="number" name="options[max]" value="{$max}">元 必须
+                                        <input type="number" name="options[beishu]" value="{$beishu}">元的倍数
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">生长最大倍数</label>
+                                    <div class="controls">
+                                        <input type="number" name="options[max_dividend_days]" value="{$max_dividend_days}">倍
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">生长利息</label>
+                                    <div class="controls">
+                                        <input type="number" name="options[interest]" value="{$interest}"> %
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">每个号每天最多提现单数</label>
+                                    <div class="controls">
+                                        <input type="number" name="options[max_tx_number_day]" value="{$max_tx_number_day}">单
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">每天最多注册会员数</label>
+                                    <div class="controls">
+                                        <input type="number" name="options[max_register_day]" value="{$max_register_day}">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">注册费用</label>
+                                    <div class="controls">
+                                        <input type="number" name="options[reg_money]" value="{$reg_money}">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">账户默认费用</label>
+                                    <div class="controls">
+                                        <input type="number" name="options[cs_money]" value="{$cs_money}">
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="control-group">
+                                    <label class="control-label">推荐收益</label>
+                                        <div class="controls">
+                                        每推荐<input type="number" name="options[tjrs]" value="{$tjrs}">人--
+                                        收益<input type="number" name="options[tjjl]" value="{$tjjl}">元 必须
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">推荐一人固定利息增加</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[manger_bonus]" value="{$manger_bonus}">%
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">站内信费用</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[zlx]" value="{$zlx}">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">开地固定利息增加</label>
+                                    <div class="controls">
+                                        01:<input type="text" name="options[tree_lx1]" value="{$tree_lx1}" style="width: 50px">%
+                                        02:<input type="text" name="options[tree_lx2]" value="{$tree_lx2}" style="width: 50px">%
+                                        03:<input type="text" name="options[tree_lx3]" value="{$tree_lx3}" style="width: 50px">%
+                                        04:<input type="text" name="options[tree_lx4]" value="{$tree_lx4}" style="width: 50px">%
+                                        05:<input type="text" name="options[tree_lx5]" value="{$tree_lx5}" style="width: 50px">%
+                                        1层:<input type="text" name="options[tree_cjlx1]" value="{$tree_cjlx1}" style="width: 50px">%
+                                        金币：<input type="text" name="options[tree_jljb1]" value="{$tree_jljb1}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        06:<input type="text" name="options[tree_lx6]" value="{$tree_lx1}" style="width: 50px">%
+                                        07:<input type="text" name="options[tree_lx7]" value="{$tree_lx2}" style="width: 50px">%
+                                        08:<input type="text" name="options[tree_lx8]" value="{$tree_lx3}" style="width: 50px">%
+                                        09:<input type="text" name="options[tree_lx9]" value="{$tree_lx4}" style="width: 50px">%
+                                        10:<input type="text" name="options[tree_lx10]" value="{$tree_lx5}" style="width: 50px">%
+                                        2层:<input type="text" name="options[tree_cjlx2]" value="{$tree_cjlx2}" style="width: 50px">%
+                                         金币：<input type="text" name="options[tree_jljb2]" value="{$tree_jljb2}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        11:<input type="text" name="options[tree_lx11]" value="{$tree_lx1}" style="width: 50px">%
+                                        12:<input type="text" name="options[tree_lx12]" value="{$tree_lx2}" style="width: 50px">%
+                                        13:<input type="text" name="options[tree_lx13]" value="{$tree_lx3}" style="width: 50px">%
+                                        14:<input type="text" name="options[tree_lx14]" value="{$tree_lx4}" style="width: 50px">%
+                                        15:<input type="text" name="options[tree_lx15]" value="{$tree_lx5}" style="width: 50px">%
+                                        3层:<input type="text" name="options[tree_cjlx3]" value="{$tree_cjlx3}" style="width: 50px">%
+                                         金币：<input type="text" name="options[tree_jljb3]" value="{$tree_jljb3}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        16:<input type="text" name="options[tree_lx16]" value="{$tree_lx1}" style="width: 50px">%
+                                        17:<input type="text" name="options[tree_lx17]" value="{$tree_lx2}" style="width: 50px">%
+                                        18:<input type="text" name="options[tree_lx18]" value="{$tree_lx3}" style="width: 50px">%
+                                        19:<input type="text" name="options[tree_lx19]" value="{$tree_lx4}" style="width: 50px">%
+                                        20:<input type="text" name="options[tree_lx20]" value="{$tree_lx5}" style="width: 50px">%
+                                        4层:<input type="text" name="options[tree_cjlx4]" value="{$tree_cjlx4}" style="width: 50px">%
+                                         金币：<input type="text" name="options[tree_jljb4]" value="{$tree_jljb4}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        21:<input type="text" name="options[tree_lx21]" value="{$tree_lx1}" style="width: 50px">%
+                                        22:<input type="text" name="options[tree_lx22]" value="{$tree_lx2}" style="width: 50px">%
+                                        23:<input type="text" name="options[tree_lx23]" value="{$tree_lx3}" style="width: 50px">%
+                                        24:<input type="text" name="options[tree_lx24]" value="{$tree_lx4}" style="width: 50px">%
+                                        25:<input type="text" name="options[tree_lx25]" value="{$tree_lx5}" style="width: 50px">%
+                                        5层:<input type="text" name="options[tree_cjlx5]" value="{$tree_cjlx5}" style="width: 50px">%
+                                         金币：<input type="text" name="options[tree_jljb5]" value="{$tree_jljb5}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        26:<input type="text" name="options[tree_lx26]" value="{$tree_lx26}" style="width: 50px">%
+                                        27:<input type="text" name="options[tree_lx27]" value="{$tree_lx27}" style="width: 50px">%
+                                        28:<input type="text" name="options[tree_lx28]" value="{$tree_lx28}" style="width: 50px">%
+                                        29:<input type="text" name="options[tree_lx29]" value="{$tree_lx29}" style="width: 50px">%
+                                        30:<input type="text" name="options[tree_lx30]" value="{$tree_lx30}" style="width: 50px">%
+                                        6层:<input type="text" name="options[tree_cjlx6]" value="{$tree_cjlx6}" style="width: 50px">%
+                                         金币：<input type="text" name="options[tree_jljb6]" value="{$tree_jljb6}" style="width: 50px">元
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">开地费用</label>
+                                    <div class="controls">
+                                        01:<input type="text" name="options[tree_kd1]" value="{$tree_kd1}" style="width: 50px">元
+                                        02:<input type="text" name="options[tree_kd2]" value="{$tree_kd2}" style="width: 50px">元
+                                        03:<input type="text" name="options[tree_kd3]" value="{$tree_kd3}" style="width: 50px">元
+                                        04:<input type="text" name="options[tree_kd4]" value="{$tree_kd4}" style="width: 50px">元
+                                        05:<input type="text" name="options[tree_kd5]" value="{$tree_kd5}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        06:<input type="text" name="options[tree_kd6]" value="{$tree_kd6}" style="width: 50px">元
+                                        07:<input type="text" name="options[tree_kd7]" value="{$tree_kd7}" style="width: 50px">元
+                                        08:<input type="text" name="options[tree_kd8]" value="{$tree_kd8}" style="width: 50px">元
+                                        09:<input type="text" name="options[tree_kd9]" value="{$tree_kd9}" style="width: 50px">元
+                                        10:<input type="text" name="options[tree_kd10]" value="{$tree_kd10}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        11:<input type="text" name="options[tree_kd11]" value="{$tree_kd11}" style="width: 50px">元
+                                        12:<input type="text" name="options[tree_kd12]" value="{$tree_kd12}" style="width: 50px">元
+                                        13:<input type="text" name="options[tree_kd13]" value="{$tree_kd13}" style="width: 50px">元
+                                        14:<input type="text" name="options[tree_kd14]" value="{$tree_kd14}" style="width: 50px">元
+                                        15:<input type="text" name="options[tree_kd15]" value="{$tree_kd15}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        16:<input type="text" name="options[tree_kd16]" value="{$tree_kd16}" style="width: 50px">元
+                                        17:<input type="text" name="options[tree_kd17]" value="{$tree_kd17}" style="width: 50px">元
+                                        18:<input type="text" name="options[tree_kd18]" value="{$tree_kd18}" style="width: 50px">元
+                                        19:<input type="text" name="options[tree_kd19]" value="{$tree_kd19}" style="width: 50px">元
+                                        20:<input type="text" name="options[tree_kd20]" value="{$tree_kd20}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        21:<input type="text" name="options[tree_kd21]" value="{$tree_kd21}" style="width: 50px">元
+                                        22:<input type="text" name="options[tree_kd22]" value="{$tree_kd22}" style="width: 50px">元
+                                        23:<input type="text" name="options[tree_kd23]" value="{$tree_kd23}" style="width: 50px">元
+                                        24:<input type="text" name="options[tree_kd24]" value="{$tree_kd24}" style="width: 50px">元
+                                        25:<input type="text" name="options[tree_kd25]" value="{$tree_kd25}" style="width: 50px">元
+                                    </div>
+                                    <div class="controls">
+                                        26:<input type="text" name="options[tree_kd26]" value="{$tree_kd26}" style="width: 50px">元
+                                        27:<input type="text" name="options[tree_kd27]" value="{$tree_kd27}" style="width: 50px">元
+                                        28:<input type="text" name="options[tree_kd28]" value="{$tree_kd28}" style="width: 50px">元
+                                        29:<input type="text" name="options[tree_kd29]" value="{$tree_kd29}" style="width: 50px">元
+                                        30:<input type="text" name="options[tree_kd30]" value="{$tree_kd30}" style="width: 50px">元
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">每日分红比例</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[fhbl]" value="{$fhbl}">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">每日最大出售比例</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[csbl]" value="{$csbl}">%
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">稻草人减免手续费比例</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[jmsxf]" value="{$jmsxf}">%
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">狗狗防盗比例</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[ggfdbl]" value="{$ggfdbl}">%
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">定向出售手续费</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[kdfy]" value="{$kdfy}">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">系统出售手续费</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[zbbl]" value="{$zbbl}">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">会员级别</label>
+                                    <div class="controls">
+                                        <input style="width: 350px;" type="text"  name="options[user_level]" value="{$user_level}"> 用+号分隔(从低到高)
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    <label class="control-label">一键浇水每月价格</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[yjjsjg]" value="{$yjjsjg}">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">一键采蜜每月价格</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[yjcmjg]" value="{$yjcmjg}">
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    <label class="control-label">一键施肥每月价格</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[yjsfjg]" value="{$yjsfjg}">
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    <label class="control-label">一键收获每月价格</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[yjshjg]" value="{$yjshjg}">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">一键增种每月价格</label>
+                                    <div class="controls">
+                                        <input type="text" name="options[yjzzjg]" value="{$yjzzjg}">
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary  js-ajax-submit">{:L("SAVE")}</button>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+    <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+    <script>
+        /////---------------------
+        $(function() {
+            $("#urlmode-select").change(function() {
+                if ($(this).val() == 1) {
+                    alert("更改后，若发现前台链接不能正常访问，可能是您的服务器不支持PATHINFO，请先修改data/conf/config.php文件的URL_MODEL为0保证网站正常运行,在配置服务器PATHINFO功能后再更新为PATHINFO模式！");
+                }
+
+                if ($(this).val() == 2) {
+                    alert("更改后，若发现前台链接不能正常访问，可能是您的服务器不支持REWRITE，请先修改data/conf/config.php文件的URL_MODEL为0保证网站正常运行，在开启服务器REWRITE功能后再更新为REWRITE模式！");
+                }
+            });
+            $("#js-site-admin-url-password").change(function() {
+                $(this).data("changed", true);
+            });
+        });
+        Wind.use('validate', 'ajaxForm', 'artDialog', function() {
+            //javascript
+            var form = $('form.js-ajax-forms');
+            //ie处理placeholder提交问题
+            if ($.browser && $.browser.msie) {
+                form.find('[placeholder]').each(function() {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                    }
+                });
+            }
+            //表单验证开始
+            form.validate({
+                //是否在获取焦点时验证
+                onfocusout: false,
+                //是否在敲击键盘时验证
+                onkeyup: false,
+                //当鼠标掉级时验证
+                onclick: false,
+                //验证错误
+                showErrors: function(errorMap, errorArr) {
+                    //errorMap {'name':'错误信息'}
+                    //errorArr [{'message':'错误信息',element:({})}]
+                    try {
+                        $(errorArr[0].element).focus();
+                        art.dialog({
+                            id: 'error',
+                            icon: 'error',
+                            lock: true,
+                            fixed: true,
+                            background: "#CCCCCC",
+                            opacity: 0,
+                            content: errorArr[0].message,
+                            cancelVal: "{:L('OK')}",
+                            cancel: function() {
+                                $(errorArr[0].element).focus();
+                            }
+                        });
+                    } catch (err) {
+                    }
+                },
+                //验证规则
+                rules: {
+                    'options[site_name]': {
+                        required: 1
+                    },
+                    'options[site_host]': {
+                        required: 1
+                    },
+                    'options[site_root]': {
+                        required: 1
+                    }
+                },
+                //验证未通过提示消息
+                messages: {
+                    'options[site_name]': {
+                        required: "{:L('WEBSITE_SITE_NAME_REQUIRED_MESSAGE')}"
+                    },
+                    'options[site_host]': {
+                        required: "{:L('WEBSITE_SITE_HOST_REQUIRED_MESSAGE')}"
+                    }
+                },
+                //给未通过验证的元素加效果,闪烁等
+                highlight: false,
+                //是否在获取焦点时验证
+                onfocusout : false,
+                        //验证通过，提交表单
+                        submitHandler: function(forms) {
+                            $(forms).ajaxSubmit({
+                                url: form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                                dataType: 'json',
+                                beforeSubmit: function(arr, $form, options) {
+
+                                },
+                                success: function(data, statusText, xhr, $form) {
+                                    if (data.status) {
+                                        setCookie("refersh_time", 1);
+                                        var admin_url_changed = $("#js-site-admin-url-password").data("changed");
+                                        var message = admin_url_changed ? data.info + '<br><span style="color:red;">后台地址已更新(请劳记！)</span>' : data.info;
+
+                                        //添加成功
+                                        Wind.use("artDialog", function() {
+                                            art.dialog({
+                                                id: "succeed",
+                                                icon: "succeed",
+                                                fixed: true,
+                                                lock: true,
+                                                background: "#CCCCCC",
+                                                opacity: 0,
+                                                content: message,
+                                                button: [{
+                                                        name: "{:L('OK')}",
+                                                        callback: function() {
+                                                            reloadPage(window);
+                                                            return true;
+                                                        },
+                                                        focus: true
+                                                    }, {
+                                                        name: "{:L('CLOSE')}",
+                                                        callback: function() {
+                                                            reloadPage(window);
+                                                            return true;
+                                                        }
+                                                    }]
+                                            });
+                                        });
+                                    } else {
+                                        alert(data.info);
+                                    }
+                                }
+                            });
+                        }
+            });
+        });
+        ////-------------------------
+    </script>
+</body>
+</html>
