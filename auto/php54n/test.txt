@@ -1,1 +1,1 @@
-INSERT INTO `jz_all_record` (`user_login`,`type`,`notice`,`number`,`create_time`)  VALUES ('招财树','fertilize','1号地','+0.19999999999999','2017-09-04 15:50:04')
+INSERT INTO `jz_tree` (`num`,`type`,`user_login`,`create_time`,`water_time`,`lx_time`,`level`,`money`,`locked`)  VALUES ('1','1','jg168','2017-09-04 18:14:38','2017-09-04 18:14:38','2017-09-04 18:14:38','0','200','0')
