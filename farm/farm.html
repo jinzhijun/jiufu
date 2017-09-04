@@ -91,26 +91,31 @@
         </div>
 
         <div class="farm-top-info" id="farm-top-info-2">
+            <!--拥有肥料量（肥料重量）-->
             <div class="farm-info">
                 <div class="farm-info-ico" id="farm-info-ico1"></div>
                 <div class="farm-info-data">
                     <span class="farm-data" id="fertilizeCount"></span>
                 </div>
             </div>
+            <!--喂狗次数-->
             <div class="farm-info">
                 <div class="farm-info-ico" id="farm-info-ico2"></div>
                 <div class="farm-info-data">
                     <span class="farm-data" style="padding-left: 40px;" id="dogCount"></span>
                 </div>
             </div>
+            <!--采蜜次数-->
             <div class="farm-info">
                 <div class="farm-info-ico loading-sate-ani laoding_sate" style="visibility: visible;">
                     <i id="farm-info-ico3"></i>
                 </div>
                 <div class="farm-info-data">
+
                     <span class="farm-data" style="padding-left: 22px;" id="beeCount"></span>
                 </div>
             </div>
+            <!--插入稻草人次数-->
             <div class="farm-info">
                 <div class="farm-info-ico loading-sate-ani-2 laoding_sate-2" style="visibility: visible;">
                     <i id="farm-info-ico4"></i>
@@ -176,8 +181,30 @@
                             </li>
                         </ul>
                     </dd>
-
-                    <!-- 农场生长记录    -->
+                    <!--牧场管理-->
+                    <dd>
+                        <div class="title farm-game-orchard" id="orchard-click-1">
+                            <span class="farm-orchard-font2">牧场管理</span>
+                        </div>
+                        <ul class="menuson farm-game-orchard-hide" style="display: none;height: 208px;">
+                            <li class="farm-orchard-style" id="farm-friend">
+                                <a class="farm-orchard-font friendFarm " rel="modalWin" href="javascript:void(0);">好友牧场</a>
+                            </li>
+                            <li class="farm-orchard-style" id="farm-created">
+                                <a class="farm-orchard-font createdFarm " style="padding-left: 41px;" rel="modalWin" href="javascript:void(0);">已开发牧场</a>
+                            </li>
+                            <li class="farm-orchard-style" id="farm-orchard-tree">
+                                <a class="farm-orchard-font newFarm" style="padding-left: 41px;" rel="modalWin" href="javascript:void(0);">开发新牧场</a>
+                            </li>
+                            <!--<li class="farm-orchard-style" id="xinshou-guide">
+                                <a class="farm-orchard-font" rel="modalWin" href="manger/instruction.html">新手指南</a>
+                            </li>-->
+                            <li class="farm-orchard-style" id="bg-music-setting">
+                                <a class="farm-orchard-font" rel="systemSetting" href="javascript:;">系统设置</a>
+                            </li>
+                        </ul>
+                    </dd>
+                    <!--农场生长记录-->
                     <dd>
                         <div class="title farm-game-orchard" id="orchard-click-2">
                             <span class="farm-orchard-font2" style="padding-left: 15px;">农场生长记录</span>
@@ -200,6 +227,32 @@
                             </li>
                             <li class="farm-orchard-style" id="farm-orchard-b">
                                 <a class="farm-orchard-font" rel="modalWin" href="record/reap.html">收割记录</a>
+                            </li>
+                        </ul>
+                    </dd>
+                    <!-- 牧场生长记录    -->
+                    <dd>
+                        <div class="title farm-game-orchard" id="orchard-click-2">
+                            <span class="farm-orchard-font2" style="padding-left: 15px;">牧场成长记录</span>
+                        </div>
+                        <ul class="menuson farm-game-orchard-hide" style="display: block;">
+                            <li class="farm-orchard-style" id="farm-orchard-warehouse">
+                                <a class="farm-orchard-font3" rel="modalWin" href="javascript:void(0);">牧场成长记录</a>
+                            </li>
+                            <li class="farm-orchard-style" id="farm-orchard-b">
+                                <a class="farm-orchard-font" rel="modalWin" href="javascript:void(0);">奖励记录</a>
+                            </li>
+                            <li class="farm-orchard-style" id="farm-orchard-b">
+                                <a class="farm-orchard-font" rel="modalWin" href="javascript:void(0);">动物成长记录</a>
+                            </li>
+                            <li class="farm-orchard-style" id="farm-orchard-b">
+                                <a class="farm-orchard-font" rel="modalWin" href="javascript:void(0);">喂食记录</a>
+                            </li>
+                            <li class="farm-orchard-style" id="farm-orchard-b">
+                                <a class="farm-orchard-font" rel="modalWin" href="javascript:void(0);">偷取记录</a>
+                            </li>
+                            <li class="farm-orchard-style" id="farm-orchard-b">
+                                <a class="farm-orchard-font" rel="modalWin" href="javascript:void(0);">除蚊虫记录</a>
                             </li>
                         </ul>
                     </dd>
