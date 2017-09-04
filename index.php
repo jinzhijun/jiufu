@@ -3,6 +3,7 @@
  * 入口文件
  * Some rights reserved：www.thinkcmf.com
  */
+
 if(@$_GET['reg']){
 	header("Location:./index.php/portal/Index/reg/id/".$_GET['reg']);
 	exit;
