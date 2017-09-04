@@ -338,6 +338,7 @@ function waterAction(groundIdx) {
         return false;
     }
     if ($('.land[groundnumber=' + groundIdx + ']').data('isWater') == 1) {
+        console.log(data);
         displayMessage("已经浇过水了");
         return false;
     }
