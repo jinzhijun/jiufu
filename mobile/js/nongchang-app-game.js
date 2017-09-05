@@ -326,6 +326,8 @@ function reclaimAction(groundIdx) {
     /***点击土地后    播放音效 ***/
     playEffect(chandi);
 
+
+
     //request api
     requestAction('reclaimCrop', {"userid": userId, "groundnumber": groundIdx});
 }

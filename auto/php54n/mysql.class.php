@@ -96,7 +96,10 @@ function insert($table,$data){
 	$str .=" VALUES ";
 	$str .= "('".implode("','",$data)."')";
 	$res = mysql_query($str,$this->conn);
-	file_put_contents('test.txt',$str);
+	//file_put_contents('test.txt',$str);
+    $f = fopen('test.txt',"ab+");
+    fwrite($f,$str."\n");
+    fclose($f);
 	if($res && mysql_affected_rows()>0){
 		return mysql_insert_id();
 	}else{

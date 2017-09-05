@@ -414,6 +414,7 @@ $worker->onMessage = function($connection, $data)
             $db->update('jz_user',$map3,'id='.$user['id']);
         }
         if($data2['act']=='water'){
+            act('displayMessage',"");
             //浇水
             $tree=$db->getOne("select * from jz_tree where user_login='".$user['user_login']."' and num=".($data2['groundnumber']));
             if($tree['water_time']>date('Y-m-d 00:00:00',time())){

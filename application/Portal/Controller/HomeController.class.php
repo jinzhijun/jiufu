@@ -416,7 +416,7 @@ class HomeController extends HomebaseController {
         } elseif ($money % $beishu > 0) {
             $this->error("金额{$min}-{$max},并且是{$beishu}的倍数");
         }
-        
+
         $post['user_login'] = $this->user_login;
         $post['create_time'] = $this->time;
                 $jmsxf=0;

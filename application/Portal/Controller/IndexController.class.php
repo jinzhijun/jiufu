@@ -262,8 +262,6 @@ class IndexController extends HomebaseController {
             $_SESSION[codefs]='forget';
         }
         if(I('post.fs')==reg){
-
-
             $_SESSION[codefs]='reg';
 
         }
