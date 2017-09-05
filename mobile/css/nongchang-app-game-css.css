@@ -381,7 +381,7 @@
 	background: url(../images/app/main/main_bg3.png)no-repeat;
 	position: absolute;
 	left: -50px;
-	top: 130px;
+	top: 220px;
 	z-index: 200;
 }
 .farm-game-orchard{
@@ -391,6 +391,7 @@
 	margin-left: 60px;
 	margin-top: 8px;
 	cursor: pointer;
+	text-align: center;
 }
 .farm-orchard-style{
 	background: url(../images/app/main/main_bg4.png)no-repeat;
@@ -406,7 +407,7 @@
 	margin-top: 3px;
 }
 .farm-orchard-font{
-	font-size: 46px;
+	font-size: 44px;
 	color: white;
 	padding-left: 70px;
 	line-height: 76px;	
@@ -425,8 +426,7 @@
 }
 .farm-orchard-font2{
 	line-height: 90px;
-	font-size: 60px;
-	padding-left: 63px;
+	font-size: 49px;
 	color: white;
 	font-weight: bold;
 	font-size: "幼圆","黑体",sans-serif;
@@ -434,7 +434,7 @@
 	text-align: center;
 }
 .farm-game-orchard-hide{
-	height: 720px;
+	height: 470px;
 	width: 400px;
 	top: 90px;
 	left: 15px;
@@ -455,7 +455,7 @@
 	height: 222px;
 	width: 130px;
 	left: -35px;
-	top: 550px;
+	top: 580px;
 	/*display: none;*/	
 }
 .farm-game-orchard-click-2{

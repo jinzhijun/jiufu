@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机端牧场地图</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css?v=20170225" rel="stylesheet">
+
+    <!-- jQuery validate -->
+    <link href="css/jquery_validation.css?v=20170225" rel="stylesheet">
+
+    <!-- Dynamic CSS -->
+    <link href="css/muchang-game-css.css" rel="stylesheet" media="screen">
+    <script style="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+<div class="zhong">
+    <div class="top">
+        <!--用户信息-->
+        <div class="top-left">
+            <div class="top-left-left">
+                <div class="user-logo">
+                    <img src="images/app/main/touxiang.png">
+                </div>
+                <a href="http://www.baicu.com">
+                    <div class="notice">1</div>
+                </a>
+                <a href="http://www.baicu.com">
+                    <div class="inmail">2</div>
+                </a>
+            </div>
+            <div class="top-left-right">
+                <div class="username">果子</div>
+                <div class="username">45346464343466666666666555555556</div>
+            </div>
+        </div>
+        <!--牧场总概况信息-->
+        <div class="top-right">
+            <div class="rangeland-top-info">
+                <div class="rangeland-info">
+                    <span class="rangeland-info-name">总量</span>
+                    <div class="rangeland-info-data">
+                        <span class="rangeland-data">123456</span>
+                    </div>
+                </div>
+                <div class="rangeland-info">
+                    <span class="rangeland-info-name">播种</span>
+                    <div class="rangeland-info-data">
+                        <span class="rangeland-data">123456</span>
+                    </div>
+                </div>
+                <div class="rangeland-info">
+                    <span class="rangeland-info-name">仓库</span>
+                    <div class="rangeland-info-data">
+                        <span class="rangeland-data">123456</span>
+                    </div>
+                </div>
+                <div class="rangeland-info2">
+                    <span class="rangeland-info-name">总生长量</span>
+                    <div class="rangeland-info-data">
+                        <span class="rangeland-data">123456</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <!--主体-->
+        <div class="menu">
+            <dl>
+                <!--牧场管理-->
+                <div class="main-list">
+                    <a href="javascript:void(0)">牧场管理</a>
+                </div>
+                <div class="part-list" style="height:0px;overflow: hidden;">
+                    <ul>
+                        <li><a href="#">会员用户</a></li>
+                        <li><a href="#">用户分组</a></li>
+                        <li><a href="#">用户统计</a></li>
+                        <li><a href="#">文章评论</a></li>
+                        <li><a href="#">私信管理</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">用户文章</a></li>
+                        <li><a href="#">搜索热词</a></li>
+                        <li><a href="#">积分抽奖</a></li>
+                    </ul>
+                </div>
+            </dl>
+        </div>
+
+        <!--副体-->
+        <div class="hide2">
+
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function(){
+//        $(".main-list").bind({
+//            click:function(){$(this).next().css("height","741px")},
+//            click:function(){$(this).next().css("height","0px")}
+//        });
+        var a=1;
+        $(".main-list").click(function(){
+            if(a==1){
+                $(this).next().css("height","741px");
+                $(this).next().css("transition","height 0.3s ease-in");
+                a=a-1;
+            }else{
+                $(this).next().css("height","0px");
+                $(this).next().css("transition","height 0.3s ease-in");
+                a=a+1;
+            }
+
+        });
+    });
+
+</script>
+</html>
