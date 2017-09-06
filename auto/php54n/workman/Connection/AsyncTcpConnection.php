@@ -19,7 +19,7 @@ use Workerman\Worker;
 use Exception;
 
 /**
- * AsyncTcpConnection.
+ * AsyncTcpConnection.closeGrowDialog
  */
 class AsyncTcpConnection extends TcpConnection
 {
