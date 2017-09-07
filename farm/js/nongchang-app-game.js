@@ -599,7 +599,7 @@ function displayUserInfo(UserInfo) {
     $("#unseedFruit").text(UserInfo.NotSeededAppleNumber);
     $("#fertilizeCount").text(UserInfo.FertilizerWeight);
     $("#beeCount").text(UserInfo.TotalBeeNumber);
-    $("#dogCount").text(dogCount);
+    $("#dogCount").text(dogCountdogCount);
     $("#scarecrowCount").text(UserInfo.TotalScarecrowNumber);
     $("#totalGrowth").text(UserInfo.TotalGrowth);
 

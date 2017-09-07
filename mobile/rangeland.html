@@ -49,7 +49,7 @@
                         <span class="rangeland-data">123456</span>
                     </div>
                 </div>
-                <div class="rangeland-info">
+                <div class="rangeland-info" style="margin-left: 5px;">
                     <span class="rangeland-info-name">播种</span>
                     <div class="rangeland-info-data">
                         <span class="rangeland-data">123456</span>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="rangeland-info2">
-                    <span class="rangeland-info-name">总生长量</span>
+                    <span class="rangeland-info-name">总生长</span>
                     <div class="rangeland-info-data">
                         <span class="rangeland-data">123456</span>
                     </div>
@@ -70,56 +70,152 @@
             </div>
         </div>
     </div>
-    <div class="sidebar">
+    <div class="sidebar" style="overflow: hidden;display: none">
         <!--主体-->
         <div class="menu">
-            <dl>
-                <!--牧场管理-->
-                <div class="main-list">
-                    <a href="javascript:void(0)">牧场管理</a>
+            <dl class="kuai">
+                <!--农场管理-->
+                <div class="main_list">
+                    <a href="javascript:void(0)">农场管理</a>
                 </div>
-                <div class="part-list" style="height:0px;overflow: hidden;">
+                <div class="part_list" style="height:0px;overflow: hidden;">
                     <ul>
-                        <li><a href="#">会员用户</a></li>
-                        <li><a href="#">用户分组</a></li>
-                        <li><a href="#">用户统计</a></li>
-                        <li><a href="#">文章评论</a></li>
-                        <li><a href="#">私信管理</a></li>
-                        <li><a href="#">意见反馈</a></li>
-                        <li><a href="#">用户文章</a></li>
-                        <li><a href="#">搜索热词</a></li>
-                        <li><a href="#">积分抽奖</a></li>
+                        <li><a href="#">好友农场</a></li>
+                        <li><a href="#">已开发农场</a></li>
+                        <li><a href="#">开发新农场</a></li>
+                        <li><a href="#">系统设置</a></li>
+                        <li><a href="#">站内信</a></li>
+                        <li><a href="#">公告通知</a></li>
                     </ul>
                 </div>
+
+                <!--牧场管理-->
+                <div class="main_list">
+                    <a href="javascript:void(0)">牧场管理</a>
+                </div>
+                <div class="part_list" style="height:0px;overflow: hidden;">
+                    <ul>
+                        <li><a href="#">好友牧场</a></li>
+                        <li><a href="#">已开发牧场</a></li>
+                        <li><a href="#">开发新牧场</a></li>
+                        <li><a href="#">系统设置</a></li>
+                    </ul>
+                </div>
+
+                <!--农场生长记录-->
+                <div class="main_list">
+                    <a href="javascript:void(0)">农场生长记录</a>
+                </div>
+                <div class="part_list" style="height:0px;overflow: hidden;">
+                    <ul>
+                        <li><a href="#">农场生长记录</a></li>
+                        <li><a href="#">奖励记录</a></li>
+                        <li><a href="#">采蜜记录</a></li>
+                        <li><a href="#">施肥记录</a></li>
+                        <li><a href="#">播种记录</a></li>
+                        <li><a href="#">收割记录</a></li>
+                    </ul>
+                </div>
+
+                <!--牧场生产记录-->
+                <div class="main_list">
+                    <a href="javascript:void(0)">牧场生长记录</a>
+                </div>
+                <div class="part_list" style="height:0px;overflow: hidden;">
+                    <ul>
+                        <li><a href="#">牧场成长记录</a></li>
+                        <li><a href="#">奖励记录</a></li>
+                        <li><a href="#">动物成长记录</a></li>
+                        <li><a href="#">喂食记录</a></li>
+                        <li><a href="#">偷取记录</a></li>
+                        <li><a href="#">除蚊虫记录</a></li>
+                    </ul>
+                </div>
+
+                <!--交易中心-->
+                <div class="main_list">
+                    <a href="javascript:void(0)">交易中心</a>
+                </div>
+                <div class="part_list" style="height:0px;overflow: hidden;">
+                    <ul>
+                        <li><a href="#">订购交易验证码</a></li>
+                        <li><a href="#">出售金币</a></li>
+                        <li><a href="#">出售记录</a></li>
+                        <li><a href="#">委托记录</a></li>
+                        <li><a href="#">购买记录</a></li>
+                        <li><a href="#">交易所</a></li>
+                        <li><a href="#">道具商城</a></li>
+                    </ul>
+                </div>
+
+                <!--个人信息-->
+                <div class="main_list">
+                    <a href="javascript:void(0)">个人信息</a>
+                </div>
+                <div class="part_list" style="height:0px;overflow: hidden;">
+                    <ul>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="#">个人资料</a></li>
+
+                    </ul>
+                </div>
+
+                <!--退出-->
+                <a href="#" onclick="outlogin('退出成功')">
+                    <div class="title" id="farm-game-orchard-logout">
+                        <span class="farm-orchard-font2">退出</span>
+                    </div>
+                </a>
             </dl>
         </div>
 
         <!--副体-->
-        <div class="hide2">
-
-        </div>
+        <div class="hide2"></div>
     </div>
+    <!--小按钮-->
+    <div class="show2" style="display: block;"></div>
 </div>
 </body>
 <script>
     $(function(){
-//        $(".main-list").bind({
-//            click:function(){$(this).next().css("height","741px")},
-//            click:function(){$(this).next().css("height","0px")}
-//        });
-        var a=1;
-        $(".main-list").click(function(){
-            if(a==1){
-                $(this).next().css("height","741px");
+//        jQuery写法
+        $(".main_list").click(function(){
+            $(".part_list").css("height","0px");
+            var b=$(this).next().height();
+            if(b==0){
+                $(this).next().css("height","551px");
                 $(this).next().css("transition","height 0.3s ease-in");
-                a=a-1;
-            }else{
-                $(this).next().css("height","0px");
-                $(this).next().css("transition","height 0.3s ease-in");
-                a=a+1;
             }
 
+
         });
+        $(".hide2").click(function(){
+            $(".sidebar").css("width","0px");
+            $(".sidebar").css("transition","width 0.1s ease-in");
+        });
+        $(".show2").click(function(){
+            $(".sidebar").css("display","block");
+            $(".sidebar").css("width","650px");
+            $(".sidebar").css("transition","width 0.1s ease-in");
+        });
+
+
+
+//        var main_list=document.getElementsByClassName("main_list");
+//        var part_list=document.getElementsByClassName("part_list");
+//        for(i=0;i<main_list.length;i++){
+//            main_list[i].id=i;
+//            main_list[i].onclick=function()
+//            {
+//
+//                for(j=0;j<part_list.length;j++){
+//                    part_list[j].style.height="0px";
+//                    part_list[j].style.transition="height","0.3s","ease-in";
+//                }
+//                part_list[this.id].style.height="551px";
+//            }
+//        }
+
     });
 
 </script>
