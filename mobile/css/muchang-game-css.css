@@ -5,8 +5,8 @@
 html,body{
      width:100%;
      height:100%;
-     border:1px solid red;
-     background: url("../images/app/shuban_bg2.png") no-repeat;
+     /*border:1px solid red;*/
+     background: url("../images/app/rangeland.png") no-repeat;
      background-size:cover;
      overflow: hidden;
  }
@@ -114,7 +114,7 @@ html,body{
     float: left;
 }
 .sidebar{
-    width:650px;
+    width:612px;
     height:1350px;
     border:1px solid red;
     float: left;

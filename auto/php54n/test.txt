@@ -1,2 +1,4 @@
 INSERT INTO `jz_all_record` (`user_login`,`type`,`notice`,`number`,`create_time`)  VALUES ('jg168','reap','3号地','+4.02','2017-09-05 15:42:04')INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('lz7788','4.713012','2.04','2017-09-06 09:32:23')
 INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('招财树','1.4','0.10','2017-09-06 16:05:56')
+INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('lz7788','4.713012','2.04','2017-09-07 09:42:23')
+INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('招财树','1.4','0.10','2017-09-07 09:42:52')
