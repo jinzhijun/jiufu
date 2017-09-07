@@ -217,7 +217,7 @@ function goMaintenance(type) {
 
 //远程请求接口
 function requestAction(action, data, func) {
-            var fs = data;
+     var fs = data;
         fs.userid=userId;
         fs.salt=token;
         fs.func=func; 
