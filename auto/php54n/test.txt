@@ -3,3 +3,5 @@ INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('
 INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('lz7788','4.713012','2.04','2017-09-07 09:42:23')
 INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('招财树','1.4','0.10','2017-09-07 09:42:52')
 INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('招财树','1.4014','0.10','2017-09-07 19:53:54')
+INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('lz7788','4.713012','2.04','2017-09-08 09:33:55')
+INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('招财树','1.4028','0.10','2017-09-08 09:34:19')

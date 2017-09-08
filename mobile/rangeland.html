@@ -178,9 +178,10 @@
 </body>
 <script>
     $(function(){
-//        jQuery写法
+//        jQuery写法 侧边栏主栏点击副栏显示隐藏
         $(".main_list").click(function(){
             $(".part_list").css("height","0px");
+            $(".part_list").css("transition","height 0.3s ease-in");
             var b=$(this).next().height();
             if(b==0){
                 $(this).next().css("height","551px");
@@ -189,6 +190,7 @@
 
 
         });
+//        侧边栏隐藏显示
         $(".hide2").click(function(){
             $(".sidebar").css("width","0px");
             $(".sidebar").css("transition","width 0.1s ease-in");
