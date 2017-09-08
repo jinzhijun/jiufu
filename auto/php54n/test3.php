@@ -5,7 +5,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 ini_set('date.timezone','Asia/Shanghai');
 //包含数据库操作类文件
 include 'mysql.class.php';
-$hostname='localhost';
+$hostname='192.168.10.13';
 $username='root';
 $password='';
 $dbname='jiufu';

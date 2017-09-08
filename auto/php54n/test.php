@@ -5,7 +5,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 ini_set('date.timezone','Asia/Shanghai');
 //包含数据库操作类文件
 include 'mysql.class.php';
-$hostname='localhost';
+$hostname='192.168.10.13';
 $username='root';
 $password='';
 $dbname='jiufu';
@@ -46,11 +46,11 @@ $worker->onMessage = function($connection, $data)
                 loginout('你还未登录，请登录后操作');
             }
             else{
-                $user=$db->getOne("select * from jz_user where id='".$data2['userid']."' order by id desc limit 1");
-                $money=$db->getOne("select sum(money+locked) as total,sum(lx+tq) as fertilize,sum(fm) as fengmi from jz_tree where user_login='".$user['user_login']."' order by id desc");
-                $cmjl=$db->getOne("select sum(number) as total from jz_all_record where type='flyBee' and user_login='".$user['user_login']."' order by id desc");//采集金额
-                $tjrs=$db->getOne("select count(id) as total from jz_user where parent_user='".$user['user_login']."' order by id desc");//下级人数
-                $friend=$db->getOne("select count(id) as total from jz_friend where  zt=2 and user_login='".$user['user_login']."' order by id desc");//朋友人数
+                $user=$db->getOne("select * from jz_user where id='".$data2['userid']."' order by id desc limit 1");//获取一条当前登录的用户ID信息
+                $money=$db->getOne("select sum(money+locked) as total,sum(lx+tq) as fertilize,sum(fm) as fengmi from jz_tree where user_login='".$user['user_login']."' order by id desc");//通过user_login关联jz-user表并计算当前登录用户的农场信息
+                $cmjl=$db->getOne("select sum(number) as total from jz_all_record where type='flyBee' and user_login='".$user['user_login']."' order by id desc");
+                $tjrs=$db->getOne("select count(id) as total from jz_user where parent_user='".$user['user_login']."' order by id desc");
+                $friend=$db->getOne("select count(id) as total from jz_friend where  zt=2 and user_login='".$user['user_login']."' order by id desc");
                 $user['friend']=$friend['total'];
                 $user['tjrs']=$tjrs['total'];
                 $user['unreadNotice']=1;
