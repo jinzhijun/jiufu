@@ -6,7 +6,7 @@ html,body{
      width:100%;
      height:100%;
      /*border:1px solid red;*/
-     background: url("../images/app/rangeland.png") no-repeat;
+     background: url("../images/app/muchang-photo/rangeland.png") no-repeat;
      background-size:cover;
      overflow: hidden;
  }
@@ -212,4 +212,315 @@ html,body{
     width: 130px;
     left: -35px;
     top: 715px;
+}
+.bg-music-set{
+    width: 484px;
+    height: 356px;
+    background: url(../images/final/main/set_bg1.png)no-repeat;
+    position: absolute;
+    left: 30%;
+    top: 35%;
+    z-index: 200;
+    display: none;
+}
+#bg-music-close {
+    width: 67px;
+    height: 70px;
+    background: url(../images/final/main/set_but1.png)no-repeat;
+    position: absolute;
+    left: 390px;
+    top: 20px;
+    cursor: pointer;
+}
+.music-set-1{
+    width:100%;
+    height:177px;
+    float: left;
+}
+.music-set-letter {
+    font-size: 28px;
+    color: rgb(191,126,62);
+    font-weight: bold;
+    float: left;
+    margin-left: 100px;
+    margin-top: 99px;
+}
+#bg-music-but1 {
+    width: 121px;
+    height: 61px;
+    background: url(../images/final/main/set_but_open.png)no-repeat;
+    cursor: pointer;
+    float: left;
+    margin-left: 45px;
+    margin-top: 85px;
+}
+#bg-music-but3 {
+    width: 121px;
+    height: 61px;
+    cursor: pointer;
+    float: left;
+    margin-left: 45px;
+    margin-top: 85px;
+    display: none;
+    background: url(../images/final/main/set_but_closed.png)no-repeat;
+}
+.music-set-letter2 {
+    font-size: 28px;
+    color: rgb(191,126,62);
+    font-weight: bold;
+    float: left;
+    margin-left: 100px;
+    margin-top: 60px;
+}
+.music-set-2{
+    width:100%;
+    height:177px;
+    float: left;
+}
+#bg-music-but2{
+    width: 121px;
+    height: 61px;
+    background: url(../images/final/main/set_but_open.png)no-repeat;
+    cursor: pointer;
+    float: left;
+    margin-left: 45px;
+    margin-top: 44px;
+}
+#bg-music-but4{
+    width: 121px;
+    height: 61px;
+    cursor: pointer;
+    float: left;
+    margin-left: 45px;
+    margin-top: 44px;
+    display: none;
+    background: url(../images/final/main/set_but_closed.png)no-repeat;
+}
+.user-info{
+    width: 300px;
+    height: 450px;
+    /* position: fixed; */
+    /* display: inline-block; */
+    float: left;
+    top: 188px;
+    z-index:19;
+    position: absolute;
+    /* margin-top: 34px; */
+    border: 1px solid red;
+}
+.total{
+    width: 260px;
+    height: 54px;
+    float: left;
+    margin-left: 22px;
+    margin-top: 25px;
+    border:1px solid green;
+}
+.tubiao{
+    width:50px;
+    height:47px;
+    background: url(../images/app/main/topicon_4.png)no-repeat;
+}
+
+.medaw-farm{
+    width: 849px;
+    height: 468px;
+    border: 1px solid red;
+    float: left;
+    margin-top:202px;
+    margin-left: 70px;
+}
+/*猪*/
+/*.pig-around{*/
+    /*width:300px;*/
+    /*height:420px;*/
+    /*float: left;*/
+    /*border:1px solid black;*/
+/*}*/
+.pig{
+    width:110px;
+    height:90px;
+    transform: scale(0.7);
+    border:1px solid red;
+    position:relative;
+    float: left;
+    position: relative;
+    z-index: 2;
+    -webkit-animation-name: pigmove;
+    -webkit-animation-duration: 12s;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;/*反向循环播放*/
+}
+@-webkit-keyframes pigmove /*Safari and Chrome*/
+{
+
+    0% {left:0px;top:0px;}
+    25% {left:50px;top:50px;}
+    50% {left:150px;top:60px;}
+    60% {left:170px;top:50px;}
+    75% {left:190px;top:30px;}
+    100% {left:200px;top:0px;}
+}
+
+/*羊*/
+/*.sheep-around{*/
+    /*width:300px;*/
+    /*height:420px;*/
+    /*float: left;*/
+    /*border:1px solid black;*/
+/*}*/
+.sheep{
+    width:110px;
+    height:90px;
+    border:1px solid red;
+    position:relative;
+    transform: scale(0.7);
+    float: left;
+    position: relative;
+    z-index: 4;
+    -webkit-animation-name:sheepmove;
+    -webkit-animation-duration: 9s;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;/*反向循环播放*/
+}
+@-webkit-keyframes sheepmove /*Safari and Chrome*/
+{
+
+    0% {left:0px;top:150px;}
+    25% {left:30px;top:120px;}
+    50% {left:50px;top:90px;}
+    75% {left:100px;top:50px;}
+    100% {left:0px;top:0px;}
+
+}
+
+
+/*牛*/
+.cow{
+    width:110px;
+    height:90px;
+    border:1px solid red;
+    position:relative;
+    transform: scale(0.7);
+    float: left;
+    position: relative;
+    z-index: 6;
+    -webkit-animation-name:cowmove;
+    -webkit-animation-duration: 9s;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;/*反向循环播放*/
+}
+@-webkit-keyframes cowmove /*Safari and Chrome*/
+{
+
+    0% {left:350px;top:150px;}
+    25% {left:370px;top:150px;}
+    50% {left:400px;top:150px;}
+    75% {left:370px;top:150px;}
+    100% {left:350px;top:150px;}
+
+}
+
+
+/*猫*/
+.cat{
+    width:110px;
+    height:90px;
+    border:1px solid red;
+    position:relative;
+    transform: scale(0.7);
+    float: left;
+    position: relative;
+    z-index: 8;
+    -webkit-animation-name:catmove;
+    -webkit-animation-duration: 9s;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;/*反向循环播放*/
+}
+@-webkit-keyframes catmove /*Safari and Chrome*/
+{
+
+    0% {left:250px;top:100px;}
+    25% {left:220px;top:120px;}
+    50% {left:200px;top:110px;}
+    75% {left:220px;top:120px;}
+    100% {left:250px;top:100px;}
+
+}
+
+
+/*羊驼*/
+.alpaca{
+    width:110px;
+    height:90px;
+    border:1px solid red;
+    position:relative;
+    transform: scale(0.7);
+    float: left;
+    position: relative;
+    z-index: 10;
+    -webkit-animation-name:alpacamove;
+    -webkit-animation-duration: 12s;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;/*反向循环播放*/
+}
+@-webkit-keyframes alpacamove /*Safari and Chrome*/
+{
+
+    0% {left:0px;top:0px;}
+    25% {left:0px;top:200px;}
+    50% {left:0px;top:210px;}
+    75% {left:0px;top:200px;}
+    100% {left:0px;top:0px;}
+
+}
+
+
+/*黑猫*/
+.blackcat{
+    width:110px;
+    height:90px;
+    border:1px solid red;
+    position:relative;
+    transform: scale(0.7);
+    float: left;
+    position: relative;
+    z-index: 12;
+    -webkit-animation-name:blackcatmove;
+    -webkit-animation-duration: 12s;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;/*反向循环播放*/
+}
+@-webkit-keyframes blackcatmove /*Safari and Chrome*/
+{
+
+    0% {left:0px;top:0px;}
+    25% {left:10px;top:60px;}
+    50% {left:100px;top:100px;}
+    75% {left:10px;top:60px;}
+    100% {left:0px;top:0px;}
+
+}
+/*动物动态公用*/
+.pigmove,.sheepmove,.cowmove,.catmove,.alpacamove,.blackcatmove{
+    width:106px;
+    height:80px;
+    position: relative;
+    -webkit-animation-name: animal-self-motion;
+    -webkit-animation-duration: 0.45s;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;/*反向循环播放*/
+
+}
+@-webkit-keyframes animal-self-motion /*Safari and Chrome*/
+{
+    from {height:80px;width: 106px;}
+    to {height:90px;width: 110px;}
 }
