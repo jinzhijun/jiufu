@@ -176,21 +176,20 @@
     </div>
     <!--显示小按钮-->
     <div class="show2" style="display: block;"></div>
-    <div class="user-info">
-        <div class="total">
-            <div class="tubiao"></div>
-            <div class="tatal-text"></div>
-        </div>
-    </div>
+    <!--用户的数据-->
+    <!--<div class="user-info">-->
+        <!--<div class="total">-->
+            <!--<div class="tubiao"></div>-->
+            <!--<div class="tatal-text"></div>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <!--牧场动物展示区-->
     <div class="medaw-farm">
-        <!--<div class="pig-around">-->
-        <div class="pig">
+        <div class="tree"></div>
+        <div class="pig" id="pig">
             <img src="images/app/muchang-photo/pig.png" class="pigmove">
         </div>
-        <!--</div>-->
-        <!--<div class="sheep-around">-->
          <div class="sheep">
             <img src="images/app/muchang-photo/sheep.png" class="sheepmove">
          </div>
@@ -207,8 +206,23 @@
         <div class="blackcat">
             <img src="images/app/muchang-photo/blackcat.png" class="blackcatmove">
         </div>
+        <div class="maoyou">
+            <img src="images/app/muchang-photo/maoyou.png" class="maoyoumove">
+        </div>
+        <div class="bee">
+            <img src="images/app/muchang-photo/bee.png" class="beemove">
+        </div>
     </div>
-
+    <!--工具栏-->
+    <div class="toolbar-bg">
+    <div class="toolbar">
+        <div class="clear"><img src="images/app/muchang-photo/clear.png" style="transform: scale(1.4)"></div>
+        <div class="store"><img src="images/app/muchang-photo/store.png" style="transform: scale(1.4);margin-left: 5px"></div>
+        <div class="qucong"><img src="images/app/muchang-photo/qucong.png" style="transform: scale(1.4)"></div>
+        <div class="feed"><img src="images/app/muchang-photo/feed.png" style="transform: scale(1.4)"></div>
+        <div class="shouhuo_but"><img src="images/app/muchang-photo/shouhuo_but.png" style="transform: scale(1)"></div>
+        <div class="shuaxin"><img src="images/app/muchang-photo/shuaxin.png" style="transform: scale(1);margin-top: 17px"></div>
+    </div>
 
 
 
@@ -340,9 +354,55 @@
         });
 
 
+//        动物随机出现
+//        猪
+        var pig_top=Math.floor(150*Math.random());
+        var pig_left=Math.floor(200*Math.random());
+        $("#pig").css("left",pig_left+"px");
+        $("#pig").css("top",pig_top+"px");
+//        羊
+        var sheep_top=Math.floor(130*Math.random());
+        var sheep_left=Math.floor(179*Math.random());
+        $(".sheep").css("left",sheep_left+"px");
+        $(".sheep").css("top",sheep_top+"px");
+        //        牛
+        var cow_top=Math.floor(110*Math.random());
+        var cow_left=Math.floor(160*Math.random());
+        $(".cow").css("left",cow_left+"px");
+        $(".cow").css("top",cow_top+"px");
+        //        猫
+        var cat_top=Math.floor(90*Math.random());
+        var cat_left=Math.floor(140*Math.random());
+        $(".cat").css("left",sheep_left+"px");
+        $(".cat").css("top",sheep_top+"px");
+        //        羊驼
+        var alpaca_top=Math.floor(70*Math.random());
+        var alpaca_left=Math.floor(120*Math.random());
+        $(".alpaca").css("left",alpaca_left+"px");
+        $(".alpaca").css("top",alpaca_top+"px");
+        //        黑猫
+        var blackcat_top=Math.floor(50*Math.random());
+        var blackcat_left=Math.floor(100*Math.random());
+        $(".blackcat").css("left",blackcat_left+"px");
+        $(".blackcat").css("top",blackcat_top+"px");
+        //        猫鼬
+        var maoyou_top=Math.floor(30*Math.random());
+        var maoyou_left=Math.floor(79*Math.random());
+        $(".maoyou").css("left",maoyou_left+"px");
+        $(".maoyou").css("top",maoyou_top+"px");
+        //        蜜蜂
+        var bee_top=Math.floor(20*Math.random());
+        var bee_left=Math.floor(60*Math.random());
+        $(".bee").css("left",bee_left+"px");
+        $(".bee").css("top",bee_top+"px");
 
 
-//
+//        点击功能栏
+//        打扫
+
+        $(".clear").click(function(){
+            alert(123)
+        });
 
     });
 
