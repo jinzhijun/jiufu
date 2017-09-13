@@ -48,6 +48,7 @@ html,body{
     margin-left: 25px;
     font-weight: bold;
     color: white;
+    font-size: 4rem;
 }
 .notice{
     background: url(../images/app/main/notice-message.png)no-repeat 0 0;
@@ -565,8 +566,35 @@ html,body{
     100% {left:0px;top:0px;}
 
 }
+
+/*动物便便*/
+.bianbian{
+    width:110px;
+    height:90px;
+    /*border:1px solid red;*/
+    position:relative;
+    transform: scale(0.4);
+    z-index: 1;
+    display: inline-block;
+    -webkit-animation-name:bianmove;
+    -webkit-animation-duration: 12s;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;/*反向循环播放*/
+}
+@-webkit-keyframes bianmove /*Safari and Chrome*/
+{
+
+    /*0% {left:0px;top:0px;}*/
+    /*25% {left:300px;top:60px;}*/
+    /*50% {left:100px;top:100px;}*/
+    /*75% {left:10px;top:60px;}*/
+    /*100% {left:0px;top:0px;}*/
+
+}
+
 /*动物动态公用*/
-.pigmove,.sheepmove,.cowmove,.catmove,.alpacamove,.blackcatmove,.maoyoumove,.beemove{
+.pigmove,.sheepmove,.cowmove,.catmove,.alpacamove,.blackcatmove,.maoyoumove,.beemove,.bianmove{
     width:106px;
     height:80px;
     position: relative;
@@ -585,7 +613,8 @@ html,body{
 .toolbar-bg{
     width: 100%;
     height: 117px;
-    margin-top: 1551px;
+    margin-top:708px;
+    float: left;
     background: url("../images/app/main/main_but_bg.png")no-repeat;
 
 }
@@ -643,4 +672,25 @@ html,body{
     float: left;
     /*border:1px solid red;*/
     cursor: pointer;
+}
+.hint{
+    display: none;
+    font-size: 2em;
+    position: absolute;
+    left: 40%;
+    top: 15%;
+    font-weight: bold;
+    height: 70px;
+    width: 500px;
+    overflow: hidden;
+    color: #FFFFFF;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-overflow: ellipsis;
+    margin-left: -150px;
+    line-height: 70px;
+    border-radius: 3em;
+    background: rgba(0,0,0,0.5);
+    opacity: 1;
 }

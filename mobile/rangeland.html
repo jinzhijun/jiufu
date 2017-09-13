@@ -212,6 +212,9 @@
         <div class="bee">
             <img src="images/app/muchang-photo/bee.png" class="beemove">
         </div>
+        <!--<div class="bianbian">-->
+            <!--<img src="images/app/muchang-photo/bianbian.png" class="bianmove">-->
+        <!--</div>-->
     </div>
     <!--工具栏-->
     <div class="toolbar-bg">
@@ -223,6 +226,9 @@
         <div class="shouhuo_but"><img src="images/app/muchang-photo/shouhuo_but.png" style="transform: scale(1)"></div>
         <div class="shuaxin"><img src="images/app/muchang-photo/shuaxin.png" style="transform: scale(1);margin-top: 17px"></div>
     </div>
+    <!--页面提示信息-->
+    <div class="hint"></div>
+
 
 
 
@@ -353,10 +359,20 @@
             $("#bg-music-but2").css("display","block")
         });
 
+//        动物便便随机出现
+        function bian_appear_time(){
+//            每五秒添加一个便便
+            var bian_top2=Math.floor(200*Math.random());
+            var bian_left2=Math.floor(500*Math.random());
+            $(".medaw-farm").append("<div class='bianbian' style='left:"+bian_left2+"px;top:"+bian_top2+"px;'> <img src='images/app/muchang-photo/bianbian.png' class='bianmove'> </div>")
+        }
+        setInterval(bian_appear_time,20000);
+
+
 
 //        动物随机出现
 //        猪
-        var pig_top=Math.floor(150*Math.random());
+        var pig_top=Math.floor(300*Math.random());
         var pig_left=Math.floor(200*Math.random());
         $("#pig").css("left",pig_left+"px");
         $("#pig").css("top",pig_top+"px");
@@ -395,13 +411,82 @@
         var bee_left=Math.floor(60*Math.random());
         $(".bee").css("left",bee_left+"px");
         $(".bee").css("top",bee_top+"px");
+//        如果便便数大于6，最早养殖的动物死亡;
+//        function panduan_biannumber(){
+//            var bian_number=$(".bianbian").length;
+//            var n=1;n++;n<100;
+//            if(bian_number==6*n){
+//                $(".medaw-farm").children().get(1).remove();
+//            }
+//        }
+//          setInterval(panduan_biannumber,30000);
 
 
 //        点击功能栏
-//        打扫
+//        一键打扫
 
         $(".clear").click(function(){
-            alert(123)
+            $(".hint").css("display","block");
+            $(".hint").text("清理完毕！")
+            $(".hint").fadeOut(2500);
+            $(".bianbian").remove();
+        });
+//        一键喂养
+        var feed=0;
+        $(".feed").click(function(){
+
+            if(feed==0){
+                $(".pig").css("transform","scale(0.8)");
+                $(".sheep").css("transform","scale(0.8)");
+                $(".cow").css("transform","scale(0.8)");
+                $(".cat").css("transform","scale(0.8)");
+                $(".alpaca").css("transform","scale(0.8)");
+                $(".blackcat").css("transform","scale(0.8)");
+                $(".maoyou").css("transform","scale(0.8)");
+                $(".bee").css("transform","scale(0.8)");
+                $(".hint").css("display","block");
+                $(".hint").text("宠物成长至初级！")
+                $(".hint").fadeOut(2500);
+                feed=feed+1;
+            }else if(feed==1){
+                $(".pig").css("transform","scale(0.9)");
+                $(".sheep").css("transform","scale(0.9)");
+                $(".cow").css("transform","scale(0.9)");
+                $(".cat").css("transform","scale(0.9)");
+                $(".alpaca").css("transform","scale(0.9)");
+                $(".blackcat").css("transform","scale(0.9)");
+                $(".maoyou").css("transform","scale(0.9)");
+                $(".bee").css("transform","scale(0.9)");
+                $(".hint").css("display","block");
+                $(".hint").text("宠物成长至中级！")
+                $(".hint").fadeOut(2500);
+                feed=feed+1;
+            }
+            else if(feed==2){
+                $(".pig").css("transform","scale(1)");
+                $(".sheep").css("transform","scale(1)");
+                $(".cow").css("transform","scale(1)");
+                $(".cat").css("transform","scale(1)");
+                $(".alpaca").css("transform","scale(1)");
+                $(".blackcat").css("transform","scale(1)");
+                $(".maoyou").css("transform","scale(1)");
+                $(".bee").css("transform","scale(1)");
+                $(".hint").css("display","block");
+                $(".hint").text("宠物成长至高级，已满级！")
+                $(".hint").fadeOut(2500);
+                feed=feed+1;
+            }else{
+                $(".hint").css("display","block");
+                $(".hint").text("宠物成长至高级，已满级！")
+                $(".hint").fadeOut(2500);
+            }
+        });
+//        一键刷新
+        $(".shuaxin").click(function(){
+            window.location.reload();
+//            $(".hint").css("display","block");
+//            $(".hint").text("页面刷新成功！")
+//            $(".hint").fadeOut(2500);
         });
 
     });

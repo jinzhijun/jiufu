@@ -7,7 +7,7 @@ ini_set('date.timezone','Asia/Shanghai');
 include 'mysql.class.php';
 $hostname='192.168.10.13';
 $username='root';
-$password='';
+$password='root';
 $dbname='jiufu';
 $charset = 'utf8';
 $url="http://test.jiufu.com/";
