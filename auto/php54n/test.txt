@@ -18,3 +18,4 @@ INSERT INTO `jz_all_record` (`user_login`,`type`,`notice`,`number`,`create_time`
 INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('lz7788','4.713012','2.04','2017-09-13 10:21:18')
 INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('招财树','1.4','0.10','2017-09-13 19:33:20')
 INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('lz7788','4.713012','2.04','2017-09-14 09:50:36')
+INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('lz7788','4.713012','2.04','2017-09-15 09:33:59')
