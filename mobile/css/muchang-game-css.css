@@ -127,7 +127,7 @@ html,body{
 .menu{
     width: 499px;
     height: 1350px;
-    background: url("../images/app/main/main_bg3.png") no-repeat;
+    background: url("../images/app/muchang-photo/cebian.png") no-repeat;
     float: left;
     margin-left: -33px;
 }
@@ -208,7 +208,7 @@ html,body{
 .show2{
     background: url(../images/app/main/main_but2.png)no-repeat;
     position: absolute;
-    z-index: 10;
+    z-index: 22;
     height: 222px;
     width: 130px;
     left: -35px;
@@ -331,6 +331,7 @@ html,body{
     margin-top: 202px;
     /* margin-left: 70px; */
     overflow: hidden;
+    position: relative;
 }
 .tree{
     width:150px;
@@ -344,36 +345,30 @@ html,body{
 }
 
 /*猪*/
-/*.pig-around{*/
-    /*width:300px;*/
-    /*height:420px;*/
-    /*float: left;*/
-    /*border:1px solid black;*/
-/*}*/
 .pig{
     width:110px;
     height:90px;
-    /*transform: scale(0.7);*/
-    /*border:1px solid red;*/
-    position:relative;
+    position:absolute;
     z-index: 2;
     display: inline-block;
-    -webkit-animation-name: pigmove;
-    -webkit-animation-duration: 12s;
-    -webkit-animation-iteration-count: infinite; /*无限循环*/
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-direction: alternate;/*反向循环播放*/
+    transition: all 5s;
+    -moz-transition: all 5s;
+    -webkit-transition: all 5s;
+    -o-transition:all 5s;
+    /*-webkit-animation-name: pigmove;*/
+    /*-webkit-animation-duration: 12s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
 }
-@-webkit-keyframes pigmove /*Safari and Chrome*/
-{
-
-    /*0% {left:0px;top:0px;}*/
-    25% {left:50px;top:50px;}
-    50% {left:150px;top:60px;}
-    60% {left:170px;top:50px;}
-    75% {left:190px;top:30px;}
-    100% {left:200px;top:0px;}
-}
+/*@-webkit-keyframes pigmove !*Safari and Chrome*!*/
+/*{*/
+    /*25% {left:50px;top:50px;}*/
+    /*50% {left:150px;top:60px;}*/
+    /*60% {left:170px;top:50px;}*/
+    /*75% {left:190px;top:30px;}*/
+    /*100% {left:200px;top:0px;}*/
+/*}*/
 
 /*羊*/
 /*.sheep-around{*/
@@ -387,25 +382,25 @@ html,body{
     height:90px;
     /*border:1px solid red;*/
     position:relative;
-    transform: scale(0.7);
+    /*transform: scale(0.7);*/
     z-index: 4;
     display: inline-block;
-    -webkit-animation-name:sheepmove;
-    -webkit-animation-duration: 9s;
-    -webkit-animation-iteration-count: infinite; /*无限循环*/
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-direction: alternate;/*反向循环播放*/
+    /*-webkit-animation-name:sheepmove;*/
+    /*-webkit-animation-duration: 9s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
 }
-@-webkit-keyframes sheepmove /*Safari and Chrome*/
-{
+/*@-webkit-keyframes sheepmove !*Safari and Chrome*!*/
+/*{*/
 
-    /*0% {left:0px;top:150px;}*/
-    25% {left:30px;top:120px;}
-    50% {left:50px;top:90px;}
-    75% {left:100px;top:50px;}
-    100% {left:0px;top:0px;}
+    /*!*0% {left:0px;top:150px;}*!*/
+    /*25% {left:30px;top:120px;}*/
+    /*50% {left:50px;top:90px;}*/
+    /*75% {left:100px;top:50px;}*/
+    /*100% {left:0px;top:0px;}*/
 
-}
+/*}*/
 
 
 /*牛*/
@@ -414,7 +409,7 @@ html,body{
     height:90px;
     /*border:1px solid red;*/
     position:relative;
-    transform: scale(0.7);
+    /*transform: scale(0.7);*/
     z-index: 6;
     display: inline-block;
     -webkit-animation-name:cowmove;
@@ -441,7 +436,7 @@ html,body{
     height:90px;
     /*border:1px solid red;*/
     position:relative;
-    transform: scale(0.7);
+    /*transform: scale(0.7);*/
     z-index: 8;
     display: inline-block;
     -webkit-animation-name:catmove;
@@ -468,7 +463,7 @@ html,body{
     height:90px;
     /*border:1px solid red;*/
     position:relative;
-    transform: scale(0.7);
+    /*transform: scale(0.7);*/
     z-index: 10;
     display: inline-block;
     -webkit-animation-name:alpacamove;
@@ -495,7 +490,7 @@ html,body{
     height:90px;
     /*border:1px solid red;*/
     position:relative;
-    transform: scale(0.7);
+    /*transform: scale(0.7);*/
     z-index: 12;
     display: inline-block;
     -webkit-animation-name:blackcatmove;
@@ -521,7 +516,7 @@ html,body{
     height:90px;
     /*border:1px solid red;*/
     position:relative;
-    transform: scale(0.7);
+    /*transform: scale(0.7);*/
     z-index: 14;
     display: inline-block;
     -webkit-animation-name:maoyoumove;
@@ -547,7 +542,7 @@ html,body{
     height:90px;
     /*border:1px solid red;*/
     position:relative;
-    transform: scale(0.7);
+    /*transform: scale(0.7);*/
     z-index: 16;
     display: inline-block;
     -webkit-animation-name:beemove;
@@ -694,3 +689,28 @@ html,body{
     background: rgba(0,0,0,0.5);
     opacity: 1;
 }
+.modal-content{
+    width: 835px;
+    height: 1291px;
+    background: url(../images/app/muchang-photo/shop_bg.png)no-repeat;
+    background-size: 100% 100%;
+    margin: auto;
+    margin-top: 182px;
+     border: none;
+     border: none;
+     border-radius: 6px;
+     outline:none;
+     -webkit-box-shadow:none;
+     box-shadow:none;
+}
+.btn{
+    width:78px !important;
+    height:70px !important;
+    background: url("../images/app/muchang-photo/turndown.png")no-repeat ;
+}
+.btn-primary{
+    color: #fff;
+    border-color: rgba(46,109,164,0.1) !important;
+}
+
+

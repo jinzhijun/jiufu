@@ -18,6 +18,8 @@
     <!-- Dynamic CSS -->
     <link href="css/muchang-game-css.css" rel="stylesheet" media="screen">
     <script style="text/javascript" src="js/jquery.min.js"></script>
+    <!--<script src="js/jquery.transit.js"></script>-->
+
 </head>
 <body>
 <div class="zhong">
@@ -146,7 +148,7 @@
                         <li><a href="#" data-toggle="modal" data-target="#winModal">委托记录</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#winModal">购买记录</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#winModal">交易所</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">道具商城</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#winModal">商城</a></li>
                     </ul>
                 </div>
 
@@ -187,32 +189,32 @@
     <!--牧场动物展示区-->
     <div class="medaw-farm">
         <div class="tree" tree_dengji="4"></div>
-        <div class="pig" id="pig" pig_dengji="3" style="transform: scale(0.7)">
+        <div class="pig" id="pig" pig_dengji="2" style="transform: scale(0.8);">
             <img src="images/app/muchang-photo/pig.png" class="pigmove">
         </div>
-        <div class="pig"  pig_dengji="2" style="transform: scale(0.7)">
-            <img src="images/app/muchang-photo/pig.png" class="pigmove">
-        </div>
-         <div class="sheep" sheep_dengji="1">
+        <!--<div class="pig"  pig_dengji="1" style="transform: scale(0.7)">-->
+            <!--<img src="images/app/muchang-photo/pig.png" class="pigmove">-->
+        <!--</div>-->
+         <div class="sheep" sheep_dengji="1" style="transform: scale(0.7)">
             <img src="images/app/muchang-photo/sheep.png" class="sheepmove">
          </div>
         <!--</div>-->
-         <div class="cow" cow_dengji="1">
+         <div class="cow" cow_dengji="1" style="transform: scale(0.7)">
             <img src="images/app/muchang-photo/cow.png" class="cowmove">
          </div>
-        <div class="cat" cat_dengji="1">
+        <div class="cat" cat_dengji="1" style="transform: scale(0.7)">
             <img src="images/app/muchang-photo/cat.png" class="catmove">
         </div>
-        <div class="alpaca" alpaca_dengji="1">
+        <div class="alpaca" alpaca_dengji="1" style="transform: scale(0.7)">
             <img src="images/app/muchang-photo/alpaca.png" class="alpacamove">
         </div>
-        <div class="blackcat" blackcat_dengji="1">
+        <div class="blackcat" blackcat_dengji="1" style="transform: scale(0.7)">
             <img src="images/app/muchang-photo/blackcat.png" class="blackcatmove">
         </div>
-        <div class="maoyou" maoyou_dengji="1">
+        <div class="maoyou" maoyou_dengji="1" style="transform: scale(0.7)">
             <img src="images/app/muchang-photo/maoyou.png" class="maoyoumove">
         </div>
-        <div class="bee" bee_dengji="1">
+        <div class="bee" bee_dengji="1" style="transform: scale(0.7)">
             <img src="images/app/muchang-photo/bee.png" class="beemove">
         </div>
         <!--<div class="bianbian">-->
@@ -278,7 +280,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="btn btn-primary btn-lg pull-right" data-dismiss="modal" style="zoom: 150%">
-                        关闭
+
                     </button>
                 </div>
                 <div class="modal-body">
@@ -313,6 +315,10 @@
         $(".show2").click(function(){
             $(".sidebar").css("display","block");
             $(".sidebar").css("width","650px");
+            $(".sidebar").css("transition","width 0.1s ease-in");
+        });
+        $(".part_list").click(function(){
+            $(".sidebar").css("width","0px");
             $(".sidebar").css("transition","width 0.1s ease-in");
         });
 
@@ -365,7 +371,7 @@
         var clear_stau=0
 //        动物便便随机出现
         function bian_appear_time() {
-//            每五秒添加一个便便
+//            每20秒添加一个便便
             var bian_top2 = Math.floor(200 * Math.random());
             var bian_left2 = Math.floor(500 * Math.random());
             $(".medaw-farm").append("<div class='bianbian' style='left:" + bian_left2 + "px;top:" + bian_top2 + "px;'> <img src='images/app/muchang-photo/bianbian.png' class='bianmove'> </div>")
@@ -387,45 +393,153 @@
 
 //        动物随机出现
 //        猪
-        var pig_top=Math.floor(300*Math.random());
-        var pig_left=Math.floor(200*Math.random());
-        $("#pig").css("left",pig_left+"px");
-        $("#pig").css("top",pig_top+"px");
+        var pig_zhong_number=$(".pig").length;
+        for(i=0;i<pig_zhong_number;i++){
+            var pig_top=Math.floor(300*Math.random());
+            var pig_left=Math.floor(200*Math.random());
+            var pig_address=document.getElementsByClassName("pig");
+            pig_address[i].style.left=pig_left+"px";
+            pig_address[i].style.top=pig_top+"px";
+
+//            var pig_move_left=pig_left/2;
+//            var pig_move_top=pig_top/2;
+//            $(".pig").animate({left:"20px"});
+//            $(".pig")
+//
+// .animate({top:"30px"});
+
+            console.log($(".pig").css('left'));
+//            console.log($(".pig").attr(left));
+//            if($(".pig").attr(left)==600){
+//
+//            }
+////随机移动
+//            function pigmove(){
+//                var pig_move=document.getElementById("pig");
+//                var pig_move_left=parseInt(pig_move.style.left);
+////                var pig_move_left=pig_left;
+////                var pig_distance=200;
+////                if(pig_move_left-pig_distance>0){
+////                    var zhi=1;
+//                     pig_move_left+=5;
+//                pig_move.style.left=pig_move_left+'px';
+////                alert(pig_move_left);
+////                    if(parseInt(pig_move_left)>="300"){
+////                        zhi=-1;
+////                    }
+////                }
+//            }
+//          setInterval(pigmove(),1000);
+////            pigmove();
+
+
+//            function pigmove2(){
+//                var pig_move=document.getElementById("pig");
+//                var pig_move_left=parseInt(pig_move.style.left);
+////                var pig_move_left=pig_left;
+//                var pig_distance=20;
+//                if(pig_move_left+pig_distance<700){
+//                    var zhi2=pig_move_left+pig_distance;
+//                    pig_move.style.left=zhi2+"px";
+//                    window.setInterval(pigmove2(),1000);
+//                }
+//            }
+//            pigmove2();
+//
+//            var pig_move_left=pig_left/2;
+//            var pig_move_top=pig_top/2;
+//            $(".pig").each(function(){
+//                $(this).animate({left:pig_move_left+"px"});
+//                $(this).css("transition","left 10s ease-in");
+//            });
+
+
+//                $(".pig").transition({
+//                    left:pig_move_left,top:pig_move_top,
+//                    duration: 500,
+//                    easing: 'linear',
+//                    complete: function(){}
+//                });
+//            $(".pig").css({left:'"+pig_move_left+"px'});
+
+
+        }
+
+
+
+
+
+
+
 //        羊
-        var sheep_top=Math.floor(130*Math.random());
-        var sheep_left=Math.floor(179*Math.random());
-        $(".sheep").css("left",sheep_left+"px");
-        $(".sheep").css("top",sheep_top+"px");
+        var sheep_zhong_number=$(".sheep").length;
+        for(i=0;i<sheep_zhong_number;i++){
+            var sheep_top=Math.floor(300*Math.random());
+            var sheep_left=Math.floor(200*Math.random());
+            sheep_address=document.getElementsByClassName("sheep");
+            sheep_address[i].style.left=sheep_left+"px";
+            sheep_address[i].style.top=sheep_top+"px";
+        }
         //        牛
-        var cow_top=Math.floor(110*Math.random());
-        var cow_left=Math.floor(160*Math.random());
-        $(".cow").css("left",cow_left+"px");
-        $(".cow").css("top",cow_top+"px");
+        var cow_zhong_number=$(".cow").length;
+        for(i=0;i<cow_zhong_number;i++){
+            var cow_top=Math.floor(300*Math.random());
+            var cow_left=Math.floor(200*Math.random());
+            cow_address=document.getElementsByClassName("cow");
+            cow_address[i].style.left=cow_left+"px";
+            cow_address[i].style.top=cow_top+"px";
+        }
         //        猫
-        var cat_top=Math.floor(90*Math.random());
-        var cat_left=Math.floor(140*Math.random());
-        $(".cat").css("left",sheep_left+"px");
-        $(".cat").css("top",sheep_top+"px");
+        var cat_zhong_number=$(".cat").length;
+        for(i=0;i<cat_zhong_number;i++){
+            var cat_top=Math.floor(300*Math.random());
+            var cat_left=Math.floor(200*Math.random());
+            cat_address=document.getElementsByClassName("cat");
+            cat_address[i].style.left=cat_left+"px";
+            cat_address[i].style.top=cat_top+"px";
+        }
         //        羊驼
-        var alpaca_top=Math.floor(70*Math.random());
-        var alpaca_left=Math.floor(120*Math.random());
-        $(".alpaca").css("left",alpaca_left+"px");
-        $(".alpaca").css("top",alpaca_top+"px");
+        var alpaca_zhong_number=$(".alpaca").length;
+        for(i=0;i<alpaca_zhong_number;i++){
+            var alpaca_top=Math.floor(300*Math.random());
+            var alpaca_left=Math.floor(200*Math.random());
+            alpaca_address=document.getElementsByClassName("alpaca");
+            alpaca_address[i].style.left=alpaca_left+"px";
+            alpaca_address[i].style.top=alpaca_top+"px";
+        }
         //        黑猫
-        var blackcat_top=Math.floor(50*Math.random());
-        var blackcat_left=Math.floor(100*Math.random());
-        $(".blackcat").css("left",blackcat_left+"px");
-        $(".blackcat").css("top",blackcat_top+"px");
+        var blackcat_zhong_number=$(".blackcat").length;
+        for(i=0;i<blackcat_zhong_number;i++){
+            var blackcat_top=Math.floor(300*Math.random());
+            var blackcat_left=Math.floor(200*Math.random());
+            blackcat_address=document.getElementsByClassName("blackcat");
+            blackcat_address[i].style.left=blackcat_left+"px";
+            blackcat_address[i].style.top=blackcat_top+"px";
+        }
         //        猫鼬
-        var maoyou_top=Math.floor(30*Math.random());
-        var maoyou_left=Math.floor(79*Math.random());
-        $(".maoyou").css("left",maoyou_left+"px");
-        $(".maoyou").css("top",maoyou_top+"px");
+        var maoyou_zhong_number=$(".maoyou").length;
+        for(i=0;i<maoyou_zhong_number;i++){
+            var maoyou_top=Math.floor(300*Math.random());
+            var maoyou_left=Math.floor(200*Math.random());
+            maoyou_address=document.getElementsByClassName("maoyou");
+            maoyou_address[i].style.left=maoyou_left+"px";
+            maoyou_address[i].style.top=maoyou_top+"px";
+        }
         //        蜜蜂
-        var bee_top=Math.floor(20*Math.random());
-        var bee_left=Math.floor(60*Math.random());
-        $(".bee").css("left",bee_left+"px");
-        $(".bee").css("top",bee_top+"px");
+        var bee_zhong_number=$(".bee").length;
+        for(i=0;i<bee_zhong_number;i++){
+            var bee_top=Math.floor(300*Math.random());
+            var bee_left=Math.floor(200*Math.random());
+            bee_address=document.getElementsByClassName("bee");
+            bee_address[i].style.left=bee_left+"px";
+            bee_address[i].style.top=bee_top+"px";
+        }
+
+
+//        动物随机移动
+
+
+
 //        如果便便数大于6，最早养殖的动物死亡;
 //        function panduan_biannumber(){
 //            var bian_number=$(".bianbian").length;
@@ -451,7 +565,6 @@
 //           }
 //       }
 //        setInterval(panduan_size(),1000);
-
 
 
 //        点击功能栏  quanxian:1为普通用户，2位开通一键功能用户
@@ -720,13 +833,12 @@
                         pig_str=$(".pig")[i].getAttribute("pig_dengji");
                         pig_size=$(".pig")[i].style.transform;
                         pig_size_xuanzhe=pig_size.substr(6,3);
-                        alert(pig_size_xuanzhe)
-                        if(pig_str<4){
+                        if(pig_str<4||pig_size_xuanzhe<1){
                             pig_str1=parseInt(pig_str)+1;
                             pig_size_xuanzhe1=parseFloat(pig_size_xuanzhe)+0.1;
-                            alert(pig_size_xuanzhe1);
+                            var pig_cishu=document.getElementsByClassName("pig");
+                            pig_cishu[i].style.transform="scale("+pig_size_xuanzhe1+")";
                             $(".pig")[i].setAttribute("pig_dengji",pig_str1);
-//                           $(".pig")[i].setAttribute("transform",scale(pig_size_xuanzhe1));
                         }else{
                             $(".hint").css("display","block");
                             $(".hint").text("猪类所有宠物已达到最高级！")
@@ -740,11 +852,12 @@
                         sheep_str=$(".sheep")[i].getAttribute("sheep_dengji");
                         sheep_size=$(".sheep")[i].style.transform;
                         sheep_size_xuanzhe=sheep_size.substr(6,3);
-                        if(sheep_str<4){
+                        if(sheep_str<4||sheep_size_xuanzhe<1){
                             sheep_str1=parseInt(sheep_str)+1;
                             sheep_size_xuanzhe1=parseFloat(sheep_size_xuanzhe)+0.1;
+                            var sheep_cishu=document.getElementsByClassName("sheep");
+                            sheep_cishu[i].style.transform="scale("+sheep_size_xuanzhe1+")";
                             $(".sheep")[i].setAttribute("sheep_dengji",sheep_str1);
-                            $(".sheep")[i].setAttribute("transform",sheep_size_xuanzhe1);
                         }else{
                             $(".hint").css("display","block");
                             $(".hint").text("羊类所有宠物已达到最高级！")
@@ -758,11 +871,12 @@
                         cow_str=$(".cow")[i].getAttribute("cow_dengji");
                         cow_size=$(".cow")[i].style.transform;
                         cow_size_xuanzhe=cow_size.substr(6,3);
-                        if(cow_str<4){
+                        if(cow_str<4||cow_size_xuanzhe<1){
                             cow_str1=parseInt(cow_str)+1;
                             cow_size_xuanzhe1=parseFloat(cow_size_xuanzhe)+0.1;
+                            var cow_cishu=document.getElementsByClassName("cow");
+                            cow_cishu[i].style.transform="scale("+cow_size_xuanzhe1+")";
                             $(".cow")[i].setAttribute("cow_dengji",cow_str1);
-                            $(".cow")[i].setAttribute("transform",cow_size_xuanzhe1);
                         }else{
                             $(".hint").css("display","block");
                             $(".hint").text("牛类所有宠物已达到最高级！")
@@ -776,11 +890,12 @@
                         cat_str=$(".cat")[i].getAttribute("cat_dengji");
                         cat_size=$(".cat")[i].style.transform;
                         cat_size_xuanzhe=cat_size.substr(6,3);
-                        if(cat_str<4){
+                        if(cat_str<4||cat_size_xuanzhe<1){
                             cat_str1=parseInt(cat_str)+1;
                             cat_size_xuanzhe1=parseFloat(cat_size_xuanzhe)+0.1;
+                            var cat_cishu=document.getElementsByClassName("cat");
+                            cat_cishu[i].style.transform="scale("+cat_size_xuanzhe1+")";
                             $(".cat")[i].setAttribute("cat_dengji",cat_str1);
-                            $(".cat")[i].setAttribute("transform",cat_size_xuanzhe1);
                         }else{
                             $(".hint").css("display","block");
                             $(".hint").text("猫类所有宠物已达到最高级！")
@@ -795,11 +910,12 @@
                         alpaca_str=$(".alpaca")[i].getAttribute("alpaca_dengji");
                         alpaca_size=$(".alpaca")[i].style.transform;
                         alpaca_size_xuanzhe=alpaca_size.substr(6,3);
-                        if(alpaca_str<4){
+                        if(alpaca_str<4||alpaca_size_xuanzhe<1){
                             alpaca_str1=parseInt(alpaca_str)+1;
                             alpaca_size_xuanzhe1=parseFloat(alpaca_size_xuanzhe)+0.1;
+                            var alpaca_cishu=document.getElementsByClassName("alpaca");
+                            alpaca_cishu[i].style.transform="scale("+alpaca_size_xuanzhe1+")";
                             $(".alpaca")[i].setAttribute("alpaca_dengji",alpaca_str1);
-                            $(".alpaca")[i].setAttribute("transform",alpaca_size_xuanzhe1);
                         }else{
                             $(".hint").css("display","block");
                             $(".hint").text("羊驼类所有宠物已达到最高级！")
@@ -813,11 +929,12 @@
                         blackcat_str=$(".blackcat")[i].getAttribute("blackcat_dengji");
                         blackcat_size=$(".blackcat")[i].style.transform;
                         blackcat_size_xuanzhe=blackcat_size.substr(6,3);
-                        if(blackcat_str<4){
+                        if(blackcat_str<4||blackcat_size_xuanzhe<1){
                             blackcat_str1=parseInt(blackcat_str)+1;
                             blackcat_size_xuanzhe1=parseFloat(blackcat_size_xuanzhe)+0.1;
+                            var blackcat_cishu=document.getElementsByClassName("blackcat");
+                            blackcat_cishu[i].style.transform="scale("+blackcat_size_xuanzhe1+")";
                             $(".blackcat")[i].setAttribute("blackcat_dengji",blackcat_str1);
-                            $(".blackcat")[i].setAttribute("transform",blackcat_size_xuanzhe1);
                         }else{
                             $(".hint").css("display","block");
                             $(".hint").text("黑猫类所有宠物已达到最高级！")
@@ -831,11 +948,12 @@
                         maoyou_str=$(".maoyou")[i].getAttribute("maoyou_dengji");
                         maoyou_size=$(".maoyou")[i].style.transform;
                         maoyou_size_xuanzhe=maoyou_size.substr(6,3);
-                        if(maoyou_str<4){
+                        if(maoyou_str<4||maoyou_size_xuanzhe<1){
                             maoyou_str1=parseInt(maoyou_str)+1;
                             maoyou_size_xuanzhe1=parseFloat(maoyou_size_xuanzhe)+0.1;
+                            var maoyou_cishu=document.getElementsByClassName("maoyou");
+                            maoyou_cishu[i].style.transform="scale("+maoyou_size_xuanzhe1+")";
                             $(".maoyou")[i].setAttribute("maoyou_dengji",maoyou_str1);
-                            $(".maoyou")[i].setAttribute("transform",maoyou_size_xuanzhe1);
                         }else{
                             $(".hint").css("display","block");
                             $(".hint").text("猫鼬类所有宠物已达到最高级！")
@@ -849,11 +967,12 @@
                         bee_str=$(".bee")[i].getAttribute("bee_dengji");
                         bee_size=$(".bee")[i].style.transform;
                         bee_size_xuanzhe=bee_size.substr(6,3);
-                        if(bee_str<4){
+                        if(bee_str<4||bee_size_xuanzhe<1){
                             bee_str1=parseInt(bee_str)+1;
                             bee_size_xuanzhe1=parseFloat(bee_size_xuanzhe)+0.1;
+                            var bee_cishu=document.getElementsByClassName("bee");
+                            bee_cishu[i].style.transform="scale("+bee_size_xuanzhe1+")";
                             $(".bee")[i].setAttribute("bee_dengji",bee_str1);
-                            $(".bee")[i].setAttribute("transform",bee_size_xuanzhe1);
                         }else{
                             $(".hint").css("display","block");
                             $(".hint").text("蜜蜂类所有宠物已达到最高级！")
@@ -925,6 +1044,14 @@
     });
 
 </script>
+<!--<style type="text/css">-->
+    <!--@-webkit-keyframes pigmove{-->
+        <!--/*50% {"left:"+pig_move_left1+"px";"top:"+pig_move_top1+"px"}*/-->
+        <!--/*100% {"left:"+pig_move_top1+"px";"top:"+pig_move_left1+"px"}*/-->
+        <!--50% {left:30px;top:40px}-->
+        <!--100% {left:100px;top:50px}-->
+    <!--}-->
+<!--</style>-->
 
 <!-- jQuery -->
 <script src="js/jquery.min.js?v=20170225"></script>
