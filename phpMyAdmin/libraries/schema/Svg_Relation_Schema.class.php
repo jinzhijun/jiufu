@@ -216,7 +216,7 @@ class PMA_SVG extends XMLWriter
         $this->writeAttribute('y', $y);
         $this->writeAttribute('style', $styles);
         if (isset($text)) {
-            $this->writeAttribute('font-family', $this->font);
+            $this->writeAttribute('font', $this->font);
             $this->writeAttribute('font-size', $this->fontSize);
             $this->text($text);
         }

@@ -1167,7 +1167,7 @@ position: absolute;
     position: absolute;
     padding: 10px;
     z-index: 101;
-    font-family: "Microsoft Yahei";
+    font: "Microsoft Yahei";
     font-size: 12px;
     display: noe;
 }

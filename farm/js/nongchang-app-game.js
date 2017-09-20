@@ -807,13 +807,13 @@ function initModalWin() {
         }
     });
 
-    $("a[rel='modalWin']").click(function(){
-        var href = $(this).attr('href');
-
-        openModalWin(href);
-
-        return false;
-    });
+    //$("a[rel='modalWin']").click(function(){
+    //    var href = $(this).attr('href');
+    //
+    //    openModalWin(href);
+    //
+    //    return false;
+    //});
 
     $(".newFarm").click(function () {
         hidenFunc = function () {

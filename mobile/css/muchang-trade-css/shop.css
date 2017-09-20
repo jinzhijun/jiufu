@@ -1,0 +1,32 @@
+*{
+    padding:0;
+    margin: 0;
+}
+html,body{
+    width:100%;
+    height:100%;
+    font-family: fangzheng;
+    border:1px solid red;
+    border-radius: 95px;
+    font-size: 2rem;
+    /*background: red;*/
+}
+.xuanzhe{
+    width: 100%;
+    height: 17.5%;
+    border: 1px solid black;
+    float: left;
+    border-top-left-radius: 95px;
+    border-top-right-radius: 95px;
+}
+.nong,.mu,.siliao{
+    width:33%;
+    height:100%;
+    border:1px solid green;
+    float: left;
+    line-height: 100%;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.2rem;
+    line-height: 100%;
+}

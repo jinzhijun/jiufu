@@ -3622,7 +3622,7 @@ var Stats = function() {
 	var c = document.createElement("div");
 	c.id = "fps", c.style.cssText = "padding:0 0 3px 3px;text-align:left;background-color:#002", u.appendChild(c);
 	var d = document.createElement("div");
-	d.id = "fpsText", d.style.cssText = "color:#0ff;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px", d.innerHTML = "FPS", c.appendChild(d);
+	d.id = "fpsText", d.style.cssText = "color:#0ff;font:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px", d.innerHTML = "FPS", c.appendChild(d);
 	var p = document.createElement("div");
 	for(p.id = "fpsGraph", p.style.cssText = "position:relative;width:74px;height:30px;background-color:#0ff", c.appendChild(p); p.children.length < 74;) {
 		var f = document.createElement("span");
@@ -3631,7 +3631,7 @@ var Stats = function() {
 	var g = document.createElement("div");
 	g.id = "ms", g.style.cssText = "padding:0 0 3px 3px;text-align:left;background-color:#020;display:none", u.appendChild(g);
 	var m = document.createElement("div");
-	m.id = "msText", m.style.cssText = "color:#0f0;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px", m.innerHTML = "MS", g.appendChild(m);
+	m.id = "msText", m.style.cssText = "color:#0f0;font:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px", m.innerHTML = "MS", g.appendChild(m);
 	var v = document.createElement("div");
 	for(v.id = "msGraph", v.style.cssText = "position:relative;width:74px;height:30px;background-color:#0f0", g.appendChild(v); v.children.length < 74;) {
 		var f = document.createElement("span");
