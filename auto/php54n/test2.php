@@ -5,9 +5,9 @@ error_reporting(E_ALL & ~E_NOTICE);
 ini_set('date.timezone','Asia/Shanghai');
 //包含数据库操作类文件
 include 'mysql.class.php';
-$hostname='192.168.10.13';
+$hostname='127.0.0.1';
 $username='root';
-$password='';
+$password='root';
 $dbname='jiufu';
 $charset = 'utf8';
 $url="http://test.jiufu.com/";
