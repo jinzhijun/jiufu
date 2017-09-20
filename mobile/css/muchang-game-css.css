@@ -2,11 +2,16 @@
     padding:0;
     margin:0;
 }
+@font-face{
+    font-family:fangzheng;
+    /*为引入的字体命名*/
+    src:url(../font/fangzheng.ttf);
+    /*定义要引入字体文件的路径*/
+}
 html,body{
      width:100%;
      height:100%;
-     /*border:1px solid red;*/
-     background: url("../images/app/rangeland.png") no-repeat;
+     background: url("../images/app/muchang-photo/muchang.png") no-repeat;
      background-size:cover;
      overflow: hidden;
  }
@@ -22,13 +27,13 @@ html,body{
     width:405px;
     height:160px;
     float: left;
-    background: url("../images/app/main/main_bg2.png")no-repeat;
+    background: url("../images/app/muchang-photo/7.png")no-repeat;
 }
 .top-left-left{
     width: 150px;
     height: 160px;
     float: left;
-    background: url("../images/app/main/main_bg2_kuang.png")no-repeat;
+    background: url("../images/app/muchang-photo/userinfo-bg.png")no-repeat;
 }
 .user-logo img{
     width: 147px;
@@ -48,6 +53,7 @@ html,body{
     margin-left: 25px;
     font-weight: bold;
     color: white;
+    font-size: 4rem;
 }
 .notice{
     background: url(../images/app/main/notice-message.png)no-repeat 0 0;
@@ -70,12 +76,19 @@ html,body{
 .username{
     color: white;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 41px;
+}
+.username2{
+    color: yellow;
+    font-weight: bold;
+    font-size: 41px;
+    font-family: fangzheng;
+    /*text-shadow:#000 5px 5px 5px;*/
 }
 .top-right{
     width: 565px;
     height: 175px;
-    background: url("../images/app/main/main_bg1.png")no-repeat;
+    background: url("../images/app/muchang-photo/6.png")no-repeat;
     float: right;
 }
 .rangeland-info-name{
@@ -91,9 +104,12 @@ html,body{
     float: left;
     text-align: center;
     line-height: 56px;
+    font-family: fangzheng;
     background: url(../images/app/main/main_bg1_kuang.png)no-repeat;
-    /*margin-top: -15px;*/
-    /*margin-left: 3px;*/
+}
+.rangeland-info-data span{
+    display: block;
+    font-size: 3.5rem;
 }
 .rangeland-data{
     color: #F3F110;
@@ -118,7 +134,7 @@ html,body{
     height:1350px;
     border:1px solid red;
     float: left;
-    z-index: 20;
+    z-index: 25;
     position: absolute;
     margin-top: 200px;
     margin-left: -8px;
@@ -126,16 +142,16 @@ html,body{
 .menu{
     width: 499px;
     height: 1350px;
-    background: url("../images/app/main/main_bg3.png") no-repeat;
+    background: url("../images/app/muchang-photo/cebian.png") no-repeat;
     float: left;
     margin-left: -33px;
 }
 .hide2{
-    width: 150px;
+    width: 171px;
     height: 290px;
-    background: url("../images/app/main/main_but1.png") no-repeat;
-    /*left: 420px;*/
-    /*top: 580px;*/
+    background: url(../images/app/muchang-photo/3.png) no-repeat;
+    /* left: 420px; */
+    /* top: 580px; */
     z-index: 25;
     position: relative;
     float: left;
@@ -146,7 +162,7 @@ html,body{
     width: 376px;
     height: 88px;
     line-height: 88px;
-    background: url(../images/app/main/main_but3_down.png)no-repeat;
+    background: url(../images/app/muchang-photo/2.png)no-repeat;
     /*margin-left: 60px;*/
     /*margin-top: 90px;*/
     text-align: center;
@@ -156,13 +172,14 @@ html,body{
     color: white;
     font-weight: bold;
     text-decoration: none;
+    font-family: fantasy;
 }
 .part_list{
     width: 324px;
     margin-left:25px;
 }
 .part_list ul li{
-    background: url(../images/app/main/main_bg4.png)no-repeat;
+    background: url(../images/app/muchang-photo/1.png)no-repeat;
     width: 333px;
     height: 73px;
     float: left;
@@ -183,14 +200,13 @@ html,body{
     width: 382px;
     height: 1096px;
     margin-top: 84px;
-    border: 1px solid green;
     overflow: hidden;
     margin-left: 57px;
 }
 #farm-game-orchard-logout {
     width: 333px;
     height: 80px;
-    background: url(../images/app/main/main_but3_up.png)no-repeat;
+    background: url(../images/app/muchang-photo/5.png)no-repeat;
     position: absolute;
     bottom: 90px;
     cursor: pointer;
@@ -205,11 +221,581 @@ html,body{
     font-weight: bold;
 }
 .show2{
-    background: url(../images/app/main/main_but2.png)no-repeat;
+    background: url(../images/app/muchang-photo/4.png)no-repeat;
     position: absolute;
-    z-index: 10;
-    height: 222px;
-    width: 130px;
+    z-index: 22;
+    height: 294px;
+    width: 179px;
     left: -35px;
     top: 715px;
 }
+.bg-music-set{
+    width: 484px;
+    height: 356px;
+    background: url(../images/final/main/set_bg1.png)no-repeat;
+    position: absolute;
+    left: 30%;
+    top: 35%;
+    z-index: 200;
+    display: none;
+}
+#bg-music-close {
+    width: 67px;
+    height: 70px;
+    background: url(../images/final/main/set_but1.png)no-repeat;
+    position: absolute;
+    left: 390px;
+    top: 20px;
+    cursor: pointer;
+}
+.music-set-1{
+    width:100%;
+    height:177px;
+    float: left;
+}
+.music-set-letter {
+    font-size: 28px;
+    color: rgb(191,126,62);
+    font-weight: bold;
+    float: left;
+    margin-left: 100px;
+    margin-top: 99px;
+}
+#bg-music-but1 {
+    width: 121px;
+    height: 61px;
+    background: url(../images/final/main/set_but_open.png)no-repeat;
+    cursor: pointer;
+    float: left;
+    margin-left: 45px;
+    margin-top: 85px;
+}
+#bg-music-but3 {
+    width: 121px;
+    height: 61px;
+    cursor: pointer;
+    float: left;
+    margin-left: 45px;
+    margin-top: 85px;
+    display: none;
+    background: url(../images/final/main/set_but_closed.png)no-repeat;
+}
+.music-set-letter2 {
+    font-size: 28px;
+    color: rgb(191,126,62);
+    font-weight: bold;
+    float: left;
+    margin-left: 100px;
+    margin-top: 60px;
+}
+.music-set-2{
+    width:100%;
+    height:177px;
+    float: left;
+}
+#bg-music-but2{
+    width: 121px;
+    height: 61px;
+    background: url(../images/final/main/set_but_open.png)no-repeat;
+    cursor: pointer;
+    float: left;
+    margin-left: 45px;
+    margin-top: 44px;
+}
+#bg-music-but4{
+    width: 121px;
+    height: 61px;
+    cursor: pointer;
+    float: left;
+    margin-left: 45px;
+    margin-top: 44px;
+    display: none;
+    background: url(../images/final/main/set_but_closed.png)no-repeat;
+}
+/*.user-info{*/
+    /*width: 300px;*/
+    /*height: 450px;*/
+    /*position: fixed;*/
+    /*display: inline-block;*/
+    /*!* float: right; *!*/
+    /*top: 188px;*/
+    /*left: 674px;*/
+    /*z-index: 22;*/
+    /*!* position: absolute; *!*/
+    /*!* margin-top: 34px; *!*/
+    /*border: 1px solid red;*/
+/*}*/
+.beibao{
+    width: 175px;
+    height: 175px;
+    background: url(../images/app/muchang-photo/beibao.png);
+    background-size: cover;
+    z-index: 22;
+    top: 188px;
+    left: 800px;
+    position: absolute;
+}
+.go{
+    width: 112px;
+    height: 114px;
+    float: left;
+    top: 184px;
+    z-index: 19;
+    position: absolute;
+    margin-left: 40px;
+    background: url(../images/app/muchang-photo/to_farm.png)no-repeat;
+    background-size: contain;
+}
+/*.total{*/
+    /*width: 260px;*/
+    /*height: 54px;*/
+    /*float: left;*/
+    /*margin-left: 22px;*/
+    /*margin-top: 25px;*/
+    /*border:1px solid green;*/
+/*}*/
+/*.tubiao{*/
+    /*width:50px;*/
+    /*height:47px;*/
+    /*background: url(../images/app/main/topicon_4.png)no-repeat;*/
+/*}*/
+
+.medaw-farm{
+    width: 978px;
+    height: 468px;
+    border: 1px solid red;
+    float: left;
+    margin-top: 282px;
+    /* margin-left: 70px; */
+    overflow: hidden;
+    position: relative;
+}
+.tree{
+    width:150px;
+    height:150px;
+    float: right;
+    background: url("../images/app/muchang-photo/tree.png");
+    position: relative;
+    z-index:18;
+    margin-top: 27px;
+    /*border:1px solid black;*/
+}
+
+/*猪*/
+.pig{
+    width:110px;
+    height:90px;
+    position:absolute;
+    z-index: 2;
+    display: inline-block;
+    /*transition: all 5s;*/
+    /*-moz-transition: all 5s;*/
+    /*-webkit-transition: all 5s;*/
+    /*-o-transition:all 5s;*/
+
+
+    /*-webkit-animation-name: pigmove;*/
+    /*-webkit-animation-duration: 12s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
+}
+/*@-webkit-keyframes pigmove !*Safari and Chrome*!*/
+/*{*/
+    /*25% {left:50px;top:50px;}*/
+    /*50% {left:150px;top:60px;}*/
+    /*60% {left:170px;top:50px;}*/
+    /*75% {left:190px;top:30px;}*/
+    /*100% {left:200px;top:0px;}*/
+/*}*/
+
+/*羊*/
+/*.sheep-around{*/
+    /*width:300px;*/
+    /*height:420px;*/
+    /*float: left;*/
+    /*border:1px solid black;*/
+/*}*/
+.sheep{
+    width:110px;
+    height:90px;
+    /*border:1px solid red;*/
+    position:relative;
+    /*transform: scale(0.7);*/
+    z-index: 4;
+    display: inline-block;
+    /*-webkit-animation-name:sheepmove;*/
+    /*-webkit-animation-duration: 9s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
+}
+/*@-webkit-keyframes sheepmove !*Safari and Chrome*!*/
+/*{*/
+
+    /*!*0% {left:0px;top:150px;}*!*/
+    /*25% {left:30px;top:120px;}*/
+    /*50% {left:50px;top:90px;}*/
+    /*75% {left:100px;top:50px;}*/
+    /*100% {left:0px;top:0px;}*/
+
+/*}*/
+
+
+/*牛*/
+.cow{
+    width:110px;
+    height:90px;
+    /*border:1px solid red;*/
+    position:relative;
+    /*transform: scale(0.7);*/
+    z-index: 6;
+    display: inline-block;
+    /*-webkit-animation-name:cowmove;*/
+    /*-webkit-animation-duration: 9s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
+}
+/*@-webkit-keyframes cowmove !*Safari and Chrome*!*/
+/*{*/
+
+    /*!*0% {left:350px;top:150px;}*!*/
+    /*25% {left:370px;top:150px;}*/
+    /*50% {left:400px;top:150px;}*/
+    /*75% {left:370px;top:150px;}*/
+    /*100% {left:350px;top:150px;}*/
+
+/*}*/
+
+
+/*猫*/
+.cat{
+    width:110px;
+    height:90px;
+    /*border:1px solid red;*/
+    position:relative;
+    /*transform: scale(0.7);*/
+    z-index: 8;
+    display: inline-block;
+    /*-webkit-animation-name:catmove;*/
+    /*-webkit-animation-duration: 9s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
+}
+/*@-webkit-keyframes catmove !*Safari and Chrome*!*/
+/*{*/
+
+    /*!*0% {left:250px;top:100px;}*!*/
+    /*25% {left:220px;top:120px;}*/
+    /*50% {left:200px;top:110px;}*/
+    /*75% {left:220px;top:120px;}*/
+    /*100% {left:250px;top:100px;}*/
+
+/*}*/
+
+
+/*羊驼*/
+.alpaca{
+    width:110px;
+    height:90px;
+    /*border:1px solid red;*/
+    position:relative;
+    /*transform: scale(0.7);*/
+    z-index: 10;
+    display: inline-block;
+    /*-webkit-animation-name:alpacamove;*/
+    /*-webkit-animation-duration: 12s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
+}
+/*@-webkit-keyframes alpacamove !*Safari and Chrome*!*/
+/*{*/
+
+    /*!*0% {left:0px;top:0px;}*!*/
+    /*25% {left:0px;top:200px;}*/
+    /*50% {left:0px;top:210px;}*/
+    /*75% {left:0px;top:200px;}*/
+    /*100% {left:0px;top:0px;}*/
+
+/*}*/
+
+
+/*黑猫*/
+.blackcat{
+    width:110px;
+    height:90px;
+    /*border:1px solid red;*/
+    position:relative;
+    /*transform: scale(0.7);*/
+    z-index: 12;
+    display: inline-block;
+    /*-webkit-animation-name:blackcatmove;*/
+    /*-webkit-animation-duration: 12s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
+}
+/*@-webkit-keyframes blackcatmove !*Safari and Chrome*!*/
+/*{*/
+
+    /*!*0% {left:0px;top:0px;}*!*/
+    /*25% {left:10px;top:60px;}*/
+    /*50% {left:100px;top:100px;}*/
+    /*75% {left:10px;top:60px;}*/
+    /*100% {left:0px;top:0px;}*/
+
+/*}*/
+
+/*猫鼬*/
+.maoyou{
+    width:110px;
+    height:90px;
+    /*border:1px solid red;*/
+    position:relative;
+    /*transform: scale(0.7);*/
+    z-index: 14;
+    display: inline-block;
+    /*-webkit-animation-name:maoyoumove;*/
+    /*-webkit-animation-duration: 12s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
+}
+/*@-webkit-keyframes maoyoumove !*Safari and Chrome*!*/
+/*{*/
+
+    /*!*0% {left:0px;top:0px;}*!*/
+    /*25% {left:10px;top:60px;}*/
+    /*50% {left:100px;top:200px;}*/
+    /*75% {left:40px;top:60px;}*/
+    /*100% {left:0px;top:0px;}*/
+
+/*}*/
+
+/*蜜蜂*/
+.bee{
+    width:110px;
+    height:90px;
+    /*border:1px solid red;*/
+    position:relative;
+    /*transform: scale(0.7);*/
+    z-index: 16;
+    display: inline-block;
+    /*-webkit-animation-name:beemove;*/
+    /*-webkit-animation-duration: 12s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
+}
+/*@-webkit-keyframes beemove !*Safari and Chrome*!*/
+/*{*/
+
+    /*!*0% {left:0px;top:0px;}*!*/
+    /*25% {left:10px;top:60px;}*/
+    /*50% {left:100px;top:100px;}*/
+    /*75% {left:10px;top:60px;}*/
+    /*100% {left:0px;top:0px;}*/
+
+/*}*/
+
+/*动物便便*/
+.bianbian{
+    width:110px;
+    height:90px;
+    /*border:1px solid red;*/
+    position:relative;
+    transform: scale(0.4);
+    z-index: 1;
+    display: inline-block;
+    /*-webkit-animation-name:bianmove;*/
+    /*-webkit-animation-duration: 12s;*/
+    /*-webkit-animation-iteration-count: infinite; !*无限循环*!*/
+    /*-webkit-animation-timing-function: linear;*/
+    /*-webkit-animation-direction: alternate;!*反向循环播放*!*/
+}
+/*@-webkit-keyframes bianmove !*Safari and Chrome*!*/
+/*{*/
+
+    /*!*0% {left:0px;top:0px;}*!*/
+    /*!*25% {left:300px;top:60px;}*!*/
+    /*!*50% {left:100px;top:100px;}*!*/
+    /*!*75% {left:10px;top:60px;}*!*/
+    /*!*100% {left:0px;top:0px;}*!*/
+
+/*}*/
+
+/*动物动态公用*/
+.pigmove,.sheepmove,.cowmove,.catmove,.alpacamove,.blackcatmove,.maoyoumove,.beemove,.bianmove{
+    width:106px;
+    height:80px;
+    position: relative;
+    -webkit-animation-name: animal-self-motion;
+    -webkit-animation-duration: 0.45s;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;/*反向循环播放*/
+
+}
+@-webkit-keyframes animal-self-motion /*Safari and Chrome*/
+{
+    from {height:80px;width: 106px;}
+    to {height:90px;width: 110px;}
+}
+.toolbar-bg{
+    width: 100%;
+    height: 117px;
+    margin-top: 633px;
+    float: left;
+    background: url(../images/app/main/main_but_bg.png)no-repeat;
+
+}
+.toolbar{
+    width: 100%;
+    height: 190px;
+    min-height: 10px;
+    position: absolute;
+    z-index: 20;
+    bottom: 0px;
+    margin-bottom: 25px;
+    padding-left: 5px;
+    padding-top: 10px;
+}
+.clear{
+    width: 144px;
+    height: 168px;
+    float: left;
+    cursor: pointer;
+    /*border:1px solid red;*/
+    margin-left: 29px;
+}
+.store{
+    width: 158px;
+    height: 168px;
+    float: left;
+    cursor: pointer;
+    /*border:1px solid red;*/
+    overflow: hidden;
+}
+.qucong{
+    width: 158px;
+    height: 168px;
+    float: left;
+    /*border:1px solid red;*/
+    cursor: pointer;
+}
+.feed{
+    width: 158px;
+    height: 168px;
+    float: left;
+    /*border:1px solid red;*/
+    cursor: pointer;
+}
+.shouhuo_but{
+    width: 158px;
+    height: 168px;
+    float: left;
+    /*border:1px solid red;*/
+    cursor: pointer;
+}
+.shuaxin{
+    width: 158px;
+    height: 168px;
+    float: left;
+    /*border:1px solid red;*/
+    cursor: pointer;
+}
+.hint{
+    display: none;
+    font-size: 2em;
+    position: absolute;
+    left: 40%;
+    top: 15%;
+    font-weight: bold;
+    height: 70px;
+    width: 500px;
+    overflow: hidden;
+    color: #FFFFFF;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-overflow: ellipsis;
+    margin-left: -150px;
+    line-height: 70px;
+    border-radius: 3em;
+    background: rgba(0,0,0,0.5);
+    opacity: 1;
+}
+.modal-content{
+    width: 835px;
+    height: 1291px;
+    background: url(../images/app/muchang-photo/shop_bg.png)no-repeat;
+    background-size: 100% 100%;
+    margin: auto;
+    margin-top: 182px;
+     border: none;
+     border: none;
+     border-radius: 6px;
+     outline:none;
+     -webkit-box-shadow:none;
+     box-shadow:none;
+}
+.btn{
+    width:78px !important;
+    height:70px !important;
+
+}
+.btn-primary{
+    color: #fff;
+    border-color: rgba(46,109,164,0.1) !important;
+}
+.modal-header {
+    /*border:1px solid black;*/
+    width: 100%;
+    height: 105px;
+    padding: 0px !important;
+    border-bottom: none;
+    /*float: left;*/
+    /*margin-top: 102px;*/
+}
+.modal-header-ziji{
+    width: 100%;
+    height: 105px;
+    margin-top: 105px;
+    z-index: 10;
+    position: absolute;
+}
+.modal-text{
+    width: 265px;
+    height: 105px;
+    float: left;
+    color: #FCFF48;
+    font-family: fangzheng;
+    text-shadow: #000 5px 5px 5px;
+    line-height: 85px;
+    text-align: center;
+    font-size: 8rem;
+    margin-left: 306px;
+}
+.anniu{
+    width: 100px;
+    height: 105px;
+    float: left;
+    margin-left: 129px;
+    background: url(../images/app/muchang-photo/turndown.png)no-repeat;
+    background-size: cover;
+}
+#subWinFrame{
+    border: 1px solid green;
+    width: 71%;
+    height: 877px;
+    margin-top: 19%;
+    margin-left: 15%;
+    border-radius: 95px;
+    background: green;
+    overflow: hidden;
+}
+
+

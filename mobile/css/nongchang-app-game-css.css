@@ -1238,6 +1238,17 @@ position: absolute;
 	bottom:60px;
 }
 
+.go{
+	width: 112px;
+	height: 114px;
+	float: right;
+	top: 184px;
+	z-index: 19;
+	position: absolute;
+	background: url(../images/app/muchang-photo/to_muchang.png)no-repeat;
+	margin-left: 834px;
+	background-size: contain;
+}
 
 
 
