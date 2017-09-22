@@ -57,6 +57,27 @@ $(function(){
         $(".sidebar").css("width","0px");
         $(".sidebar").css("transition","width 0.1s ease-in");
     });
+//点击侧边栏分按钮，拟态框加载相应页面
+    $(".part_list>ul>li>a").click(function(){
+        var pa_href=$(this).attr("href");
+        openModalWin(pa_href);
+
+        return false;
+        $(".modal-text").text("商城");
+    });
+    //打开模态框
+    function openModalWin(url) {
+        $("#subWinFrame").attr('src', url);
+        $('#winModal').modal('show');
+
+    }
+    $("#backpack2").click(function(){
+        var pa_href=$(this).attr("href");
+        openModalWin(pa_href);
+        $(".modal-text").text("背包");
+        return false;
+
+    });
 
 
 
@@ -334,6 +355,7 @@ $(function(){
         cow_address[i].style.left=cow_left+"px";
         cow_address[i].style.top=cow_top+"px";
     }
+
     //        猫
     var cat_zhong_number=$(".cat").length;
     for(i=0;i<cat_zhong_number;i++){
@@ -414,7 +436,7 @@ $(function(){
 
 //        点击功能栏  quanxian:1为普通用户，2位开通一键功能用户
 //        打扫
-    var quanxian=2;
+    var quanxian=1;
     $(".clear").click(function(){
         var bian_number=$(".bianbian").length;
         if(!bian_number){
