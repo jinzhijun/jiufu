@@ -354,7 +354,39 @@ $(function(){
         cow_address=document.getElementsByClassName("cow");
         cow_address[i].style.left=cow_left+"px";
         cow_address[i].style.top=cow_top+"px";
+
+        var x = 0, y = 0 , x1 = 0 , y1 = 0;
+        var xin = true, yin = true;
+        var step = 1,step2 = 2;
+        var delay = 100;
+        //var ii="cow"+(parseInt(i)+1);
+        var obj = document.getElementById("cow1");
+
+        function left_top() {
+            var L = 0+cow_left;
+            var R = 300+cow_left;
+           obj.style.left = x + document.documentElement.scrollLeft + "px";
+            x = x + step * (xin ? 5 : -5);
+            //xin是一个变量，  (xin?1:-1) 的意思就是 当 xin 为 true 或者 非0， 括号里的表达式值为 1， xin为 false，表达式的值为 -1.
+            if (x < L) {
+                xin = true;
+                x = L;
+                //左连接点
+            }
+            if (x > R) {
+                xin = false;
+                x = R;
+                //右连接点
+            }
+        };
+
+
+
+        setInterval(left_top, delay);
+
     }
+
+
 
     //        猫
     var cat_zhong_number=$(".cat").length;

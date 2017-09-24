@@ -366,9 +366,9 @@ html,body{
     border: 1px solid red;
     float: left;
     margin-top: 282px;
+    position: relative;
     /* margin-left: 70px; */
     overflow: hidden;
-    position: relative;
 }
 .tree{
     width:150px;
@@ -467,7 +467,9 @@ html,body{
     /*100% {left:350px;top:150px;}*/
 
 /*}*/
-
+#cow{
+    position: absolute;
+}
 
 /*猫*/
 .cat{
