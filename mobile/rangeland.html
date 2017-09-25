@@ -23,6 +23,14 @@
 
 </head>
 <body>
+
+<input type="hidden" id="userFirstlogin" value="0"/>
+<input type="hidden" id="unreadNotice" value="0"/>
+<input type="hidden" id="unreadMsg" value="0"/>
+<input type="hidden" id="userMusic" value="0|0"/>
+<input type="hidden" id="canBeeCount" value=""/>
+<input type="hidden" id="isInitPwd" value=""/>
+
 <div class="zhong">
     <!--头部-->
     <div class="top">
@@ -41,7 +49,7 @@
             </div>
             <div class="top-left-right">
                 <div class="username">果子</div>
-                <div class="username2">45346464343466666666666555555556</div>
+                <div class="username_id">45346464343466666666666555555556</div>
             </div>
         </div>
         <!--牧场总概况信息-->
@@ -50,25 +58,25 @@
                 <div class="rangeland-info">
                     <span class="rangeland-info-name">总量</span>
                     <div class="rangeland-info-data">
-                        <span class="rangeland-data">123456</span>
+                        <span class="rangeland-data" id="muchang_total">123456</span>
                     </div>
                 </div>
                 <div class="rangeland-info" style="margin-left: 5px;">
                     <span class="rangeland-info-name">播种</span>
                     <div class="rangeland-info-data">
-                        <span class="rangeland-data">123456</span>
+                        <span class="rangeland-data" id="muchang_seed">123456</span>
                     </div>
                 </div>
                 <div class="rangeland-info">
                     <span class="rangeland-info-name">仓库</span>
                     <div class="rangeland-info-data">
-                        <span class="rangeland-data">123456</span>
+                        <span class="rangeland-data" id="muchang_unseed">123456</span>
                     </div>
                 </div>
                 <div class="rangeland-info2">
                     <span class="rangeland-info-name">总生长</span>
                     <div class="rangeland-info-data">
-                        <span class="rangeland-data">123456</span>
+                        <span class="rangeland-data" id="muchang_totalGrowth">123456</span>
                     </div>
                 </div>
             </div>
@@ -88,7 +96,7 @@
                         <li><a href="#"  data-toggle="modal" data-target="#winModal">好友农场</a></li>
                         <li><a href="manger/friend.html" data-toggle="modal" data-target="#winModal" >已开发农场</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#winModal">开发新农场</a></li>
-                        <li><a href="#" class="system">系统设置</a></li>
+                        <li><span  class="system">系统设置</span></li>
                         <li><a href="#" data-toggle="modal" data-target="#winModal">站内信</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#winModal">公告通知</a></li>
                     </ul>
@@ -100,10 +108,10 @@
                 </div>
                 <div class="part_list" style="height:0px;overflow: hidden;">
                     <ul>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">好友牧场</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#winModal" id="muchang-friend" >好友牧场</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#winModal">已开发牧场</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#winModal">开发新牧场</a></li>
-                        <li><a href="#" class="system">系统设置</a></li>
+                        <li><span class="system">系统设置</span></li>
                     </ul>
                 </div>
 
@@ -198,9 +206,9 @@
     <!--等级1:0.7（初始状态）；等级2:0.8；等级3:0.9；等级4:1；-->
     <div class="medaw-farm">
         <div class="tree" tree_dengji="4"></div>
-        <div class="pig" id="pig" pig_dengji="1" style="transform: scale(0.7);left: 0;top: 0;">
-            <img src="images/app/muchang-photo/pig.png" class="pigmove">
-        </div>
+        <!--<div class="pig" id="pig" pig_dengji="1" style="transform: scale(0.7);left: 0;top: 0;">-->
+            <!--<img src="images/app/muchang-photo/pig.png" class="pigmove">-->
+        <!--</div>-->
         <!--<div class="pig" pig_dengji="2" style="transform: scale(0.7);left: 0;top: 0;">-->
             <!--<img src="images/app/muchang-photo/pig.png" class="pigmove">-->
         <!--</div>-->
@@ -236,12 +244,12 @@
     <!--工具栏-->
     <div class="toolbar-bg">
     <div class="toolbar">
-        <div class="clear"><img src="images/app/muchang-photo/clear.png" style="transform: scale(1.4)" id="clear1"></div>
-        <div class="store"><img src="images/app/muchang-photo/store.png" style="transform: scale(1.4);margin-left: 5px"></div>
-        <div class="qucong"><img src="images/app/muchang-photo/qucong.png" style="transform: scale(1.4)"></div>
-        <div class="feed"><img src="images/app/muchang-photo/feed.png" style="transform: scale(1.4)"></div>
-        <div class="shouhuo_but"><img src="images/app/muchang-photo/shouhuo_but.png" style="transform: scale(1)"></div>
-        <div class="shuaxin"><img src="images/app/muchang-photo/shuaxin.png" style="transform: scale(1);margin-top: 17px"></div>
+        <div class="clear"><img src="images/app/muchang-photo/clear.png" id="clear"></div>
+        <div class="store"><img src="images/app/muchang-photo/store.png"  id="store"></div>
+        <div class="qucong"><img src="images/app/muchang-photo/qucong.png"  id="qucong"></div>
+        <div class="feed"><img src="images/app/muchang-photo/feed.png"  id="feed"></div>
+        <div class="shouhuo_but"><img src="images/app/muchang-photo/shouhuo_but.png"  id="shouhuo_but"></div>
+        <div class="shuaxin"><img src="images/app/muchang-photo/shuaxin.png" id="shuaxin"></div>
     </div>
     <!--页面提示信息-->
     <div class="hint"></div>

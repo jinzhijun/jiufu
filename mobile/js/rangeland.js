@@ -2,8 +2,42 @@
  * Created by Administrator on 2017/9/21.
  */
 $(function(){
+//端口连接
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
 
-    //检查手机屏幕
+    var storage=window.localStorage;
+    var uid=getQueryString('uid');
+    var token=getQueryString('token');
+    var url = 'test.jiufu.com';
+    var websocket = new WebSocket("ws://"+url+":8181");
+    if(uid>0){
+        var userId = uid;
+        var token = token;
+        var selfId = userId;
+        storage.setItem("userId",uid);//作为 Storage 接口的方法，接受一个键名和值作为参数，将会把键名添加到存储中，如果键名已存在，则更新其对应的值。
+        storage.setItem("token",token);
+    }
+    else{
+        var userId = storage['userId'];
+        var selfId = userId;
+        var token = storage['token'];
+    }
+
+    var firstLogin = $("#userFirstlogin").val();
+    var firstClick = true;
+
+    var apiCalling = 0;
+    var menuAnimate = 0;
+
+    var shownFunc = null;
+    var hidenFunc = null;
+
+
+//检查手机屏幕
     function detectPhone() {
         var phoneWidth = parseInt(window.screen.width);
         var phoneHeight = parseInt(window.screen.height);
@@ -23,6 +57,215 @@ $(function(){
     }
     detectPhone();
 
+
+    websocket.onopen = function(event) {
+        $('body').css('overflow','hidden');
+        $('body').css('position','fixed');
+
+        /*******登录界面背景图 自适应********/
+        $('#login-bg').height($(window).height());
+        $('#login-bg').width($(window).width());
+        //$('#subWinFrame').height($(window).height() - 200);
+        var fs = {};
+        fs.userid=userId;
+        fs.salt=token;
+        fs.act='init';
+        var jsonStr = JSON.stringify(fs);
+        websocket.send(jsonStr);
+    };
+
+    websocket.onmessage = function(event) {
+        zdata=JSON.parse(event.data);
+        console.log(zdata);
+        window[zdata.act](zdata.msg);
+    };
+
+
+    function oneds(){
+        var fs = {};
+        fs.userid=userId;
+        fs.salt=token;
+        fs.act='yjds';
+        var jsonStr = JSON.stringify(fs);
+        websocket.send(jsonStr);
+    }
+    function onetq(){
+        var fs = {};
+        fs.userid=userId;
+        fs.salt=token;
+        fs.act='yjtq';
+        var jsonStr = JSON.stringify(fs);
+        websocket.send(jsonStr);
+    }
+    function oneqc(){
+        var fs = {};
+        fs.userid=userId;
+        fs.salt=token;
+        fs.act='yjqc';
+        var jsonStr = JSON.stringify(fs);
+        websocket.send(jsonStr);
+    }
+    function onews(){
+        var fs = {};
+        fs.userid=userId;
+        fs.salt=token;
+        fs.act='yjws';
+        var jsonStr = JSON.stringify(fs);
+        websocket.send(jsonStr);
+    }
+    function onesh(){
+        var fs = {};
+        fs.userid=userId;
+        fs.salt=token;
+        fs.act='yjsh';
+        var jsonStr = JSON.stringify(fs);
+        websocket.send(jsonStr);
+    }
+    function outlogin(msg){
+        displayMessage(msg);
+        storage.removeItem("token");
+        storage.removeItem("uid");
+        location.href='login.html';
+    }
+
+    function inituserxx(data){
+        //初始化模态框
+        displayUserInfo(data.userinfo);
+        initModalWin();
+        initNewWin();
+
+        //初始化菜单
+        initMenu();
+
+        //初始化音效
+        initMusic();
+
+        //初始化消息数量
+        initMsgTip();
+        //初始化系统设置  ok
+        initSystemSettingDialog();
+
+        //初始化增种框
+        initSeedDialogEvent();
+
+        //初始化农场
+        initFarmDisplay();
+        //请求农场地块信息
+        initFarmGround(userId);
+        //请求稻草人信息
+        initFarmScarecrow(userId);
+
+        //初始化引导--新手设置（没弄） ok
+        //initGuide();
+
+        userMusic();
+
+        //是否从好友农场回来，是则打开好友列表  ok
+        checkGoFriend();
+
+        //记录最后用户 ok
+        recordLastUid();
+
+        //检查初始密码 ok
+        checkIsInitPwd();
+
+        initUserInfo(userId);
+    };
+
+//密码检查
+    function checkIsInitPwd() {
+        var isInitPwd = $('#isInitPwd').val();
+        if (isInitPwd) {
+            alert('请前往【个人信息】菜单修改初始密码，否则不能种地！');
+        }
+    }
+//记录最后用户
+    function recordLastUid() {
+        Cookies.set('lUid', userId);
+    }
+//是否从好友牧场回来
+    function checkGoFriend() {
+        var luid = Cookies.get('lUid');
+        console.log(luid);
+
+        var referrer = document.referrer;//返回当前页面的url
+        console.log(referrer);
+        if (referrer) {
+            var matchs = referrer.match(/userid=([^&]+)/);//match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。该方法类似 indexOf() 和 lastIndexOf()，但是它返回指定的值，而不是字符串的位置。
+            //判断现在登录的用户id 与 记录的最后用户id 是否与  之前存储的用户selfid相同
+            if (matchs && luid != selfId) {
+                $("#muchang-friend").trigger('click');
+            }
+        }
+    }
+//初始化引导--新手设置（没弄）
+    function initGuide() {
+        if (firstLogin == 0)
+        {
+            $("#xinshou-guide a").trigger('click');
+        }
+    }
+//初始化界面信息
+    function refreshGameData() {
+        //请求用户信息
+        initUserInfo(selfId);
+        //请求牧场动物信息
+        initmuchangGround(selfId);
+        //请求稻草人信息
+        initFarmScarecrow(selfId);
+        apiCalling = 0;
+    }
+//显示提示信息
+    function displayMessage(msg) {
+
+        $(".hint").text(msg);
+        $(".hint").show();
+        $(".hint").css({opacity: '1'});
+        $(".hint").fadeOut(6000);
+        apiCalling = 0;
+        refreshGameData();
+    }
+//系统维护
+    function goMaintenance(type) {
+        window.location.href = '/mobile/maintenance.html?t=' + type;
+    }
+//远程请求接口
+    function requestAction(action, data, func) {
+        var fs = data;
+        fs.userid=userId;
+        fs.salt=token;
+        fs.func=func;
+        fs.act=action;
+        var jsonStr = JSON.stringify(fs);
+        websocket.send(jsonStr);
+        refreshGameData();
+        // $.ajax({
+        //     url: api + action,
+        //     dataType: "json",
+        //     method: "get",
+        //     data: data,
+        //     success: function (result) {
+        //         var code = result.StatusCode;
+        //         var msg = result.Message;
+
+        //         displayMessage(msg);
+
+        //         if (code == 0) //refresh game data
+        //         {
+        //             refreshGameData();
+        //         } else if (code == -999) {
+        //             goMaintenance(result.Type);
+        //         }
+        //     },
+        //     complete: function () {
+        //         apiCalling = 0;
+
+        //         if (func != undefined && typeof func == "function") {
+        //             func();
+        //         }
+        //     }
+        // });
+    }
     //点击模态框消失
     $(".anniu").click(function(){
         $(".sidebar").css("width","0px");
@@ -80,50 +323,224 @@ $(function(){
     });
 
 
+//背景音乐
+    /*******背景音乐 和 音效 控制********/
+    var bgMusic = document.getElementById("bg-music");
+    var anniu = document.getElementById("anniu-music");
+    var anniuclick= document.getElementById("anniu-click-music");
+    var beers = document.getElementById("beers-music");
+    var caimi = document.getElementById("caimi-music");
+    var chandi = document.getElementById("chandi-music");
+    var jiaoshui = document.getElementById("jiaoshui-music");
+    var shifei = document.getElementById("shifei-music");
+    var shouhuo = document.getElementById("shouhuo-music");
+    var zengzhong1 = document.getElementById("zengzhong1-music");
+    var zengzhong2 = document.getElementById("zengzhong2-music");
+    var husky = document.getElementById("husky-music");
+    var dog = document.getElementById("dog-music");
+    var newMessage = document.getElementById("new-message-music");
+    var musicEffect = true;
+    var jrtype=0;
 
-
+//音乐设置
+    function initSystemSettingDialog() {
 //        点击开启系统设置框
-    $(".system").click(function(){
-        $(".bg-music-set").css("display","block");
-    });
+        $(".system").click(function () {
+            $(".bg-music-set").css("display", "block");
+        });
 //        点击关闭系统设置框
-    $("#bg-music-close").click(function(){
-        $(this).parent().css("display","none");
-    });
+        $("#bg-music-close").click(function () {
+            $(this).parent().css("display", "none");
+        });
 //        背景音乐是否开启
 //        关闭
-    var music_status=2;
-    var music=document.getElementById("bg-music");
-    $("#bg-music-but1").click(function(){
-        if(music_status==2){
-            $(this).css("display","none");
-            $("#bg-music-but3").css("display","block");
-            music.pause();
-            music_status=1;
-        }
-    });
+        var music_status = 2;
+        var music = document.getElementById("bg-music");
+        $("#bg-music-but1").click(function () {
+            if (music_status == 2) {
+                $(this).css("display", "none");
+                $("#bg-music-but3").css("display", "block");
+                music.pause();
+                music_status = 1;
+            }
+        });
 //        开启
-    $("#bg-music-but3").click(function(){
-        if(music_status==1){
-            $(this).css("display","none");
-            $("#bg-music-but1").css("display","block");
-            $("#bg-music").css("animation","music 2s linear infinite");
-            music.play();
-            music_status=2;
-        }
-    });
+        $("#bg-music-but3").click(function () {
+            if (music_status == 1) {
+                $(this).css("display", "none");
+                $("#bg-music-but1").css("display", "block");
+                $("#bg-music").css("animation", "music 2s linear infinite");
+                music.play();
+                music_status = 2;
+            }
+        });
 
 //        游戏音效
 //        关闭
-    $("#bg-music-but2").click(function(){
-        $(this).css("display","none");
-        $("#bg-music-but4").css("display","block")
-    });
+        $("#bg-music-but2").click(function(){
+            $(this).css("display","none");
+            $("#bg-music-but4").css("display","block")
+        });
 //        开启
-    $("#bg-music-but4").click(function(){
-        $(this).css("display","none");
-        $("#bg-music-but2").css("display","block")
-    });
+        $("#bg-music-but4").click(function(){
+            $(this).css("display","none");
+            $("#bg-music-but2").css("display","block")
+        });
+
+
+    }
+    initSystemSettingDialog();
+
+//初始化用户信息
+    function initUserInfo(id) {
+        var fs = {};
+        fs.userid=userId;
+        fs.selfid=id;
+        fs.salt=token;
+        fs.act='SearchUserInfo';
+        var jsonStr = JSON.stringify(fs);
+        websocket.send(jsonStr);
+        // $.ajax({
+        //     url: api + "SearchUserInfo",
+        //     dataType: "json",
+        //     method: "get",
+        //     data: {
+        //         "userid": userId
+        //     },
+        //     success: function (result) {
+        //         if (result) {
+        //             if (result.StatusCode == -999) {
+        //                 goMaintenance(result.Type);
+        //             }
+
+        //             if (!$.isEmptyObject(result.UserInfo)) {
+        //                 displayUserInfo(result.UserInfo);
+        //             }
+        //         }
+        //     }
+        // });
+    }
+//进入朋友的id
+    function jrfriend(id){
+        $('#winModal').modal('hide');
+        selfId=id;
+        jrtype=1;
+        initUserInfo(id);
+        initFarmGround(id);
+        initFarmScarecrow(id);
+    }
+//进入的会员（？）id
+    function jrhy(id){
+        $('#winModal').modal('hide');
+        selfId=id;
+        jrtype=2;
+        initUserInfo(id);
+        initFarmGround(id);
+        initFarmScarecrow(id);
+    }
+//显示用户统计数据
+    function displayUserInfo(UserInfo) {
+        $('#userMusic').val(UserInfo.music);
+        $("#unreadNotice").val(UserInfo.unreadNotice);
+        $("#unreadMsg").val(UserInfo.unreadMsg);
+
+
+
+        $("#muchang_total").text(UserInfo.total);
+        $("#muchang_seed").text(UserInfo.seed);
+        $("#muchang_unseed").text(UserInfo.money);
+        $("#muchang_totalGrowth").text(UserInfo.fertilize);
+
+
+        //显示tip
+        //if (UserInfo.NotSeededAppleNumber > 0)
+        //    $('#farm-tool-6').addClass('tip');
+        //else
+        //    $('#farm-tool-6').removeClass('tip');
+        //
+        //if (UserInfo.FertilizerWeight > 0)
+        //    $("#farm-tool-4").addClass('tip');
+        //else
+        //    $("#farm-tool-4").removeClass('tip');
+        //
+        //if (userId == selfId)
+        //    $("#farm-tool-3").addClass('unable');
+        //else
+        //    $("#farm-tool-3").removeClass('unable');
+
+        //用户名
+        $(".username").text(UserInfo.user_login);
+        $(".username_id").text(UserInfo.true_name);
+
+        //if (selfId != userId)
+        //{
+        //    //隐藏工具
+        //    $("#farm-tool-1").hide();
+        //    $("#farm-tool-2").hide();
+        //    $("#farm-tool-4").hide();
+        //    $("#farm-tool-5").hide();
+        //    $("#farm-tool-6").hide();
+        //    $("#farm-tool-7").hide();
+        //
+        //    if(jrtype==1){
+        //        $("#farm-tool-3").show();
+        //    }
+        //    if(jrtype==2){
+        //        $("#farm-tool-8").show();
+        //    }
+        //    $("#farm-back").show().click(function(){
+        //        fh();
+        //    });
+        //    $("#onecm").hide();
+        //    //隐藏菜单
+        //    $("#farm-game-wrap").hide();
+        //    $("#farm-back").show();
+        //    $(".mail-message").hide();
+        //    $(".notice-message").hide();
+        //}
+        //else
+        //{
+        //    if(UserInfo.onecm==1){
+        //        $("#onecm").show().click(function(){
+        //            onecm();
+        //        });
+        //    }
+        //    $("#farm-tool-1").show();
+        //    $("#farm-tool-2").show();
+        //    if(UserInfo.onesf==1){
+        //        $("#farm-tool-4").addClass('auto');
+        //    }
+        //    else{
+        //        $("#farm-tool-4").removeClass('auto');
+        //    }
+        //    $("#farm-tool-4").show();
+        //    if(UserInfo.onesh==1){
+        //        $("#farm-tool-5").addClass('auto');
+        //    }
+        //    else{
+        //        $("#farm-tool-5").removeClass('auto');
+        //    }
+        //    $("#farm-tool-5").show();
+        //    if(UserInfo.onezz==1){
+        //        $("#farm-tool-6").addClass('auto');
+        //    }
+        //    else{
+        //        $("#farm-tool-6").removeClass('auto');
+        //    }
+        //    $("#farm-tool-6").show();
+        //    $("#farm-tool-7").show();
+        //    $("#farm-tool-8").hide();
+        //    $("#farm-tool-3").hide();
+        //    $("#farm-back").hide();
+        //    //显示菜单
+        //    $("#farm-game-wrap").show();
+        //    initMsgTip();
+        //}
+    }
+
+
+
+
 
     var clear_stau=0
 //        动物便便随机出现
@@ -140,26 +557,20 @@ $(function(){
         var h=$(".bee").length;
 
         if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
-            $(".hint").css("display","block");
-            $(".hint").text("没有动物哦，快去购买吧！")
-            $(".hint").fadeOut(2500);
+            displayMessage("没有动物哦，快去购买吧！")
         }else{
             //            每20秒添加一个便便
             var bian_top2 = Math.floor(200 * Math.random());
             var bian_left2 = Math.floor(500 * Math.random());
-            $(".medaw-farm").append("<div class='bianbian' style='left:" + bian_left2 + "px;top:" + bian_top2 + "px;'> <img src='images/app/muchang-photo/bianbian.png' class='wenzimove'> </div>")
+            $(".medaw-farm").append("<div class='bianbian' style='left:" + bian_left2 + "px;top:" + bian_top2 + "px;'> <img src='images/app/muchang-photo/bianbian.png' class='bianbianmove'> </div>")
 
 //      便便点击提示
             if(clear_stau==0){
                 $(".bianbian").click(function(){
-                    $(".hint").css("display","block");
-                    $(".hint").text("点击“打扫”才能清理哦！")
-                    $(".hint").fadeOut(2500);
+                    displayMessage("点击“打扫”才能清理哦！")
                 });
                 $(".wenzi").click(function(){
-                    $(".hint").css("display","block");
-                    $(".hint").text("用上“除蚊虫”才能打虫哦！")
-                    $(".hint").fadeOut(2500);
+                    displayMessage("用上“除蚊虫”才能打虫哦！")
                 });
             }
         }
@@ -349,43 +760,43 @@ $(function(){
     }
     //        牛
     var cow_zhong_number=$(".cow").length;
-    for(i=0;i<cow_zhong_number;i++){
-        var cow_top=Math.floor(300*Math.random());
-        var cow_left=Math.floor(200*Math.random());
-        cow_address=document.getElementsByClassName("cow");
-        cow_address[i].style.left=cow_left+"px";
-        cow_address[i].style.top=cow_top+"px";
-
-        var x = 0, y = 0 , x1 = 0 , y1 = 0;
-        var xin = true, yin = true;
-        var step = 1,step2 = 2;
-        var delay = 100;
-        //var ii="cow"+(parseInt(i)+1);
-        var obj = document.getElementById("cow1");
-
-        function left_top() {
-            var L = 0+cow_left;
-            var R = 300+cow_left;
-           obj.style.left = x + document.documentElement.scrollLeft + "px";
-            x = x + step * (xin ? 5 : -5);
-            //xin是一个变量，  (xin?1:-1) 的意思就是 当 xin 为 true 或者 非0， 括号里的表达式值为 1， xin为 false，表达式的值为 -1.
-            if (x < L) {
-                xin = true;
-                x = L;
-                //左连接点
-            }
-            if (x > R) {
-                xin = false;
-                x = R;
-                //右连接点
-            }
-        };
-
-
-
-        setInterval(left_top, delay);
-
-    }
+    //for(i=0;i<cow_zhong_number;i++){
+    //    var cow_top=Math.floor(300*Math.random());
+    //    var cow_left=Math.floor(200*Math.random());
+    //    cow_address=document.getElementsByClassName("cow");
+    //    cow_address[i].style.left=cow_left+"px";
+    //    cow_address[i].style.top=cow_top+"px";
+    //
+    //    var x = 0, y = 0 , x1 = 0 , y1 = 0;
+    //    var xin = true, yin = true;
+    //    var step = 1,step2 = 2;
+    //    var delay = 100;
+    //    //var ii="cow"+(parseInt(i)+1);
+    //    var obj = document.getElementById("cow1");
+    //
+    //    function left_top() {
+    //        var L = 0+cow_left;
+    //        var R = 300+cow_left;
+    //       obj.style.left = x + document.documentElement.scrollLeft + "px";
+    //        x = x + step * (xin ? 5 : -5);
+    //        //xin是一个变量，  (xin?1:-1) 的意思就是 当 xin 为 true 或者 非0， 括号里的表达式值为 1， xin为 false，表达式的值为 -1.
+    //        if (x < L) {
+    //            xin = true;
+    //            x = L;
+    //            //左连接点
+    //        }
+    //        if (x > R) {
+    //            xin = false;
+    //            x = R;
+    //            //右连接点
+    //        }
+    //    };
+    //
+    //
+    //
+    //    setInterval(left_top, delay);
+    //
+    //}
 
     //function animation_move(obj){
     //    var cow_top=Math.floor(300*Math.random());
@@ -509,11 +920,12 @@ $(function(){
 //        打扫
     var quanxian=1;
     $(".clear").click(function(){
+        $("#clear").attr("src","images/app/muchang-photo/dasao_gaoliang.png");
         var bian_number=$(".bianbian").length;
         if(!bian_number){
-            $(".hint").css("display","block");
-            $(".hint").text("牧场很干净，无需清理哦！")
-            $(".hint").fadeOut(2500);
+
+            displayMessage("牧场很干净，无需清理哦！")
+
         }else{
             if(quanxian==1){
                 $(".bianbian").click(function(){
@@ -521,11 +933,10 @@ $(function(){
                     $(this).remove();
                 });
             }else{
-                $(".hint").css("display","block");
-                $(".hint").text("一键清理完毕！")
-                $(".hint").fadeOut(2500);
+                displayMessage("一键清理完毕！")
                 $(".bianbian").remove();
             }
+
         }
 
     });
@@ -534,9 +945,7 @@ $(function(){
     $(".qucong").click(function(){
         var wenzi_number=$(".wenzi").length;
         if(!wenzi_number){
-            $(".hint").css("display","block");
-            $(".hint").text("没有蚊子哦，无需清虫哦！")
-            $(".hint").fadeOut(2500);
+            displayMessage("没有蚊子哦，无需清虫哦！")
         }else{
             if(quanxian==1){
                 $(".wenzi").click(function(){
@@ -544,9 +953,7 @@ $(function(){
                     $(this).remove();
                 });
             }else{
-                $(".hint").css("display","block");
-                $(".hint").text("一键除虫完毕！")
-                $(".hint").fadeOut(2500);
+                displayMessage("一键除虫完毕！")
                 $(".wenzi").remove();
             }
         }
@@ -557,27 +964,19 @@ $(function(){
 
 //        宠物成长至初级函数
     function chuji(){
-        $(".hint").css("display","block");
-        $(".hint").text("宠物成长至初级！");
-        $(".hint").fadeOut(2500);
+        displayMessage("宠物成长至初级！");
     }
 //        宠物成长至中级函数
     function zhongji(){
-        $(".hint").css("display","block");
-        $(".hint").text("宠物成长至中级！");
-        $(".hint").fadeOut(2500);
+        displayMessage("宠物成长至中级！");
     }
 //        宠物成长至初级函数
     function gaoji(){
-        $(".hint").css("display","block");
-        $(".hint").text("宠物成长至高级！");
-        $(".hint").fadeOut(2500);
+        displayMessage("宠物成长至高级！");
     }
 //      宠物已是最高级提示函数
     function gradetishi(){
-        $(".hint").css("display","block");
-        $(".hint").text("宠物成长已最高级！")
-        $(".hint").fadeOut(2500);
+        displayMessage("宠物成长已最高级！")
     }
 //        喂养
     var feed=0;//一键选择时，判断宠物在哪级
@@ -788,9 +1187,7 @@ $(function(){
             bee_str=$(".bee").attr("bee_dengji");
 
             if(pig_str==4&&sheep_str==4&&cow_str==4&&cat_str==4&&alpaca_str==4&&blackcat_str==4&&maoyou_str==4&&bee_str==4){
-                $(".hint").css("display","block");
-                $(".hint").text("所有种类宠物已达到最高级！")
-                $(".hint").fadeOut(2500);
+                displayMessage("所有种类宠物已达到最高级！")
             }else{
                 //猪类宠物
                 var pig_zhong_number=$(".pig").length;
@@ -805,9 +1202,7 @@ $(function(){
                         pig_cishu[i].style.transform="scale("+pig_size_xuanzhe1+")";
                         $(".pig")[i].setAttribute("pig_dengji",pig_str1);
                     }else{
-                        $(".hint").css("display","block");
-                        $(".hint").text("猪类所有宠物已达到最高级！")
-                        $(".hint").fadeOut(2500);
+                        displayMessage("猪类所有宠物已达到最高级！")
                     }
                 }
 
@@ -824,9 +1219,7 @@ $(function(){
                         sheep_cishu[i].style.transform="scale("+sheep_size_xuanzhe1+")";
                         $(".sheep")[i].setAttribute("sheep_dengji",sheep_str1);
                     }else{
-                        $(".hint").css("display","block");
-                        $(".hint").text("羊类所有宠物已达到最高级！")
-                        $(".hint").fadeOut(2500);
+                        displayMessage("羊类所有宠物已达到最高级！")
                     }
                 }
 
@@ -843,9 +1236,7 @@ $(function(){
                         cow_cishu[i].style.transform="scale("+cow_size_xuanzhe1+")";
                         $(".cow")[i].setAttribute("cow_dengji",cow_str1);
                     }else{
-                        $(".hint").css("display","block");
-                        $(".hint").text("牛类所有宠物已达到最高级！")
-                        $(".hint").fadeOut(2500);
+                        displayMessage("牛类所有宠物已达到最高级！")
                     }
                 }
 
@@ -862,9 +1253,7 @@ $(function(){
                         cat_cishu[i].style.transform="scale("+cat_size_xuanzhe1+")";
                         $(".cat")[i].setAttribute("cat_dengji",cat_str1);
                     }else{
-                        $(".hint").css("display","block");
-                        $(".hint").text("猫类所有宠物已达到最高级！")
-                        $(".hint").fadeOut(2500);
+                        displayMessage("猫类所有宠物已达到最高级！")
                     }
                 }
 
@@ -882,9 +1271,7 @@ $(function(){
                         alpaca_cishu[i].style.transform="scale("+alpaca_size_xuanzhe1+")";
                         $(".alpaca")[i].setAttribute("alpaca_dengji",alpaca_str1);
                     }else{
-                        $(".hint").css("display","block");
-                        $(".hint").text("羊驼类所有宠物已达到最高级！")
-                        $(".hint").fadeOut(2500);
+                        displayMessage("羊驼类所有宠物已达到最高级！")
                     }
                 }
 
@@ -901,9 +1288,8 @@ $(function(){
                         blackcat_cishu[i].style.transform="scale("+blackcat_size_xuanzhe1+")";
                         $(".blackcat")[i].setAttribute("blackcat_dengji",blackcat_str1);
                     }else{
-                        $(".hint").css("display","block");
-                        $(".hint").text("黑猫类所有宠物已达到最高级！")
-                        $(".hint").fadeOut(2500);
+                        displayMessage("黑猫类所有宠物已达到最高级！")
+
                     }
                 }
 
@@ -920,9 +1306,7 @@ $(function(){
                         maoyou_cishu[i].style.transform="scale("+maoyou_size_xuanzhe1+")";
                         $(".maoyou")[i].setAttribute("maoyou_dengji",maoyou_str1);
                     }else{
-                        $(".hint").css("display","block");
-                        $(".hint").text("猫鼬类所有宠物已达到最高级！")
-                        $(".hint").fadeOut(2500);
+                        displayMessage("猫鼬类所有宠物已达到最高级！")
                     }
                 }
 
@@ -939,9 +1323,7 @@ $(function(){
                         bee_cishu[i].style.transform="scale("+bee_size_xuanzhe1+")";
                         $(".bee")[i].setAttribute("bee_dengji",bee_str1);
                     }else{
-                        $(".hint").css("display","block");
-                        $(".hint").text("蜜蜂类所有宠物已达到最高级！")
-                        $(".hint").fadeOut(2500);
+                        displayMessage("蜜蜂类所有宠物已达到最高级！")
                     }
                 }
 
@@ -1022,82 +1404,65 @@ $(function(){
             var h=$(".bee").length;
 
             if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
-                $(".hint").css("display","block");
-                $(".hint").text("没有可以获取的哦！")
-                $(".hint").fadeOut(2500);
+                displayMessage("没有可以获取的哦！")
             }else{
-                //                //猪收获
+                //猪收获
                 $(".pig").each(function(){
                     if((this).getAttribute("pig_dengji")==4){
                         $(this).remove();
                     }
                 });
-                $(".hint").css("display","block");
-                $(".hint").text("一键收获完成！")
-                $(".hint").fadeOut(2500);
+                displayMessage("一键收获完成！")
                 //羊收获
                 $(".sheep").each(function(){
                     if((this).getAttribute("sheep_dengji")==4){
                         $(this).remove();
                     }
                 });
-                $(".hint").css("display","block");
-                $(".hint").text("一键收获完成！")
-                $(".hint").fadeOut(2500);
+                displayMessage("一键收获完成！")
                 //牛收获
                 $(".cow").each(function(){
                     if((this).getAttribute("cow_dengji")==4){
                         $(this).remove();
                     }
                 });
-                $(".hint").css("display","block");
-                $(".hint").text("一键收获完成！")
-                $(".hint").fadeOut(2500);
+                displayMessage("一键收获完成！")
                 //猫收获
                 $(".cat").each(function(){
                     if((this).getAttribute("cat_dengji")==4){
                         $(this).remove();
                     }
                 });
-                $(".hint").css("display","block");
-                $(".hint").text("一键收获完成！")
-                $(".hint").fadeOut(2500);
+                displayMessage("一键收获完成！")
                 //羊驼收获
                 $(".alpaca").each(function(){
                     if((this).getAttribute("alpaca_dengji")==4){
                         $(this).remove();
                     }
                 });
-                $(".hint").css("display","block");
-                $(".hint").text("一键收获完成！")
-                $(".hint").fadeOut(2500);
+                displayMessage("一键收获完成！")
                 //黑猫收获
                 $(".blackcat").each(function(){
                     if((this).getAttribute("blackcat_dengji")==4){
                         $(this).remove();
                     }
                 });
-                $(".hint").css("display","block");
-                $(".hint").text("一键收获完成！")
-                $(".hint").fadeOut(2500);
+
+                displayMessage("一键收获完成！")
                 //猫鼬收获
                 $(".maoyou").each(function(){
                     if((this).getAttribute("maoyou_dengji")==4){
                         $(this).remove();
                     }
                 });
-                $(".hint").css("display","block");
-                $(".hint").text("一键收获完成！")
-                $(".hint").fadeOut(2500);
+                displayMessage("一键收获完成！")
                 //蜜蜂收获
                 $(".bee").each(function(){
                     if((this).getAttribute("bee_dengji")==4){
                         $(this).remove();
                     }
                 });
-                $(".hint").css("display","block");
-                $(".hint").text("一键收获完成！")
-                $(".hint").fadeOut(2500);
+                displayMessage("一键收获完成！")
 
             }
 
@@ -1114,7 +1479,12 @@ $(function(){
 
         }
     });
-
+//背包点击宠物生成一直宠物
+    function animation_birth(){
+        var pig_top2 = Math.floor(200 * Math.random());
+        var pig_left2 = Math.floor(500 * Math.random());
+        $(".medaw-farm").append("<div class='pig' id='pig' pig_dengji='1' style='left:" + pig_left2 + "px;top:" + pig_top2 + "px;'><img src='images/app/muchang-photo/pig.png' class='pigmove'></div>");
+    }
 
 //        一键刷新
     $(".shuaxin").click(function(){

@@ -135,8 +135,8 @@ function inituserxx(data){
     initFarmGround(userId);
     //请求稻草人信息
     initFarmScarecrow(userId);
-    //初始化引导
 
+    //初始化引导--新手指引（没弄）
     //initGuide();
 
     userMusic();
@@ -152,14 +152,14 @@ function inituserxx(data){
 
     initUserInfo(userId);
 };
-
+//密码检查
 function checkIsInitPwd() {
     var isInitPwd = $('#isInitPwd').val();
     if (isInitPwd) {
         alert('请前往【个人信息】菜单修改初始密码，否则不能种地！');
     }
 }
-
+//记录最后用户
 function recordLastUid() {
     Cookies.set('lUid', userId);
 }
@@ -169,7 +169,7 @@ function checkGoFriend() {
     var luid = Cookies.get('lUid');
     console.log(luid);
 
-    var referrer = document.referrer;
+    var referrer = document.referrer;//返回当前页面的url
     console.log(referrer);
     if (referrer) {
         var matchs = referrer.match(/userid=([^&]+)/);
@@ -179,7 +179,7 @@ function checkGoFriend() {
     }
 }
 
-//初始化引导
+//初始化引导--新手设置（没弄）
 function initGuide() {
     if (firstLogin == 0)
     {

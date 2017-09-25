@@ -66,19 +66,16 @@ html,body{
     box-shadow: #F3D8A4 -5px -2px 4px;
     overflow-y: scroll;
 }
-.backpack-zhong{
-    width: 100%;
-    height: 5rem;
-    float: left;
-}
+
 .back-tubiao{
     width: 4.35rem;
-    height: 93%;
+    height: 4rem;
     float: left;
     margin-left: 0.89rem;
     border-radius: 15px;
     border: 1px solid #C6A788;
     position: relative;
+    margin-top: 0.55rem;
 }
 .backpack-zhong-photo{
     width: 102px;
@@ -88,8 +85,8 @@ html,body{
     background: #F8E6B8;
     box-shadow: #F3D8A4 -5px -2px 4px;
     border: 1px solid #F3D8A4;
-    margin-top: 0.65rem;
-    margin-left: 0.65rem;
+    margin-top: 0.4rem;
+    margin-left: 0.6rem;
 }
 .backpack-zhong-number{
     width: 2rem;
