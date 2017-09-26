@@ -206,9 +206,9 @@
     <!--等级1:0.7（初始状态）；等级2:0.8；等级3:0.9；等级4:1；-->
     <div class="medaw-farm">
         <div class="tree" tree_dengji="4"></div>
-        <!--<div class="pig" id="pig" pig_dengji="1" style="transform: scale(0.7);left: 0;top: 0;">-->
-            <!--<img src="images/app/muchang-photo/pig.png" class="pigmove">-->
-        <!--</div>-->
+        <div class="pig" id="pig" pig_dengji="1" style="transform: scale(0.7);left: 0;top: 0;" onclick="wei_animation(this)">
+            <img src="images/app/muchang-photo/pig.png" class="pigmove">
+        </div>
         <!--<div class="pig" pig_dengji="2" style="transform: scale(0.7);left: 0;top: 0;">-->
             <!--<img src="images/app/muchang-photo/pig.png" class="pigmove">-->
         <!--</div>-->
@@ -253,6 +253,10 @@
     </div>
     <!--页面提示信息-->
     <div class="hint"></div>
+    <!--使用背包的宠物-->
+    <div class="dianji_animation"></div>
+    <!--购买宠物-->
+    <div class="buy_pig">0</div>
 
 
 
@@ -310,17 +314,17 @@
                 <div class="modal-body">
                     <iframe id="subWinFrame" src="muchang-trade/Backpack.html"></iframe>
                 </div>
-                <div class="modal-bottom">
-                    <div class="modal-bottom-left">
-                        <div class="modal-bottom-left-tubiao"></div>
-                        <div class="modal-bottom-left-text">78,000</div>
-                    </div>
-                    <div class="modal-bottom-right">
-                        <div class="modal-bottom-left-tubiao2"></div>
-                        <div class="modal-bottom-left-text">78,000</div>
-                    </div>
+                <!--<div class="modal-bottom">-->
+                    <!--<div class="modal-bottom-left">-->
+                        <!--<div class="modal-bottom-left-tubiao"></div>-->
+                        <!--<div class="modal-bottom-left-text">78,000</div>-->
+                    <!--</div>-->
+                    <!--<div class="modal-bottom-right">-->
+                        <!--<div class="modal-bottom-right-tubiao"></div>-->
+                        <!--<div class="modal-bottom-right-text">78,000</div>-->
+                    <!--</div>-->
 
-                </div>
+                <!--</div>-->
             </div>
         </div>
     </div>

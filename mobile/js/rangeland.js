@@ -592,79 +592,6 @@ $(function(){
 
 //        动物随机出现
 //        猪
-//        var pig_zhong_number=$(".pig").length;
-//        for(i=0;i<pig_zhong_number;i++){
-
-
-//            var pig_address=document.getElementsById("pig");
-//            s=10;
-//             h=10;
-//            function move(){
-//            pig_address.style.left=pig_address.offsetLeft+s*Math.random()+"px";
-//            pig_address.style.top=pig_address.offsetTop+h*Math.random()+"px";
-//            }
-//        setInterval(move,500);
-//        }
-//            var pig_move_left=pig_left/2;
-//            var pig_move_top=pig_top/2;
-//            $(".pig").animate({left:"20px"});
-//            $(".pig")
-//
-// .animate({top:"30px"});
-
-//            console.log($(".pig").css('left'));
-//            console.log($(".pig").attr(left));
-//            if($(".pig").attr(left)==600){
-//
-//            }
-////随机移动
-//            function pigmove(){
-//                var pig_move=document.getElementById("pig");
-//                var pig_move_left=parseInt(pig_move.style.left);
-////                var pig_move_left=pig_left;
-////                var pig_distance=200;
-////                if(pig_move_left-pig_distance>0){
-////                    var zhi=1;
-//                     pig_move_left+=5;
-//                pig_move.style.left=pig_move_left+'px';
-////                alert(pig_move_left);
-////                    if(parseInt(pig_move_left)>="300"){
-////                        zhi=-1;
-////                    }
-////                }
-//            }
-//          setInterval(pigmove(),1000);
-////            pigmove();
-
-
-//            function pigmove2(){
-//                var pig_move=document.getElementById("pig");
-//                var pig_move_left=parseInt(pig_move.style.left);
-////                var pig_move_left=pig_left;
-//                var pig_distance=20;
-//                if(pig_move_left+pig_distance<700){
-//                    var zhi2=pig_move_left+pig_distance;
-//                    pig_move.style.left=zhi2+"px";
-//                    window.setInterval(pigmove2(),1000);
-//                }
-//            }
-//            pigmove2();
-//
-//            var pig_move_left=pig_left/2;
-//            var pig_move_top=pig_top/2;
-//            $(".pig").each(function(){
-//                $(this).animate({left:pig_move_left+"px"});
-//                $(this).css("transition","left 10s ease-in");
-//            });
-
-
-//                $(".pig").transition({
-//                    left:pig_move_left,top:pig_move_top,
-//                    duration: 500,
-//                    easing: 'linear',
-//                    complete: function(){}
-//                });
-//            $(".pig").css({left:'"+pig_move_left+"px'});
 
 
     var pig_zhong_number=$(".pig").length;
@@ -674,7 +601,6 @@ $(function(){
         pig_address=document.getElementsByClassName("pig");
         pig_address[i].style.left=pig_left+"px";
         pig_address[i].style.top=pig_top+"px";
-
 
         var i = 10;
         var j = 0;
@@ -760,43 +686,44 @@ $(function(){
     }
     //        牛
     var cow_zhong_number=$(".cow").length;
-    //for(i=0;i<cow_zhong_number;i++){
-    //    var cow_top=Math.floor(300*Math.random());
-    //    var cow_left=Math.floor(200*Math.random());
-    //    cow_address=document.getElementsByClassName("cow");
-    //    cow_address[i].style.left=cow_left+"px";
-    //    cow_address[i].style.top=cow_top+"px";
-    //
-    //    var x = 0, y = 0 , x1 = 0 , y1 = 0;
-    //    var xin = true, yin = true;
-    //    var step = 1,step2 = 2;
-    //    var delay = 100;
-    //    //var ii="cow"+(parseInt(i)+1);
-    //    var obj = document.getElementById("cow1");
-    //
-    //    function left_top() {
-    //        var L = 0+cow_left;
-    //        var R = 300+cow_left;
-    //       obj.style.left = x + document.documentElement.scrollLeft + "px";
-    //        x = x + step * (xin ? 5 : -5);
-    //        //xin是一个变量，  (xin?1:-1) 的意思就是 当 xin 为 true 或者 非0， 括号里的表达式值为 1， xin为 false，表达式的值为 -1.
-    //        if (x < L) {
-    //            xin = true;
-    //            x = L;
-    //            //左连接点
-    //        }
-    //        if (x > R) {
-    //            xin = false;
-    //            x = R;
-    //            //右连接点
-    //        }
-    //    };
-    //
-    //
-    //
-    //    setInterval(left_top, delay);
-    //
-    //}
+    for(i=0;i<cow_zhong_number;i++){
+        //var cow_top=Math.floor(300*Math.random());
+        //var cow_left=Math.floor(200*Math.random());
+        //cow_address=document.getElementsByClassName("cow");
+        //cow_address.style.left=cow_left+"px";
+        //cow_address.style.top=cow_top+"px";
+
+        //var x = 0, y = 0 , x1 = 0 , y1 = 0;
+        //var xin = true, yin = true;
+        //var step = 1,step2 = 2;
+        //var delay = 100;
+        ////var ii="cow"+(parseInt(i)+1);
+        //var obj = document.getElementById("cow1");
+        //
+        //function left_top() {
+        //    var L = 0+cow_left;
+        //    var R = 300+cow_left;
+        //   obj.style.left = x + document.documentElement.scrollLeft + "px";
+        //    x = x + step * (xin ? 5 : -5);
+        //    //xin是一个变量，  (xin?1:-1) 的意思就是 当 xin 为 true 或者 非0， 括号里的表达式值为 1， xin为 false，表达式的值为 -1.
+        //    if (x < L) {
+        //        xin = true;
+        //        x = L;
+        //        //左连接点
+        //    }
+        //    if (x > R) {
+        //        xin = false;
+        //        x = R;
+        //        //右连接点
+        //    }
+        //};
+        //
+        //
+        //
+        //setInterval(left_top, delay);
+
+    }
+
 
     //function animation_move(obj){
     //    var cow_top=Math.floor(300*Math.random());
@@ -978,31 +905,35 @@ $(function(){
     function gradetishi(){
         displayMessage("宠物成长已最高级！")
     }
+
+    function wei_animation(obj){
+
+        var obj_dengji=$(obj).attr("pig_dengji");
+        alert(obj_dengji);
+        //$(this).css("transform","scale(0.8)");
+        //obj_dengji=parseInt(obj_dengji)+1;
+        //alert(obj_dengji);
+        //$(this).attr("obj_dengji",obj_dengji);
+    }
 //        喂养
     var feed=0;//一键选择时，判断宠物在哪级
     $(".feed").click(function(){
         if(quanxian==1){
             $(".pig").unbind('click').click(function(){
-                alert(123)
                 var pig_dengji=$(this).attr("pig_dengji");
                 if(pig_dengji==1){
-                    $(this).removeAttr("pig_dengji");
-                    $(this).css("transform","scale(0.8)");
+
                     chuji();
-                    pig_dengji=parseInt(pig_dengji)+1;
-                    $(this).attr("pig_dengji",pig_dengji);
                 }else if(pig_dengji==2){
-                    $(this).removeAttr("pig_dengji");
                     $(this).css("transform","scale(0.9)");
+                    pig_dengji=parseInt(pig_dengji)+1;
+                    $(this).attr("pig_dengji",pig_dengji);
                     zhongji();
-                    pig_dengji=parseInt(pig_dengji)+1;
-                    $(this).attr("pig_dengji",pig_dengji);
                 }else if(pig_dengji==3){
-                    $(this).removeAttr("pig_dengji");
                     $(this).css("transform","scale(1)");
-                    gaoji();
                     pig_dengji=parseInt(pig_dengji)+1;
                     $(this).attr("pig_dengji",pig_dengji);
+                    gaoji();
                     return false;
                 }else{
                     gradetishi();
@@ -1480,12 +1411,24 @@ $(function(){
         }
     });
 //背包点击宠物生成一直宠物
-    function animation_birth(){
+//    function animation_birth(pig){
+//        var pig_top2 = Math.floor(200 * Math.random());
+//        var pig_left2 = Math.floor(500 * Math.random());
+//        $(".medaw-farm").append("<div class='pig' id='pig' pig_dengji='1' style='left:" + pig_left2 + "px;top:" + pig_top2 + "px;transform: scale(0.7);'><img src='images/app/muchang-photo/pig.png' class='pigmove'></div>");
+//    }
+
+    $(".dianji_animation").click(function(){
         var pig_top2 = Math.floor(200 * Math.random());
         var pig_left2 = Math.floor(500 * Math.random());
-        $(".medaw-farm").append("<div class='pig' id='pig' pig_dengji='1' style='left:" + pig_left2 + "px;top:" + pig_top2 + "px;'><img src='images/app/muchang-photo/pig.png' class='pigmove'></div>");
-    }
+        $(".medaw-farm").append("<div class='pig' id='pig' pig_dengji='1' style='left:" + pig_left2 + "px;top:" + pig_top2 + "px;transform: scale(0.7);'><img src='images/app/muchang-photo/pig.png' class='pigmove'></div>");
+    });
 
+//购买猪宝宝
+    $(".buy_pig").click(function(){
+        var zhuanshi=$(this).text();
+        pig_backpack_number=parseInt(zhuanshi)+1;
+        $(this).text(pig_backpack_number);
+    });
 //        一键刷新
     $(".shuaxin").click(function(){
         window.location.reload();

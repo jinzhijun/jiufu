@@ -853,59 +853,69 @@ html,body{
 #subWinFrame{
     border: 1px solid green;
     width: 71%;
-    height: 877px;
+    height: 990px;
     margin-top: 19%;
     margin-left: 15%;
-    border-radius: 95px;
+    /* border-bottom-left-radius: 95px; */
     overflow: hidden;
 }
-.modal-bottom{
-    width:100%;
-    height:8rem;
-    float: left;
-}
-.modal-bottom-left{
-    width: 30%;
-    height: 6rem;
-    float: left;
-    background: url(../images/app/muchang-photo/di.png)no-repeat;
-    background-size: cover;
-    margin-top: 1.7rem;
-    margin-left: 11rem;
-}
-.modal-bottom-right{
-    width: 30%;
-    height: 6rem;
-    float: left;
-    background: url(../images/app/muchang-photo/di.png)no-repeat;
-    background-size: cover;
-    margin-top: 1.7rem;
-    margin-left: 7rem;
-}
-.modal-bottom-left-tubiao{
-     width:28%;
-     height:6rem;
-     float: left;
-     background: url("../images/app/muchang-photo/jinbi.png")no-repeat;
-     background-size: contain;
- }
-.modal-bottom-left-tubiao2{
-    width: 28%;
-    height: 5rem;
-    float: left;
-    background: url(../images/app/muchang-photo/zhuanshi2.png)no-repeat;
-    background-size: contain;
-    margin-top: 0.5rem;
-}
-.modal-bottom-left-text{
-    width: 59%;
-    height: 6rem;
-    float: left;
-    font-family: fangzheng;
-    font-size: 4.5rem;
-    color: white;
-    margin-left: 2rem;
-    overflow: hidden;
-}
+/*.modal-bottom{*/
+    /*width:100%;*/
+    /*height:8rem;*/
+    /*float: left;*/
+/*}*/
+/*.modal-bottom-left{*/
+    /*width: 30%;*/
+    /*height: 6rem;*/
+    /*float: left;*/
+    /*background: url(../images/app/muchang-photo/di.png)no-repeat;*/
+    /*background-size: cover;*/
+    /*margin-top: 1.7rem;*/
+    /*margin-left: 11rem;*/
+/*}*/
+/*.modal-bottom-right{*/
+    /*width: 30%;*/
+    /*height: 6rem;*/
+    /*float: left;*/
+    /*background: url(../images/app/muchang-photo/di.png)no-repeat;*/
+    /*background-size: cover;*/
+    /*margin-top: 1.7rem;*/
+    /*margin-left: 7rem;*/
+/*}*/
+/*.modal-bottom-left-tubiao{*/
+     /*width:28%;*/
+     /*height:6rem;*/
+     /*float: left;*/
+     /*background: url("../images/app/muchang-photo/jinbi.png")no-repeat;*/
+     /*background-size: contain;*/
+ /*}*/
+/*.modal-bottom-right-tubiao2{*/
+    /*width: 28%;*/
+    /*height: 5rem;*/
+    /*float: left;*/
+    /*background: url(../images/app/muchang-photo/zhuanshi2.png)no-repeat;*/
+    /*background-size: contain;*/
+    /*margin-top: 0.5rem;*/
+/*}*/
+/*.modal-bottom-left-text{*/
+    /*width: 59%;*/
+    /*height: 6rem;*/
+    /*float: left;*/
+    /*font-family: fangzheng;*/
+    /*font-size: 4.5rem;*/
+    /*color: white;*/
+    /*margin-left: 2rem;*/
+    /*overflow: hidden;*/
+/*}*/
+/*.modal-bottom-right-text{*/
+    /*width: 59%;*/
+    /*height: 6rem;*/
+    /*float: left;*/
+    /*font-family: fangzheng;*/
+    /*font-size: 4.5rem;*/
+    /*color: white;*/
+    /*margin-left: 2rem;*/
+    /*overflow: hidden;*/
+/*}*/
 
 

@@ -38,7 +38,7 @@
     </div>
 </div>
 <div class="zhanshi">
-    <div class="nong-shop" style="display: block">
+    <div class="nong-shop yingc" style="display: block">
         <div class="shop-zhong">
             <div class="shop-zhong-photo"><img src="../images/app/muchang-shop/rice.png" style="width:100%;height:100%"></div>
             <div class="shop-zhong-introduce">
@@ -110,7 +110,7 @@
             </a>
         </div>
     </div>
-    <div class="muchang-shop" style="display: none">
+    <div class="muchang-shop yingc" style="display: none">
         <div class="shop-zhong">
             <div class="shop-zhong-photo"><img src="../images/app/muchang-shop/pig.png" style="width:100%;height:100%"></div>
             <div class="shop-zhong-introduce">
@@ -182,7 +182,7 @@
             </a>
         </div>
     </div>
-    <div class="siliao-shop" style="display: none">
+    <div class="siliao-shop yingc" style="display: none">
         <div class="shop-zhong">
             <div class="shop-zhong-photo"><img src="../images/app/muchang-shop/pannage.png" style="width:100%;height:100%"></div>
             <div class="shop-zhong-introduce">
@@ -254,7 +254,19 @@
             </a>
         </div>
     </div>
+    <div class="modal-bottom">
+        <div class="modal-bottom-left">
+            <div class="modal-bottom-left-tubiao"></div>
+            <div class="modal-bottom-left-text">79000</div>
+        </div>
+        <div class="modal-bottom-right">
+            <div class="modal-bottom-right-tubiao"></div>
+            <div class="modal-bottom-right-text">300</div>
+        </div>
+
+    </div>
 </div>
+
 </body>
 
 <!-- jQuery -->
@@ -271,20 +283,35 @@
 <script src="../js/connect.js?v=20170225"></script>
 <script>
     $(function(){
+        //购买猪宝宝
+        $(".shop-zhong-buy").click(function(){
+            var zhuanshi=$(".modal-bottom-right-text").text();
+            if(zhuanshi !=0){
+                now_zhuanshi=(parseInt(zhuanshi)-10);
+                $(".modal-bottom-right-text").text(now_zhuanshi);
+                parent.$('.buy_pig',parent.document).trigger('click');
+            }else{
+                alert("您没钱了，请充值！")
+            }
+
+
+
+        });
+        //农，牧，饲料三行切换
         $(".nong").click(function(){
-            $(".zhanshi").children().css("display","none");
+            $(".yingc").css("display","none");
             $(".nong-shop").css("display","block");
             $(".shuxian").css("display","none");
             $(this).children().eq(1).css("display","block");
         });
         $(".mu").click(function(){
-            $(".zhanshi").children().css("display","none");
+            $(".yingc").css("display","none");
             $(".muchang-shop").css("display","block");
             $(".shuxian").css("display","none");
             $(this).children().eq(1).css("display","block");
         });
         $(".siliao").click(function(){
-            $(".zhanshi").children().css("display","none");
+            $(".yingc").css("display","none");
             $(".siliao-shop").css("display","block");
             $(".shuxian").css("display","none");
             $(this).children().eq(1).css("display","block");

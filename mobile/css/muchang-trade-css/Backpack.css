@@ -51,13 +51,12 @@ html,body{
 }
 .zhanshi{
     width: 100%;
-    height: 75.5%;
-    /* border: 1px solid red; */
+    height: 66.5%;
     float: left;
 }
 .nong-backpack{
     width: 94%;
-    height: 90%;
+    height: 608px;
     border: 1px solid #fad8a4;
     border-radius: 15px;
     float: left;
@@ -101,20 +100,24 @@ html,body{
 }
 .muchang-backpack{
     width: 94%;
-    height: 90%;
-    /* border: 1px solid blue; */
+    height: 608px;
+    border: 1px solid #fad8a4;
+    border-radius: 15px;
     float: left;
     margin-left: 0.75rem;
     margin-top: 1rem;
+    box-shadow: #F3D8A4 -5px -2px 4px;
     overflow-y: scroll;
 }
 .siliao-backpack{
     width: 94%;
-    height: 90%;
-    /* border: 1px solid blue; */
+    height: 608px;
+    border: 1px solid #fad8a4;
+    border-radius: 15px;
     float: left;
     margin-left: 0.75rem;
     margin-top: 1rem;
+    box-shadow: #F3D8A4 -5px -2px 4px;
     overflow-y: scroll;
 }
 .anniu{
@@ -147,4 +150,65 @@ html,body{
     margin-left: 2rem;
     text-align: center;
     line-height: 77px;
+}
+.modal-bottom{
+    width: 100%;
+    height: 2.9rem;
+    float: left;
+    margin-top: 0.3rem;
+}
+.modal-bottom-left{
+    width: 44%;
+    height: 2.2rem;
+    float: left;
+    background: url(../../images/app/muchang-photo/di.png)no-repeat;
+    background-size: cover;
+    margin-top: 0.76rem;
+}
+.modal-bottom-right{
+    width: 44%;
+    height: 2.2rem;
+    float: left;
+    background: url(../../images/app/muchang-photo/di.png)no-repeat;
+    background-size: cover;
+    margin-top: 0.76rem;
+    margin-left: 1.99rem;
+}
+.modal-bottom-left-tubiao{
+    width: 28%;
+    height: 2rem;
+    float: left;
+    background: url(../../images/app/muchang-photo/jinbi.png)no-repeat;
+    background-size: contain;
+    margin-top: 0.15rem;
+}
+.modal-bottom-right-tubiao{
+    width: 28%;
+    height: 2rem;
+    float: left;
+    background: url(../../images/app/muchang-photo/zhuanshi2.png)no-repeat;
+    background-size: contain;
+    margin-top: 0.15rem;
+}
+.modal-bottom-left-text{
+    width: 54%;
+    height: 2rem;
+    float: left;
+    font-family: fangzheng;
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 0.5rem;
+    overflow: hidden;
+    text-align: center;
+}
+.modal-bottom-right-text{
+    width: 54%;
+    height: 2rem;
+    float: left;
+    font-family: fangzheng;
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 0.5rem;
+    overflow: hidden;
+    text-align: center;
 }

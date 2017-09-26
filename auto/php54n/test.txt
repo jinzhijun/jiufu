@@ -45,3 +45,4 @@ INSERT INTO `jz_all_record` (`user_login`,`type`,`notice`,`number`,`create_time`
 INSERT INTO `jz_all_record` (`user_login`,`type`,`notice`,`number`,`create_time`)  VALUES ('招财树','reap','3号地','+0.39999999999998','2017-09-25 14:33:48')
 INSERT INTO `jz_all_record` (`user_login`,`type`,`notice`,`number`,`create_time`)  VALUES ('招财树','reap','2号地','+0.30000000000001','2017-09-25 14:33:48')
 INSERT INTO `jz_all_record` (`user_login`,`type`,`notice`,`number`,`create_time`)  VALUES ('招财树','reap','1号地','+0.19999999999999','2017-09-25 14:33:48')
+INSERT INTO `jz_grouth` (`user_login`,`money`,`grouth`,`create_time`)  VALUES ('lz7788','4.713012','2.04','2017-09-26 10:07:14')
