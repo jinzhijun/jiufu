@@ -92,7 +92,7 @@
     <div class="muchang-backpack" style="display: none">
             <div class="back-tubiao  pig_birth">
                 <div class="backpack-zhong-photo"><img src="../images/app/muchang-shop/pig.png" style="width:100%;height:100%"></div>
-                <div class="backpack-zhong-number">12</div>
+                <div class="backpack-zhong-number"></div>
             </div>
             <!--<div class="back-tubiao">-->
                 <!--<div class="backpack-zhong-photo"><img src="../images/app/muchang-shop/pig.png" style="width:100%;height:100%"></div>-->
@@ -222,28 +222,38 @@
 <script src="../js/connect.js?v=20170225"></script>
 <script>
     $(function(){
+        var a=$(".buy_pig",window.parent.document).text();
+        if(a==0){
+            $(".pig_birth").remove();
+        }else{
+            $(".backpack-zhong-number").text(a);
+        }
+
         $(".back-tubiao").click(function(){
             var c=$(this);
             $(".back-tubiao").css("background","none")
             c.css("background","#C6A788");
-            //使用
+            var b= c.children().eq(1).html();
             $(".use").unbind('click').click(function(){
-
-                var b=c.children().eq(1).text();
-                if(b>1){
-                    if(c.hasClass("pig_birth")){
-                        b--;
-                        c.children().eq(1).text(b);
-                        parent.$('.dianji_animation',parent.document).trigger('click');
-                    }
-                }else{
-                    c.remove();
+                if(b>=1){
+                        if($(".back-tubiao").hasClass("pig_birth")){
+                            parent.$('.dianji_animation',parent.document).trigger('click');
+                            //背包猪的个数
+                            b--;
+                            c.children().eq(1).html(b);
+                            //父窗口数据资料
+                            a--;
+                            $(".buy_pig",window.parent.document).text(a);
+                            if(b=='0'){
+                                c.remove();
+                            }
+                        }
                 }
             });
             //丢弃
             $(".throw").unbind('click').click(function(){
                 var b=c.children().eq(1).text();
-                if(b>1){
+                if(b>0){
                     b=b-1;
                     c.children().eq(1).text(b);
                 }else{
@@ -269,6 +279,11 @@
             $(".shuxian").css("display","none");
             $(this).children().eq(1).css("display","block");
         });
+        //判断背包
+        var muchang_backpack_number=$(".muchang-backpack").children().length;
+        if(!muchang_backpack_number){
+            $(".muchang-backpack").text("牧场背包没有东西哦，快去商城购买吧!")
+        }
     });
 </script>
 </html>

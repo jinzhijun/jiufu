@@ -108,6 +108,7 @@ html,body{
     margin-top: 1rem;
     box-shadow: #F3D8A4 -5px -2px 4px;
     overflow-y: scroll;
+    font-family: fangzheng;
 }
 .siliao-backpack{
     width: 94%;

@@ -565,14 +565,14 @@ $(function(){
             $(".medaw-farm").append("<div class='bianbian' style='left:" + bian_left2 + "px;top:" + bian_top2 + "px;'> <img src='images/app/muchang-photo/bianbian.png' class='bianbianmove'> </div>")
 
 //      便便点击提示
-            if(clear_stau==0){
-                $(".bianbian").click(function(){
-                    displayMessage("点击“打扫”才能清理哦！")
-                });
-                $(".wenzi").click(function(){
-                    displayMessage("用上“除蚊虫”才能打虫哦！")
-                });
-            }
+//            if(clear_stau==0){
+//                $(".bianbian").click(function(){
+//                    displayMessage("点击“打扫”才能清理哦！")
+//                });
+//                $(".wenzi").click(function(){
+//                    displayMessage("用上“除蚊虫”才能打虫哦！")
+//                });
+//            }
         }
 
     }
@@ -687,40 +687,40 @@ $(function(){
     //        牛
     var cow_zhong_number=$(".cow").length;
     for(i=0;i<cow_zhong_number;i++){
-        //var cow_top=Math.floor(300*Math.random());
-        //var cow_left=Math.floor(200*Math.random());
-        //cow_address=document.getElementsByClassName("cow");
-        //cow_address.style.left=cow_left+"px";
-        //cow_address.style.top=cow_top+"px";
+        var cow_top=Math.floor(300*Math.random());
+        var cow_left=Math.floor(200*Math.random());
+        cow_address=document.getElementsByClassName("cow");
+        cow_address[i].style.left=cow_left+"px";
+        cow_address[i].style.top=cow_top+"px";
 
-        //var x = 0, y = 0 , x1 = 0 , y1 = 0;
-        //var xin = true, yin = true;
-        //var step = 1,step2 = 2;
-        //var delay = 100;
-        ////var ii="cow"+(parseInt(i)+1);
-        //var obj = document.getElementById("cow1");
+        var x = 0, y = 0 , x1 = 0 , y1 = 0;
+        var xin = true, yin = true;
+        var step = 1,step2 = 2;
+        var delay = 100;
+        //var ii="cow"+(parseInt(i)+1);
+        var obj = document.getElementById("cow1");
+
+        function left_top() {
+            var L = 0+cow_left;
+            var R = 300+cow_left;
+           obj.style.left = x + document.documentElement.scrollLeft + "px";
+            x = x + step * (xin ? 5 : -5);
+            //xin是一个变量，  (xin?1:-1) 的意思就是 当 xin 为 true 或者 非0， 括号里的表达式值为 1， xin为 false，表达式的值为 -1.
+            if (x < L) {
+                xin = true;
+                x = L;
+                //左连接点
+            }
+            if (x > R) {
+                xin = false;
+                x = R;
+                //右连接点
+            }
+        };
         //
-        //function left_top() {
-        //    var L = 0+cow_left;
-        //    var R = 300+cow_left;
-        //   obj.style.left = x + document.documentElement.scrollLeft + "px";
-        //    x = x + step * (xin ? 5 : -5);
-        //    //xin是一个变量，  (xin?1:-1) 的意思就是 当 xin 为 true 或者 非0， 括号里的表达式值为 1， xin为 false，表达式的值为 -1.
-        //    if (x < L) {
-        //        xin = true;
-        //        x = L;
-        //        //左连接点
-        //    }
-        //    if (x > R) {
-        //        xin = false;
-        //        x = R;
-        //        //右连接点
-        //    }
-        //};
         //
         //
-        //
-        //setInterval(left_top, delay);
+        setInterval(left_top, delay);
 
     }
 
@@ -846,6 +846,7 @@ $(function(){
 //        点击功能栏  quanxian:1为普通用户，2位开通一键功能用户
 //        打扫
     var quanxian=1;
+
     $(".clear").click(function(){
         $("#clear").attr("src","images/app/muchang-photo/dasao_gaoliang.png");
         var bian_number=$(".bianbian").length;
@@ -853,12 +854,21 @@ $(function(){
 
             displayMessage("牧场很干净，无需清理哦！")
 
-        }else{
+        }else
+    {
+            alert(456)
             if(quanxian==1){
+                alert(123);
                 $(".bianbian").click(function(){
+                    alert(789);
                     $(this).css("display","none");
                     $(this).remove();
                 });
+                //$(".bianbian").click(function(){
+                //    alert(789);
+                //    $(this).css("display","none");
+                //    $(this).remove();
+                //});
             }else{
                 displayMessage("一键清理完毕！")
                 $(".bianbian").remove();
@@ -905,16 +915,45 @@ $(function(){
     function gradetishi(){
         displayMessage("宠物成长已最高级！")
     }
+    //
+    //function wei_animation(obj){
+    //    //var obj_dengji=$("."+obj).attr(obj+"_dengji");
+    //    //var obj_zhong_number=$("."+obj).length;
+    //    ////for(i=0;i<obj_zhong_number;i++){
+    //    //    obj_dengji=parseInt(obj_dengji)+1;
+    //    //    alert(obj_dengji);
+    //    //    $("."+obj)[i].setAttribute(obj+"_dengji",obj_dengji);
+    //    //}
+    //    alert(456)
+    //    var obj_dengji=$("."+obj).attr("pig_dengji");
+    //    alert(obj_dengji);
+    //    new_obj_dengji=parseInt(obj_dengji)+1;
+    //    alert(new_obj_dengji);
+    //    $(this).attr("pig_dengji","new_obj_dengji");
+    //    //alert(obj_dengji)
+    //    //var c=obj_dengji.substr(6,3)
+    //    //obj_dengji=parseInt(obj_dengji)+1;
+    //    //alert(obj_dengji);
+    //    //$(obj).setAttribute(obj+"_dengji",obj_dengji);
+    //}
+    //function  check_size(pig,sheep,cow,alpaca,cat,blackcat,maoyou,bee){
+    //    var c=$(".obj").length;
+    //    for(i=0;i<c;i++){
+    //        obj_str=$(".obj")[i].getAttribute("obj_dengji");
+    //        if(obj_str==1){
+    //            document.getElementsByClassName("obj")[i].style.transform="scale(0.7)";
+    //        }else if(obj_str==2){
+    //            document.getElementsByClassName("obj")[i].style.transform="scale(0.8)";
+    //        }else if(obj_str==3){
+    //            document.getElementsByClassName("obj")[i].style.transform="scale(0.9)";
+    //        }else{
+    //            document.getElementsByClassName("obj")[i].style.transform="scale(1)";
+    //        }
+    //    }
+    //}
+    //setInterval(check_size,1000);
 
-    function wei_animation(obj){
 
-        var obj_dengji=$(obj).attr("pig_dengji");
-        alert(obj_dengji);
-        //$(this).css("transform","scale(0.8)");
-        //obj_dengji=parseInt(obj_dengji)+1;
-        //alert(obj_dengji);
-        //$(this).attr("obj_dengji",obj_dengji);
-    }
 //        喂养
     var feed=0;//一键选择时，判断宠物在哪级
     $(".feed").click(function(){
@@ -922,7 +961,9 @@ $(function(){
             $(".pig").unbind('click').click(function(){
                 var pig_dengji=$(this).attr("pig_dengji");
                 if(pig_dengji==1){
-
+                    $(this).css("transform","scale(0.8)");
+                    pig_dengji=parseInt(pig_dengji)+1;
+                    $(this).attr("pig_dengji",pig_dengji);
                     chuji();
                 }else if(pig_dengji==2){
                     $(this).css("transform","scale(0.9)");
