@@ -266,7 +266,19 @@
 
     </div>
 </div>
-
+<div class="suoyou-goumai" style="display: none">
+    <div class="turndown"></div>
+    <div class="goumaikuan">
+        <div class="jishuang">
+            <div class="delete">-</div>
+            <div class="xianshi">1</div>
+            <div class="add">+</div>
+        </div>
+        <div class="buy-number">
+            <div class="buy-number-text">确认购买</div>
+        </div>
+    </div>
+</div>
 </body>
 
 <!-- jQuery -->
@@ -283,19 +295,54 @@
 <script src="../js/connect.js?v=20170225"></script>
 <script>
     $(function(){
-        //购买猪宝宝
+        //打开购买框
         $(".shop-zhong-buy").click(function(){
+           $(".suoyou-goumai").css("display","block");
+           $(".xianshi").text(1)
+        });
+        //关闭购买框
+        $(".turndown").click(function(){
+            $(".suoyou-goumai").css("display","none");
+        });
+        //加，减运算
+        $(".add").click(function(){
+            var b=$(".xianshi").text();
             var zhuanshi=$(".modal-bottom-right-text").text();
-            if(zhuanshi !=0){
-                now_zhuanshi=(parseInt(zhuanshi)-10);
-                $(".modal-bottom-right-text").text(now_zhuanshi);
-                parent.$('.buy_pig',parent.document).trigger('click');
+            now_zhuanshi=parseInt(zhuanshi)-(10*b);
+            if(now_zhuanshi==0){
+                $(".xianshi").text(b);
             }else{
-                alert("您没钱了，请充值！")
+                var b=$(".xianshi").text();
+                b++;
+                $(".xianshi").text(b)
             }
 
-
-
+        });
+        $(".delete").click(function(){
+            var b=$(".xianshi").text();
+            if(b!=1){
+                b--;
+                $(".xianshi").text(b)
+            }else{
+                $(".xianshi").text(1)
+            }
+        });
+        //确认购买点击结算
+        $(".buy-number").click(function(){
+            var zhuanshi=$(".modal-bottom-right-text").text();
+            if(zhuanshi !=0){
+                //计算剩余多少钻石
+                var b=$(".xianshi").text();
+                now_zhuanshi=parseInt(zhuanshi)-(10*b);
+                $(".modal-bottom-right-text").text(now_zhuanshi);
+                //计算买了多少只猪
+                a= $(".buy_pig",window.parent.document).text();
+                c=parseInt(a)+parseInt(b);
+                $(".buy_pig",window.parent.document).text(c);
+                $(".suoyou-goumai").css("display","none");
+            }else{
+                alert("您的余额不足，请充值！")
+            }
         });
         //农，牧，饲料三行切换
         $(".nong").click(function(){

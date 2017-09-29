@@ -280,7 +280,7 @@ $(function(){
         $(".part_list").css("transition","height 0.3s ease-in");
         var b=$(this).next().height();
         if(b==0){
-            $(this).next().css("height","551px");
+            $(this).next().css("height","642px");
             $(this).next().css("transition","height 0.3s ease-in");
         }
 
@@ -560,33 +560,38 @@ $(function(){
             displayMessage("没有动物哦，快去购买吧！")
         }else{
             //            每20秒添加一个便便
-            var bian_top2 = Math.floor(200 * Math.random());
-            var bian_left2 = Math.floor(500 * Math.random());
+            var bian_top2 = Math.floor(400 * Math.random());
+            var bian_left2 = Math.floor(900 * Math.random());
             $(".medaw-farm").append("<div class='bianbian' style='left:" + bian_left2 + "px;top:" + bian_top2 + "px;'> <img src='images/app/muchang-photo/bianbian.png' class='bianbianmove'> </div>")
 
 //      便便点击提示
-//            if(clear_stau==0){
-//                $(".bianbian").click(function(){
-//                    displayMessage("点击“打扫”才能清理哦！")
-//                });
-//                $(".wenzi").click(function(){
-//                    displayMessage("用上“除蚊虫”才能打虫哦！")
-//                });
-//            }
+//      蚊子点击提示
+                $(".bianbian").on("click",function(){
+                    displayMessage("点击“打扫”才能清理哦！")
+                });
+                $(".wenzi").click(function(){
+                    displayMessage("用上“除蚊虫”才能打虫哦！")
+                });
         }
 
     }
-
-
     setInterval(bian_appear_time,20000);
 
+
     //每隔1分钟出现一只蚊子
-    function wenzi_turn(){
-        var wenzi_top = Math.floor(300*Math.random());
-        var wenzi_left = Math.floor(500*Math.random());
-        $(".medaw-farm").append("<div class='wenzi' style='left:" + wenzi_left + "px;top:" + wenzi_top + "px;'> <img src='images/app/muchang-photo/wenzi.gif' class='bianmove'> </div>")
+    function wenzi_turn() {
+        var bianbian_number = $(".bianbian").length;
+        if (bianbian_number=0) {
+            function wenzi_appear(){
+            var wenzi_top = Math.floor(400 * Math.random());
+            var wenzi_left = Math.floor(900 * Math.random());
+            $(".medaw-farm").append("<div class='wenzi' style='left:" + wenzi_left + "px;top:" + wenzi_top + "px;'> <img src='images/app/muchang-photo/wenzi.gif' class='bianmove'> </div>")
+            }
+            setInterval(wenzi_appear,1000);
+
+        }
     }
-    setInterval(wenzi_turn,60000);
+    setInterval(wenzi_turn,1000);
 
 
 
@@ -843,12 +848,26 @@ $(function(){
 //        setInterval(panduan_size(),1000);
 
 
+    /*******页面加载完毕时   将几个工具高亮全部还原********/
+    var arrTools = ["farm-tool-1", "farm-tool-2", "farm-tool-3", "farm-tool-4", "farm-tool-5", "farm-tool-6"];
+    $.each(arrTools, function (i, n) {
+        $("#" + n).removeClass('selected');
+    });
+
+    /*******设置函数    点击其中一个工具 变成高亮状态  同时其他工具还原********/
+    function updateToolStatus(id) {
+        $.each(arrTools, function (i, n) {
+            $("#" + n).removeClass('selected');
+        });
+
+        $("#farm-tool-" + id).addClass('selected');
+    }
+
 //        点击功能栏  quanxian:1为普通用户，2位开通一键功能用户
 //        打扫
     var quanxian=1;
-
     $(".clear").click(function(){
-        $("#clear").attr("src","images/app/muchang-photo/dasao_gaoliang.png");
+        updateToolStatus(1);
         var bian_number=$(".bianbian").length;
         if(!bian_number){
 
@@ -856,19 +875,15 @@ $(function(){
 
         }else
     {
-            alert(456)
+            //alert(456)
             if(quanxian==1){
-                alert(123);
-                $(".bianbian").click(function(){
-                    alert(789);
+                //alert(123);
+                $(".bianbian").unbind();
+                $(".bianbian").on("click",function(){
+                    //alert(789);
                     $(this).css("display","none");
                     $(this).remove();
                 });
-                //$(".bianbian").click(function(){
-                //    alert(789);
-                //    $(this).css("display","none");
-                //    $(this).remove();
-                //});
             }else{
                 displayMessage("一键清理完毕！")
                 $(".bianbian").remove();
@@ -880,11 +895,13 @@ $(function(){
 
     //除蚊虫
     $(".qucong").click(function(){
+        updateToolStatus(3);
         var wenzi_number=$(".wenzi").length;
         if(!wenzi_number){
             displayMessage("没有蚊子哦，无需清虫哦！")
         }else{
             if(quanxian==1){
+                $(".wenzi").unbind();
                 $(".wenzi").click(function(){
                     $(this).css("display","none");
                     $(this).remove();
@@ -957,6 +974,7 @@ $(function(){
 //        喂养
     var feed=0;//一键选择时，判断宠物在哪级
     $(".feed").click(function(){
+        updateToolStatus(4);
         if(quanxian==1){
             $(".pig").unbind('click').click(function(){
                 var pig_dengji=$(this).attr("pig_dengji");
@@ -1308,6 +1326,7 @@ $(function(){
 
     //        点击收获按钮收获最高等级为4的宠物
     $(".shouhuo_but").click(function(){
+        updateToolStatus(5);
         if(quanxian==1){
             //猪
             $(".pig").unbind('click').click(function(){
@@ -1464,18 +1483,17 @@ $(function(){
         $(".medaw-farm").append("<div class='pig' id='pig' pig_dengji='1' style='left:" + pig_left2 + "px;top:" + pig_top2 + "px;transform: scale(0.7);'><img src='images/app/muchang-photo/pig.png' class='pigmove'></div>");
     });
 
-//购买猪宝宝
-    $(".buy_pig").click(function(){
-        var zhuanshi=$(this).text();
-        pig_backpack_number=parseInt(zhuanshi)+1;
-        $(this).text(pig_backpack_number);
-    });
+////购买猪宝宝
+//    $(".buy_pig").click(function(){
+//        var zhuanshi=$(this).text();
+//        pig_backpack_number=parseInt(zhuanshi)+1;
+//        $(this).text(pig_backpack_number);
+//    });
 //        一键刷新
     $(".shuaxin").click(function(){
-        window.location.reload();
-//            $(".hint").css("display","block");
-//            $(".hint").text("页面刷新成功！")
-//            $(".hint").fadeOut(2500);
+        updateToolStatus(6);
+        refreshGameData();
+        displayMessage('刷新成功');
     });
 
 });

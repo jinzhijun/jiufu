@@ -24,21 +24,31 @@ html,body{
 
 }
 .top-left{
-    width:405px;
-    height:160px;
+    width: 405px;
+    height: 154px;
     float: left;
-    background: url("../images/app/muchang-photo/7.png")no-repeat;
+    /*background: rgba(255,255,255,0.5);*/
+    background: #E38A0B;
+    border-radius: 40px;
 }
 .top-left-left{
     width: 150px;
     height: 160px;
     float: left;
-    background: url("../images/app/muchang-photo/userinfo-bg.png")no-repeat;
 }
 .user-logo img{
     width: 147px;
-    height: 160px;
-    margin-top:2%;
+    height: 142px;
+    margin-top: 8%;
+    border-radius: 45px;
+}
+.user_bg{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    z-index: 4;
+    background: url(../images/app/muchang-photo/userinfo-bg.png);
+    top: 4px;
 }
 .top-left-left a{
     width:34px;
@@ -53,14 +63,28 @@ html,body{
     margin-left: 25px;
     font-weight: bold;
     color: white;
-    font-size: 4rem;
+    font-size: 3rem;
+}
+.top-left-left span{
+    width: 55px;
+    height: 55px;
+    position: relative;
+    z-index: 6;
+    float: left;
+    border-radius: 50%;
+    top: -56px;
+    line-height: 55px;
+    text-align: center;
+    margin-left: 25px;
+    font-weight: bold;
+    color: white;
+    font-size: 3rem;
+    background: red;
 }
 .notice{
     background: url(../images/app/main/notice-message.png)no-repeat 0 0;
 }
-.inmail{
-    background: url(../images/app/main/mail-message.png)no-repeat 0 0;
-}
+
 .top-left-right{
     width: 230px;
     height: 157px;
@@ -74,17 +98,13 @@ html,body{
     text-overflow:ellipsis;/*文字隐藏后添加省略号*/
 }
 .username{
+    /*color: #AE6F10;*/
     color: white;
+    text-shadow: #ffffff;
     font-weight: bold;
     font-size: 41px;
 }
-.username_id{
-    color: yellow;
-    font-weight: bold;
-    font-size: 41px;
-    font-family: fangzheng;
-    /*text-shadow:#000 5px 5px 5px;*/
-}
+
 .top-right{
     width: 565px;
     height: 175px;
@@ -615,7 +635,7 @@ html,body{
     width:110px;
     height:90px;
     /*border:1px solid red;*/
-    position:relative;
+    position:absolute;
     transform: scale(0.4);
     z-index: 1;
     display: inline-block;
@@ -640,9 +660,9 @@ html,body{
     width:110px;
     height:90px;
     /*border:1px solid red;*/
-    position:relative;
+    position:absolute;
     transform: scale(0.4);
-    z-index: 1;
+    z-index: 2;
     display: inline-block;
     /*-webkit-animation-name:wenzimove;*/
     /*-webkit-animation-duration: 12s;*/
@@ -699,77 +719,106 @@ html,body{
 }
 .clear{
     width: 158px;
-    height: 168px;
+    height: 182px;
     float: left;
     cursor: pointer;
-    border: 1px solid red;
     margin-left: 17px;
     overflow: hidden;
+    background: url("../images/app/muchang-photo/clear.png")no-repeat;
+    background-size: cover;
 }
-#clear{
-    width: 100%;
-     height: 168px;
-
-    text-align: center;
-
-}
-.store{
+.clear.selected{
     width: 158px;
-    height: 168px;
+    height: 182px;
     float: left;
     cursor: pointer;
-    border:1px solid red;
+    margin-left: 17px;
     overflow: hidden;
+    background: url("../images/app/muchang-photo/dasao_gaoliang.png")no-repeat;
+    background-size: cover;
 }
-#store{
+
+.store{
     width: 158px;
-    height: 168px;
+    height: 182px;
+    float: left;
+    cursor: pointer;
+    overflow: hidden;
+    background: url("../images/app/muchang-photo/store.png");
+    background-size: cover;
+}
+.store.selected{
+    width: 158px;
+    height: 182px;
+    float: left;
+    cursor: pointer;
+    overflow: hidden;
+    background: url("../images/app/muchang-photo/store_gaoliang.png")no-repeat;
+    background-size: cover;
 }
 .qucong{
     width: 158px;
-    height: 168px;
+    height: 182px;
     float: left;
-    border:1px solid red;
     cursor: pointer;
+    background: url("../images/app/muchang-photo/qucong.png")no-repeat;
+    background-size: cover;
 }
-#qucong{
+.qucong.selected{
     width: 158px;
-    height: 168px;
-
+    height: 182px;
+    float: left;
+    cursor: pointer;
+    background: url("../images/app/muchang-photo/quchong_gaoliang.png")no-repeat;
+    background-size: cover;
 }
 .feed{
     width: 158px;
-    height: 168px;
+    height: 182px;
     float: left;
-    border:1px solid red;
     cursor: pointer;
+    background: url("../images/app/muchang-photo/feed.png")no-repeat;
+    background-size: cover;
 }
-#feed{
+.feed.selected{
     width: 158px;
-    height: 168px;
-
+    height: 182px;
+    float: left;
+    cursor: pointer;
+    background: url("../images/app/muchang-photo/feed_gaoliang.png")no-repeat;
+    background-size: cover;
 }
 .shouhuo_but{
     width: 158px;
-    height: 168px;
+    height: 182px;
     float: left;
-    border:1px solid red;
     cursor: pointer;
+    background: url("../images/app/muchang-photo/shouhuo_but.png")no-repeat;
+    background-size: cover;
 }
-#shouhuo_but{
-     width: 158px;
-     height: 168px;
+.shouhuo_but.selected{
+    width: 158px;
+    height: 182px;
+    float: left;
+    cursor: pointer;
+    background: url("../images/app/muchang-photo/shouhuo_but._gaoliang.png")no-repeat;
+    background-size: cover;
  }
 .shuaxin{
     width: 158px;
-    height: 168px;
+    height: 190px;
     float: left;
-    border:1px solid red;
     cursor: pointer;
+    background: url("../images/app/muchang-photo/shuaxin.png")no-repeat;
+    background-size: cover;
 }
-#shuaxin{
+.shuaxin.selected{
     width: 158px;
-    height: 168px;
+    height: 190px;
+    float: left;
+    cursor: pointer;
+    background: url("../images/app/muchang-photo/shuaxin_gaoliang.png")no-repeat;
+    background-size: cover;
 }
 .hint{
     display: none;
@@ -918,4 +967,21 @@ html,body{
     /*overflow: hidden;*/
 /*}*/
 
-
+.progress {
+    height: 26px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #dcd9d9;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    margin-top: 20px;
+    font-size: 26px;
+    border-radius: 15px;
+}
+.progress-bar span{
+    font-size: 2rem;
+    color: #CA7902;
+    text-shadow:0 0 0.2em #FFFFFF,
+    -0 -0 0.2em #FFFFFF;
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       商业转载请联系作者获得授权,非商业转载请注明出处。

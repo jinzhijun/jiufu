@@ -38,18 +38,23 @@
         <div class="top-left">
             <div class="top-left-left">
                 <div class="user-logo">
-                    <img src="images/app/main/touxiang.png">
+                    <img src="images/app/main/user_logo.jpg">
                 </div>
+                <div class="user_bg"></div>
                 <a href="http://www.baicu.com">
                     <div class="notice">1</div>
                 </a>
-                <a href="http://www.baicu.com">
-                    <div class="inmail">2</div>
-                </a>
+                <span href="http://www.baicu.com">
+                    <div class="inmail">Lv1</div>
+                </span>
             </div>
             <div class="top-left-right">
                 <div class="username">果子</div>
-                <div class="username_id">45346464343466666666666555555556</div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+                        <span>50%</span><span style="line-height:26px; "> / 100%</span>
+                    </div>
+                </div>
             </div>
         </div>
         <!--牧场总概况信息-->
@@ -88,19 +93,19 @@
         <div class="menu">
             <dl class="kuai">
                 <!--农场管理-->
-                <div class="main_list">
-                    <a href="javascript:void(0)">农场管理</a>
-                </div>
-                <div class="part_list" style="height:0px;overflow: hidden;">
-                    <ul>
-                        <li><a href="#"  data-toggle="modal" data-target="#winModal">好友农场</a></li>
-                        <li><a href="manger/friend.html" data-toggle="modal" data-target="#winModal" >已开发农场</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">开发新农场</a></li>
-                        <li><span  class="system">系统设置</span></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">站内信</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">公告通知</a></li>
-                    </ul>
-                </div>
+                <!--<div class="main_list">-->
+                    <!--<a href="javascript:void(0)">农场管理</a>-->
+                <!--</div>-->
+                <!--<div class="part_list" style="height:0px;overflow: hidden;">-->
+                    <!--<ul>-->
+                        <!--<li><a href="#"  data-toggle="modal" data-target="#winModal">好友农场</a></li>-->
+                        <!--<li><a href="manger/friend.html" data-toggle="modal" data-target="#winModal" >已开发农场</a></li>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">开发新农场</a></li>-->
+                        <!--<li><span  class="system">系统设置</span></li>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">站内信</a></li>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">公告通知</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
 
                 <!--牧场管理-->
                 <div class="main_list">
@@ -109,39 +114,35 @@
                 <div class="part_list" style="height:0px;overflow: hidden;">
                     <ul>
                         <li><a href="#" data-toggle="modal" data-target="#winModal" id="muchang-friend" >好友牧场</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">已开发牧场</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#winModal">开发新牧场</a></li>
-                        <li><span class="system">系统设置</span></li>
                     </ul>
                 </div>
 
                 <!--农场生长记录-->
-                <div class="main_list">
-                    <a href="javascript:void(0)">农场生长记录</a>
-                </div>
-                <div class="part_list" style="height:0px;overflow: hidden;">
-                    <ul>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">农场生长记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">奖励记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">采蜜记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">施肥记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">播种记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">收割记录</a></li>
-                    </ul>
-                </div>
+                <!--<div class="main_list">-->
+                    <!--<a href="javascript:void(0)">农场生长记录</a>-->
+                <!--</div>-->
+                <!--<div class="part_list" style="height:0px;overflow: hidden;">-->
+                    <!--<ul>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">农场生长记录</a></li>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">奖励记录</a></li>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">采蜜记录</a></li>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">施肥记录</a></li>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">播种记录</a></li>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">收割记录</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
 
                 <!--牧场生产记录-->
                 <div class="main_list">
-                    <a href="javascript:void(0)">牧场生长记录</a>
+                    <a href="javascript:void(0)">牧场成长记录</a>
                 </div>
                 <div class="part_list" style="height:0px;overflow: hidden;">
                     <ul>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">牧场成长记录</a></li>
+                        <li><a href="muchang-trade/muchang_grow.html" data-toggle="modal" data-target="#winModal">动物成长记录</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#winModal">奖励记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">动物成长记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">喂食记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">偷取记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">除蚊虫记录</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#winModal">访客记录</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#winModal">收获记录</a></li>
                     </ul>
                 </div>
 
@@ -151,12 +152,9 @@
                 </div>
                 <div class="part_list" style="height:0px;overflow: hidden;">
                     <ul>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">订购交易验证码</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">出售金币</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">出售记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">委托记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">购买记录</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">交易所</a></li>
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">出售金币</a></li>-->
+                        <!--<li><a href="#" data-toggle="modal" data-target="#winModal">出售记录</a></li>-->
+                        <li><a href="#" data-toggle="modal" data-target="#winModal">兑换商城</a></li>
                         <li><a href="muchang-trade/shop.html"  data-toggle="modal" data-target="#winModal" rel="modalWin">商城</a></li>
                     </ul>
                 </div>
@@ -167,11 +165,21 @@
                 </div>
                 <div class="part_list" style="height:0px;overflow: hidden;">
                     <ul>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">修改密码</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#winModal">个人资料</a></li>
+                        <li><a href="muchang-trade/person.html" data-toggle="modal" data-target="#winModal">个人资料</a></li>
 
                     </ul>
                 </div>
+
+                <!--系统设置-->
+                <div class="main_list">
+                    <a href="javascript:void(0)">设置</a>
+                </div>
+                <div class="part_list" style="height:0px;overflow: hidden;">
+                    <ul>
+                        <li><span class="system">系统设置</span></li>
+                    </ul>
+                </div>
+
 
                 <!--退出-->
                 <a href="#" onclick="outlogin('退出成功')">
@@ -244,19 +252,19 @@
     <!--工具栏-->
     <div class="toolbar-bg">
     <div class="toolbar">
-        <div class="clear"><img src="images/app/muchang-photo/clear.png" id="clear"></div>
-        <div class="store"><img src="images/app/muchang-photo/store.png"  id="store"></div>
-        <div class="qucong"><img src="images/app/muchang-photo/qucong.png"  id="qucong"></div>
-        <div class="feed"><img src="images/app/muchang-photo/feed.png"  id="feed"></div>
-        <div class="shouhuo_but"><img src="images/app/muchang-photo/shouhuo_but.png"  id="shouhuo_but"></div>
-        <div class="shuaxin"><img src="images/app/muchang-photo/shuaxin.png" id="shuaxin"></div>
+        <div class="clear selected" id="farm-tool-1"></div>
+        <div class="store selected" id="farm-tool-2"></div>
+        <div class="qucong selected" id="farm-tool-3"></div>
+        <div class="feed selected" id="farm-tool-4" ></div>
+        <div class="shouhuo_but selected" id="farm-tool-5"></div>
+        <div class="shuaxin selected" id="farm-tool-6"></div>
     </div>
     <!--页面提示信息-->
     <div class="hint"></div>
     <!--使用背包的宠物-->
     <div class="dianji_animation"></div>
     <!--购买宠物-->
-    <div class="buy_pig">5</div>
+    <div class="buy_pig">0</div>
 
 
 
@@ -346,5 +354,46 @@
 <script src="js/js.cookie-2.1.3.min.js?v=20170225"></script>
 
 <!-- Dynamic JS -->
-<!--<script src="js/muchang-app-game.js?v=20170225"></script>-->
+<!--<script src="js/muchang-app-game.js?v=201702
+<script>
+    var $progress = $('.progress'), $bar = $('.progress__bar'), $text = $('.progress__text'), percent = 0, update, resetColors, speed = 200, orange = 30, yellow = 55, green = 85, timer;
+    resetColors = function () {
+        $bar.removeClass('progress__bar--green').removeClass('progress__bar--yellow').removeClass('progress__bar--orange').removeClass('progress__bar--blue');
+        $progress.removeClass('progress--complete');
+    };
+    update = function () {
+        timer = setTimeout(function () {
+            percent += Math.random() * 1.8;
+            percent = parseFloat(percent.toFixed(1));
+            $text.find('em').text(percent + '%');
+            if (percent >= 100) {
+                percent = 100;
+                $progress.addClass('progress--complete');
+                $bar.addClass('progress__bar--blue');
+                $text.find('em').text('Complete');
+            } else {
+                if (percent >= green) {
+                    $bar.addClass('progress__bar--green');
+                } else if (percent >= yellow) {
+                    $bar.addClass('progress__bar--yellow');
+                } else if (percent >= orange) {
+                    $bar.addClass('progress__bar--orange');
+                }
+                speed = Math.floor(Math.random() * 900);
+                update();
+            }
+            $bar.css({ width: percent + '%' });
+        }, speed);
+    };
+    setTimeout(function () {
+        $progress.addClass('progress--active');
+        update();
+    }, 1000);
+    $(document).on('click', function (e) {
+        percent = 0;
+        clearTimeout(timer);
+        resetColors();
+        update();
+    });
+</script>25"></script>-->
 </html>
