@@ -304,9 +304,12 @@ $(function(){
     $(".part_list>ul>li>a").click(function(){
         var pa_href=$(this).attr("href");
         openModalWin(pa_href);
+        //alert(c);
 
+        var c=$(this).text();
+        //alert(c);
+        $(".modal-text").text(c);
         return false;
-        $(".modal-text").text("商城");
     });
     //打开模态框
     function openModalWin(url) {

@@ -703,7 +703,6 @@ html,body{
     height: 117px;
     margin-top: 633px;
     float: left;
-    background: url(../images/app/main/main_but_bg.png)no-repeat;
 
 }
 .toolbar{
@@ -716,6 +715,8 @@ html,body{
     margin-bottom: 25px;
     padding-left: 5px;
     padding-top: 10px;
+    background: url(../images/app/main/main_but_bg.png)no-repeat 7px 30px;
+
 }
 .clear{
     width: 158px;
@@ -880,7 +881,7 @@ html,body{
     position: absolute;
 }
 .modal-text{
-    width: 265px;
+    width: 347px;
     height: 105px;
     float: left;
     color: #FCFF48;
@@ -889,7 +890,7 @@ html,body{
     line-height: 85px;
     text-align: center;
     font-size: 8rem;
-    margin-left: 306px;
+    margin-left: 247px;
 }
 .anniu{
     width: 100px;
