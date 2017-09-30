@@ -1,0 +1,47 @@
+*{
+    padding:0;
+    margin: 0;
+}
+@font-face{
+    font-family:fangzheng;
+    /*为引入的字体命名*/
+    src:url(../../font/fangzheng.ttf);
+    /*定义要引入字体文件的路径*/
+}
+html,body{
+    width:100%;
+    height:100%;
+    font-family: fangzheng;
+    border-radius: 95px;
+    font-size: 2rem;
+}
+.zhong{
+    width:100%;
+    /*max-height:27rem;*/
+    height:27rem;
+    overflow-y: scroll;
+    border:1px solid red;
+}
+.friend_user{
+    width: 100%;
+    height: 3.5rem;
+    float: left;
+    border: 1px solid blue;
+}
+.user_logo{
+    width: 2.5rem;
+    height: 2.5rem;
+    /*border: 1px solid blue;*/
+    border-radius: 15px;
+    float: left;
+    margin-top: 0.45rem;
+    margin-left: 0.5rem;
+}
+.user_info{
+    width: 7.5rem;
+    height: 2.5rem;
+    border: 1px solid red;
+    float: left;
+    margin-top: 0.45rem;
+    margin-left: 0.35rem;
+}
