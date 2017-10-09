@@ -213,3 +213,6 @@ html,body{
     overflow: hidden;
     text-align: center;
 }
+.tishi_language{
+    display:none;
+}

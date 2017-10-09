@@ -740,7 +740,7 @@ html,body{
 }
 
 .store{
-    width: 158px;
+    width: 168px;
     height: 182px;
     float: left;
     cursor: pointer;
@@ -749,7 +749,7 @@ html,body{
     background-size: cover;
 }
 .store.selected{
-    width: 158px;
+    width: 168px;
     height: 182px;
     float: left;
     cursor: pointer;

@@ -295,15 +295,30 @@
 <script src="../js/connect.js?v=20170225"></script>
 <script>
     $(function(){
+        var suoyou_goumai=$(".suoyou-goumai");
         //打开购买框
-        $(".shop-zhong-buy").click(function(){
-           $(".suoyou-goumai").css("display","block");
-           $(".xianshi").text(1)
+        $(".shop-zhong-buy").click(function(event){
+           $(suoyou_goumai).css("display","block");
+
+            $(document).one("click",
+                    function() { //对document绑定一个影藏Div方法
+                        $(suoyou_goumai).css("display","none");
+                    });
+
+            event.stopPropagation(); //阻止事件向上冒泡
+
+           $(".xianshi").text(1);
         });
         //关闭购买框
         $(".turndown").click(function(){
-            $(".suoyou-goumai").css("display","none");
+            $(suoyou_goumai).css("display","none");
         });
+
+
+        $(suoyou_goumai).click(function(){
+            event.stopPropagation(); //阻止事件向上冒泡
+        });
+
         //加，减运算
         $(".add").click(function(){
             var b=$(".xianshi").text();
@@ -339,7 +354,7 @@
                 a= $(".buy_pig",window.parent.document).text();
                 c=parseInt(a)+parseInt(b);
                 $(".buy_pig",window.parent.document).text(c);
-                $(".suoyou-goumai").css("display","none");
+                $(suoyou_goumai).css("display","none");
             }else{
                 alert("您的余额不足，请充值！")
             }
@@ -363,6 +378,9 @@
             $(".shuxian").css("display","none");
             $(this).children().eq(1).css("display","block");
         });
+
+
+
     });
 </script>
 </html>

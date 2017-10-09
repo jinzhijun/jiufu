@@ -138,6 +138,9 @@
                 <!--<div class="backpack-zhong-photo"><img src="../images/app/muchang-shop/pig.png" style="width:100%;height:100%"></div>-->
                 <!--<div class="backpack-zhong-number">12</div>-->
             <!--</div>-->
+            <div class="tishi_language">
+                牧场背包没有东西哦，快去<a href="#" id="go_shop">商城</a>购买吧!
+            </div>
     </div>
     <div class="siliao-backpack" style="display: none">
             <div class="back-tubiao">
@@ -281,9 +284,15 @@
         });
         //判断背包
         var muchang_backpack_number=$(".muchang-backpack").children().length;
-        if(!muchang_backpack_number){
-            $(".muchang-backpack").text("牧场背包没有东西哦，快去商城购买吧!")
+        if(muchang_backpack_number==1){
+//            $(".muchang-backpack").text("牧场背包没有东西哦，快去商城购买吧!");
+            $(".tishi_language").css("display","block");
+            $("#go_shop").click(function(){
+                parent.$('#shop_center',parent.document).trigger('click');
+
+            });
         }
+
     });
 </script>
 </html>

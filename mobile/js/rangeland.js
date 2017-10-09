@@ -268,8 +268,8 @@ $(function(){
     }
     //点击模态框消失
     $(".anniu").click(function(){
-        $(".sidebar").css("width","0px");
-        $(".sidebar").css("transition","width 0.1s ease-in");
+        //$(".sidebar").css("width","0px");
+        //$(".sidebar").css("transition","width 0.1s ease-in");
         $(".btn").click();
     });
 
@@ -562,7 +562,7 @@ $(function(){
         if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
             displayMessage("没有动物哦，快去购买吧！")
         }else{
-            //            每20秒添加一个便便
+//            每20秒添加一个便便
             var bian_top2 = Math.floor(400 * Math.random());
             var bian_left2 = Math.floor(900 * Math.random());
             $(".medaw-farm").append("<div class='bianbian' style='left:" + bian_left2 + "px;top:" + bian_top2 + "px;'> <img src='images/app/muchang-photo/bianbian.png' class='bianbianmove'> </div>")
@@ -580,22 +580,18 @@ $(function(){
     }
     setInterval(bian_appear_time,20000);
 
-
-    //每隔1分钟出现一只蚊子
-    function wenzi_turn() {
-        var bianbian_number = $(".bianbian").length;
-        if (bianbian_number=0) {
-            function wenzi_appear(){
+//每隔30秒出现一只蚊子
+    function wenzi_appear(){
+    var bianbian_number = $(".bianbian").length;
+    if(bianbian_number!=0) {
             var wenzi_top = Math.floor(400 * Math.random());
             var wenzi_left = Math.floor(900 * Math.random());
             $(".medaw-farm").append("<div class='wenzi' style='left:" + wenzi_left + "px;top:" + wenzi_top + "px;'> <img src='images/app/muchang-photo/wenzi.gif' class='bianmove'> </div>")
-            }
-            setInterval(wenzi_appear,1000);
-
         }
-    }
-    setInterval(wenzi_turn,1000);
 
+
+    }
+    setInterval(wenzi_appear,30000);
 
 
 //        动物随机出现
@@ -866,599 +862,605 @@ $(function(){
         $("#farm-tool-" + id).addClass('selected');
     }
 
+//获取用户id，判断用户是否为用户本身还是好友
+    var user_id=2;
+    var quanxian=1;
+    if(user_id==1){
 //        点击功能栏  quanxian:1为普通用户，2位开通一键功能用户
 //        打扫
-    var quanxian=1;
-    $(".clear").click(function(){
-        updateToolStatus(1);
-        var bian_number=$(".bianbian").length;
-        if(!bian_number){
 
-            displayMessage("牧场很干净，无需清理哦！")
+        $(".clear").click(function(){
+            updateToolStatus(1);
+            var bian_number=$(".bianbian").length;
+            if(!bian_number){
 
-        }else
-    {
-            //alert(456)
-            if(quanxian==1){
-                //alert(123);
-                $(".bianbian").unbind();
-                $(".bianbian").on("click",function(){
-                    //alert(789);
-                    $(this).css("display","none");
-                    $(this).remove();
-                });
-            }else{
-                displayMessage("一键清理完毕！")
-                $(".bianbian").remove();
+                displayMessage("牧场很干净，无需清理哦！")
+
+            }else
+            {
+                //alert(456)
+                if(quanxian==1){
+                    //alert(123);
+                    $(".bianbian").unbind();
+                    $(".bianbian").on("click",function(){
+                        //alert(789);
+                        $(this).css("display","none");
+                        $(this).remove();
+                    });
+                }else{
+                    displayMessage("一键清理完毕！")
+                    $(".bianbian").remove();
+                }
+
             }
 
-        }
+        });
 
-    });
-
-    //除蚊虫
-    $(".qucong").click(function(){
-        updateToolStatus(3);
-        var wenzi_number=$(".wenzi").length;
-        if(!wenzi_number){
-            displayMessage("没有蚊子哦，无需清虫哦！")
-        }else{
-            if(quanxian==1){
-                $(".wenzi").unbind();
-                $(".wenzi").click(function(){
-                    $(this).css("display","none");
-                    $(this).remove();
-                });
+        //除蚊虫
+        $(".qucong").click(function(){
+            updateToolStatus(3);
+            var wenzi_number=$(".wenzi").length;
+            if(!wenzi_number){
+                displayMessage("没有蚊子哦，无需清虫哦！")
             }else{
-                displayMessage("一键除虫完毕！")
-                $(".wenzi").remove();
+                if(quanxian==1){
+                    $(".wenzi").unbind();
+                    $(".wenzi").click(function(){
+                        $(this).css("display","none");
+                        $(this).remove();
+                    });
+                }else{
+                    displayMessage("一键除虫完毕！")
+                    $(".wenzi").remove();
+                }
             }
-        }
-    });
+        });
 
 
 
 
 //        宠物成长至初级函数
-    function chuji(){
-        displayMessage("宠物成长至初级！");
-    }
+        function chuji(){
+            displayMessage("宠物成长至初级！");
+        }
 //        宠物成长至中级函数
-    function zhongji(){
-        displayMessage("宠物成长至中级！");
-    }
+        function zhongji(){
+            displayMessage("宠物成长至中级！");
+        }
 //        宠物成长至初级函数
-    function gaoji(){
-        displayMessage("宠物成长至高级！");
-    }
+        function gaoji(){
+            displayMessage("宠物成长至高级！");
+        }
 //      宠物已是最高级提示函数
-    function gradetishi(){
-        displayMessage("宠物成长已最高级！")
-    }
-    //
-    //function wei_animation(obj){
-    //    //var obj_dengji=$("."+obj).attr(obj+"_dengji");
-    //    //var obj_zhong_number=$("."+obj).length;
-    //    ////for(i=0;i<obj_zhong_number;i++){
-    //    //    obj_dengji=parseInt(obj_dengji)+1;
-    //    //    alert(obj_dengji);
-    //    //    $("."+obj)[i].setAttribute(obj+"_dengji",obj_dengji);
-    //    //}
-    //    alert(456)
-    //    var obj_dengji=$("."+obj).attr("pig_dengji");
-    //    alert(obj_dengji);
-    //    new_obj_dengji=parseInt(obj_dengji)+1;
-    //    alert(new_obj_dengji);
-    //    $(this).attr("pig_dengji","new_obj_dengji");
-    //    //alert(obj_dengji)
-    //    //var c=obj_dengji.substr(6,3)
-    //    //obj_dengji=parseInt(obj_dengji)+1;
-    //    //alert(obj_dengji);
-    //    //$(obj).setAttribute(obj+"_dengji",obj_dengji);
-    //}
-    //function  check_size(pig,sheep,cow,alpaca,cat,blackcat,maoyou,bee){
-    //    var c=$(".obj").length;
-    //    for(i=0;i<c;i++){
-    //        obj_str=$(".obj")[i].getAttribute("obj_dengji");
-    //        if(obj_str==1){
-    //            document.getElementsByClassName("obj")[i].style.transform="scale(0.7)";
-    //        }else if(obj_str==2){
-    //            document.getElementsByClassName("obj")[i].style.transform="scale(0.8)";
-    //        }else if(obj_str==3){
-    //            document.getElementsByClassName("obj")[i].style.transform="scale(0.9)";
-    //        }else{
-    //            document.getElementsByClassName("obj")[i].style.transform="scale(1)";
-    //        }
-    //    }
-    //}
-    //setInterval(check_size,1000);
+        function gradetishi(){
+            displayMessage("宠物成长已最高级！")
+        }
+        //
+        //function wei_animation(obj){
+        //    //var obj_dengji=$("."+obj).attr(obj+"_dengji");
+        //    //var obj_zhong_number=$("."+obj).length;
+        //    ////for(i=0;i<obj_zhong_number;i++){
+        //    //    obj_dengji=parseInt(obj_dengji)+1;
+        //    //    alert(obj_dengji);
+        //    //    $("."+obj)[i].setAttribute(obj+"_dengji",obj_dengji);
+        //    //}
+        //    alert(456)
+        //    var obj_dengji=$("."+obj).attr("pig_dengji");
+        //    alert(obj_dengji);
+        //    new_obj_dengji=parseInt(obj_dengji)+1;
+        //    alert(new_obj_dengji);
+        //    $(this).attr("pig_dengji","new_obj_dengji");
+        //    //alert(obj_dengji)
+        //    //var c=obj_dengji.substr(6,3)
+        //    //obj_dengji=parseInt(obj_dengji)+1;
+        //    //alert(obj_dengji);
+        //    //$(obj).setAttribute(obj+"_dengji",obj_dengji);
+        //}
+        //function  check_size(pig,sheep,cow,alpaca,cat,blackcat,maoyou,bee){
+        //    var c=$(".obj").length;
+        //    for(i=0;i<c;i++){
+        //        obj_str=$(".obj")[i].getAttribute("obj_dengji");
+        //        if(obj_str==1){
+        //            document.getElementsByClassName("obj")[i].style.transform="scale(0.7)";
+        //        }else if(obj_str==2){
+        //            document.getElementsByClassName("obj")[i].style.transform="scale(0.8)";
+        //        }else if(obj_str==3){
+        //            document.getElementsByClassName("obj")[i].style.transform="scale(0.9)";
+        //        }else{
+        //            document.getElementsByClassName("obj")[i].style.transform="scale(1)";
+        //        }
+        //    }
+        //}
+        //setInterval(check_size,1000);
 
 
 //        喂养
-    var feed=0;//一键选择时，判断宠物在哪级
-    $(".feed").click(function(){
-        updateToolStatus(4);
-        if(quanxian==1){
-            $(".pig").unbind('click').click(function(){
-                var pig_dengji=$(this).attr("pig_dengji");
-                if(pig_dengji==1){
-                    $(this).css("transform","scale(0.8)");
-                    pig_dengji=parseInt(pig_dengji)+1;
-                    $(this).attr("pig_dengji",pig_dengji);
-                    chuji();
-                }else if(pig_dengji==2){
-                    $(this).css("transform","scale(0.9)");
-                    pig_dengji=parseInt(pig_dengji)+1;
-                    $(this).attr("pig_dengji",pig_dengji);
-                    zhongji();
-                }else if(pig_dengji==3){
-                    $(this).css("transform","scale(1)");
-                    pig_dengji=parseInt(pig_dengji)+1;
-                    $(this).attr("pig_dengji",pig_dengji);
-                    gaoji();
-                    return false;
-                }else{
-                    gradetishi();
-                }
-            });
-            $(".sheep").unbind('click').click(function(){
-                var sheep_dengji=$(this).attr("sheep_dengji");
-                if(sheep_dengji==1){
-                    $(this).removeAttr("sheep_dengji");
-                    $(this).css("transform","scale(0.8)");
-                    chuji();
-                    sheep_dengji=parseInt(sheep_dengji)+1;
-                    $(this).attr("sheep_dengji",sheep_dengji);
-                }else if(sheep_dengji==2){
-                    $(this).removeAttr("sheep_dengji");
-                    $(this).css("transform","scale(0.9)");
-                    zhongji();
-                    sheep_dengji=parseInt(sheep_dengji)+1;
-                    $(this).attr("sheep_dengji",sheep_dengji);
-                }else if(sheep_dengji==3){
-                    $(this).removeAttr("sheep_dengji");
-                    $(this).css("transform","scale(1)");
-                    gaoji();
-                    sheep_dengji=parseInt(sheep_dengji)+1;
-                    $(this).attr("sheep_dengji",sheep_dengji);
-                }else{
-                    gradetishi();
-                }
-            });
-            $(".cow").unbind('click').click(function(){
-                var cow_dengji=$(this).attr("cow_dengji");
-                if(cow_dengji==1){
-                    $(this).removeAttr("cow_dengji");
-                    $(this).css("transform","scale(0.8)");
-                    chuji();
-                    cow_dengji=parseInt(cow_dengji)+1;
-                    $(this).attr("cow_dengji",cow_dengji);
-                }else if(cow_dengji==2){
-                    $(this).removeAttr("cow_dengji");
-                    $(this).css("transform","scale(0.9)");
-                    zhongji();
-                    cow_dengji=parseInt(cow_dengji)+1;
-                    $(this).attr("cow_dengji",cow_dengji);
-                }else if(cow_dengji==3){
-                    $(this).removeAttr("cow_dengji");
-                    $(this).css("transform","scale(1)");
-                    gaoji();
-                    cow_dengji=parseInt(cow_dengji)+1;
-                    $(this).attr("cow_dengji",cow_dengji);
-                }else{
-                    gradetishi();
-                }
-            });
-            $(".cat").unbind('click').click(function(){
-                var cat_dengji=$(this).attr("cat_dengji");
-                if(cat_dengji==1){
-                    $(this).removeAttr("cat_dengji");
-                    $(this).css("transform","scale(0.8)");
-                    chuji();
-                    cat_dengji=parseInt(cat_dengji)+1;
-                    $(this).attr("cat_dengji",cat_dengji);
-                }else if(cat_dengji==2){
-                    $(this).removeAttr("cat_dengji");
-                    $(this).css("transform","scale(0.9)");
-                    zhongji();
-                    cat_dengji=parseInt(cat_dengji)+1;
-                    $(this).attr("cat_dengji",cat_dengji);
-                }else if(cat_dengji==3){
-                    $(this).removeAttr("cat_dengji");
-                    $(this).css("transform","scale(1)");
-                    gaoji();
-                    cat_dengji=parseInt(cat_dengji)+1;
-                    $(this).attr("cat_dengji",cat_dengji);
-                }else{
-                    gradetishi();
-                }
-            });
-            $(".alpaca").unbind('click').click(function(){
-                var alpaca_dengji=$(this).attr("alpaca_dengji");
-                if(alpaca_dengji==1){
-                    $(this).removeAttr("alpaca_dengji");
-                    $(this).css("transform","scale(0.8)");
-                    chuji();
-                    alpaca_dengji=parseInt(alpaca_dengji)+1;
-                    $(this).attr("alpaca_dengji",alpaca_dengji);
-                }else if(alpaca_dengji==2){
-                    $(this).removeAttr("alpaca_dengji");
-                    $(this).css("transform","scale(0.9)");
-                    zhongji();
-                    alpaca_dengji=parseInt(alpaca_dengji)+1;
-                    $(this).attr("alpaca_dengji",alpaca_dengji);
-                }else if(alpaca_dengji==3){
-                    $(this).removeAttr("alpaca_dengji");
-                    $(this).css("transform","scale(1)");
-                    gaoji();
-                    alpaca_dengji=parseInt(alpaca_dengji)+1;
-                    $(this).attr("alpaca_dengji",alpaca_dengji);
-                }else{
-                    gradetishi();
-                }
-            });
-            $(".blackcat").unbind('click').click(function(){
-                var blackcat_dengji=$(this).attr("blackcat_dengji");
-                if(blackcat_dengji==1){
-                    $(this).removeAttr("blackcat_dengji");
-                    $(this).css("transform","scale(0.8)");
-                    chuji();
-                    blackcat_dengji=parseInt(blackcat_dengji)+1;
-                    $(this).attr("blackcat_dengji",blackcat_dengji);
-                }else if(blackcat_dengji==2){
-                    $(this).removeAttr("blackcat_dengji");
-                    $(this).css("transform","scale(0.9)");
-                    zhongji();
-                    blackcat_dengji=parseInt(blackcat_dengji)+1;
-                    $(this).attr("blackcat_dengji",blackcat_dengji);
-                }else if(blackcat_dengji==3){
-                    $(this).removeAttr("blackcat_dengji");
-                    $(this).css("transform","scale(1)");
-                    gaoji();
-                    blackcat_dengji=parseInt(blackcat_dengji)+1;
-                    $(this).attr("blackcat_dengji",blackcat_dengji);
-                }else{
-                    gradetishi();
-                }
-            });
-            $(".maoyou").unbind('click').click(function(){
-                var maoyou_dengji=$(this).attr("maoyou_dengji");
-                if(maoyou_dengji==1){
-                    $(this).removeAttr("maoyou_dengji");
-                    $(this).css("transform","scale(0.8)");
-                    chuji();
-                    maoyou_dengji=parseInt(maoyou_dengji)+1;
-                    $(this).attr("maoyou_dengji",maoyou_dengji);
-                }else if(maoyou_dengji==2){
-                    $(this).removeAttr("maoyou_dengji");
-                    $(this).css("transform","scale(0.9)");
-                    zhongji();
-                    maoyou_dengji=parseInt(maoyou_dengji)+1;
-                    $(this).attr("maoyou_dengji",maoyou_dengji);
-                }else if(maoyou_dengji==3){
-                    $(this).removeAttr("maoyou_dengji");
-                    $(this).css("transform","scale(1)");
-                    gaoji();
-                    maoyou_dengji=parseInt(maoyou_dengji)+1;
-                    $(this).attr("maoyou_dengji",maoyou_dengji);
-                }else{
-                    gradetishi();
-                }
-            });
-            $(".bee").unbind('click').click(function(){
-                var bee_dengji=$(this).attr("bee_dengji");
-                if(bee_dengji==1){
-                    $(this).removeAttr("bee_dengji");
-                    $(this).css("transform","scale(0.8)");
-                    chuji();
-                    bee_dengji=parseInt(bee_dengji)+1;
-                    $(this).attr("bee_dengji",bee_dengji);
-                }else if(bee_dengji==2){
-                    $(this).removeAttr("bee_dengji");
-                    $(this).css("transform","scale(0.9)");
-                    zhongji();
-                    bee_dengji=parseInt(bee_dengji)+1;
-                    $(this).attr("bee_dengji",bee_dengji);
-                }else if(bee_dengji==3){
-                    $(this).removeAttr("bee_dengji");
-                    $(this).css("transform","scale(1)");
-                    gaoji();
-                    bee_dengji=parseInt(bee_dengji)+1;
-                    $(this).attr("bee_dengji",bee_dengji);
-                }else{
-                    gradetishi();
-                }
-            });
-        }else{
-            pig_str=$(".pig").attr("pig_dengji");
-            sheep_str=$(".sheep").attr("sheep_dengji");
-            cow_str=$(".cow").attr("cow_dengji");
-            cat_str=$(".cat").attr("cat_dengji");
-            alpaca_str=$(".alpaca").attr("alpaca_dengji");
-            blackcat_str=$(".blackcat").attr("blackcat_dengji");
-            maoyou_str=$(".maoyou").attr("maoyou_dengji");
-            bee_str=$(".bee").attr("bee_dengji");
-
-            if(pig_str==4&&sheep_str==4&&cow_str==4&&cat_str==4&&alpaca_str==4&&blackcat_str==4&&maoyou_str==4&&bee_str==4){
-                displayMessage("所有种类宠物已达到最高级！")
+//        var feed=0;//一键选择时，判断宠物在哪级
+        $(".feed").click(function(){
+            updateToolStatus(4);
+            if(quanxian==1){
+                $(".pig").unbind('click').click(function(){
+                    var pig_dengji=$(this).attr("pig_dengji");
+                    if(pig_dengji==1){
+                        $(this).css("transform","scale(0.8)");
+                        pig_dengji=parseInt(pig_dengji)+1;
+                        $(this).attr("pig_dengji",pig_dengji);
+                        chuji();
+                    }else if(pig_dengji==2){
+                        $(this).css("transform","scale(0.9)");
+                        pig_dengji=parseInt(pig_dengji)+1;
+                        $(this).attr("pig_dengji",pig_dengji);
+                        zhongji();
+                    }else if(pig_dengji==3){
+                        $(this).css("transform","scale(1)");
+                        pig_dengji=parseInt(pig_dengji)+1;
+                        $(this).attr("pig_dengji",pig_dengji);
+                        gaoji();
+                        return false;
+                    }else{
+                        gradetishi();
+                    }
+                });
+                $(".sheep").unbind('click').click(function(){
+                    var sheep_dengji=$(this).attr("sheep_dengji");
+                    if(sheep_dengji==1){
+                        $(this).removeAttr("sheep_dengji");
+                        $(this).css("transform","scale(0.8)");
+                        chuji();
+                        sheep_dengji=parseInt(sheep_dengji)+1;
+                        $(this).attr("sheep_dengji",sheep_dengji);
+                    }else if(sheep_dengji==2){
+                        $(this).removeAttr("sheep_dengji");
+                        $(this).css("transform","scale(0.9)");
+                        zhongji();
+                        sheep_dengji=parseInt(sheep_dengji)+1;
+                        $(this).attr("sheep_dengji",sheep_dengji);
+                    }else if(sheep_dengji==3){
+                        $(this).removeAttr("sheep_dengji");
+                        $(this).css("transform","scale(1)");
+                        gaoji();
+                        sheep_dengji=parseInt(sheep_dengji)+1;
+                        $(this).attr("sheep_dengji",sheep_dengji);
+                    }else{
+                        gradetishi();
+                    }
+                });
+                $(".cow").unbind('click').click(function(){
+                    var cow_dengji=$(this).attr("cow_dengji");
+                    if(cow_dengji==1){
+                        $(this).removeAttr("cow_dengji");
+                        $(this).css("transform","scale(0.8)");
+                        chuji();
+                        cow_dengji=parseInt(cow_dengji)+1;
+                        $(this).attr("cow_dengji",cow_dengji);
+                    }else if(cow_dengji==2){
+                        $(this).removeAttr("cow_dengji");
+                        $(this).css("transform","scale(0.9)");
+                        zhongji();
+                        cow_dengji=parseInt(cow_dengji)+1;
+                        $(this).attr("cow_dengji",cow_dengji);
+                    }else if(cow_dengji==3){
+                        $(this).removeAttr("cow_dengji");
+                        $(this).css("transform","scale(1)");
+                        gaoji();
+                        cow_dengji=parseInt(cow_dengji)+1;
+                        $(this).attr("cow_dengji",cow_dengji);
+                    }else{
+                        gradetishi();
+                    }
+                });
+                $(".cat").unbind('click').click(function(){
+                    var cat_dengji=$(this).attr("cat_dengji");
+                    if(cat_dengji==1){
+                        $(this).removeAttr("cat_dengji");
+                        $(this).css("transform","scale(0.8)");
+                        chuji();
+                        cat_dengji=parseInt(cat_dengji)+1;
+                        $(this).attr("cat_dengji",cat_dengji);
+                    }else if(cat_dengji==2){
+                        $(this).removeAttr("cat_dengji");
+                        $(this).css("transform","scale(0.9)");
+                        zhongji();
+                        cat_dengji=parseInt(cat_dengji)+1;
+                        $(this).attr("cat_dengji",cat_dengji);
+                    }else if(cat_dengji==3){
+                        $(this).removeAttr("cat_dengji");
+                        $(this).css("transform","scale(1)");
+                        gaoji();
+                        cat_dengji=parseInt(cat_dengji)+1;
+                        $(this).attr("cat_dengji",cat_dengji);
+                    }else{
+                        gradetishi();
+                    }
+                });
+                $(".alpaca").unbind('click').click(function(){
+                    var alpaca_dengji=$(this).attr("alpaca_dengji");
+                    if(alpaca_dengji==1){
+                        $(this).removeAttr("alpaca_dengji");
+                        $(this).css("transform","scale(0.8)");
+                        chuji();
+                        alpaca_dengji=parseInt(alpaca_dengji)+1;
+                        $(this).attr("alpaca_dengji",alpaca_dengji);
+                    }else if(alpaca_dengji==2){
+                        $(this).removeAttr("alpaca_dengji");
+                        $(this).css("transform","scale(0.9)");
+                        zhongji();
+                        alpaca_dengji=parseInt(alpaca_dengji)+1;
+                        $(this).attr("alpaca_dengji",alpaca_dengji);
+                    }else if(alpaca_dengji==3){
+                        $(this).removeAttr("alpaca_dengji");
+                        $(this).css("transform","scale(1)");
+                        gaoji();
+                        alpaca_dengji=parseInt(alpaca_dengji)+1;
+                        $(this).attr("alpaca_dengji",alpaca_dengji);
+                    }else{
+                        gradetishi();
+                    }
+                });
+                $(".blackcat").unbind('click').click(function(){
+                    var blackcat_dengji=$(this).attr("blackcat_dengji");
+                    if(blackcat_dengji==1){
+                        $(this).removeAttr("blackcat_dengji");
+                        $(this).css("transform","scale(0.8)");
+                        chuji();
+                        blackcat_dengji=parseInt(blackcat_dengji)+1;
+                        $(this).attr("blackcat_dengji",blackcat_dengji);
+                    }else if(blackcat_dengji==2){
+                        $(this).removeAttr("blackcat_dengji");
+                        $(this).css("transform","scale(0.9)");
+                        zhongji();
+                        blackcat_dengji=parseInt(blackcat_dengji)+1;
+                        $(this).attr("blackcat_dengji",blackcat_dengji);
+                    }else if(blackcat_dengji==3){
+                        $(this).removeAttr("blackcat_dengji");
+                        $(this).css("transform","scale(1)");
+                        gaoji();
+                        blackcat_dengji=parseInt(blackcat_dengji)+1;
+                        $(this).attr("blackcat_dengji",blackcat_dengji);
+                    }else{
+                        gradetishi();
+                    }
+                });
+                $(".maoyou").unbind('click').click(function(){
+                    var maoyou_dengji=$(this).attr("maoyou_dengji");
+                    if(maoyou_dengji==1){
+                        $(this).removeAttr("maoyou_dengji");
+                        $(this).css("transform","scale(0.8)");
+                        chuji();
+                        maoyou_dengji=parseInt(maoyou_dengji)+1;
+                        $(this).attr("maoyou_dengji",maoyou_dengji);
+                    }else if(maoyou_dengji==2){
+                        $(this).removeAttr("maoyou_dengji");
+                        $(this).css("transform","scale(0.9)");
+                        zhongji();
+                        maoyou_dengji=parseInt(maoyou_dengji)+1;
+                        $(this).attr("maoyou_dengji",maoyou_dengji);
+                    }else if(maoyou_dengji==3){
+                        $(this).removeAttr("maoyou_dengji");
+                        $(this).css("transform","scale(1)");
+                        gaoji();
+                        maoyou_dengji=parseInt(maoyou_dengji)+1;
+                        $(this).attr("maoyou_dengji",maoyou_dengji);
+                    }else{
+                        gradetishi();
+                    }
+                });
+                $(".bee").unbind('click').click(function(){
+                    var bee_dengji=$(this).attr("bee_dengji");
+                    if(bee_dengji==1){
+                        $(this).removeAttr("bee_dengji");
+                        $(this).css("transform","scale(0.8)");
+                        chuji();
+                        bee_dengji=parseInt(bee_dengji)+1;
+                        $(this).attr("bee_dengji",bee_dengji);
+                    }else if(bee_dengji==2){
+                        $(this).removeAttr("bee_dengji");
+                        $(this).css("transform","scale(0.9)");
+                        zhongji();
+                        bee_dengji=parseInt(bee_dengji)+1;
+                        $(this).attr("bee_dengji",bee_dengji);
+                    }else if(bee_dengji==3){
+                        $(this).removeAttr("bee_dengji");
+                        $(this).css("transform","scale(1)");
+                        gaoji();
+                        bee_dengji=parseInt(bee_dengji)+1;
+                        $(this).attr("bee_dengji",bee_dengji);
+                    }else{
+                        gradetishi();
+                    }
+                });
             }else{
-                //猪类宠物
-                var pig_zhong_number=$(".pig").length;
-                for(i=0;i<pig_zhong_number;i++){
-                    pig_str=$(".pig")[i].getAttribute("pig_dengji");
-                    pig_size=$(".pig")[i].style.transform;
-                    pig_size_xuanzhe=pig_size.substr(6,3);
-                    if(pig_str<4&&pig_size_xuanzhe<1){
-                        pig_str1=parseInt(pig_str)+1;
-                        pig_size_xuanzhe1=parseFloat(pig_size_xuanzhe)+0.1;
-                        var pig_cishu=document.getElementsByClassName("pig");
-                        pig_cishu[i].style.transform="scale("+pig_size_xuanzhe1+")";
-                        $(".pig")[i].setAttribute("pig_dengji",pig_str1);
-                    }else{
-                        displayMessage("猪类所有宠物已达到最高级！")
+                pig_str=$(".pig").attr("pig_dengji");
+                sheep_str=$(".sheep").attr("sheep_dengji");
+                cow_str=$(".cow").attr("cow_dengji");
+                cat_str=$(".cat").attr("cat_dengji");
+                alpaca_str=$(".alpaca").attr("alpaca_dengji");
+                blackcat_str=$(".blackcat").attr("blackcat_dengji");
+                maoyou_str=$(".maoyou").attr("maoyou_dengji");
+                bee_str=$(".bee").attr("bee_dengji");
+
+                if(pig_str==4&&sheep_str==4&&cow_str==4&&cat_str==4&&alpaca_str==4&&blackcat_str==4&&maoyou_str==4&&bee_str==4){
+                    displayMessage("所有种类宠物已达到最高级！")
+                }else{
+                    //猪类宠物
+                    var pig_zhong_number=$(".pig").length;
+                    for(i=0;i<pig_zhong_number;i++){
+                        pig_str=$(".pig")[i].getAttribute("pig_dengji");
+                        pig_size=$(".pig")[i].style.transform;
+                        pig_size_xuanzhe=pig_size.substr(6,3);
+                        if(pig_str<4&&pig_size_xuanzhe<1){
+                            pig_str1=parseInt(pig_str)+1;
+                            pig_size_xuanzhe1=parseFloat(pig_size_xuanzhe)+0.1;
+                            var pig_cishu=document.getElementsByClassName("pig");
+                            pig_cishu[i].style.transform="scale("+pig_size_xuanzhe1+")";
+                            $(".pig")[i].setAttribute("pig_dengji",pig_str1);
+                        }else{
+                            displayMessage("猪类所有宠物已达到最高级！")
+                        }
                     }
-                }
 
-                //羊类宠物
-                var sheep_zhong_number=$(".sheep").length;
-                for(i=0;i<sheep_zhong_number;i++){
-                    sheep_str=$(".sheep")[i].getAttribute("sheep_dengji");
-                    sheep_size=$(".sheep")[i].style.transform;
-                    sheep_size_xuanzhe=sheep_size.substr(6,3);
-                    if(sheep_str<4&&sheep_size_xuanzhe<1){
-                        sheep_str1=parseInt(sheep_str)+1;
-                        sheep_size_xuanzhe1=parseFloat(sheep_size_xuanzhe)+0.1;
-                        var sheep_cishu=document.getElementsByClassName("sheep");
-                        sheep_cishu[i].style.transform="scale("+sheep_size_xuanzhe1+")";
-                        $(".sheep")[i].setAttribute("sheep_dengji",sheep_str1);
-                    }else{
-                        displayMessage("羊类所有宠物已达到最高级！")
+                    //羊类宠物
+                    var sheep_zhong_number=$(".sheep").length;
+                    for(i=0;i<sheep_zhong_number;i++){
+                        sheep_str=$(".sheep")[i].getAttribute("sheep_dengji");
+                        sheep_size=$(".sheep")[i].style.transform;
+                        sheep_size_xuanzhe=sheep_size.substr(6,3);
+                        if(sheep_str<4&&sheep_size_xuanzhe<1){
+                            sheep_str1=parseInt(sheep_str)+1;
+                            sheep_size_xuanzhe1=parseFloat(sheep_size_xuanzhe)+0.1;
+                            var sheep_cishu=document.getElementsByClassName("sheep");
+                            sheep_cishu[i].style.transform="scale("+sheep_size_xuanzhe1+")";
+                            $(".sheep")[i].setAttribute("sheep_dengji",sheep_str1);
+                        }else{
+                            displayMessage("羊类所有宠物已达到最高级！")
+                        }
                     }
-                }
 
-                //牛类宠物
-                var cow_zhong_number=$(".cow").length;
-                for(i=0;i<cow_zhong_number;i++){
-                    cow_str=$(".cow")[i].getAttribute("cow_dengji");
-                    cow_size=$(".cow")[i].style.transform;
-                    cow_size_xuanzhe=cow_size.substr(6,3);
-                    if(cow_str<4&&cow_size_xuanzhe<1){
-                        cow_str1=parseInt(cow_str)+1;
-                        cow_size_xuanzhe1=parseFloat(cow_size_xuanzhe)+0.1;
-                        var cow_cishu=document.getElementsByClassName("cow");
-                        cow_cishu[i].style.transform="scale("+cow_size_xuanzhe1+")";
-                        $(".cow")[i].setAttribute("cow_dengji",cow_str1);
-                    }else{
-                        displayMessage("牛类所有宠物已达到最高级！")
+                    //牛类宠物
+                    var cow_zhong_number=$(".cow").length;
+                    for(i=0;i<cow_zhong_number;i++){
+                        cow_str=$(".cow")[i].getAttribute("cow_dengji");
+                        cow_size=$(".cow")[i].style.transform;
+                        cow_size_xuanzhe=cow_size.substr(6,3);
+                        if(cow_str<4&&cow_size_xuanzhe<1){
+                            cow_str1=parseInt(cow_str)+1;
+                            cow_size_xuanzhe1=parseFloat(cow_size_xuanzhe)+0.1;
+                            var cow_cishu=document.getElementsByClassName("cow");
+                            cow_cishu[i].style.transform="scale("+cow_size_xuanzhe1+")";
+                            $(".cow")[i].setAttribute("cow_dengji",cow_str1);
+                        }else{
+                            displayMessage("牛类所有宠物已达到最高级！")
+                        }
                     }
-                }
 
-                //猫类宠物
-                var cat_zhong_number=$(".cat").length;
-                for(i=0;i<cat_zhong_number;i++){
-                    cat_str=$(".cat")[i].getAttribute("cat_dengji");
-                    cat_size=$(".cat")[i].style.transform;
-                    cat_size_xuanzhe=cat_size.substr(6,3);
-                    if(cat_str<4&&cat_size_xuanzhe<1){
-                        cat_str1=parseInt(cat_str)+1;
-                        cat_size_xuanzhe1=parseFloat(cat_size_xuanzhe)+0.1;
-                        var cat_cishu=document.getElementsByClassName("cat");
-                        cat_cishu[i].style.transform="scale("+cat_size_xuanzhe1+")";
-                        $(".cat")[i].setAttribute("cat_dengji",cat_str1);
-                    }else{
-                        displayMessage("猫类所有宠物已达到最高级！")
+                    //猫类宠物
+                    var cat_zhong_number=$(".cat").length;
+                    for(i=0;i<cat_zhong_number;i++){
+                        cat_str=$(".cat")[i].getAttribute("cat_dengji");
+                        cat_size=$(".cat")[i].style.transform;
+                        cat_size_xuanzhe=cat_size.substr(6,3);
+                        if(cat_str<4&&cat_size_xuanzhe<1){
+                            cat_str1=parseInt(cat_str)+1;
+                            cat_size_xuanzhe1=parseFloat(cat_size_xuanzhe)+0.1;
+                            var cat_cishu=document.getElementsByClassName("cat");
+                            cat_cishu[i].style.transform="scale("+cat_size_xuanzhe1+")";
+                            $(".cat")[i].setAttribute("cat_dengji",cat_str1);
+                        }else{
+                            displayMessage("猫类所有宠物已达到最高级！")
+                        }
                     }
-                }
 
 
-                //羊驼类宠物
-                var alpaca_zhong_number=$(".alpaca").length;
-                for(i=0;i<alpaca_zhong_number;i++){
-                    alpaca_str=$(".alpaca")[i].getAttribute("alpaca_dengji");
-                    alpaca_size=$(".alpaca")[i].style.transform;
-                    alpaca_size_xuanzhe=alpaca_size.substr(6,3);
-                    if(alpaca_str<4&&alpaca_size_xuanzhe<1){
-                        alpaca_str1=parseInt(alpaca_str)+1;
-                        alpaca_size_xuanzhe1=parseFloat(alpaca_size_xuanzhe)+0.1;
-                        var alpaca_cishu=document.getElementsByClassName("alpaca");
-                        alpaca_cishu[i].style.transform="scale("+alpaca_size_xuanzhe1+")";
-                        $(".alpaca")[i].setAttribute("alpaca_dengji",alpaca_str1);
-                    }else{
-                        displayMessage("羊驼类所有宠物已达到最高级！")
+                    //羊驼类宠物
+                    var alpaca_zhong_number=$(".alpaca").length;
+                    for(i=0;i<alpaca_zhong_number;i++){
+                        alpaca_str=$(".alpaca")[i].getAttribute("alpaca_dengji");
+                        alpaca_size=$(".alpaca")[i].style.transform;
+                        alpaca_size_xuanzhe=alpaca_size.substr(6,3);
+                        if(alpaca_str<4&&alpaca_size_xuanzhe<1){
+                            alpaca_str1=parseInt(alpaca_str)+1;
+                            alpaca_size_xuanzhe1=parseFloat(alpaca_size_xuanzhe)+0.1;
+                            var alpaca_cishu=document.getElementsByClassName("alpaca");
+                            alpaca_cishu[i].style.transform="scale("+alpaca_size_xuanzhe1+")";
+                            $(".alpaca")[i].setAttribute("alpaca_dengji",alpaca_str1);
+                        }else{
+                            displayMessage("羊驼类所有宠物已达到最高级！")
+                        }
                     }
-                }
 
-                //黑猫类宠物
-                var blackcat_zhong_number=$(".blackcat").length;
-                for(i=0;i<blackcat_zhong_number;i++){
-                    blackcat_str=$(".blackcat")[i].getAttribute("blackcat_dengji");
-                    blackcat_size=$(".blackcat")[i].style.transform;
-                    blackcat_size_xuanzhe=blackcat_size.substr(6,3);
-                    if(blackcat_str<4&&blackcat_size_xuanzhe<1){
-                        blackcat_str1=parseInt(blackcat_str)+1;
-                        blackcat_size_xuanzhe1=parseFloat(blackcat_size_xuanzhe)+0.1;
-                        var blackcat_cishu=document.getElementsByClassName("blackcat");
-                        blackcat_cishu[i].style.transform="scale("+blackcat_size_xuanzhe1+")";
-                        $(".blackcat")[i].setAttribute("blackcat_dengji",blackcat_str1);
-                    }else{
-                        displayMessage("黑猫类所有宠物已达到最高级！")
+                    //黑猫类宠物
+                    var blackcat_zhong_number=$(".blackcat").length;
+                    for(i=0;i<blackcat_zhong_number;i++){
+                        blackcat_str=$(".blackcat")[i].getAttribute("blackcat_dengji");
+                        blackcat_size=$(".blackcat")[i].style.transform;
+                        blackcat_size_xuanzhe=blackcat_size.substr(6,3);
+                        if(blackcat_str<4&&blackcat_size_xuanzhe<1){
+                            blackcat_str1=parseInt(blackcat_str)+1;
+                            blackcat_size_xuanzhe1=parseFloat(blackcat_size_xuanzhe)+0.1;
+                            var blackcat_cishu=document.getElementsByClassName("blackcat");
+                            blackcat_cishu[i].style.transform="scale("+blackcat_size_xuanzhe1+")";
+                            $(".blackcat")[i].setAttribute("blackcat_dengji",blackcat_str1);
+                        }else{
+                            displayMessage("黑猫类所有宠物已达到最高级！")
 
+                        }
                     }
-                }
 
-                //猫鼬类宠物
-                var maoyou_zhong_number=$(".maoyou").length;
-                for(i=0;i<maoyou_zhong_number;i++){
-                    maoyou_str=$(".maoyou")[i].getAttribute("maoyou_dengji");
-                    maoyou_size=$(".maoyou")[i].style.transform;
-                    maoyou_size_xuanzhe=maoyou_size.substr(6,3);
-                    if(maoyou_str<4&&maoyou_size_xuanzhe<1){
-                        maoyou_str1=parseInt(maoyou_str)+1;
-                        maoyou_size_xuanzhe1=parseFloat(maoyou_size_xuanzhe)+0.1;
-                        var maoyou_cishu=document.getElementsByClassName("maoyou");
-                        maoyou_cishu[i].style.transform="scale("+maoyou_size_xuanzhe1+")";
-                        $(".maoyou")[i].setAttribute("maoyou_dengji",maoyou_str1);
-                    }else{
-                        displayMessage("猫鼬类所有宠物已达到最高级！")
+                    //猫鼬类宠物
+                    var maoyou_zhong_number=$(".maoyou").length;
+                    for(i=0;i<maoyou_zhong_number;i++){
+                        maoyou_str=$(".maoyou")[i].getAttribute("maoyou_dengji");
+                        maoyou_size=$(".maoyou")[i].style.transform;
+                        maoyou_size_xuanzhe=maoyou_size.substr(6,3);
+                        if(maoyou_str<4&&maoyou_size_xuanzhe<1){
+                            maoyou_str1=parseInt(maoyou_str)+1;
+                            maoyou_size_xuanzhe1=parseFloat(maoyou_size_xuanzhe)+0.1;
+                            var maoyou_cishu=document.getElementsByClassName("maoyou");
+                            maoyou_cishu[i].style.transform="scale("+maoyou_size_xuanzhe1+")";
+                            $(".maoyou")[i].setAttribute("maoyou_dengji",maoyou_str1);
+                        }else{
+                            displayMessage("猫鼬类所有宠物已达到最高级！")
+                        }
                     }
-                }
 
-                //蜜蜂类宠物
-                var bee_zhong_number=$(".bee").length;
-                for(i=0;i<bee_zhong_number;i++){
-                    bee_str=$(".bee")[i].getAttribute("bee_dengji");
-                    bee_size=$(".bee")[i].style.transform;
-                    bee_size_xuanzhe=bee_size.substr(6,3);
-                    if(bee_str<4&&bee_size_xuanzhe<1){
-                        bee_str1=parseInt(bee_str)+1;
-                        bee_size_xuanzhe1=parseFloat(bee_size_xuanzhe)+0.1;
-                        var bee_cishu=document.getElementsByClassName("bee");
-                        bee_cishu[i].style.transform="scale("+bee_size_xuanzhe1+")";
-                        $(".bee")[i].setAttribute("bee_dengji",bee_str1);
-                    }else{
-                        displayMessage("蜜蜂类所有宠物已达到最高级！")
+                    //蜜蜂类宠物
+                    var bee_zhong_number=$(".bee").length;
+                    for(i=0;i<bee_zhong_number;i++){
+                        bee_str=$(".bee")[i].getAttribute("bee_dengji");
+                        bee_size=$(".bee")[i].style.transform;
+                        bee_size_xuanzhe=bee_size.substr(6,3);
+                        if(bee_str<4&&bee_size_xuanzhe<1){
+                            bee_str1=parseInt(bee_str)+1;
+                            bee_size_xuanzhe1=parseFloat(bee_size_xuanzhe)+0.1;
+                            var bee_cishu=document.getElementsByClassName("bee");
+                            bee_cishu[i].style.transform="scale("+bee_size_xuanzhe1+")";
+                            $(".bee")[i].setAttribute("bee_dengji",bee_str1);
+                        }else{
+                            displayMessage("蜜蜂类所有宠物已达到最高级！")
+                        }
                     }
+
                 }
 
             }
 
-        }
 
+        });
 
-    });
-
-    //        点击收获按钮收获最高等级为4的宠物
-    $(".shouhuo_but").click(function(){
-        updateToolStatus(5);
-        if(quanxian==1){
-            //猪
-            $(".pig").unbind('click').click(function(){
-                a=$(this).attr("pig_dengji");
-                if(a==4){
-                    $(this).remove();
-                }
-            });
-            //羊
-            $(".sheep").unbind('click').click(function(){
-                a=$(this).attr("sheep_dengji");
-                if(a==4){
-                    $(this).remove();
-                }
-            });
-            //牛
-            $(".cow").unbind('click').click(function(){
-                a=$(this).attr("cow_dengji");
-                if(a==4){
-                    $(this).remove();
-                }
-            });
-            //猫
-            $(".cat").unbind('click').click(function(){
-                a=$(this).attr("cat_dengji");
-                if(a==4){
-                    $(this).remove();
-                }
-            });
-            //羊驼
-            $(".alpaca").unbind('click').click(function(){
-                a=$(this).attr("alpaca_dengji");
-                if(a==4){
-                    $(this).remove();
-                }
-            });
-            //黑猫
-            $(".blackcat").unbind('click').click(function(){
-                a=$(this).attr("blackcat_dengji");
-                if(a==4){
-                    $(this).remove();
-                }
-            });
-            //猫鼬
-            $(".maoyou").unbind('click').click(function(){
-                a=$(this).attr("maoyou_dengji");
-                if(a==4){
-                    $(this).remove();
-                }
-            });
-            //蜜蜂
-            $(".bee").unbind('click').click(function(){
-                a=$(this).attr("bee_dengji");
-                if(a==4){
-                    $(this).remove();
-                }
-            });
-        }else{
-            var a=$(".pig").length;
-            var b=$(".sheep").length;
-            var c=$(".cow").length;
-            var d=$(".cat").length;
-            var e=$(".alpaca").length;
-            var f=$(".blackcat").length;
-            var g=$(".maoyou").length;
-            var h=$(".bee").length;
-
-            if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
-                displayMessage("没有可以获取的哦！")
+//        点击收获按钮收获最高等级为4的宠物
+        $(".shouhuo_but").click(function(){
+            updateToolStatus(5);
+            if(quanxian==1){
+                //猪
+                $(".pig").unbind('click').click(function(){
+                    a=$(this).attr("pig_dengji");
+                    if(a==4){
+                        $(this).remove();
+                    }
+                });
+                //羊
+                $(".sheep").unbind('click').click(function(){
+                    a=$(this).attr("sheep_dengji");
+                    if(a==4){
+                        $(this).remove();
+                    }
+                });
+                //牛
+                $(".cow").unbind('click').click(function(){
+                    a=$(this).attr("cow_dengji");
+                    if(a==4){
+                        $(this).remove();
+                    }
+                });
+                //猫
+                $(".cat").unbind('click').click(function(){
+                    a=$(this).attr("cat_dengji");
+                    if(a==4){
+                        $(this).remove();
+                    }
+                });
+                //羊驼
+                $(".alpaca").unbind('click').click(function(){
+                    a=$(this).attr("alpaca_dengji");
+                    if(a==4){
+                        $(this).remove();
+                    }
+                });
+                //黑猫
+                $(".blackcat").unbind('click').click(function(){
+                    a=$(this).attr("blackcat_dengji");
+                    if(a==4){
+                        $(this).remove();
+                    }
+                });
+                //猫鼬
+                $(".maoyou").unbind('click').click(function(){
+                    a=$(this).attr("maoyou_dengji");
+                    if(a==4){
+                        $(this).remove();
+                    }
+                });
+                //蜜蜂
+                $(".bee").unbind('click').click(function(){
+                    a=$(this).attr("bee_dengji");
+                    if(a==4){
+                        $(this).remove();
+                    }
+                });
             }else{
-                //猪收获
-                $(".pig").each(function(){
-                    if((this).getAttribute("pig_dengji")==4){
-                        $(this).remove();
-                    }
-                });
-                displayMessage("一键收获完成！")
-                //羊收获
-                $(".sheep").each(function(){
-                    if((this).getAttribute("sheep_dengji")==4){
-                        $(this).remove();
-                    }
-                });
-                displayMessage("一键收获完成！")
-                //牛收获
-                $(".cow").each(function(){
-                    if((this).getAttribute("cow_dengji")==4){
-                        $(this).remove();
-                    }
-                });
-                displayMessage("一键收获完成！")
-                //猫收获
-                $(".cat").each(function(){
-                    if((this).getAttribute("cat_dengji")==4){
-                        $(this).remove();
-                    }
-                });
-                displayMessage("一键收获完成！")
-                //羊驼收获
-                $(".alpaca").each(function(){
-                    if((this).getAttribute("alpaca_dengji")==4){
-                        $(this).remove();
-                    }
-                });
-                displayMessage("一键收获完成！")
-                //黑猫收获
-                $(".blackcat").each(function(){
-                    if((this).getAttribute("blackcat_dengji")==4){
-                        $(this).remove();
-                    }
-                });
+                var a=$(".pig").length;
+                var b=$(".sheep").length;
+                var c=$(".cow").length;
+                var d=$(".cat").length;
+                var e=$(".alpaca").length;
+                var f=$(".blackcat").length;
+                var g=$(".maoyou").length;
+                var h=$(".bee").length;
 
-                displayMessage("一键收获完成！")
-                //猫鼬收获
-                $(".maoyou").each(function(){
-                    if((this).getAttribute("maoyou_dengji")==4){
-                        $(this).remove();
-                    }
-                });
-                displayMessage("一键收获完成！")
-                //蜜蜂收获
-                $(".bee").each(function(){
-                    if((this).getAttribute("bee_dengji")==4){
-                        $(this).remove();
-                    }
-                });
-                displayMessage("一键收获完成！")
+                if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
+                    displayMessage("没有可以获取的哦！")
+                }else{
+                    //猪收获
+                    $(".pig").each(function(){
+                        if((this).getAttribute("pig_dengji")==4){
+                            $(this).remove();
+                        }
+                    });
 
-            }
+                    //羊收获
+                    $(".sheep").each(function(){
+                        if((this).getAttribute("sheep_dengji")==4){
+                            $(this).remove();
+                        }
+                    });
+
+                    //牛收获
+                    $(".cow").each(function(){
+                        if((this).getAttribute("cow_dengji")==4){
+                            $(this).remove();
+                        }
+                    });
+
+                    //猫收获
+                    $(".cat").each(function(){
+                        if((this).getAttribute("cat_dengji")==4){
+                            $(this).remove();
+                        }
+                    });
+
+                    //羊驼收获
+                    $(".alpaca").each(function(){
+                        if((this).getAttribute("alpaca_dengji")==4){
+                            $(this).remove();
+                        }
+                    });
+
+                    //黑猫收获
+                    $(".blackcat").each(function(){
+                        if((this).getAttribute("blackcat_dengji")==4){
+                            $(this).remove();
+                        }
+                    });
+
+
+                    //猫鼬收获
+                    $(".maoyou").each(function(){
+                        if((this).getAttribute("maoyou_dengji")==4){
+                            $(this).remove();
+                        }
+                    });
+
+                    //蜜蜂收获
+                    $(".bee").each(function(){
+                        if((this).getAttribute("bee_dengji")==4){
+                            $(this).remove();
+                        }
+                    });
+
+
+                    displayMessage("一键收获完成！")
+
+                }
 
 //                pig_number=document.getElementsByClassName("pig");
 //                for(var i=0;i<pig_number.length;i++){
@@ -1471,8 +1473,76 @@ $(function(){
 
 
 
-        }
-    });
+            }
+        });
+
+//        一键刷新
+        $(".shuaxin").click(function(){
+            updateToolStatus(6);
+            refreshGameData();
+            displayMessage('刷新成功');
+        });
+    }else{
+        //偷取好友成熟动物的经验和金币
+        $(".store").click(function(){
+            updateToolStatus(2);
+        });
+
+        //帮助好友打扫
+
+        $(".clear").click(function(){
+            updateToolStatus(1);
+            var bian_number=$(".bianbian").length;
+            if(!bian_number){
+
+                displayMessage("牧场很干净，无需清理哦！")
+
+            }else
+            {
+                //alert(456)
+                if(quanxian==1){
+                    //alert(123);
+                    $(".bianbian").unbind();
+                    $(".bianbian").on("click",function(){
+                        //alert(789);
+                        $(this).css("display","none");
+                        $(this).remove();
+                    });
+                }else{
+                    displayMessage("一键清理完毕！")
+                    $(".bianbian").remove();
+                }
+
+            }
+
+        });
+
+        //帮助好友除蚊虫
+        $(".qucong").click(function(){
+            updateToolStatus(3);
+            var wenzi_number=$(".wenzi").length;
+            if(!wenzi_number){
+                displayMessage("没有蚊子哦，无需清虫哦！")
+            }else{
+                if(quanxian==1){
+                    $(".wenzi").unbind();
+                    $(".wenzi").click(function(){
+                        $(this).css("display","none");
+                        $(this).remove();
+                    });
+                }else{
+                    displayMessage("一键除虫完毕！")
+                    $(".wenzi").remove();
+                }
+            }
+        });
+
+    }
+
+
+
+
+
 //背包点击宠物生成一直宠物
 //    function animation_birth(pig){
 //        var pig_top2 = Math.floor(200 * Math.random());
@@ -1481,9 +1551,9 @@ $(function(){
 //    }
 
     $(".dianji_animation").click(function(){
-        var pig_top2 = Math.floor(200 * Math.random());
-        var pig_left2 = Math.floor(500 * Math.random());
-        $(".medaw-farm").append("<div class='pig' id='pig' pig_dengji='1' style='left:" + pig_left2 + "px;top:" + pig_top2 + "px;transform: scale(0.7);'><img src='images/app/muchang-photo/pig.png' class='pigmove'></div>");
+        var pig_top2 = Math.floor(400 * Math.random());
+        var pig_left2 = Math.floor(900 * Math.random());
+        $(".medaw-farm").append("<div class='pig' id='pig' pig_dengji='4' style='left:" + pig_left2 + "px;top:" + pig_top2 + "px;transform: scale(0.7);'><img src='images/app/muchang-photo/pig.png' class='pigmove'></div>");
     });
 
 ////购买猪宝宝
@@ -1492,11 +1562,6 @@ $(function(){
 //        pig_backpack_number=parseInt(zhuanshi)+1;
 //        $(this).text(pig_backpack_number);
 //    });
-//        一键刷新
-    $(".shuaxin").click(function(){
-        updateToolStatus(6);
-        refreshGameData();
-        displayMessage('刷新成功');
-    });
+
 
 });
