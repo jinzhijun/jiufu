@@ -214,5 +214,7 @@ html,body{
     text-align: center;
 }
 .tishi_language{
-    display:none;
+    font-size: 1.85rem;
+    display: none;
+    padding-left: 0.75rem;
 }
