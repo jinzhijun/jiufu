@@ -209,7 +209,11 @@ function displayMessage(msg) {
     apiCalling = 0;
     refreshGameData();
 }
-
+function gomuchang(type) {
+    var uid=getQueryString('uid');
+    var token=getQueryString('token');
+    window.location.href = '/mobile/rangeland.html?uid='+uid+'&token='+token;
+}
 //系统维护
 function goMaintenance(type) {
     window.location.href = '/mobile/maintenance.html?t=' + type;

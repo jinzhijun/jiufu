@@ -9,8 +9,8 @@ function getQueryString(name) {
 var storage=window.localStorage;
 var uid=getQueryString('uid');
 var token=getQueryString('token');
-var url = 'http://localhost:63342/jiufu/jiufu/mobile/login.html';
-var websocket = new WebSocket("ws://"+url+":8181");
+var url = 'http://test.jiufu.com/jiufu/jiufu/mobile/login.html';
+var websocket = new WebSocket("ws://"+url+":8484");
 if(uid>0){
     var userId = uid;
     var token = token;
@@ -87,11 +87,12 @@ function onezz(){
     var jsonStr = JSON.stringify(fs);
     websocket.send(jsonStr);
 }
+//一键喂养
 function onesf(){
     var fs = {};
     fs.userid=userId;
     fs.salt=token;
-    fs.act='yjsf';
+    fs.act='yjwy';
     var jsonStr = JSON.stringify(fs);
     websocket.send(jsonStr);
 }
