@@ -472,7 +472,8 @@ $(function(){
         //    $("#farm-tool-3").removeClass('unable');
 
         //用户名
-        $(".username").text(UserInfo.user_login);
+        // $(".username").text(UserInfo.user_login);
+        $("#username").text(2);
         $(".username_id").text(UserInfo.true_name);
 
         //if (selfId != userId)
