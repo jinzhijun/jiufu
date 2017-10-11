@@ -43,7 +43,7 @@ html,body{
 .user_friend_level{
     width: 94%;
     float: left;
-    color: #7F9800;
+    color: #fafd47;
     text-align: left;
     height: 1rem;
     font-size: 0.8rem;
@@ -147,11 +147,11 @@ html,body{
     height: 2rem;
     line-height: 2rem;
     text-align: center;
-    background: #C2B789;
+    background: #D88838;
     color: #F4F2EA;
     float: left;
     font-size: 1rem;
-    text-shadow: 0 0 0.3em #A99758, 0 0 0.3em #A99758;
+    text-shadow: 0 0 0.3em #D88838, 0 0 0.3em #D88838;
     border-radius: 12px;
     margin: 0.25rem 0 0.3rem 0.35rem;
 }

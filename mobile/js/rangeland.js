@@ -121,7 +121,8 @@ $(function(){
         var jsonStr = JSON.stringify(fs);
         websocket.send(jsonStr);
     }
-    function outlogin(msg){
+    //侧边栏退出按钮
+    function outlogin2(msg){
         displayMessage(msg);
         storage.removeItem("token");
         storage.removeItem("uid");
@@ -224,6 +225,13 @@ $(function(){
         $(".hint").fadeOut(6000);
         apiCalling = 0;
         refreshGameData();
+    }
+//提示用户经验增长
+    function showjinyannumber(msg2){
+        $("#jinyan_add_number").text(msg2);
+        $(".jinyan_add").show();
+        $(".jinyan_add").css({opacity: '1'});
+        $(".jinyan_add").fadeOut(3000);
     }
 //系统维护
     function goMaintenance(type) {
@@ -541,6 +549,7 @@ $(function(){
         //    initMsgTip();
         //}
     }
+    //侧边栏退出按钮
 
 
 
@@ -561,7 +570,7 @@ $(function(){
         var h=$(".bee").length;
 
         if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
-            displayMessage("没有动物哦，快去购买吧！")
+            displayMessage("没有动物哦，快去喂养吧！")
         }else{
 //            每20秒添加一个便便
             var bian_top2 = Math.floor(400 * Math.random());
@@ -583,13 +592,25 @@ $(function(){
 
 //每隔30秒出现一只蚊子
     function wenzi_appear(){
-    var bianbian_number = $(".bianbian").length;
-    if(bianbian_number!=0) {
-            var wenzi_top = Math.floor(400 * Math.random());
-            var wenzi_left = Math.floor(900 * Math.random());
-            $(".medaw-farm").append("<div class='wenzi' style='left:" + wenzi_left + "px;top:" + wenzi_top + "px;'> <img src='images/app/muchang-photo/wenzi.gif' class='bianmove'> </div>")
-        }
-
+        //
+        //var a=$(".pig").length;
+        //var b=$(".sheep").length;
+        //var c=$(".cow").length;
+        //var d=$(".cat").length;
+        //var e=$(".alpaca").length;
+        //var f=$(".blackcat").length;
+        //var g=$(".maoyou").length;
+        //var h=$(".bee").length;
+        //
+        //if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
+        //}else {
+            var bianbian_number = $(".bianbian").length;
+            if (bianbian_number != 0) {
+                var wenzi_top = Math.floor(400 * Math.random());
+                var wenzi_left = Math.floor(900 * Math.random());
+                $(".medaw-farm").append("<div class='wenzi' style='left:" + wenzi_left + "px;top:" + wenzi_top + "px;'> <img src='images/app/muchang-photo/wenzi.gif' class='bianmove'> </div>")
+            }
+        //}
 
     }
     setInterval(wenzi_appear,30000);
@@ -864,9 +885,11 @@ $(function(){
     }
 
 //获取用户id，判断用户是否为用户本身还是好友
-    var user_id=2;
+    var user_id=1;
     var quanxian=1;
     if(user_id==1){
+        //隐藏好友返回自己家园按钮
+        $("#turnback").css("display","none");
 //        点击功能栏  quanxian:1为普通用户，2位开通一键功能用户
 //        打扫
 
@@ -1336,6 +1359,16 @@ $(function(){
                 $(".pig").unbind('click').click(function(){
                     a=$(this).attr("pig_dengji");
                     if(a==4){
+                        showjinyannumber(2);
+                        var c=$("#jinyan_add_number").text();
+                        var b=$("#progress_number").text();
+                        d=parseInt(c)+parseInt(b);
+                        $("#progress_number").text(d);
+
+                        var p=parseFloat($("#pro_number").css("width")); //已经显示的等级进度px
+                        d=230*0.02;//当前增加的等级百分比
+                        q=d+p+'px';//点击增加的百分比
+                        $("#pro_number").css('width',q);
                         $(this).remove();
                     }
                 });
@@ -1484,6 +1517,9 @@ $(function(){
             displayMessage('刷新成功');
         });
     }else{
+        $(".show2").css("display","none");
+        $(".go").css("display","none");
+        $(".beibao").css("display","none");
         //偷取好友成熟动物的经验和金币
         $(".store").click(function(){
             updateToolStatus(2);
@@ -1496,7 +1532,7 @@ $(function(){
             var bian_number=$(".bianbian").length;
             if(!bian_number){
 
-                displayMessage("牧场很干净，无需清理哦！")
+                displayMessage("好友牧场很干净，无需清理哦！")
 
             }else
             {
@@ -1510,7 +1546,7 @@ $(function(){
                         $(this).remove();
                     });
                 }else{
-                    displayMessage("一键清理完毕！")
+                    displayMessage("帮助好友一键清理完毕！")
                     $(".bianbian").remove();
                 }
 
@@ -1523,7 +1559,7 @@ $(function(){
             updateToolStatus(3);
             var wenzi_number=$(".wenzi").length;
             if(!wenzi_number){
-                displayMessage("没有蚊子哦，无需清虫哦！")
+                displayMessage("好友牧场没有蚊子哦，无需清虫哦！")
             }else{
                 if(quanxian==1){
                     $(".wenzi").unbind();
@@ -1532,7 +1568,7 @@ $(function(){
                         $(this).remove();
                     });
                 }else{
-                    displayMessage("一键除虫完毕！")
+                    displayMessage("帮助好友一键除虫完毕！")
                     $(".wenzi").remove();
                 }
             }
