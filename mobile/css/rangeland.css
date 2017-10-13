@@ -50,29 +50,61 @@ html,body{
     background: url(../images/app/muchang-photo/userinfo-bg.png);
     top: 4px;
 }
-.top-left-left a{
+/*.top-left-left a{*/
+    /*width:34px;*/
+    /*height:34px;*/
+    /*position: relative;*/
+    /*z-index: 6;*/
+    /*border-radius: 50%;*/
+    /*float: left;*/
+    /*top:-47px;*/
+    /*line-height: 34px;*/
+    /*text-align: center;*/
+    /*margin-left: 25px;*/
+    /*font-weight: bold;*/
+    /*color: white;*/
+    /*font-size: 3rem;*/
+/*}*/
+/*.top-left-left span{*/
+    /*width: 55px;*/
+    /*height: 55px;*/
+    /*position: relative;*/
+    /*z-index: 6;*/
+    /*float: left;*/
+    /*border-radius: 50%;*/
+    /*top: -56px;*/
+    /*line-height: 55px;*/
+    /*text-align: center;*/
+    /*margin-left: 25px;*/
+    /*font-weight: bold;*/
+    /*color: white;*/
+    /*font-size: 3rem;*/
+    /*background: red;*/
+/*}*/
+.notice{
     width:34px;
     height:34px;
     position: relative;
     z-index: 6;
     border-radius: 50%;
     float: left;
-    top:-47px;
+    top: 119px;
     line-height: 34px;
     text-align: center;
     margin-left: 25px;
     font-weight: bold;
     color: white;
     font-size: 3rem;
+    background: url(../images/app/main/notice-message.png)no-repeat 0 0;
 }
-.top-left-left span{
+.inmail{
     width: 55px;
     height: 55px;
     position: relative;
     z-index: 6;
     float: left;
     border-radius: 50%;
-    top: -56px;
+    top: 111px;
     line-height: 55px;
     text-align: center;
     margin-left: 25px;
@@ -81,10 +113,6 @@ html,body{
     font-size: 3rem;
     background: red;
 }
-.notice{
-    background: url(../images/app/main/notice-message.png)no-repeat 0 0;
-}
-
 .top-left-right{
     width: 230px;
     height: 157px;
@@ -107,17 +135,17 @@ html,body{
 .jinyan_add{
     width: 5rem;
     height: 4rem;
-    /*border: 1px solid blue;*/
+    /* border: 1px solid blue; */
     position: absolute;
     z-index: 6;
-    /* float: left; */
+    float: left;
     left: 27rem;
-    top: 4rem;
+    top: 5rem;
     font-size: 3rem;
     text-align: center;
     line-height: 4rem;
     color: white;
-    display: none;
+     display: none;
 }
 .top-right{
     width: 565px;
@@ -755,7 +783,7 @@ html,body{
     cursor: pointer;
     margin-left: 17px;
     overflow: hidden;
-    background: url("../images/app/muchang-photo/clear.png")no-repeat;
+    background: url("../images/app/muchang-photo/clear2.png")no-repeat;
     background-size: cover;
 }
 .clear.selected{
@@ -765,7 +793,7 @@ html,body{
     cursor: pointer;
     margin-left: 17px;
     overflow: hidden;
-    background: url("../images/app/muchang-photo/dasao_gaoliang.png")no-repeat;
+    background: url("../images/app/muchang-photo/dasao_gaoliang2.png")no-repeat;
     background-size: cover;
 }
 
@@ -775,7 +803,7 @@ html,body{
     float: left;
     cursor: pointer;
     overflow: hidden;
-    background: url("../images/app/muchang-photo/store.png");
+    background: url("../images/app/muchang-photo/store2.png");
     background-size: cover;
 }
 .store.selected{
@@ -784,7 +812,7 @@ html,body{
     float: left;
     cursor: pointer;
     overflow: hidden;
-    background: url("../images/app/muchang-photo/store_gaoliang.png")no-repeat;
+    background: url("../images/app/muchang-photo/store_gaoliang2.png")no-repeat;
     background-size: cover;
 }
 .qucong{
@@ -792,7 +820,7 @@ html,body{
     height: 182px;
     float: left;
     cursor: pointer;
-    background: url("../images/app/muchang-photo/qucong.png")no-repeat;
+    background: url("../images/app/muchang-photo/qucong2.png")no-repeat;
     background-size: cover;
 }
 .qucong.selected{
@@ -800,7 +828,7 @@ html,body{
     height: 182px;
     float: left;
     cursor: pointer;
-    background: url("../images/app/muchang-photo/quchong_gaoliang.png")no-repeat;
+    background: url("../images/app/muchang-photo/quchong_gaoliang2.png")no-repeat;
     background-size: cover;
 }
 .feed{
@@ -808,7 +836,7 @@ html,body{
     height: 182px;
     float: left;
     cursor: pointer;
-    background: url("../images/app/muchang-photo/feed.png")no-repeat;
+    background: url("../images/app/muchang-photo/feed2.png")no-repeat;
     background-size: cover;
 }
 .feed.selected{
@@ -816,7 +844,7 @@ html,body{
     height: 182px;
     float: left;
     cursor: pointer;
-    background: url("../images/app/muchang-photo/feed_gaoliang.png")no-repeat;
+    background: url("../images/app/muchang-photo/feed_gaoliang2.png")no-repeat;
     background-size: cover;
 }
 .shouhuo_but{
@@ -824,7 +852,7 @@ html,body{
     height: 182px;
     float: left;
     cursor: pointer;
-    background: url("../images/app/muchang-photo/shouhuo_but.png")no-repeat;
+    background: url("../images/app/muchang-photo/shouhuo_but2.png")no-repeat;
     background-size: cover;
 }
 .shouhuo_but.selected{
@@ -832,7 +860,7 @@ html,body{
     height: 182px;
     float: left;
     cursor: pointer;
-    background: url("../images/app/muchang-photo/shouhuo_but._gaoliang.png")no-repeat;
+    background: url("../images/app/muchang-photo/shouhuo_but._gaoliang2.png")no-repeat;
     background-size: cover;
  }
 .shuaxin{
@@ -840,7 +868,7 @@ html,body{
     height: 190px;
     float: left;
     cursor: pointer;
-    background: url("../images/app/muchang-photo/shuaxin.png")no-repeat;
+    background: url("../images/app/muchang-photo/shuaxin2.png")no-repeat;
     background-size: cover;
 }
 .shuaxin.selected{
@@ -848,7 +876,7 @@ html,body{
     height: 190px;
     float: left;
     cursor: pointer;
-    background: url("../images/app/muchang-photo/shuaxin_gaoliang.png")no-repeat;
+    background: url("../images/app/muchang-photo/shuaxin_gaoliang2.png")no-repeat;
     background-size: cover;
 }
 .hint{
@@ -933,7 +961,7 @@ html,body{
 #subWinFrame{
     border: 1px solid green;
     width: 71%;
-    height: 990px;
+    height: 990px !important;
     margin-top: 19%;
     margin-left: 15%;
     /* border-bottom-left-radius: 95px; */
@@ -999,15 +1027,18 @@ html,body{
 /*}*/
 
 .progress {
+    width: 230px;
     height: 26px;
     margin-bottom: 20px;
     overflow: hidden;
+    float: left;
     background-color: #dcd9d9;
     -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
     box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
-    margin-top: 20px;
+    margin-top: 59px;
     font-size: 26px;
     border-radius: 15px;
+    margin-left: 154px;
 }
 .progress-bar span{
     font-size: 2rem;
@@ -1015,4 +1046,54 @@ html,body{
     text-shadow:0 0 0.2em #FFFFFF,
     -0 -0 0.2em #FFFFFF;
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       商业转载请联系作者获得授权,非商业转载请注明出处。
+#farm-user-info {
+    width: 400px;
+    height: 158px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* background: url(../images/app/main/main_bg2.png)no-repeat; */
+    background: #E38A0B;
+    border-radius: 40px;
+}
+#farm-user-head{
+    width: 115px;
+    height: 112px;
+    background: url(../images/app/main/touxiang.png)no-repeat;
+    background-position: center center;
+    left: 12px;
+    top: 15px;
+    position: absolute;
+    border-radius: 10px;
+}
+#farm-user-head-wrap {
+    width: 150px;
+    height: 150px;
+    /* background: url(../images/app/main/main_bg2_kuang.png)no-repeat; */
+    background: url(../images/app/muchang-photo/userinfo-bg.png);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+#farm-user-name {
+    width: 240px;
+    height: 30px;
+    position: absolute;
+    left: 150px;
+    top: 40px;
+    float: left;
+}
+
+.farm-user-font {
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 30px;
+}
+#farm-user-id {
+    width: 240px;
+    height: 30px;
+    position: absolute;
+    left: 150px;
+    top: 100px;
+}
