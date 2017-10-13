@@ -1,6 +1,6 @@
 <?php
 /**
- * 入口文件
+ * 入口文件11
  * Some rights reserved：www.thinkcmf.com
  */
 if(@$_GET['reg']){
