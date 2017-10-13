@@ -32,9 +32,63 @@ use Common\Controller\HomebaseController;
 /**
  * 首页
  */
+header('content-type:text/html;charset=utf-8');
 class IndexController extends HomebaseController {
+//    public function login($redirect_uri)
+//    {
+//        //微信授权登录
+//        $appid = 'wx77c6f288c5ed2764';
+//        $secret = 'bf7b510d94c0ada1d5fcdbfddfc49e43';
+//        $state = 'jiufu';
+//        $scope = 'snsapi_userinfo';
+//        // $redirect_uri = 'http://jsgx.ibenhong.com/index.php/home/index/get_unionid';
+//        $oauth_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $appid . '&redirect_uri=' . $redirect_uri . '&response_type=code&scope=' . $scope . '&state=' . $state . '#wechat_redirect';
+////        $oauth_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx77c6f288c5ed2764&redirect_uri=http://test.jiufu.com&response_type=code&scope=snsapi_userinfo&state=jiufu#wechat_redirect';
+////        header("Location: $oauth_url");
+//
+//
+//        //$this->redirect('index/main');
+//    }
+//
+//    public function get_unionid()
+//    {
+//        //微信用户信息
+//        //echo "123";exit;
+//        $appid ='wx77c6f288c5ed2764';
+//        $secret = 'bf7b510d94c0ada1d5fcdbfddfc49e43';
+//        $code = $_GET['code'];
+//        $state = $_GET['state'];
+//        $access_token_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$secret&code=$code&grant_type=authorization_code";
+//        $token = json_decode(file_get_contents($access_token_url));
+//        $openid = $token->openid;
+//        //print_r($openid);
+//        session('openid', $openid);
+//        //echo "<br>";
+//        $access_token = $token->access_token;
+//        //print_r($access_token);
+//        //header("Location: $access_token_url");
+//        $info_url = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
+//        $info = json_decode(file_get_contents($info_url));
+//        $data['wxname'] = $info->nickname;
+//        $data['picture_url'] = $info->headimgurl;
+//        $data['openid'] = $info->openid;
+//        $data['sex'] = $info->sex;
+//        $data['language'] = $info->language;
+//        $data['city'] = $info->city;
+//        $data['province'] = $info->province;
+//        $data['country'] = $info->country;
+//        $id = $data['openid'];
+//        if ($id == '') {
+//            $this->redirect('index/index');
+//        }
+//        session('openid', $id);
+//        $consumer = M('jz_wx');
+//        $res = $consumer->where("openid='$id'")->find();
+//        if ($res == '') {
+//            $data['new_vip'] = "1";
+//        }
+//    }
 
-    //首页 小夏是老猫除外最帅的男人了
     public function index() {
        if($this->uid){
             header('Location:/farm/farm.html');
@@ -270,8 +324,11 @@ class IndexController extends HomebaseController {
         $res[msg]='发送成功';
         echo json_encode($res);
     }
+
+
+//    登录页面传输的数据
     public function dologin() {
-        header('Access-Control-Allow-Origin:*');  
+        header('Access-Control-Allow-Origin:*');
         $name = I("post.user_login");
         if (empty($name)) {
             $this->error(L('USERNAME_OR_EMAIL_EMPTY'));
@@ -289,6 +346,7 @@ class IndexController extends HomebaseController {
         //验证码
         if (0) {
             //!sp_check_verify_code() && $this->is_mobile!=1
+
             $this->error(L('CAPTCHA_NOT_RIGHT'));
         } else {
             $user = D("Protal/User");

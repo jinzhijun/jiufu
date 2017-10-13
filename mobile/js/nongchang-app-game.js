@@ -166,6 +166,7 @@ function recordLastUid() {
 
 //是否从好友农场回来
 function checkGoFriend() {
+
     var luid = Cookies.get('lUid');
     console.log(luid);
 
@@ -209,7 +210,11 @@ function displayMessage(msg) {
     apiCalling = 0;
     refreshGameData();
 }
-
+function gomuchang(type) {
+    var uid=getQueryString('uid');
+    var token=getQueryString('token');
+    window.location.href = '/mobile/rangeland.html?uid='+uid+'&token='+token;
+}
 //系统维护
 function goMaintenance(type) {
     window.location.href = '/mobile/maintenance.html?t=' + type;
@@ -1607,3 +1612,18 @@ function detectPhone() {
         e.preventDefault();
     });
 }
+$(function(){
+    //点击模态框消失
+    $(".anniu").click(function(){
+        //$(".sidebar").css("width","0px");
+        //$(".sidebar").css("transition","width 0.1s ease-in");
+        $(".btn").click();
+    });
+    $("#backpack2").click(function(){
+        var pa_href=$(this).attr("href");
+        openModalWin(pa_href);
+        $(".modal-text").text("背包");
+        return false;
+
+    });
+});

@@ -5,7 +5,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 ini_set('date.timezone','Asia/Shanghai');
 //包含数据库操作类文件
 include 'mysql.class.php';
-$hostname='localhost';
+$hostname='127.0.0.1';
 $username='root';
 $password='root';
 $dbname='jiufu';
@@ -76,7 +76,7 @@ $worker->onMessage = function($connection, $data)
                 }
             }
         }
-        if($data2['act']=='yjcy'){
+        if($data2['act']=='yjwy'){
             //一键饲养
             if(strtotime($user['cmauto'])<time()){
                 act('displayMessage',"一键饲养到期，请联系客服续费");
@@ -98,10 +98,10 @@ $worker->onMessage = function($connection, $data)
                 }
             }
             if($count==0){
-                act('displayMessage',"一键采蜜完毕,不能再采蜜了");
+                act('displayMessage',"一键饲养完毕,不能再饲养了");
             }
             else{
-                act('displayMessage',"一键采蜜,共计采蜜".$count);
+                act('displayMessage',"一键饲养,共计饲养".$count);
             }
         }
         if($data2['act']=='yjzz'){

@@ -33,30 +33,67 @@
 
 <div class="zhong">
     <!--头部-->
-    <div class="top">
-        <!--用户信息-->
-        <div class="top-left">
-            <div class="top-left-left">
-                <div class="user-logo">
-                    <img src="images/app/main/user_logo.jpg">
-                </div>
-                <div class="user_bg"></div>
-                <a href="http://www.baicu.com">
-                    <div class="notice">1</div>
-                </a>
-                <span href="http://www.baicu.com">
-                    <div class="inmail">Lv1</div>
-                </span>
-            </div>
-            <div class="top-left-right">
-                <div class="username">果子</div>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                        <span>50</span><span style="line-height:26px; "> / 100</span>
-                    </div>
-                </div>
+    <!--<div class="top">-->
+        <!--&lt;!&ndash;用户信息&ndash;&gt;-->
+        <!--<div class="top-left">-->
+            <!--<div class="top-left-left">-->
+                <!--<div class="user-logo">-->
+                    <!--<img src="images/app/main/user_logo.jpg">-->
+                <!--</div>-->
+                <!--<div class="user_bg"></div>-->
+                <!--<a href="http://www.baicu.com">-->
+                    <!--<div class="notice">1</div>-->
+                <!--</a>-->
+                <!--<span href="http://www.baicu.com">-->
+                    <!--<div class="inmail">Lv1</div>-->
+                <!--</span>-->
+            <!--</div>-->
+            <!--<div class="top-left-right">-->
+                <!--<div class="username" id="farm-user-name">果子</div>-->
+                <!--<div class="jinyan_add">-->
+                    <!--<span>+</span><strong id="jinyan_add_number">0</strong>-->
+                <!--</div>-->
+                <!--<div class="progress progress-striped active">-->
+                    <!--<div class="progress-bar progress-bar-success" id="pro_number" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">-->
+                        <!--<span id="progress_number">90</span><span style="line-height:26px; "> / 100</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <div id="farm-user-info">
+        <div id="farm-user-head-wrap">
+            <div id="farm-user-head">
+                <div id="farm-user-head-pic"></div>
             </div>
         </div>
+        <a href="http://www.baicu.com">
+            <div class="notice">1</div>
+        </a>
+        <span href="http://www.baicu.com">
+             <div class="inmail">Lv<span id="user_level">1</span></div>
+        </span>
+        <div class="farm-user-font" id="farm-user-name">果子2222</div>
+        <div class="jinyan_add">
+            <span>+</span><strong id="jinyan_add_number">0</strong>
+        </div>
+        <div class="progress progress-striped active">
+            <div class="progress-bar progress-bar-success" id="pro_number" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                <span id="progress_number">90</span><span>/</span><span style="line-height:26px;" id="zhong_progress_number">100</span>
+            </div>
+        </div>
+        <!--<div class="user-lever" id="farm-user-level" lever="user_lever_1"></div>-->
+        <!--<a rel="modalWin" href="manger/messages.html">-->
+            <!--<div class="mail-message">-->
+                <!--<span class="message-number" id="mail-number">0</span>-->
+            <!--</div>-->
+        <!--</a>-->
+        <!--<a rel="modalWin" href="manger/notice.html">-->
+            <!--<div class="notice-message">-->
+                <!--<span class="message-number" id="notice-number">0</span>-->
+            <!--</div>-->
+        <!--</a>-->
+    </div>
         <!--牧场总概况信息-->
         <div class="top-right">
             <div class="rangeland-top-info">
@@ -151,7 +188,7 @@
                     <a href="javascript:void(0)">交易中心</a>
                 </div>
                 <div class="part_list" style="height:0px;overflow: hidden;">
-                    <ul>
+                    <ul>+
                         <!--<li><a href="#" data-toggle="modal" data-target="#winModal">出售金币</a></li>-->
                         <!--<li><a href="#" data-toggle="modal" data-target="#winModal">出售记录</a></li>-->
                         <li><a href="#" data-toggle="modal" data-target="#winModal">兑换商城</a></li>
@@ -182,7 +219,7 @@
 
 
                 <!--退出-->
-                <a href="#" onclick="outlogin('退出成功')">
+                <a href="javascript:void(0)" onclick="outlogin2('退出成功')">
                     <div class="title" id="farm-game-orchard-logout">
                         <span class="farm-orchard-font2">退出</span>
                     </div>
@@ -202,9 +239,15 @@
             <!--<div class="tatal-text"></div>-->
         <!--</div>-->
     <!--</div>-->
+
     <!--背包-->
     <a href="muchang-trade/Backpack.html" id="backpack2" data-toggle="modal" data-target="#winModal" >
         <div class="beibao"></div>
+    </a>
+
+    <!--返回-->
+    <a href="javascript:void(0)" id="turnback">
+        返回
     </a>
     <!--点击前往农场-->
     <a href="http://test.jiufu.com/mobile/farm.html">
@@ -214,9 +257,9 @@
     <!--等级1:0.7（初始状态）；等级2:0.8；等级3:0.9；等级4:1；-->
     <div class="medaw-farm">
         <div class="tree" tree_dengji="4"></div>
-        <!--<div class="pig" id="pig" pig_dengji="3" style="transform: scale(0.7);left: 0;top: 0;" >-->
-            <!--<img src="images/app/muchang-photo/pig.png" class="pigmove">-->
-        <!--</div>-->
+        <div class="pig" id="pig" pig_dengji="3" style="transform: scale(0.7);left: 0;top: 0;" >
+            <img src="images/app/muchang-photo/pig.png" class="pigmove">
+        </div>
         <!--<div class="pig" pig_dengji="2" style="transform: scale(0.7);left: 0;top: 0;">-->
             <!--<img src="images/app/muchang-photo/pig.png" class="pigmove">-->
         <!--</div>-->

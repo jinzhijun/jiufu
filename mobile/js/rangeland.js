@@ -1,7 +1,6 @@
 /**
  * Created by Administrator on 2017/9/21.
  */
-$(function(){
 //端口连接
     function getQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -13,7 +12,7 @@ $(function(){
     var uid=getQueryString('uid');
     var token=getQueryString('token');
     var url = 'test.jiufu.com';
-    var websocket = new WebSocket("ws://"+url+":8181");
+    var websocket = new WebSocket("ws://"+url+":8484");
     if(uid>0){
         var userId = uid;
         var token = token;
@@ -57,7 +56,12 @@ $(function(){
     }
     detectPhone();
 
-
+//去农场
+    function gomuchang(type) {
+        var uid=getQueryString('uid');
+        var token=getQueryString('token');
+        window.location.href = '/mobile/farm.html?uid='+uid+'&token='+token;
+    }
     websocket.onopen = function(event) {
         $('body').css('overflow','hidden');
         $('body').css('position','fixed');
@@ -121,7 +125,8 @@ $(function(){
         var jsonStr = JSON.stringify(fs);
         websocket.send(jsonStr);
     }
-    function outlogin(msg){
+    //侧边栏退出按钮
+    function outlogin2(msg){
         displayMessage(msg);
         storage.removeItem("token");
         storage.removeItem("uid");
@@ -224,6 +229,150 @@ $(function(){
         $(".hint").fadeOut(6000);
         apiCalling = 0;
         refreshGameData();
+    }
+//提示用户经验增长
+    function showjinyannumber(msg2){
+        $("#jinyan_add_number").text(msg2);
+        $(".jinyan_add").show();
+        $(".jinyan_add").css({opacity: '1'});
+        $(".jinyan_add").fadeOut(2000);
+    }
+//判断当用户经验升级到最满后进入下一等级
+    function panduan_user_dengji(){
+        var progress_number=$("#progress_number").text();
+        var zhong_progress_number=$("#zhong_progress_number").text();
+        var cha=zhong_progress_number-progress_number;
+        var duoyu=progress_number-zhong_progress_number;
+        if(cha<=0) {
+
+            $("#progress_number").text(duoyu);
+            $("#pro_number").css('width', '0px');//经验条归零
+            zhong_progress_new_number = parseInt(zhong_progress_number) + 120;
+            $("#zhong_progress_number").text(zhong_progress_new_number);//总经验条增加120
+
+            var user_level = $("#user_level").text();
+            user_level_now = parseInt(user_level) + 1;
+            $("#user_level").text(user_level_now);//等级加1
+
+        }
+    }
+//判断用户经验等级条长度
+    function panduan_user_jinyan(){
+        var now_jinyang=parseFloat($("#progress_number").text());//现在进度条长度
+        var zong_jinyang=parseInt($("#zhong_progress_number").text());//当前进度条长度值
+        bili=((now_jinyang/zong_jinyang)*230)+'px';//进度条用户经验长度
+        $("#pro_number").css('width',bili);
+    }
+//一键喂养收获功能，所有等级为4的动物一起收获
+    function  yijian_panduan_user_jinyan(){
+        var now_jinyang=parseInt($("#progress_number").text());//现在进度条长度
+        var zong_jinyang=parseInt($("#zhong_progress_number").text());//当前进度条总长度值
+        var user_level = parseInt($("#user_level").text());//当前用户等级
+        var pig_a=0;
+        $(".pig").each(function(){
+            if((this).getAttribute("pig_dengji")==4){
+                pig_a+=1;
+                console.log(pig_a);
+            }
+        });
+        zong_add_num=now_jinyang+(pig_a*6);
+        if(zong_add_num>zong_jinyang){
+            zong_add_num2=zong_add_num-zong_jinyang;
+            user_level+=1;
+            now_level_jinyang=user_level*120;//当前等级升级后对应的总成长量
+            $("#user_level").text(user_level);
+            $("#zhong_progress_number").text(now_level_jinyang);
+            $("#progress_number").text(zong_add_num2);
+            panduan_user_jinyan();
+            if(zong_add_num2>now_level_jinyang){
+                zong_add_num3=zong_add_num2-now_level_jinyang;
+                user_level+=1;//
+                now_level_jinyang2=user_level*120;
+                $("#user_level").text(user_level);
+                $("#zhong_progress_number").text(now_level_jinyang2);
+                $("#progress_number").text(zong_add_num3);
+                panduan_user_jinyan();
+            }
+
+            //else if(zong_add_num>now_level_jinyang2){
+            //    zong_add_num=zong_add_num-now_level_jinyang;
+            //    user_level+=1;//
+            //    now_level_jinyang2=user_level*120;
+            //}
+        }else{
+            $("#progress_number").text(zong_add_num);
+            panduan_user_jinyan();
+        }
+    }
+//一键清理功能，所有便便一起清理
+    function  yijian_clear_bianbian(){
+        var now_jinyang=parseInt($("#progress_number").text());//现在进度条长度
+        var zong_jinyang=parseInt($("#zhong_progress_number").text());//当前进度条总长度值
+        var user_level = parseInt($("#user_level").text());//当前用户等级
+        var bianbian_num=$(".bianbian").length;
+        zong_add_num=now_jinyang+(bianbian_num*2);
+        if(zong_add_num>zong_jinyang){
+            zong_add_num2=zong_add_num-zong_jinyang;
+            user_level+=1;
+            now_level_jinyang=user_level*120;//当前等级升级后对应的总成长量
+            $("#user_level").text(user_level);
+            $("#zhong_progress_number").text(now_level_jinyang);
+            $("#progress_number").text(zong_add_num2);
+            panduan_user_jinyan();
+            if(zong_add_num2>now_level_jinyang){
+                zong_add_num3=zong_add_num2-now_level_jinyang;
+                user_level+=1;//
+                now_level_jinyang2=user_level*120;
+                $("#user_level").text(user_level);
+                $("#zhong_progress_number").text(now_level_jinyang2);
+                $("#progress_number").text(zong_add_num3);
+                panduan_user_jinyan();
+            }
+
+            //else if(zong_add_num>now_level_jinyang2){
+            //    zong_add_num=zong_add_num-now_level_jinyang;
+            //    user_level+=1;//
+            //    now_level_jinyang2=user_level*120;
+            //}
+        }else{
+            $("#progress_number").text(zong_add_num);
+            panduan_user_jinyan();
+        }
+    }
+//一键除虫功能，所有蚊虫一起清理
+    function  yijian_clear_chucong(){
+        var now_jinyang=parseInt($("#progress_number").text());//现在进度条长度
+        var zong_jinyang=parseInt($("#zhong_progress_number").text());//当前进度条总长度值
+        var user_level = parseInt($("#user_level").text());//当前用户等级
+        var wenzi_num=$(".wenzi").length;
+        zong_add_num=now_jinyang+(wenzi_num*1);
+        if(zong_add_num>zong_jinyang){
+            zong_add_num2=zong_add_num-zong_jinyang;
+            user_level+=1;
+            now_level_jinyang=user_level*120;//当前等级升级后对应的总成长量
+            $("#user_level").text(user_level);
+            $("#zhong_progress_number").text(now_level_jinyang);
+            $("#progress_number").text(zong_add_num2);
+            panduan_user_jinyan();
+            if(zong_add_num2>now_level_jinyang){
+                zong_add_num3=zong_add_num2-now_level_jinyang;
+                user_level+=1;//
+                now_level_jinyang2=user_level*120;
+                $("#user_level").text(user_level);
+                $("#zhong_progress_number").text(now_level_jinyang2);
+                $("#progress_number").text(zong_add_num3);
+                panduan_user_jinyan();
+            }
+
+            //else if(zong_add_num>now_level_jinyang2){
+            //    zong_add_num=zong_add_num-now_level_jinyang;
+            //    user_level+=1;//
+            //    now_level_jinyang2=user_level*120;
+            //}
+        }else{
+            $("#progress_number").text(zong_add_num);
+            panduan_user_jinyan();
+        }
     }
 //系统维护
     function goMaintenance(type) {
@@ -472,7 +621,8 @@ $(function(){
         //    $("#farm-tool-3").removeClass('unable');
 
         //用户名
-        $(".username").text(UserInfo.user_login);
+        // $(".username").text(UserInfo.user_login);
+        $("#username").text(2);
         $(".username_id").text(UserInfo.true_name);
 
         //if (selfId != userId)
@@ -540,6 +690,7 @@ $(function(){
         //    initMsgTip();
         //}
     }
+    //侧边栏退出按钮
 
 
 
@@ -560,7 +711,7 @@ $(function(){
         var h=$(".bee").length;
 
         if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
-            displayMessage("没有动物哦，快去购买吧！")
+            displayMessage("没有动物哦，快去喂养吧！")
         }else{
 //            每20秒添加一个便便
             var bian_top2 = Math.floor(400 * Math.random());
@@ -582,13 +733,26 @@ $(function(){
 
 //每隔30秒出现一只蚊子
     function wenzi_appear(){
-    var bianbian_number = $(".bianbian").length;
-    if(bianbian_number!=0) {
-            var wenzi_top = Math.floor(400 * Math.random());
-            var wenzi_left = Math.floor(900 * Math.random());
-            $(".medaw-farm").append("<div class='wenzi' style='left:" + wenzi_left + "px;top:" + wenzi_top + "px;'> <img src='images/app/muchang-photo/wenzi.gif' class='bianmove'> </div>")
-        }
-
+        //
+        //var a=$(".pig").length;
+        //var b=$(".sheep").length;
+        //var c=$(".cow").length;
+        //var d=$(".cat").length;
+        //var e=$(".alpaca").length;
+        //var f=$(".blackcat").length;
+        //var g=$(".maoyou").length;
+        //var h=$(".bee").length;
+        //
+        //if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
+        //}else {
+            var bianbian_number = $(".bianbian").length;
+            if (bianbian_number!=0) {
+                //alert(123)
+                var wenzi_top = Math.floor(400 * Math.random());
+                var wenzi_left = Math.floor(900 * Math.random());
+                $(".medaw-farm").append("<div class='wenzi' style='left:" + wenzi_left + "px;top:" + wenzi_top + "px;'> <img src='images/app/muchang-photo/wenzi.gif' class='bianmove'> </div>")
+            }
+        //}
 
     }
     setInterval(wenzi_appear,30000);
@@ -863,33 +1027,44 @@ $(function(){
     }
 
 //获取用户id，判断用户是否为用户本身还是好友
-    var user_id=2;
-    var quanxian=1;
+    var user_id=1;
+    var quanxian=2;
     if(user_id==1){
+        //隐藏好友返回自己家园按钮
+        $("#turnback").css("display","none");
 //        点击功能栏  quanxian:1为普通用户，2位开通一键功能用户
 //        打扫
 
-        $(".clear").click(function(){
+        $(".clear").unbind('click').click(function(){
             updateToolStatus(1);
+            $('.pig').unbind();
+            $('.wenzi').unbind();
             var bian_number=$(".bianbian").length;
             if(!bian_number){
 
                 displayMessage("牧场很干净，无需清理哦！")
 
-            }else
-            {
+            }else{
                 //alert(456)
                 if(quanxian==1){
                     //alert(123);
-                    $(".bianbian").unbind();
-                    $(".bianbian").on("click",function(){
-                        //alert(789);
+                    $(".bianbian").unbind('click').on("click",function(){
                         $(this).css("display","none");
                         $(this).remove();
+                        showjinyannumber(2);
+                        var c=$("#jinyan_add_number").text();
+                        var b=$("#progress_number").text();
+                        d=parseInt(c)+parseInt(b);
+                        $("#progress_number").text(d);
+
+                        panduan_user_dengji();
+                        panduan_user_jinyan();
                     });
                 }else{
-                    displayMessage("一键清理完毕！")
+                    yijian_clear_bianbian();
                     $(".bianbian").remove();
+                    displayMessage("一键清理完毕！")
+
                 }
 
             }
@@ -897,21 +1072,31 @@ $(function(){
         });
 
         //除蚊虫
-        $(".qucong").click(function(){
+        $(".qucong").unbind('click').click(function(){
+            $('pig').unbind();
+            $('bianbian').unbind();
             updateToolStatus(3);
             var wenzi_number=$(".wenzi").length;
             if(!wenzi_number){
                 displayMessage("没有蚊子哦，无需清虫哦！")
             }else{
                 if(quanxian==1){
-                    $(".wenzi").unbind();
-                    $(".wenzi").click(function(){
+                    $(".wenzi").unbind('click').click(function(){
+                        showjinyannumber(1);
+                        var c=$("#jinyan_add_number").text();
+                        var b=$("#progress_number").text();
+                        d=parseInt(c)+parseInt(b);
+                        $("#progress_number").text(d);
+                        panduan_user_dengji();
+                        panduan_user_jinyan();
                         $(this).css("display","none");
                         $(this).remove();
                     });
                 }else{
-                    displayMessage("一键除虫完毕！")
+                    yijian_clear_chucong();
                     $(".wenzi").remove();
+                    displayMessage("一键除虫完毕！")
+
                 }
             }
         });
@@ -1328,13 +1513,32 @@ $(function(){
         });
 
 //        点击收获按钮收获最高等级为4的宠物
-        $(".shouhuo_but").click(function(){
+        $(".shouhuo_but").unbind('click').click(function(){
+            $('.bianbian').unbind();
+            $('.wenzi').unbind();
             updateToolStatus(5);
             if(quanxian==1){
                 //猪
                 $(".pig").unbind('click').click(function(){
                     a=$(this).attr("pig_dengji");
                     if(a==4){
+                        showjinyannumber(6);
+                        var c=$("#jinyan_add_number").text();
+                        var b=$("#progress_number").text();
+                        d=parseInt(c)+parseInt(b);
+                        $("#progress_number").text(d);
+                        panduan_user_dengji();
+                        //var p=parseFloat($("#pro_number").css("width")); //已经显示的等级进度px
+                        //var n=$("#user_level").text();
+                        ////v=0.06-((n-1)*0.009);//当前等级增加的量
+                        //v=0.06*100/(100+(n-1)*120);//当前等级增加的量
+                        //pro_zhenjia=230*v;//当前增加的等级百分比
+                        //
+                        //
+                        //q=pro_zhenjia+p+'px';//点击增加的百分比
+                        //$("#pro_number").css('width',q);
+                        panduan_user_jinyan();
+
                         $(this).remove();
                     }
                 });
@@ -1396,14 +1600,16 @@ $(function(){
                 var f=$(".blackcat").length;
                 var g=$(".maoyou").length;
                 var h=$(".bee").length;
-
                 if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
                     displayMessage("没有可以获取的哦！")
                 }else{
+                    yijian_panduan_user_jinyan();
                     //猪收获
                     $(".pig").each(function(){
                         if((this).getAttribute("pig_dengji")==4){
                             $(this).remove();
+                            //pig_a+=1;
+                            //return pig_a;
                         }
                     });
 
@@ -1456,8 +1662,7 @@ $(function(){
                             $(this).remove();
                         }
                     });
-
-
+                    //yijian_panduan_user_jinyan();
                     displayMessage("一键收获完成！")
 
                 }
@@ -1483,6 +1688,9 @@ $(function(){
             displayMessage('刷新成功');
         });
     }else{
+        $(".show2").css("display","none");
+        $(".go").css("display","none");
+        $(".beibao").css("display","none");
         //偷取好友成熟动物的经验和金币
         $(".store").click(function(){
             updateToolStatus(2);
@@ -1495,7 +1703,7 @@ $(function(){
             var bian_number=$(".bianbian").length;
             if(!bian_number){
 
-                displayMessage("牧场很干净，无需清理哦！")
+                displayMessage("好友牧场很干净，无需清理哦！")
 
             }else
             {
@@ -1509,7 +1717,7 @@ $(function(){
                         $(this).remove();
                     });
                 }else{
-                    displayMessage("一键清理完毕！")
+                    displayMessage("帮助好友一键清理完毕！")
                     $(".bianbian").remove();
                 }
 
@@ -1522,7 +1730,7 @@ $(function(){
             updateToolStatus(3);
             var wenzi_number=$(".wenzi").length;
             if(!wenzi_number){
-                displayMessage("没有蚊子哦，无需清虫哦！")
+                displayMessage("好友牧场没有蚊子哦，无需清虫哦！")
             }else{
                 if(quanxian==1){
                     $(".wenzi").unbind();
@@ -1531,7 +1739,7 @@ $(function(){
                         $(this).remove();
                     });
                 }else{
-                    displayMessage("一键除虫完毕！")
+                    displayMessage("帮助好友一键除虫完毕！")
                     $(".wenzi").remove();
                 }
             }
@@ -1562,6 +1770,3 @@ $(function(){
 //        pig_backpack_number=parseInt(zhuanshi)+1;
 //        $(this).text(pig_backpack_number);
 //    });
-
-
-});
