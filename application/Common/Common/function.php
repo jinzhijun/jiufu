@@ -2273,3 +2273,27 @@ function objectsIntoArray($arrObjData, $arrSkipIndices = array())
     }
     return $arrData;
 }
+
+
+function & load_wechat($type = '') {
+    !class_exists('Wechat\Loader', FALSE) && Vendor('Wechat.Loader');
+    static $wechat = array();
+    $index = md5(strtolower($type));
+    if (!isset($wechat[$index])) {
+        // 从数据库查询配置参数
+        $res = C('WEIXINPAY_CONFIG');
+        $config['appid'] = $res['APPID'];
+        $config['appsecret'] = $res['APPSECRET'];
+        $config['encodingaeskey'] = '';
+        $config['mch_id'] = $res['MCHID'];
+        $config['partnerkey'] = $res['KEY'];
+        $config['ssl_cer'] = '';
+        $config['ssl_key'] = '';
+        $config['cachepath'] = '';
+
+        // 设置SDK的缓存路径
+        $config['cachepath'] = CACHE_PATH . 'Data/';
+        $wechat[$index] = &\Wechat\Loader::get_instance($type, $config);
+    }
+    return $wechat[$index];
+}
