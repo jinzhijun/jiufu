@@ -9,7 +9,7 @@ function getQueryString(name) {
 var storage=window.localStorage;
 var uid=getQueryString('uid');
 var token=getQueryString('token');
-var url = 'http://test.jiufu.com/jiufu/jiufu/mobile/login.html';
+var url = 'test.jiufu.com';
 var websocket = new WebSocket("ws://"+url+":8484");
 if(uid>0){
     var userId = uid;

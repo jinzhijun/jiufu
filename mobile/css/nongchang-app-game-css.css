@@ -3,7 +3,12 @@
 	margin: 0;
 	padding: 0;	
 }
-
+@font-face{
+	font-family:fangzheng;
+	/*为引入的字体命名*/
+	src:url(../font/fangzheng.ttf);
+	/*定义要引入字体文件的路径*/
+}
 #app{
 	width: 100%;
 	margin: 0 auto;
@@ -66,7 +71,104 @@
 	width: 100%;
 }
 
+.top-left{
+	width: 405px;
+	height: 154px;
+	float: left;
+	/*background: rgba(255,255,255,0.5);*/
+	background: #E38A0B;
+	border-radius: 40px;
+}
+.top-left-left{
+	width: 150px;
+	height: 160px;
+	float: left;
+}
+.user-logo img{
+	width: 147px;
+	height: 142px;
+	margin-top: 8%;
+	border-radius: 45px;
+}
+.user_bg{
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	z-index: 4;
+	background: url(../images/app/muchang-photo/userinfo-bg.png);
+	top: 4px;
+}
+.top-left-left a{
+	width:34px;
+	height:34px;
+	position: relative;
+	z-index: 6;
+	border-radius: 50%;
+	float: left;
+	top:-47px;
+	line-height: 34px;
+	text-align: center;
+	margin-left: 25px;
+	font-weight: bold;
+	color: white;
+	font-size: 3rem;
+}
+.top-left-left span{
+	width: 55px;
+	height: 55px;
+	position: relative;
+	z-index: 6;
+	float: left;
+	border-radius: 50%;
+	top: -56px;
+	line-height: 55px;
+	text-align: center;
+	margin-left: 25px;
+	font-weight: bold;
+	color: white;
+	font-size: 3rem;
+	background: red;
+}
+.notice{
+	background: url(../images/app/main/notice-message.png)no-repeat 0 0;
+}
 
+.top-left-right{
+	width: 230px;
+	height: 157px;
+	float: left;
+	text-align: left;
+	line-height: 68px;
+	padding-top: 13px;
+	margin-left: 10px;
+	overflow: hidden;
+	white-space: nowrap;/*强制不换行*/
+	text-overflow:ellipsis;/*文字隐藏后添加省略号*/
+}
+.username{
+	/*color: #AE6F10;*/
+	color: white;
+	text-shadow: #ffffff;
+	font-weight: bold;
+	font-size: 41px;
+}
+.progress {
+	height: 26px;
+	margin-bottom: 20px;
+	overflow: hidden;
+	background-color: #dcd9d9;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	margin-top: 20px;
+	font-size: 26px;
+	border-radius: 15px;
+}
+.progress-bar span{
+	font-size: 2rem;
+	color: #CA7902;
+	text-shadow:0 0 0.2em #FFFFFF,
+	-0 -0 0.2em #FFFFFF;
+}
 
 #farm-user-info{
 	width: 400px;
@@ -74,16 +176,21 @@
 	position: fixed;
 	left:0;
 	top: 0;
-	background: url(../images/app/main/main_bg2.png)no-repeat;
+	/*background: url(../images/app/main/main_bg2.png)no-repeat;*/
+	background: #E38A0B;
+	border-radius: 40px;
 }
 #farm-user-head-wrap{
 	width: 150px;
 	height: 150px;
-	background: url(../images/app/main/main_bg2_kuang.png)no-repeat;
+	/*background: url(../images/app/main/main_bg2_kuang.png)no-repeat;*/
+	background: url(../images/app/muchang-photo/userinfo-bg.png);
 	position: absolute;
 	left: 2px;
 	top: 2px;
 }
+
+
 #farm-user-head{
 	width: 115px;
 	height: 112px;
@@ -182,7 +289,8 @@
 .farm-top-info{
 	width: 570px;
 	height: 175px;
-	background: url(../images/app/main/main_bg1.png)no-repeat;
+	/*background: url(../images/app/main/main_bg1.png)no-repeat;*/
+	background: url("../images/app/muchang-photo/6.png")no-repeat;
 	position: fixed;
 	display: inline-block;
 	float: left;
@@ -217,17 +325,17 @@
 	margin-left: 3px;
 }
 .farm-data{
-	line-height: 53px;
 	padding-left: 12px;
 	color: yellow;
 	font-weight: bold;
-	font-size: 27px;
 	line-height: 56px;
+	font-family: fangzheng;
+	font-size: 3.5rem;
 }
 .farm-topleft-info{
 	width: 300px;
 	height: 450px;
-	position: fixed;
+	/*position: fixed;*/
 	display: inline-block;
 	float: left;
 	top: 150px;
@@ -375,10 +483,11 @@
 
 										
 .farm-game-info{
-	position: relative;
+	/*position: relative;*/
 	width: 499px;
 	height: 1350px;
-	background: url(../images/app/main/main_bg3.png)no-repeat;
+	/*background: url(../images/app/main/main_bg3.png)no-repeat;*/
+	background: url("../images/app/muchang-photo/cebian.png") no-repeat;
 	position: absolute;
 	left: -50px;
 	top: 220px;
@@ -387,14 +496,16 @@
 .farm-game-orchard{
 	width: 376px;
 	height: 88px;
-	background: url(../images/app/main/main_but3_down.png)no-repeat;
+	/*background: url(../images/app/main/main_but3_down.png)no-repeat;*/
+	background: url(../images/app/muchang-photo/2.png)no-repeat;
 	margin-left: 60px;
 	margin-top: 8px;
 	cursor: pointer;
 	text-align: center;
 }
 .farm-orchard-style{
-	background: url(../images/app/main/main_bg4.png)no-repeat;
+	/*background: url(../images/app/main/main_bg4.png)no-repeat;*/
+	background: url(../images/app/muchang-photo/1.png)no-repeat;
 	width: 333px;
 	height: 73px;
 	float: left;
@@ -409,19 +520,28 @@
 .farm-orchard-font{
 	font-size: 44px;
 	color: white;
-	padding-left: 70px;
+	padding-left: 81px;
 	line-height: 76px;	
 	font-weight: bold;
-	font-size: "幼圆","黑体",sans-serif;
+	/*font-size: "幼圆","黑体",sans-serif;*/
+	letter-spacing: -1px;
+}
+.farm-orchard-font-2{
+	font-size: 44px;
+	color: white;
+	padding-left: 115px;
+	line-height: 76px;
+	font-weight: bold;
+	/*font-size: "幼圆","黑体",sans-serif;*/
 	letter-spacing: -1px;
 }
 .farm-orchard-font3{
 	font-size: 46px;
 	color: white;
-	padding-left: 24px;
+	padding-left: 76px;
 	line-height: 76px;	
 	font-weight: bold;
-	font-size: "幼圆","黑体",sans-serif;
+	/*font-size: "幼圆","黑体",sans-serif;*/
 	letter-spacing: -1px;
 }
 .farm-orchard-font2{
@@ -429,12 +549,12 @@
 	font-size: 49px;
 	color: white;
 	font-weight: bold;
-	font-size: "幼圆","黑体",sans-serif;
+	/*font-size: "幼圆","黑体",sans-serif;*/
 	letter-spacing: -1px;
 	text-align: center;
 }
 .farm-game-orchard-hide{
-	height: 470px;
+	height:620px;
 	width: 400px;
 	top: 90px;
 	left: 15px;
@@ -442,24 +562,26 @@
 #farm-game-orchard-logout{
 	width: 333px;
 	height: 80px;
-	background: url(../images/app/main/main_but3_up.png)no-repeat;
+	/*background: url(../images/app/main/main_but3_up.png)no-repeat;*/
+	background: url(../images/app/muchang-photo/5.png)no-repeat;
 	position: absolute;
 	bottom: 90px;
 	cursor: pointer;
 	left: 90px;	
 }
 .farm-game-orchard-click{
-	background: url(../images/app/main/main_but2.png)no-repeat;
+	/* background: url(../images/app/main/main_but2.png)no-repeat; */
+	background: url(../images/app/muchang-photo/4.png)no-repeat;
 	position: absolute;
 	z-index: 10;
-	height: 222px;
-	width: 130px;
+	height: 290px;
+	width: 165px;
 	left: -35px;
 	top: 580px;
-	/*display: none;*/	
 }
 .farm-game-orchard-click-2{
-	background: url(../images/app/main/main_but1.png)no-repeat;
+	/*background: url(../images/app/main/main_but1.png)no-repeat;*/
+	background: url(../images/app/muchang-photo/3.png) no-repeat;
 	position: absolute;
 	z-index: 10;
 	height: 290px;
@@ -480,7 +602,7 @@
 	width: 649px;
 	height: 333px;
 	position: absolute;
-	top: 680px;
+	top: 674px;
 	left: 150px;
 	z-index: 5;
 }

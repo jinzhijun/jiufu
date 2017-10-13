@@ -1,0 +1,157 @@
+*{
+    padding:0;
+    margin: 0;
+}
+@font-face{
+    font-family:fangzheng;
+    /*为引入的字体命名*/
+    src:url(../../font/fangzheng.ttf);
+    /*定义要引入字体文件的路径*/
+}
+html,body{
+    width:100%;
+    height:100%;
+    font-family: fangzheng;
+    border-radius: 95px;
+    font-size: 2rem;
+}
+.zhong{
+    width:100%;
+    max-height:27rem;
+    overflow-y: scroll;
+}
+.friend_user{
+    width: 100%;
+    height: 3.5rem;
+    float: left;
+}
+.user_friend_logo{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 15px;
+    float: left;
+    margin-top: 0.45rem;
+    margin-left: 0.5rem;
+}
+.user_friend_info{
+    width: 7.5rem;
+    height: 2.5rem;
+    float: left;
+    margin-top: 0.45rem;
+    margin-left: 0.35rem;
+}
+.user_friend_level{
+    width: 94%;
+    float: left;
+    color: #fafd47;
+    text-align: left;
+    height: 1rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    text-shadow: 0 0 0.2em black;
+    padding-left: 0.35rem;
+    padding-top: 0.2rem;
+}
+.user_friend_name{
+    width: 91%;
+    float: left;
+    color: black;
+    text-align: left;
+    height: 1rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    padding: 0.2rem 0.3rem;
+    text-shadow:0 0 0.3em #ffffff,-0 -0 0.3em #ffffff;
+}
+.user_friend_paihan{
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background: red;
+    color: #FFFFFF;
+    border: 3px solid #CE2020;
+    text-shadow: -3.5px 0 #CE2020, 0 -3.5px #CE2020, 3.5px 0 #CE2020, 0 3.5px #CE2020;
+    font-size: 1.2rem;
+    text-align: center;
+    float: left;
+    margin-top: 0.6rem;
+    font-weight: bold;
+    margin-left: 0.2rem;
+}
+.user_friend_paihan_2{
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background: #FFE81A;
+    color: #FFFFFF;
+    border: 3px solid #A99701;
+    text-shadow: -3.5px 0 #A99701, 0 -3.5px #A99701, 3.5px 0 #A99701, 0 3.5px #A99701;
+    font-size: 1.2rem;
+    text-align: center;
+    float: left;
+    margin-top: 0.6rem;
+    font-weight: bold;
+    margin-left: 0.2rem;
+}
+.user_friend_paihan_3{
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background: #A7ED3D;
+    color: #FFFFFF;
+    border: 3px solid #648F21;
+    text-shadow: -3.5px 0 #648F21, 0 -3.5px #648F21, 3.5px 0 #648F21, 0 3.5px #648F21;
+    font-size: 1.2rem;
+    text-align: center;
+    float: left;
+    margin-top: 0.6rem;
+    font-weight: bold;
+    margin-left: 0.2rem;
+}
+.user_friend_paihan_other{
+    width: 1.9rem;
+    height: 1.9rem;
+    color: #FFFFFF;
+    text-shadow: -3.5px 0 #7A6218, 0 -3.5px #7A6218, 3.5px 0 #7A6218, 0 3.5px #7A6218;
+    font-size: 1.2rem;
+    text-align: center;
+    float: left;
+    margin-top: 0.6rem;
+    font-weight: bold;
+    margin-left: 0.2rem;
+}
+.user_friend_jinru{
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    margin-top: 0.7rem;
+    float: right;
+    margin-right: 0.75rem;
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+    text-shadow:0 0 0.3em black,-0 -0 0.3em black;
+}
+.friend_user:hover{
+    background:#EBA727 ;
+}
+.title_info{
+    width: 100%;
+    height:2.5rem;
+    float: left;
+    border-bottom: 2px solid black;
+}
+.title_jinyan{
+    width: 6rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    background: #D88838;
+    color: #F4F2EA;
+    float: left;
+    font-size: 1rem;
+    text-shadow: 0 0 0.3em #D88838, 0 0 0.3em #D88838;
+    border-radius: 12px;
+    margin: 0.25rem 0 0.3rem 0.35rem;
+}

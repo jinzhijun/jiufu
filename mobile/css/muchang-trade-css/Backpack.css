@@ -1,0 +1,220 @@
+*{
+    padding:0;
+    margin: 0;
+}
+@font-face{
+    font-family:fangzheng;
+    /*为引入的字体命名*/
+    src:url(../../font/fangzheng.ttf);
+    /*定义要引入字体文件的路径*/
+}
+html,body{
+    width:100%;
+    height:100%;
+    font-family: fangzheng;
+    border-radius: 95px;
+    font-size: 2rem;
+}
+.xuanzhe{
+    width: 100%;
+    height: 14.5%;
+    float: left;
+    border-top-left-radius: 95px;
+    border-top-right-radius: 95px;
+}
+.nong,.mu,.siliao{
+    width: 33%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    font-size: 2rem;
+    /*line-height: 154px;*/
+    color:#AB5B16;
+    font-weight: bold;
+    font-family: fangzheng;
+}
+.nong a,.mu a,.siliao a{
+    width: 100%;
+    height: 110px;
+    float: left;
+    line-height: 110px;
+    text-decoration: none;
+    margin-top: 0.3rem;
+}
+.nong span,.mu span,.siliao span{
+    width: 77px;
+    height: 8px;
+    float: left;
+    background: url(../../images/app/muchang-photo/circle.png);
+    margin-left: 1.75rem;
+}
+.zhanshi{
+    width: 100%;
+    height: 66.5%;
+    float: left;
+}
+.nong-backpack{
+    width: 94%;
+    height: 608px;
+    border: 1px solid #fad8a4;
+    border-radius: 15px;
+    float: left;
+    margin-left: 0.75rem;
+    margin-top: 1rem;
+    box-shadow: #F3D8A4 -5px -2px 4px;
+    overflow-y: scroll;
+}
+
+.back-tubiao{
+    width: 4.35rem;
+    height: 4rem;
+    float: left;
+    margin-left: 0.89rem;
+    border-radius: 15px;
+    border: 1px solid #C6A788;
+    position: relative;
+    margin-top: 0.55rem;
+}
+.backpack-zhong-photo{
+    width: 102px;
+    height: 102px;
+    float: left;
+    border-radius: 15px;
+    background: #F8E6B8;
+    box-shadow: #F3D8A4 -5px -2px 4px;
+    border: 1px solid #F3D8A4;
+    margin-top: 0.4rem;
+    margin-left: 0.6rem;
+}
+.backpack-zhong-number{
+    width: 2rem;
+    height: 2rem;
+    font-family: fangzheng;
+    font-weight: bold;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0;
+}
+.muchang-backpack{
+    width: 94%;
+    height: 608px;
+    border: 1px solid #fad8a4;
+    border-radius: 15px;
+    float: left;
+    margin-left: 0.75rem;
+    margin-top: 1rem;
+    box-shadow: #F3D8A4 -5px -2px 4px;
+    overflow-y: scroll;
+    font-family: fangzheng;
+}
+.siliao-backpack{
+    width: 94%;
+    height: 608px;
+    border: 1px solid #fad8a4;
+    border-radius: 15px;
+    float: left;
+    margin-left: 0.75rem;
+    margin-top: 1rem;
+    box-shadow: #F3D8A4 -5px -2px 4px;
+    overflow-y: scroll;
+}
+.anniu{
+    width: 100%;
+    height: 2.5rem;
+    float: left;
+}
+.use{
+    width: 149px;
+    height: 88px;
+    float: left;
+    font-size: 1.2rem;
+    color: #FBEDDC;
+    font-family: fangzheng;
+    background: url(../../images/app/muchang-shop/buy.png)no-repeat;
+    background-size: contain;
+    margin-left: 3.5rem;
+    text-align: center;
+    line-height: 77px;
+}
+.throw{
+    width: 149px;
+    height: 88px;
+    float: left;
+    font-size: 1.2rem;
+    color: #FBEDDC;
+    font-family: fangzheng;
+    background: url(../../images/app/muchang-shop/diuqi.png)no-repeat;
+    background-size: contain;
+    margin-left: 2rem;
+    text-align: center;
+    line-height: 77px;
+}
+.modal-bottom{
+    width: 100%;
+    height: 2.9rem;
+    float: left;
+    margin-top: 0.3rem;
+}
+.modal-bottom-left{
+    width: 44%;
+    height: 2.2rem;
+    float: left;
+    background: url(../../images/app/muchang-photo/di.png)no-repeat;
+    background-size: cover;
+    margin-top: 0.76rem;
+}
+.modal-bottom-right{
+    width: 44%;
+    height: 2.2rem;
+    float: left;
+    background: url(../../images/app/muchang-photo/di.png)no-repeat;
+    background-size: cover;
+    margin-top: 0.76rem;
+    margin-left: 1.99rem;
+}
+.modal-bottom-left-tubiao{
+    width: 28%;
+    height: 2rem;
+    float: left;
+    background: url(../../images/app/muchang-photo/jinbi.png)no-repeat;
+    background-size: contain;
+    margin-top: 0.15rem;
+}
+.modal-bottom-right-tubiao{
+    width: 28%;
+    height: 2rem;
+    float: left;
+    background: url(../../images/app/muchang-photo/zhuanshi2.png)no-repeat;
+    background-size: contain;
+    margin-top: 0.15rem;
+}
+.modal-bottom-left-text{
+    width: 54%;
+    height: 2rem;
+    float: left;
+    font-family: fangzheng;
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 0.5rem;
+    overflow: hidden;
+    text-align: center;
+}
+.modal-bottom-right-text{
+    width: 54%;
+    height: 2rem;
+    float: left;
+    font-family: fangzheng;
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 0.5rem;
+    overflow: hidden;
+    text-align: center;
+}
+.tishi_language{
+    font-size: 1.85rem;
+    display: none;
+    padding-left: 0.75rem;
+}

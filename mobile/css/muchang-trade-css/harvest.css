@@ -1,0 +1,62 @@
+*{
+    padding:0;
+    margin: 0;
+}
+@font-face{
+    font-family:fangzheng;
+    /*为引入的字体命名*/
+    src:url(../../font/fangzheng.ttf);
+    /*定义要引入字体文件的路径*/
+}
+html,body{
+    width:100%;
+    height:100%;
+    font-family: fangzheng;
+    border-radius: 95px;
+    font-size: 2rem;
+}
+.title-bg{
+    width: 90%;
+    height: 107px;
+    background: #D2781D;
+    border-radius: 39px;
+    float: left;
+    margin-top: 0.55rem;
+    margin-left: 0.85rem;
+}
+.head-title {
+    position: relative;
+    float: left;
+    width: 62%;
+    margin-left: 21%;
+    height: 72px;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 50px;
+    /*border: 1px solid red;*/
+}
+.talk-info{
+    width: 90%;
+    height: 674px;
+    float: left;
+    border: 1px solid #D4BA9F;
+    box-shadow: 5px 5px 5px #8a6d3b;
+    border-radius: 17px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    overflow-y: scroll;
+}
+.info_data{
+    width:94%;
+    max-height:6rem;
+    float: left;
+    font-size: 1rem;
+    overflow: hidden;
+    /*border:1px solid blue;*/
+    margin-left: 0.2rem;
+    margin-top: 0.5rem;
+}
+.info_data a{
+    text-decoration: none;
+}
