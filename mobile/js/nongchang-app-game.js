@@ -1607,3 +1607,18 @@ function detectPhone() {
         e.preventDefault();
     });
 }
+$(function(){
+    //点击模态框消失
+    $(".anniu").click(function(){
+        //$(".sidebar").css("width","0px");
+        //$(".sidebar").css("transition","width 0.1s ease-in");
+        $(".btn").click();
+    });
+    $("#backpack2").click(function(){
+        var pa_href=$(this).attr("href");
+        openModalWin(pa_href);
+        $(".modal-text").text("背包");
+        return false;
+
+    });
+});

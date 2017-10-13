@@ -67,7 +67,7 @@
                                 <ul class="menuson farm-game-orchard-hide" style="display: none;height: 620px;">
                                     <li class="farm-orchard-style" id="farm-friend">
                                         <a class="farm-orchard-font friendFarm" rel="modalWin"
-                                           href="manger/friend.html">好友农场</a>
+                                           href="muchang-trade/friend_muchang.html">好友农场</a>
                                     </li>
                                     <li class="farm-orchard-style" id="farm-created">
                                         <a class="farm-orchard-font createdFarm" rel="modalWin" style="padding-left: 76px;"
@@ -129,14 +129,14 @@
                                 </div>
                                 <ul class="menuson farm-game-orchard-hide" style="display: none;height: 620px;">
                                     <li class="farm-orchard-style" id="farm-orchard-warehouse">
-                                        <a class="farm-orchard-font3" rel="modalWin" href="record/growth.html">生长记录</a>
+                                        <a class="farm-orchard-font3" rel="modalWin" href="muchang-trade/muchang_grow.html">生长记录</a>
                                     </li>
                                     <!--<li class="farm-orchard-style" id="farm-orchard-tree">
                                         <a class="farm-orchard-font3" rel="modalWin" href="record/dog.html">种子奖励记录</a>
                                     </li>-->
                                     <li class="farm-orchard-style" id="farm-orchard-b">
                                         <a class="farm-orchard-font"  rel="modalWin"
-                                           href="record/seed.html">奖励记录</a>
+                                           href="muchang-trade/award.html">奖励记录</a>
                                     </li>
                                     <!--<li class="farm-orchard-style" id="farm-orchard-b">-->
                                         <!--<a class="farm-orchard-font" rel="modalWin"-->
@@ -154,10 +154,10 @@
                                            <!--href="record/reap.html">收割记录</a>-->
                                     <!--</li>-->
                                     <li class="farm-orchard-style" id="farm-orchard-b">
-                                        <a class="farm-orchard-font" rel="modalWin" href="record/reap.html">访客记录</a>
+                                        <a class="farm-orchard-font" rel="modalWin" href="muchang-trade/visitior.html">访客记录</a>
                                     </li>
                                     <li class="farm-orchard-style" id="farm-orchard-b">
-                                        <a class="farm-orchard-font" rel="modalWin" href="record/reap.html">收获记录</a>
+                                        <a class="farm-orchard-font" rel="modalWin" href="muchang-trade/harvest.html">收获记录</a>
                                     </li>
                                 </ul>
                             </dd>
@@ -214,7 +214,7 @@
                                         <a class="farm-orchard-font3" style="padding-left: 73px;line-height: 76px;" rel="modalWin" href="trade/exchange.html">兑换商城</a>
                                     </li>
                                     <li class="farm-orchard-style" id="farm-orchard-a">
-                                        <a class="farm-orchard-font-2" rel="modalWin" href="trade/translate.html">商城</a>
+                                        <a id="shop_center" class="farm-orchard-font-2" rel="modalWin" href="muchang-trade/shop.html">商城</a>
                                     </li>
                                     <!--<li class="farm-orchard-style" id="farm-orchard-a">
                                         <a class="farm-orchard-font" rel="modalWin" href="trade/seedppg.html">种子兑换</a>
@@ -241,7 +241,7 @@
                                         <!--<a class="farm-orchard-font" rel="modalWin" href="info/changepwd.html">修改密码</a>-->
                                     <!--</li>-->
                                     <li class="farm-orchard-style" id="farm-orchard-tree">
-                                        <a class="farm-orchard-font" rel="modalWin" href="info/personal.html">个人资料</a>
+                                        <a class="farm-orchard-font" rel="modalWin" href="muchang-trade/person.html">个人资料</a>
                                     </li>
                                 </ul>
                             </dd>
@@ -440,47 +440,47 @@
 
         <!--farm-user-info 玩家信息框-->
 
-        <!--<div id="farm-user-info">-->
-            <!--<div id="farm-user-head-wrap">-->
-                <!--<div id="farm-user-head">-->
-                    <!--<div id="farm-user-head-pic"></div>-->
+        <div id="farm-user-info">
+            <div id="farm-user-head-wrap">
+                <div id="farm-user-head">
+                    <div id="farm-user-head-pic"></div>
+                </div>
+            </div>
+            <div class="farm-user-font" id="farm-user-name">--</div>
+            <div class="farm-user-font" id="farm-user-id">--</div>
+            <div class="user-lever" id="farm-user-level" lever="user_lever_1"></div>
+            <a rel="modalWin" href="manger/messages.html">
+                <div class="mail-message">
+                    <span class="message-number" id="mail-number">0</span>
+                </div>
+            </a>
+            <a rel="modalWin" href="manger/notice.html">
+                <div class="notice-message">
+                    <span class="message-number" id="notice-number">0</span>
+                </div>
+            </a>
+        </div>
+        <!--<div class="top-left">-->
+            <!--<div class="top-left-left">-->
+                <!--<div class="user-logo">-->
+                    <!--<img src="images/app/main/user_logo.jpg">-->
+                <!--</div>-->
+                <!--<div class="user_bg"></div>-->
+                <!--<a href="http://www.baicu.com">-->
+                    <!--<div class="notice">1</div>-->
+                <!--</a>-->
+                <!--<span href="http://www.baicu.com">-->
+                    <!--<div class="inmail">Lv1</div>-->
+                <!--</span>-->
+            <!--</div>-->
+            <!--<div class="top-left-right">-->
+                <!--<div class="username">果子</div>-->
+                <!--<div class="progress progress-striped active">-->
+                    <!--<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">-->
+                        <!--<span>50</span><span style="line-height:26px; "> / 100</span>-->
+                    <!--</div>-->
                 <!--</div>-->
             <!--</div>-->
-            <!--<div class="farm-user-font" id="farm-user-name">&#45;&#45;</div>-->
-            <!--<div class="farm-user-font" id="farm-user-id">&#45;&#45;</div>-->
-            <!--<div class="user-lever" id="farm-user-level" lever="user_lever_1"></div>-->
-            <!--<a rel="modalWin" href="manger/messages.html">-->
-                <!--<div class="mail-message">-->
-                    <!--<span class="message-number" id="mail-number">0</span>-->
-                <!--</div>-->
-            <!--</a>-->
-            <!--<a rel="modalWin" href="manger/notice.html">-->
-                <!--<div class="notice-message">-->
-                    <!--<span class="message-number" id="notice-number">0</span>-->
-                <!--</div>-->
-            <!--</a>-->
-        <!--</div>-->
-        <div class="top-left">
-            <div class="top-left-left">
-                <div class="user-logo">
-                    <img src="images/app/main/user_logo.jpg">
-                </div>
-                <div class="user_bg"></div>
-                <a href="http://www.baicu.com">
-                    <div class="notice">1</div>
-                </a>
-                <span href="http://www.baicu.com">
-                    <div class="inmail">Lv1</div>
-                </span>
-            </div>
-            <div class="top-left-right">
-                <div class="username">果子</div>
-                <div class="progress progress-striped active">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                        <span>50</span><span style="line-height:26px; "> / 100</span>
-                    </div>
-                </div>
-            </div>
 
         <!--*****************farm-top-info 游戏顶端   两个  信息框设置*******************/-->
         <div class="farm-top-info" id="farm-top-info-1">
@@ -641,23 +641,59 @@
             <audio id="new-message-music" src="music/new-message.mp3" controls="controls"
                    hidden="hidden"></audio>
         </div>
+    </div>
 
-            </div>
+    <!--背包-->
+    <a href="muchang-trade/Backpack.html" id="backpack2" data-toggle="modal" data-target="#winModal" >
+        <div class="beibao"></div>
+    </a>
+    <!--前往牧场-->
     <a href="http://localhost:63342/jiufu/jiufu/mobile/rangeland.html"><div class="go"></div></a>
+
+
 </div>
 
 <!-- Modal -->
+<!--<div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="winModalLabel" aria-hidden="true">-->
+    <!--<div class="modal-dialog modal-lg" style="width: 96%;">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="btn btn-primary btn-lg pull-right" data-dismiss="modal" style="zoom: 150%">-->
+                    <!--关闭-->
+                <!--</button>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<iframe id="subWinFrame" src="javascript:;" width="100%" height="600px;" style="border: none;"></iframe>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
 <div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="winModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" style="width: 96%;">
         <div class="modal-content">
+            <div class="modal-header-ziji">
+                <div class="modal-text">商城</div>
+                <div class="anniu"></div>
+            </div>
             <div class="modal-header">
-                <button type="button" class="btn btn-primary btn-lg pull-right" data-dismiss="modal" style="zoom: 150%">
-                    关闭
+                <button type="button" class="btn" data-dismiss="modal" style="zoom: 150%;touch-action: none;display: none;">
+
                 </button>
             </div>
             <div class="modal-body">
-                <iframe id="subWinFrame" src="javascript:;" width="100%" height="600px;" style="border: none;"></iframe>
+                <iframe id="subWinFrame" src=""></iframe>
             </div>
+            <!--<div class="modal-bottom">-->
+            <!--<div class="modal-bottom-left">-->
+            <!--<div class="modal-bottom-left-tubiao"></div>-->
+            <!--<div class="modal-bottom-left-text">78,000</div>-->
+            <!--</div>-->
+            <!--<div class="modal-bottom-right">-->
+            <!--<div class="modal-bottom-right-tubiao"></div>-->
+            <!--<div class="modal-bottom-right-text">78,000</div>-->
+            <!--</div>-->
+
+            <!--</div>-->
         </div>
     </div>
 </div>
