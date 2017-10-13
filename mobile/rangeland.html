@@ -17,10 +17,10 @@
 
     <!-- Dynamic CSS -->
     <link href="css/rangeland.css" rel="stylesheet" media="screen">
+    <script style="text/javascript" src="js/jquery.min.js"></script>
+    <script style="text/javascript" src="js/rangeland.js"></script>
+    <!--<script src="js/jquery.transit.js"></script>-->
 
-    <script  src="js/jquery.min.js"></script>
-    <script src="js/jquery.transit.js"></script>
-    <link href="css/nongchang-app-game-css.css?v=20170225" rel="stylesheet" media="screen">
 </head>
 <body>
 
@@ -33,58 +33,8 @@
 
 <div class="zhong">
     <!--头部-->
-    <!--farm-user-info 玩家信息框-->
-    <div class="top">
-        <div class="top-left">
-    <div id="farm-user-info">
-        <div id="farm-user-head-wrap">
-            <div id="farm-user-head">
-                <div id="farm-user-head-pic"></div>
-            </div>
-        </div>
-        <div class="farm-user-font" id="farm-user-name">--</div>
-        <div class="farm-user-font" id="farm-user-id">--</div>
-        <div class="user-lever" id="farm-user-level" lever="user_lever_1"></div>
-        <a rel="modalWin" href="manger/messages.html">
-            <div class="mail-message">
-                <span class="message-number" id="mail-number">0</span>
-            </div>
-        </a>
-        <a rel="modalWin" href="manger/notice.html">
-            <div class="notice-message">
-                <span class="message-number" id="notice-number">0</span>
-            </div>
-        </a>
-    </div>
-        </div>
-    </div>
-    <div class="farm-top-info" id="farm-top-info-1">
-        <div class="farm-info">
-            <span class="farm-info-name">总量</span>
-            <div class="farm-info-data">
-                <span class="farm-data" id="totalFruit"></span>
-            </div>
-        </div>
-        <div class="farm-info" style="margin-left: -15px;">
-            <span class="farm-info-name">播种</span>
-            <div class="farm-info-data">
-                <span class="farm-data" id="seedFruit"></span>
-            </div>
-        </div>
-        <div class="farm-info">
-            <span class="farm-info-name">仓库</span>
-            <div class="farm-info-data">
-                <span class="farm-data" id="unseedFruit"></span>
-            </div>
-        </div>
-        <div class="farm-info" style="margin-left: -17px;width: 298px;">
-            <span class="farm-info-name">总生长</span>
-            <div class="farm-info-data">
-                <span class="farm-data" id="totalGrowth"></span>
-            </div>
-        </div>
-    </div>
     <!--<div class="top">-->
+        <!--&lt;!&ndash;用户信息&ndash;&gt;-->
         <!--<div class="top-left">-->
             <!--<div class="top-left-left">-->
                 <!--<div class="user-logo">-->
@@ -99,7 +49,7 @@
                 <!--</span>-->
             <!--</div>-->
             <!--<div class="top-left-right">-->
-                <!--<div class="username">果子</div>-->
+                <!--<div class="username" id="farm-user-name">果子</div>-->
                 <!--<div class="jinyan_add">-->
                     <!--<span>+</span><strong id="jinyan_add_number">0</strong>-->
                 <!--</div>-->
@@ -110,36 +60,70 @@
                 <!--</div>-->
             <!--</div>-->
         <!--</div>-->
-        <!--牧场总概况信息-->
-        <!--<div class="top-right">-->
-            <!--<div class="rangeland-top-info">-->
-                <!--<div class="rangeland-info">-->
-                    <!--<span class="rangeland-info-name">总量</span>-->
-                    <!--<div class="rangeland-info-data">-->
-                        <!--<span class="rangeland-data" id="muchang_total">123456</span>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="rangeland-info" style="margin-left: 5px;">-->
-                    <!--<span class="rangeland-info-name">播种</span>-->
-                    <!--<div class="rangeland-info-data">-->
-                        <!--<span class="rangeland-data" id="muchang_seed">123456</span>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="rangeland-info">-->
-                    <!--<span class="rangeland-info-name">仓库</span>-->
-                    <!--<div class="rangeland-info-data">-->
-                        <!--<span class="rangeland-data" id="muchang_unseed">123456</span>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="rangeland-info2">-->
-                    <!--<span class="rangeland-info-name">总生长</span>-->
-                    <!--<div class="rangeland-info-data">-->
-                        <!--<span class="rangeland-data" id="muchang_totalGrowth">123456</span>-->
-                    <!--</div>-->
-                <!--</div>-->
+
+    <div id="farm-user-info">
+        <div id="farm-user-head-wrap">
+            <div id="farm-user-head">
+                <div id="farm-user-head-pic"></div>
+            </div>
+        </div>
+        <a href="http://www.baicu.com">
+            <div class="notice">1</div>
+        </a>
+        <span href="http://www.baicu.com">
+             <div class="inmail">Lv<span id="user_level">1</span></div>
+        </span>
+        <div class="farm-user-font" id="farm-user-name">果子2222</div>
+        <div class="jinyan_add">
+            <span>+</span><strong id="jinyan_add_number">0</strong>
+        </div>
+        <div class="progress progress-striped active">
+            <div class="progress-bar progress-bar-success" id="pro_number" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                <span id="progress_number">90</span><span>/</span><span style="line-height:26px;" id="zhong_progress_number">100</span>
+            </div>
+        </div>
+        <!--<div class="user-lever" id="farm-user-level" lever="user_lever_1"></div>-->
+        <!--<a rel="modalWin" href="manger/messages.html">-->
+            <!--<div class="mail-message">-->
+                <!--<span class="message-number" id="mail-number">0</span>-->
             <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+        <!--</a>-->
+        <!--<a rel="modalWin" href="manger/notice.html">-->
+            <!--<div class="notice-message">-->
+                <!--<span class="message-number" id="notice-number">0</span>-->
+            <!--</div>-->
+        <!--</a>-->
+    </div>
+        <!--牧场总概况信息-->
+        <div class="top-right">
+            <div class="rangeland-top-info">
+                <div class="rangeland-info">
+                    <span class="rangeland-info-name">总量</span>
+                    <div class="rangeland-info-data">
+                        <span class="rangeland-data" id="muchang_total">123456</span>
+                    </div>
+                </div>
+                <div class="rangeland-info" style="margin-left: 5px;">
+                    <span class="rangeland-info-name">播种</span>
+                    <div class="rangeland-info-data">
+                        <span class="rangeland-data" id="muchang_seed">123456</span>
+                    </div>
+                </div>
+                <div class="rangeland-info">
+                    <span class="rangeland-info-name">仓库</span>
+                    <div class="rangeland-info-data">
+                        <span class="rangeland-data" id="muchang_unseed">123456</span>
+                    </div>
+                </div>
+                <div class="rangeland-info2">
+                    <span class="rangeland-info-name">总生长</span>
+                    <div class="rangeland-info-data">
+                        <span class="rangeland-data" id="muchang_totalGrowth">123456</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--侧边栏-->
     <div class="sidebar" style="overflow: hidden;display: none">
         <!--主体-->
@@ -204,7 +188,7 @@
                     <a href="javascript:void(0)">交易中心</a>
                 </div>
                 <div class="part_list" style="height:0px;overflow: hidden;">
-                    <ul>
+                    <ul>+
                         <!--<li><a href="#" data-toggle="modal" data-target="#winModal">出售金币</a></li>-->
                         <!--<li><a href="#" data-toggle="modal" data-target="#winModal">出售记录</a></li>-->
                         <li><a href="#" data-toggle="modal" data-target="#winModal">兑换商城</a></li>
@@ -266,17 +250,16 @@
         返回
     </a>
     <!--点击前往农场-->
-    <!--<a  href="" >-->
-        <!--<div class="go"></div>-->
-    <!--</a>-->
-    <a onclick=gomuchang()><div class="go" style="margin-left: 0px;"></div></a>
+    <a href="http://test.jiufu.com/mobile/farm.html">
+        <div class="go"></div>
+    </a>
     <!--牧场动物展示区-->
     <!--等级1:0.7（初始状态）；等级2:0.8；等级3:0.9；等级4:1；-->
     <div class="medaw-farm">
         <div class="tree" tree_dengji="4"></div>
-        <!--<div class="pig" id="pig" pig_dengji="3" style="transform: scale(0.7);left: 0;top: 0;" >-->
-            <!--<img src="images/app/muchang-photo/pig.png" class="pigmove">-->
-        <!--</div>-->
+        <div class="pig" id="pig" pig_dengji="3" style="transform: scale(0.7);left: 0;top: 0;" >
+            <img src="images/app/muchang-photo/pig.png" class="pigmove">
+        </div>
         <!--<div class="pig" pig_dengji="2" style="transform: scale(0.7);left: 0;top: 0;">-->
             <!--<img src="images/app/muchang-photo/pig.png" class="pigmove">-->
         <!--</div>-->
@@ -412,18 +395,6 @@
 <script src="js/jquery.validate.js?v=20170225"></script>
 <script src="js/messages_zh.js?v=20170225"></script>
 <script src="js/js.cookie-2.1.3.min.js?v=20170225"></script>
-
-<!-- Dynamic JS -->
-<!--<script src="js/nongchang-app-game.js?v=20170225"></script>-->
-<script src="js/rangeland.js?v=20170225"></script>
-
-
-
-<!-- jQuery validate -->
-
-
-<!-- Dynamic JS -->
-
 
 <!-- Dynamic JS -->
 <!--<script src="js/muchang-app-game.js?v=201702
