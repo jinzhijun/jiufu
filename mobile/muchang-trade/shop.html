@@ -293,8 +293,19 @@
 <script src="../js/mall.js?v=20170225"></script>
 
 <script src="../js/connect.js?v=20170225"></script>
+<script src="../js/rangeland.js?v=20171014"></script>
 <script>
+    //获取iframe页面信息
+    function oneiframe(){
+        var fs = {};
+        fs.userid=userId;
+        fs.salt=token;
+        fs.act='hqshop';
+        var jsonStr = JSON.stringify(fs);
+        websocket.send(jsonStr);
+    }
     $(function(){
+        oneiframe();
         var suoyou_goumai=$(".suoyou-goumai");
         //打开购买框
         $(".shop-zhong-buy").click(function(event){
