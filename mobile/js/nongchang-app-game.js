@@ -210,6 +210,7 @@ function displayMessage(msg) {
     apiCalling = 0;
     refreshGameData();
 }
+// 去牧场
 function gomuchang(type) {
     var uid=getQueryString('uid');
     var token=getQueryString('token');

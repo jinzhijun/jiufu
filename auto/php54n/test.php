@@ -124,7 +124,7 @@ $worker->onMessage = function($connection, $data)
                     }
                     $money=$money-($map['money']-$treelist[$i]['money']);
                     $count=$count+($map['money']-$treelist[$i]['money']);
-                    $db->update('jz_tree',$map,'id='.$treelist[$i]['id']); 
+                    $db->update('jz_tree',$map,'id='.$treelist[$i]['id']);
                 }
             }
             if($count==0){

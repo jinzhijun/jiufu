@@ -62,6 +62,7 @@
         var token=getQueryString('token');
         window.location.href = '/mobile/farm.html?uid='+uid+'&token='+token;
     }
+
     websocket.onopen = function(event) {
         $('body').css('overflow','hidden');
         $('body').css('position','fixed');
@@ -125,6 +126,7 @@
         var jsonStr = JSON.stringify(fs);
         websocket.send(jsonStr);
     }
+
     //侧边栏退出按钮
     function outlogin2(msg){
         displayMessage(msg);
@@ -220,6 +222,9 @@
         initFarmScarecrow(selfId);
         apiCalling = 0;
     }
+
+$(function(){
+
 //显示提示信息
     function displayMessage(msg) {
 
@@ -263,8 +268,49 @@
         bili=((now_jinyang/zong_jinyang)*230)+'px';//进度条用户经验长度
         $("#pro_number").css('width',bili);
     }
-//一键喂养收获功能，所有等级为4的动物一起收获
+//一键收获功能，所有等级为4的动物一起收获
     function  yijian_panduan_user_jinyan(){
+        var now_jinyang=parseInt($("#progress_number").text());//现在进度条长度
+        var zong_jinyang=parseInt($("#zhong_progress_number").text());//当前进度条总长度值
+        var user_level = parseInt($("#user_level").text());//当前用户等级
+        var pig_a=0;
+        $(".pig").each(function(){
+            if((this).getAttribute("pig_dengji")==4){
+                pig_a+=1;
+                console.log(pig_a);
+            }
+        });
+        zong_add_num=now_jinyang+(pig_a*6);
+        if(zong_add_num>zong_jinyang){
+            zong_add_num2=zong_add_num-zong_jinyang;
+            user_level+=1;
+            now_level_jinyang=user_level*120;//当前等级升级后对应的总成长量
+            $("#user_level").text(user_level);
+            $("#zhong_progress_number").text(now_level_jinyang);
+            $("#progress_number").text(zong_add_num2);
+            panduan_user_jinyan();
+            if(zong_add_num2>now_level_jinyang){
+                zong_add_num3=zong_add_num2-now_level_jinyang;
+                user_level+=1;//
+                now_level_jinyang2=user_level*120;
+                $("#user_level").text(user_level);
+                $("#zhong_progress_number").text(now_level_jinyang2);
+                $("#progress_number").text(zong_add_num3);
+                panduan_user_jinyan();
+            }
+
+            //else if(zong_add_num>now_level_jinyang2){
+            //    zong_add_num=zong_add_num-now_level_jinyang;
+            //    user_level+=1;//
+            //    now_level_jinyang2=user_level*120;
+            //}
+        }else{
+            $("#progress_number").text(zong_add_num);
+            panduan_user_jinyan();
+        }
+    }
+//一键喂养功能，所有动物等级上升
+    function yijian_weiyan_animal(){
         var now_jinyang=parseInt($("#progress_number").text());//现在进度条长度
         var zong_jinyang=parseInt($("#zhong_progress_number").text());//当前进度条总长度值
         var user_level = parseInt($("#user_level").text());//当前用户等级
@@ -453,10 +499,8 @@
     $(".part_list>ul>li>a").click(function(){
         var pa_href=$(this).attr("href");
         openModalWin(pa_href);
-        //alert(c);
 
         var c=$(this).text();
-        //alert(c);
         $(".modal-text").text(c);
         return false;
     });
@@ -1770,3 +1814,4 @@
 //        pig_backpack_number=parseInt(zhuanshi)+1;
 //        $(this).text(pig_backpack_number);
 //    });
+});

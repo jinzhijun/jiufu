@@ -105,7 +105,7 @@ $worker->onMessage = function($connection, $data)
             }
         }
         if($data2['act']=='yjzz'){
-            //一键增种
+            //一键放养
             if(strtotime($user['zzauto'])<time()){
                 act('displayMessage',"一键增种到期，请联系客服续费");
             }
@@ -196,6 +196,11 @@ $worker->onMessage = function($connection, $data)
             else{
                 act('displayMessage',"一键收获,得到金币".$count);
             }
+        }
+        if($data2['act']=='hqshop'){
+            //获取商城信息
+                $userxx=$db->getAll("SELECT * from jz_shop WHERE type='农场'");
+            act('displayoneiframe',$userxx);
         }
         if($data2['act']=='SearchUserInfo'){
             //获取用户信息
