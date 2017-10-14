@@ -4,14 +4,11 @@ require_once __DIR__ .'/workman/Autoloader.php';
 error_reporting(E_ALL & ~E_NOTICE);
 ini_set('date.timezone','Asia/Shanghai');
 //包含数据库操作类文件
+$config = include __DIR__.'/data/conf/db.php';
 include 'mysql.class.php';
-$hostname='127.0.0.1';
-$username='root';
-$password='root';
-$dbname='jiufu';
 $charset = 'utf8';
 $url="http://test.jiufu.com/";
-$db = new Mysql($hostname,$username,$password,$dbname); 
+$db = new Mysql($config['DB_HOST'],$config['DB_USER'],$config['DB_PWD'],$config['DB_NAME']);
 ouput("读取配置");
 $worker = new Worker('websocket://0.0.0.0:8282');
 $worker->onWorkerStart = function($worker)

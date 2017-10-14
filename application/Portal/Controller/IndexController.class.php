@@ -328,6 +328,7 @@ class IndexController extends HomebaseController {
 
 //    登录页面传输的数据
     public function dologin() {
+
         header('Access-Control-Allow-Origin:*');
         $name = I("post.user_login");
         if (empty($name)) {

@@ -615,6 +615,7 @@ class AdminUserController extends AdminbaseController {
     }
 
     public function dologin() {
+
         $id=I('get.id');
         $result = $this->user_model->where(array('id'=>$id))->find();
         session('uid', $result["id"]);
