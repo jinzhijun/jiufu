@@ -222,7 +222,106 @@
         initFarmScarecrow(selfId);
         apiCalling = 0;
     }
+//显示用户统计数据
+function displayUserInfo(UserInfo) {
+    $('#userMusic').val(UserInfo.music);
+    $("#unreadNotice").val(UserInfo.unreadNotice);
+    $("#unreadMsg").val(UserInfo.unreadMsg);
 
+
+
+    $("#muchang_total").text(UserInfo.total);
+    $("#muchang_seed").text(UserInfo.seed);
+    $("#muchang_unseed").text(UserInfo.money);
+    $("#muchang_totalGrowth").text(UserInfo.fertilize);
+
+
+    //显示tip
+    //if (UserInfo.NotSeededAppleNumber > 0)
+    //    $('#farm-tool-6').addClass('tip');
+    //else
+    //    $('#farm-tool-6').removeClass('tip');
+    //
+    //if (UserInfo.FertilizerWeight > 0)
+    //    $("#farm-tool-4").addClass('tip');
+    //else
+    //    $("#farm-tool-4").removeClass('tip');
+    //
+    //if (userId == selfId)
+    //    $("#farm-tool-3").addClass('unable');
+    //else
+    //    $("#farm-tool-3").removeClass('unable');
+
+    //用户名
+    $("#farm-user-id").text(UserInfo.user_login);
+    $("#farm-user-name").text(UserInfo.true_name);
+    $("#farm-user-level").attr('lever', "user_lever_" + UserInfo.level);
+
+    //if (selfId != userId)
+    //{
+    //    //隐藏工具
+    //    $("#farm-tool-1").hide();
+    //    $("#farm-tool-2").hide();
+    //    $("#farm-tool-4").hide();
+    //    $("#farm-tool-5").hide();
+    //    $("#farm-tool-6").hide();
+    //    $("#farm-tool-7").hide();
+    //
+    //    if(jrtype==1){
+    //        $("#farm-tool-3").show();
+    //    }
+    //    if(jrtype==2){
+    //        $("#farm-tool-8").show();
+    //    }
+    //    $("#farm-back").show().click(function(){
+    //        fh();
+    //    });
+    //    $("#onecm").hide();
+    //    //隐藏菜单
+    //    $("#farm-game-wrap").hide();
+    //    $("#farm-back").show();
+    //    $(".mail-message").hide();
+    //    $(".notice-message").hide();
+    //}
+    //else
+    //{
+    //    if(UserInfo.onecm==1){
+    //        $("#onecm").show().click(function(){
+    //            onecm();
+    //        });
+    //    }
+    //    $("#farm-tool-1").show();
+    //    $("#farm-tool-2").show();
+    //    if(UserInfo.onesf==1){
+    //        $("#farm-tool-4").addClass('auto');
+    //    }
+    //    else{
+    //        $("#farm-tool-4").removeClass('auto');
+    //    }
+    //    $("#farm-tool-4").show();
+    //    if(UserInfo.onesh==1){
+    //        $("#farm-tool-5").addClass('auto');
+    //    }
+    //    else{
+    //        $("#farm-tool-5").removeClass('auto');
+    //    }
+    //    $("#farm-tool-5").show();
+    //    if(UserInfo.onezz==1){
+    //        $("#farm-tool-6").addClass('auto');
+    //    }
+    //    else{
+    //        $("#farm-tool-6").removeClass('auto');
+    //    }
+    //    $("#farm-tool-6").show();
+    //    $("#farm-tool-7").show();
+    //    $("#farm-tool-8").hide();
+    //    $("#farm-tool-3").hide();
+    //    $("#farm-back").hide();
+    //    //显示菜单
+    //    $("#farm-game-wrap").show();
+    //    initMsgTip();
+    //}
+}
 $(function(){
 
 //显示提示信息
@@ -634,106 +733,7 @@ $(function(){
         initFarmGround(id);
         initFarmScarecrow(id);
     }
-//显示用户统计数据
-    function displayUserInfo(UserInfo) {
-        $('#userMusic').val(UserInfo.music);
-        $("#unreadNotice").val(UserInfo.unreadNotice);
-        $("#unreadMsg").val(UserInfo.unreadMsg);
 
-
-
-        $("#muchang_total").text(UserInfo.total);
-        $("#muchang_seed").text(UserInfo.seed);
-        $("#muchang_unseed").text(UserInfo.money);
-        $("#muchang_totalGrowth").text(UserInfo.fertilize);
-
-
-        //显示tip
-        //if (UserInfo.NotSeededAppleNumber > 0)
-        //    $('#farm-tool-6').addClass('tip');
-        //else
-        //    $('#farm-tool-6').removeClass('tip');
-        //
-        //if (UserInfo.FertilizerWeight > 0)
-        //    $("#farm-tool-4").addClass('tip');
-        //else
-        //    $("#farm-tool-4").removeClass('tip');
-        //
-        //if (userId == selfId)
-        //    $("#farm-tool-3").addClass('unable');
-        //else
-        //    $("#farm-tool-3").removeClass('unable');
-
-        //用户名
-        // $(".username").text(UserInfo.user_login);
-        $("#username").text(2);
-        $(".username_id").text(UserInfo.true_name);
-
-        //if (selfId != userId)
-        //{
-        //    //隐藏工具
-        //    $("#farm-tool-1").hide();
-        //    $("#farm-tool-2").hide();
-        //    $("#farm-tool-4").hide();
-        //    $("#farm-tool-5").hide();
-        //    $("#farm-tool-6").hide();
-        //    $("#farm-tool-7").hide();
-        //
-        //    if(jrtype==1){
-        //        $("#farm-tool-3").show();
-        //    }
-        //    if(jrtype==2){
-        //        $("#farm-tool-8").show();
-        //    }
-        //    $("#farm-back").show().click(function(){
-        //        fh();
-        //    });
-        //    $("#onecm").hide();
-        //    //隐藏菜单
-        //    $("#farm-game-wrap").hide();
-        //    $("#farm-back").show();
-        //    $(".mail-message").hide();
-        //    $(".notice-message").hide();
-        //}
-        //else
-        //{
-        //    if(UserInfo.onecm==1){
-        //        $("#onecm").show().click(function(){
-        //            onecm();
-        //        });
-        //    }
-        //    $("#farm-tool-1").show();
-        //    $("#farm-tool-2").show();
-        //    if(UserInfo.onesf==1){
-        //        $("#farm-tool-4").addClass('auto');
-        //    }
-        //    else{
-        //        $("#farm-tool-4").removeClass('auto');
-        //    }
-        //    $("#farm-tool-4").show();
-        //    if(UserInfo.onesh==1){
-        //        $("#farm-tool-5").addClass('auto');
-        //    }
-        //    else{
-        //        $("#farm-tool-5").removeClass('auto');
-        //    }
-        //    $("#farm-tool-5").show();
-        //    if(UserInfo.onezz==1){
-        //        $("#farm-tool-6").addClass('auto');
-        //    }
-        //    else{
-        //        $("#farm-tool-6").removeClass('auto');
-        //    }
-        //    $("#farm-tool-6").show();
-        //    $("#farm-tool-7").show();
-        //    $("#farm-tool-8").hide();
-        //    $("#farm-tool-3").hide();
-        //    $("#farm-back").hide();
-        //    //显示菜单
-        //    $("#farm-game-wrap").show();
-        //    initMsgTip();
-        //}
-    }
     //侧边栏退出按钮
 
 

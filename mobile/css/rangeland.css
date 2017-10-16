@@ -1075,14 +1075,14 @@ html,body{
     left: 2px;
     top: 2px;
 }
-#farm-user-name {
-    width: 240px;
-    height: 30px;
-    position: absolute;
-    left: 150px;
-    top: 40px;
-    float: left;
-}
+/*#farm-user-name {*/
+    /*width: 240px;*/
+    /*height: 30px;*/
+    /*position: absolute;*/
+    /*left: 150px;*/
+    /*top: 40px;*/
+    /*float: left;*/
+/*}*/
 
 .farm-user-font {
     color: white;
@@ -1091,9 +1091,16 @@ html,body{
     line-height: 30px;
 }
 #farm-user-id {
+    /*width: 240px;*/
+    /*height: 30px;*/
+    /*position: absolute;*/
+    /*left: 150px;*/
+    /*top: 100px;*/
+
     width: 240px;
     height: 30px;
     position: absolute;
     left: 150px;
-    top: 100px;
+    top: 40px;
+    float: left;
 }
