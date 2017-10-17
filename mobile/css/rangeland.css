@@ -9,8 +9,8 @@
     /*定义要引入字体文件的路径*/
 }
 html,body{
-     /*width:100%;*/
-     /*height:100%;*/
+     width:100%;
+     height:100%;
      background: url("../images/app/muchang-photo/muchang.png") no-repeat;
      background-size:cover;
      overflow: hidden;
@@ -959,14 +959,13 @@ html,body{
     background-size: cover;
 }
 #subWinFrame{
-    /*border: 1px solid green;*/
+    border: 1px solid green;
     width: 71%;
     height: 990px !important;
     margin-top: 19%;
     margin-left: 15%;
     /* border-bottom-left-radius: 95px; */
     overflow: hidden;
-
 }
 /*.modal-bottom{*/
     /*width:100%;*/
@@ -1076,14 +1075,14 @@ html,body{
     left: 2px;
     top: 2px;
 }
-#farm-user-name {
-    width: 240px;
-    height: 30px;
-    position: absolute;
-    left: 150px;
-    top: 40px;
-    float: left;
-}
+/*#farm-user-name {*/
+    /*width: 240px;*/
+    /*height: 30px;*/
+    /*position: absolute;*/
+    /*left: 150px;*/
+    /*top: 40px;*/
+    /*float: left;*/
+/*}*/
 
 .farm-user-font {
     color: white;
@@ -1092,9 +1091,16 @@ html,body{
     line-height: 30px;
 }
 #farm-user-id {
+    /*width: 240px;*/
+    /*height: 30px;*/
+    /*position: absolute;*/
+    /*left: 150px;*/
+    /*top: 100px;*/
+
     width: 240px;
     height: 30px;
     position: absolute;
     left: 150px;
-    top: 100px;
+    top: 40px;
+    float: left;
 }

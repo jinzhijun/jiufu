@@ -126,6 +126,7 @@
         var jsonStr = JSON.stringify(fs);
         websocket.send(jsonStr);
     }
+
     //侧边栏退出按钮
     function outlogin2(msg){
         displayMessage(msg);
@@ -221,7 +222,106 @@
         initFarmScarecrow(selfId);
         apiCalling = 0;
     }
+//显示用户统计数据
+function displayUserInfo(UserInfo) {
+    $('#userMusic').val(UserInfo.music);
+    $("#unreadNotice").val(UserInfo.unreadNotice);
+    $("#unreadMsg").val(UserInfo.unreadMsg);
 
+
+
+    $("#muchang_total").text(UserInfo.total);
+    $("#muchang_seed").text(UserInfo.seed);
+    $("#muchang_unseed").text(UserInfo.money);
+    $("#muchang_totalGrowth").text(UserInfo.fertilize);
+
+
+    //显示tip
+    //if (UserInfo.NotSeededAppleNumber > 0)
+    //    $('#farm-tool-6').addClass('tip');
+    //else
+    //    $('#farm-tool-6').removeClass('tip');
+    //
+    //if (UserInfo.FertilizerWeight > 0)
+    //    $("#farm-tool-4").addClass('tip');
+    //else
+    //    $("#farm-tool-4").removeClass('tip');
+    //
+    //if (userId == selfId)
+    //    $("#farm-tool-3").addClass('unable');
+    //else
+    //    $("#farm-tool-3").removeClass('unable');
+
+    //用户名
+    $("#farm-user-id").text(UserInfo.user_login);
+    $("#farm-user-name").text(UserInfo.true_name);
+    $("#farm-user-level").attr('lever', "user_lever_" + UserInfo.level);
+
+    //if (selfId != userId)
+    //{
+    //    //隐藏工具
+    //    $("#farm-tool-1").hide();
+    //    $("#farm-tool-2").hide();
+    //    $("#farm-tool-4").hide();
+    //    $("#farm-tool-5").hide();
+    //    $("#farm-tool-6").hide();
+    //    $("#farm-tool-7").hide();
+    //
+    //    if(jrtype==1){
+    //        $("#farm-tool-3").show();
+    //    }
+    //    if(jrtype==2){
+    //        $("#farm-tool-8").show();
+    //    }
+    //    $("#farm-back").show().click(function(){
+    //        fh();
+    //    });
+    //    $("#onecm").hide();
+    //    //隐藏菜单
+    //    $("#farm-game-wrap").hide();
+    //    $("#farm-back").show();
+    //    $(".mail-message").hide();
+    //    $(".notice-message").hide();
+    //}
+    //else
+    //{
+    //    if(UserInfo.onecm==1){
+    //        $("#onecm").show().click(function(){
+    //            onecm();
+    //        });
+    //    }
+    //    $("#farm-tool-1").show();
+    //    $("#farm-tool-2").show();
+    //    if(UserInfo.onesf==1){
+    //        $("#farm-tool-4").addClass('auto');
+    //    }
+    //    else{
+    //        $("#farm-tool-4").removeClass('auto');
+    //    }
+    //    $("#farm-tool-4").show();
+    //    if(UserInfo.onesh==1){
+    //        $("#farm-tool-5").addClass('auto');
+    //    }
+    //    else{
+    //        $("#farm-tool-5").removeClass('auto');
+    //    }
+    //    $("#farm-tool-5").show();
+    //    if(UserInfo.onezz==1){
+    //        $("#farm-tool-6").addClass('auto');
+    //    }
+    //    else{
+    //        $("#farm-tool-6").removeClass('auto');
+    //    }
+    //    $("#farm-tool-6").show();
+    //    $("#farm-tool-7").show();
+    //    $("#farm-tool-8").hide();
+    //    $("#farm-tool-3").hide();
+    //    $("#farm-back").hide();
+    //    //显示菜单
+    //    $("#farm-game-wrap").show();
+    //    initMsgTip();
+    //}
+}
 $(function(){
 
 //显示提示信息
@@ -262,7 +362,7 @@ $(function(){
     }
 //判断用户经验等级条长度
     function panduan_user_jinyan(){
-        var now_jinyang=parseFloat($("#progress_number").text());//现在进度条长度
+        var now_jinyang=parseInt($("#progress_number").text());//现在进度条长度
         var zong_jinyang=parseInt($("#zhong_progress_number").text());//当前进度条长度值
         bili=((now_jinyang/zong_jinyang)*230)+'px';//进度条用户经验长度
         $("#pro_number").css('width',bili);
@@ -287,6 +387,7 @@ $(function(){
             $("#user_level").text(user_level);
             $("#zhong_progress_number").text(now_level_jinyang);
             $("#progress_number").text(zong_add_num2);
+            panduan_user_dengji();
             panduan_user_jinyan();
             if(zong_add_num2>now_level_jinyang){
                 zong_add_num3=zong_add_num2-now_level_jinyang;
@@ -295,6 +396,7 @@ $(function(){
                 $("#user_level").text(user_level);
                 $("#zhong_progress_number").text(now_level_jinyang2);
                 $("#progress_number").text(zong_add_num3);
+                panduan_user_dengji();
                 panduan_user_jinyan();
             }
 
@@ -305,6 +407,7 @@ $(function(){
             //}
         }else{
             $("#progress_number").text(zong_add_num);
+            panduan_user_dengji();
             panduan_user_jinyan();
         }
     }
@@ -328,6 +431,7 @@ $(function(){
             $("#user_level").text(user_level);
             $("#zhong_progress_number").text(now_level_jinyang);
             $("#progress_number").text(zong_add_num2);
+            panduan_user_dengji();
             panduan_user_jinyan();
             if(zong_add_num2>now_level_jinyang){
                 zong_add_num3=zong_add_num2-now_level_jinyang;
@@ -336,6 +440,7 @@ $(function(){
                 $("#user_level").text(user_level);
                 $("#zhong_progress_number").text(now_level_jinyang2);
                 $("#progress_number").text(zong_add_num3);
+                panduan_user_dengji();
                 panduan_user_jinyan();
             }
 
@@ -346,6 +451,7 @@ $(function(){
             //}
         }else{
             $("#progress_number").text(zong_add_num);
+            panduan_user_dengji();
             panduan_user_jinyan();
         }
     }
@@ -363,6 +469,7 @@ $(function(){
             $("#user_level").text(user_level);
             $("#zhong_progress_number").text(now_level_jinyang);
             $("#progress_number").text(zong_add_num2);
+            panduan_user_dengji();
             panduan_user_jinyan();
             if(zong_add_num2>now_level_jinyang){
                 zong_add_num3=zong_add_num2-now_level_jinyang;
@@ -371,6 +478,7 @@ $(function(){
                 $("#user_level").text(user_level);
                 $("#zhong_progress_number").text(now_level_jinyang2);
                 $("#progress_number").text(zong_add_num3);
+                panduan_user_dengji();
                 panduan_user_jinyan();
             }
 
@@ -381,6 +489,7 @@ $(function(){
             //}
         }else{
             $("#progress_number").text(zong_add_num);
+            panduan_user_dengji();
             panduan_user_jinyan();
         }
     }
@@ -398,6 +507,7 @@ $(function(){
             $("#user_level").text(user_level);
             $("#zhong_progress_number").text(now_level_jinyang);
             $("#progress_number").text(zong_add_num2);
+            panduan_user_dengji();
             panduan_user_jinyan();
             if(zong_add_num2>now_level_jinyang){
                 zong_add_num3=zong_add_num2-now_level_jinyang;
@@ -406,6 +516,7 @@ $(function(){
                 $("#user_level").text(user_level);
                 $("#zhong_progress_number").text(now_level_jinyang2);
                 $("#progress_number").text(zong_add_num3);
+                panduan_user_dengji();
                 panduan_user_jinyan();
             }
 
@@ -416,6 +527,7 @@ $(function(){
             //}
         }else{
             $("#progress_number").text(zong_add_num);
+            panduan_user_dengji();
             panduan_user_jinyan();
         }
     }
@@ -432,6 +544,7 @@ $(function(){
             $("#user_level").text(user_level);
             $("#zhong_progress_number").text(now_level_jinyang);
             $("#progress_number").text(zong_add_num2);
+            panduan_user_dengji();
             panduan_user_jinyan();
             if(zong_add_num2>now_level_jinyang){
                 zong_add_num3=zong_add_num2-now_level_jinyang;
@@ -440,11 +553,13 @@ $(function(){
                 $("#user_level").text(user_level);
                 $("#zhong_progress_number").text(now_level_jinyang2);
                 $("#progress_number").text(zong_add_num3);
+                panduan_user_dengji();
                 panduan_user_jinyan();
             }
 
         }else{
             $("#progress_number").text(zong_add_num);
+            panduan_user_dengji()
             panduan_user_jinyan();
         }
     };
@@ -527,9 +642,9 @@ $(function(){
     $(".part_list>ul>li>a").click(function(){
         var pa_href=$(this).attr("href");
         openModalWin(pa_href);
+
         var c=$(this).text();
         $(".modal-text").text(c);
-
         return false;
     });
     //打开模态框
@@ -662,106 +777,7 @@ $(function(){
         initFarmGround(id);
         initFarmScarecrow(id);
     }
-//显示用户统计数据
-    function displayUserInfo(UserInfo) {
-        $('#userMusic').val(UserInfo.music);
-        $("#unreadNotice").val(UserInfo.unreadNotice);
-        $("#unreadMsg").val(UserInfo.unreadMsg);
 
-
-
-        $("#muchang_total").text(UserInfo.total);
-        $("#muchang_seed").text(UserInfo.seed);
-        $("#muchang_unseed").text(UserInfo.money);
-        $("#muchang_totalGrowth").text(UserInfo.fertilize);
-
-
-        //显示tip
-        //if (UserInfo.NotSeededAppleNumber > 0)
-        //    $('#farm-tool-6').addClass('tip');
-        //else
-        //    $('#farm-tool-6').removeClass('tip');
-        //
-        //if (UserInfo.FertilizerWeight > 0)
-        //    $("#farm-tool-4").addClass('tip');
-        //else
-        //    $("#farm-tool-4").removeClass('tip');
-        //
-        //if (userId == selfId)
-        //    $("#farm-tool-3").addClass('unable');
-        //else
-        //    $("#farm-tool-3").removeClass('unable');
-
-        //用户名
-        // $(".username").text(UserInfo.user_login);
-        $("#username").text(2);
-        $(".username_id").text(UserInfo.true_name);
-
-        //if (selfId != userId)
-        //{
-        //    //隐藏工具
-        //    $("#farm-tool-1").hide();
-        //    $("#farm-tool-2").hide();
-        //    $("#farm-tool-4").hide();
-        //    $("#farm-tool-5").hide();
-        //    $("#farm-tool-6").hide();
-        //    $("#farm-tool-7").hide();
-        //
-        //    if(jrtype==1){
-        //        $("#farm-tool-3").show();
-        //    }
-        //    if(jrtype==2){
-        //        $("#farm-tool-8").show();
-        //    }
-        //    $("#farm-back").show().click(function(){
-        //        fh();
-        //    });
-        //    $("#onecm").hide();
-        //    //隐藏菜单
-        //    $("#farm-game-wrap").hide();
-        //    $("#farm-back").show();
-        //    $(".mail-message").hide();
-        //    $(".notice-message").hide();
-        //}
-        //else
-        //{
-        //    if(UserInfo.onecm==1){
-        //        $("#onecm").show().click(function(){
-        //            onecm();
-        //        });
-        //    }
-        //    $("#farm-tool-1").show();
-        //    $("#farm-tool-2").show();
-        //    if(UserInfo.onesf==1){
-        //        $("#farm-tool-4").addClass('auto');
-        //    }
-        //    else{
-        //        $("#farm-tool-4").removeClass('auto');
-        //    }
-        //    $("#farm-tool-4").show();
-        //    if(UserInfo.onesh==1){
-        //        $("#farm-tool-5").addClass('auto');
-        //    }
-        //    else{
-        //        $("#farm-tool-5").removeClass('auto');
-        //    }
-        //    $("#farm-tool-5").show();
-        //    if(UserInfo.onezz==1){
-        //        $("#farm-tool-6").addClass('auto');
-        //    }
-        //    else{
-        //        $("#farm-tool-6").removeClass('auto');
-        //    }
-        //    $("#farm-tool-6").show();
-        //    $("#farm-tool-7").show();
-        //    $("#farm-tool-8").hide();
-        //    $("#farm-tool-3").hide();
-        //    $("#farm-back").hide();
-        //    //显示菜单
-        //    $("#farm-game-wrap").show();
-        //    initMsgTip();
-        //}
-    }
     //侧边栏退出按钮
 
 
@@ -785,10 +801,11 @@ $(function(){
         if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
             displayMessage("没有动物哦，快去喂养吧！")
         }else{
-//            每20秒添加一个便便
-            var bian_top2 = Math.floor(400 * Math.random());
-            var bian_left2 = Math.floor(900 * Math.random());
-            $(".medaw-farm").append("<div class='bianbian' style='left:" + bian_left2 + "px;top:" + bian_top2 + "px;'> <img src='images/app/muchang-photo/bianbian.png' class='bianbianmove'> </div>")
+            if(user_id==1){
+                //            每20秒添加一个便便
+                var bian_top2 = Math.floor(400 * Math.random());
+                var bian_left2 = Math.floor(900 * Math.random());
+                $(".medaw-farm").append("<div class='bianbian' style='left:" + bian_left2 + "px;top:" + bian_top2 + "px;'> <img src='images/app/muchang-photo/bianbian.png' class='bianbianmove'> </div>")
 
 //      便便点击提示
 //      蚊子点击提示
@@ -798,6 +815,8 @@ $(function(){
                 $(".wenzi").click(function(){
                     displayMessage("用上“除蚊虫”才能打虫哦！")
                 });
+            }
+
         }
 
     }
@@ -817,6 +836,7 @@ $(function(){
         //
         //if(a==0&&b==0&&c==0&&d==0&&e==0&&f==0&&g==0&&h==0){
         //}else {
+        if(user_id==1){
             var bianbian_number = $(".bianbian").length;
             if (bianbian_number!=0) {
                 //alert(123)
@@ -824,6 +844,8 @@ $(function(){
                 var wenzi_left = Math.floor(900 * Math.random());
                 $(".medaw-farm").append("<div class='wenzi' style='left:" + wenzi_left + "px;top:" + wenzi_top + "px;'> <img src='images/app/muchang-photo/wenzi.gif' class='bianmove'> </div>")
             }
+        }
+
         //}
 
     }
@@ -1232,7 +1254,7 @@ $(function(){
 
 
 //        喂养
-//一键选择时，判断宠物在哪级
+//        var feed=0;//一键选择时，判断宠物在哪级
         $(".feed").click(function(){
             updateToolStatus(4);
             if(quanxian==1){
@@ -1766,20 +1788,21 @@ $(function(){
         //偷取好友成熟动物的经验和金币
         $(".store").click(function(){
             updateToolStatus(2);
-//当宠物等级为4时，偷取好友动物20%的收获价值
+            //当宠物等级为4时，偷取好友动物20%的收获价值
             if(quanxian==1){
                 //猪
                 $(".pig").unbind('click').click(function(){
                     a=$(this).attr("pig_dengji");
                     if(a==4){
-                        showjinyannumber(1.2);
-                        var c=$("#jinyan_add_number").text();
-                        var b=$("#progress_number").text();
-                        d=parseInt(c)+parseInt(b);
-                        $("#progress_number").text(d);
-                        panduan_user_dengji();//判断用户(好友本身)经验条是否要升级
-                        panduan_user_jinyan();//判断用户(好友本身)经验等级条长度
-                        panduan_store_animail(1.2);//偷取成熟动物的20%的收益经验
+                        showjinyannumber(2);
+                        //var c=$("#jinyan_add_number").text();
+                        //var b=$("#progress_number").text();
+                        //d=parseFloat(c)+parseFloat(b);
+                        ////alert(d);
+                        //$("#progress_number").text(d);
+                        //panduan_user_dengji();//判断用户(好友本身)经验条是否要升级
+                        //panduan_user_jinyan();//判断用户(好友本身)经验等级条长度
+                        panduan_store_animail(2);//偷取成熟动物的20%的收益经验
                         $(this).css("display","none");
                     }
                 });
